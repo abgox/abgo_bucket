@@ -1,0 +1,52 @@
+{
+    "version": "1.16.2",
+    "description": "A snipping tool, which allows you to pin the screenshot back onto the screen.\n一个剪切工具，可以让你把截图固定在屏幕上",
+    "homepage": "https://www.snipaste.com/",
+    "license": "Unknown",
+    "suggest": {
+        "vcredist": "extras/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://bitbucket.org/liule/snipaste/downloads/Snipaste-1.16.2-x64.zip",
+            "hash": "sha1:07681ceeb45dc4f8acbc1c2f3731773cef82162d"
+        },
+        "32bit": {
+            "url": "https://bitbucket.org/liule/snipaste/downloads/Snipaste-1.16.2-x86.zip",
+            "hash": "sha1:c198dfa47010e6591e51299d985d7411e80d1f54"
+        }
+    },
+    "post_install": [
+        "echo \"Persisting config.ini\"",
+        "if (!(Test-Path \"$persist_dir\\config.ini\")) {",
+        "   New-Item \"$persist_dir\\config.ini\" > $null",
+        "}",
+        "echo \"[General]`nconfig=$($persist_dir.Replace('\\','/'))/config.ini\" > \"$dir\\config.ini\"",
+        "start \"$dir\\Snipaste.exe\""
+    ],
+    "pre_uninstall":[
+        "sudo taskKill /f /im Snipaste.exe",
+        "Start-Sleep -Seconds 3"
+    ],
+    "bin": "Snipaste.exe",
+    "shortcuts": [
+        [
+            "Snipaste.exe",
+            "Snipaste"
+        ]
+    ],
+    "checkver": "(?sm)Desktop.*?>v([\\d.]+) [^B]",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://bitbucket.org/liule/snipaste/downloads/Snipaste-$version-x64.zip"
+            },
+            "32bit": {
+                "url": "https://bitbucket.org/liule/snipaste/downloads/Snipaste-$version-x86.zip"
+            }
+        },
+        "hash": {
+            "url": "https://dl.snipaste.com/sha-1.txt"
+        }
+    }
+}
