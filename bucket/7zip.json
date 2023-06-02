@@ -38,7 +38,7 @@
         ]
     ],
     "post_install": [
-        "$current_bucket_name=scoop bucket list | ForEach-Object { if ($_.Source -match \"abgox/abgo_bucket\"){echo $_.Name} }",
+        "$count=0;$current_bucket_name=foreach($_ in scoop bucket list,$count){if(($count -eq 0) -and ($_.Source -match \"abgox/abgo_bucket\")){echo $_.Name};$count++}",
         "$current_bucket_path = \"$bucketsdir\\$current_bucket_name\"",
         "$7zip_root = \"$dir\".Replace('\\', '\\\\')",
         "'install-context.reg', 'uninstall-context.reg' | ForEach-Object {",
