@@ -1,9 +1,6 @@
 {
     "version": "35.69.2",
-    "description": [
-        "aardio | flexible and powerful dynamic language",
-        "aardio | 灵活而强大的动态语言"
-    ],
+    "description": "aardio | flexible and powerful dynamic language\n aardio | 灵活而强大的动态语言",
     "homepage": "https://www.aardio.com/",
     "license": "Unknown",
     "notes": [
