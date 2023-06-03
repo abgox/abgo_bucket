@@ -20,7 +20,7 @@
     ],
     "pre_uninstall":[
         "sudo taskKill /f /im chfs.exe",
-        "Start-Sleep -Seconds 3"
+        "Start-Sleep -Seconds 1"
     ],
     "bin": "chfs.exe",
     "persist": "chfs.ini",

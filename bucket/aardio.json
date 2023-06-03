@@ -7,7 +7,7 @@
     "homepage": "https://www.aardio.com/",
     "license": "Unknown",
     "notes": [
-        
+
     ],
     "url": "https://ide.update.aardio.com/releases/aardio.7z",
     "hash": "a3c99fa58f63340b1e1c39ab94dff9745b7a6399ecda098317f63425587d2de1",
@@ -23,7 +23,7 @@
     ],
     "pre_uninstall": [
         "sudo taskKill /f /im aardio.exe",
-        "Start-Sleep -Seconds 3"
+        "Start-Sleep -Seconds 1"
     ],
     "checkver": {
         "url": "https://ide.update.aardio.com/log/",

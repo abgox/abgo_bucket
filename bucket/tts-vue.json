@@ -24,7 +24,7 @@
     ],
     "pre_uninstall":[
         "sudo taskKill /f /im tts-vue.exe",
-        "Start-Sleep -Seconds 3"
+        "Start-Sleep -Seconds 1"
     ],
     "post_uninstall":[
         "$shortcut_link_path = \"$env:APPData\\Microsoft\\Windows\\Start Menu\\Programs\\tts-vue.lnk\"",

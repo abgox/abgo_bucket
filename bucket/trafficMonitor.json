@@ -33,7 +33,7 @@
     ],
     "pre_uninstall":[
         "sudo taskKill /f /im TrafficMonitor.exe",
-        "Start-Sleep -Seconds 3"
+        "Start-Sleep -Seconds 1"
     ],
     "post_uninstall":[
         "$data_path=\"$env:APPData\\TrafficMonitor\"",

@@ -31,7 +31,7 @@
     ],
     "pre_uninstall":[
         "sudo taskKill /f /im lx-music-desktop.exe",
-        "Start-Sleep -Seconds 3"
+        "Start-Sleep -Seconds 1"
     ],
     "post_uninstall":[
         "$data_path=\"$env:APPData\\lx-music-desktop\"",
