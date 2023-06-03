@@ -12,10 +12,10 @@
 ### For ones familiar with Scoop :
 
 -   `scoop bucket add abgo_bucket https://github.com/abgox/abgo_bucket`
--   _**You should install `sudo` first `scoop install sudo`**_.( `sudo` is used in many App Manifests)
+-   _**You should install `sudo` first `scoop install sudo`**_.( `sudo` is used in all App Manifests)
     -   Why use `sudo` in App Manifest ?
         > -   Some APPs require administrator permissions to create a link to persist data
-        > -   Some APPs require administrator permissions to stop software processes Before uninstalling software
+        > -   To ensure that the process cannot be terminated due to permission issues when uninstalling the App
 -   List all installable apps
 
     ```powershell>
@@ -38,18 +38,17 @@
     -   clear data：When the software is uninstalled, delete all data of the software (except the data under 'persist').
     -   Forced uninstall：When the software is running, using the `scoop uninstall <app_name>` will terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
 
-|      App       | Persist ? | clear data | Forced uninstall | Notes        |
-| :------------: | :-------: | :--------: | :--------------: | ------------ |
-|      7zip      |     ×     |     √      |    √(\*7zip)     | \*sudo       |
-|    listary     |  √(link)  |     √      |        √         | \*sudo \*run |
-|    lx-music    |  √(link)  |     √      |        √         | \*sudo       |
-|    snipaste    |     √     |     √      |        √         | \*sudo \*run |
-|   snipaste2    |     √     |     √      |        √         | \*sudo \*run |
-| trafficMonitor |     √     |     √      |        √         | \*sudo \*run |
-|      chfs      |     √     |     √      |        √         | \*sudo       |
-|    tts-vue     |  √(link)  |     √      |        √         | \*sudo       |
+|      App       | Persist ? | clear data | Forced uninstall | Notes |
+| :------------: | :-------: | :--------: | :--------------: | ----- |
+|      7zip      |     ×     |     √      |    √(\*7zip)     |       |
+|    listary     |  √(link)  |     √      |        √         | \*run |
+|    lx-music    |  √(link)  |     √      |        √         |       |
+|    snipaste    |     √     |     √      |        √         | \*run |
+|   snipaste2    |     √     |     √      |        √         | \*run |
+| trafficMonitor |     √     |     √      |        √         | \*run |
+|      chfs      |     √     |     √      |        √         |       |
+|    tts-vue     |  √(link)  |     √      |        √         |       |
+|     aardio     |     √     |     √      |        √         |       |
 
 -   \*run : Run the application once after installing
--   \*sudo：`sudo` is used in the App Manifest
 -   \*7zip : Because 7zip has a right-click context menu, the file manager will occupy the process. In order to successfully uninstall the application, the uninstall script will terminate the file manager first, and then restart it immediately. As a result, all open file management pages will be closed
-

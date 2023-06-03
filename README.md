@@ -13,12 +13,12 @@
 
 -   `scoop bucket add abgo_bucket https://github.com/abgox/abgo_bucket`
     > -   此处的 abgo_bucket 为添加到本地的桶名称，可随意命名
--   你应该首先安装 sudo `scoop install sudo`,因为大量应用清单中使用到了`sudo`,不安装会报错
+-   你应该首先安装 sudo `scoop install sudo`,因为所有应用清单中都使用到了`sudo`,不安装会报错
 
     -   为什么应用清单中使用`sudo` ?
         > -   一些应用难以使用 `persist` 进行持久化数据，于是采取创建软链接的方式来达到目的
-        > -   创建链接需要使用到管理员权限，因此一些应用清单的安装脚本中使用到了 `sudo`
-        > -   为了卸载软件时拥有足够权限终止相关进程
+        > -   创建链接需要使用到管理员权限，因此一些应用清单的安装过程中使用到了 `sudo`
+        > -   卸载过程中使用`sudo`：为了卸载软件时确保不会因为权限问题而无法终止进程
 
 -   列出 abgo_bucket 中所有可安装的应用
 
@@ -57,17 +57,17 @@
     -   数据清理：当软件卸载后，删除一切此软件数据(`persist` 下的数据除外)
     -   强制卸载：当软件正在运行时，使用 `scoop uninstall <app_name>` 会先终止进程，再进行卸载，避免卸载时出现软件正在使用，无法卸载的问题
 
-|      应用      | persist ? | 数据清理 | 强制卸载  | 备注         |
-| :------------: | :-------: | :------: | :-------: | ------------ |
-|      7zip      |     ×     |    √     | √(\*7zip) | \*sudo       |
-|    listary     |  √(link)  |    √     |     √     | \*sudo \*run |
-|    lx-music    |  √(link)  |    √     |     √     | \*sudo       |
-|    snipaste    |     √     |    √     |     √     | \*sudo \*run |
-|   snipaste2    |     √     |    √     |     √     | \*sudo \*run |
-| trafficMonitor |     √     |    √     |     √     | \*sudo \*run |
-|      chfs      |     √     |    √     |     √     | \*sudo       |
-|    tts-vue     |  √(link)  |    √     |     √     | \*sudo       |
+|      应用      | persist ? | 数据清理 | 强制卸载  | 备注  |
+| :------------: | :-------: | :------: | :-------: | ----- |
+|      7zip      |     ×     |    √     | √(\*7zip) |       |
+|    listary     |  √(link)  |    √     |     √     | \*run |
+|    lx-music    |  √(link)  |    √     |     √     |       |
+|    snipaste    |     √     |    √     |     √     | \*run |
+|   snipaste2    |     √     |    √     |     √     | \*run |
+| trafficMonitor |     √     |    √     |     √     | \*run |
+|      chfs      |     √     |    √     |     √     |       |
+|    tts-vue     |  √(link)  |    √     |     √     |       |
+|     aardio     |     √     |    √     |     √     |       |
 
 -   \*7zip : 7zip 因为右键上下文菜单，文件管理器会占用进程，因此卸载脚本中会先终止文件管理器，之后立即重启，这会导致已经打开的文件管理页面全部关闭，如有未保存的文件管理器任务，请先保存后再进行
 -   \*run : 安装后会立即运行一次
--   \*sudo：软件安装与卸载中使用到了 `sudo`
