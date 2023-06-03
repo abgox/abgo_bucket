@@ -34,7 +34,7 @@
         "   }",
         "}",
         "sudo New-Item -ItemType SymbolicLink \"$data_path\" -Target $persist_path",
-        "start \"$dir\\Listary.exe\"" // run once
+        "start \"$dir\\Listary.exe\""
     ],
     "pre_uninstall":[
         "sudo taskKill /f /im Listary.exe",

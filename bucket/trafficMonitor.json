@@ -29,7 +29,7 @@
         "if (!(Test-Path \"$persist_dir\\history_traffic.dat\")) { New-Item \"$dir\\history_traffic.dat\" | Out-Null }"
     ],
     "post_install":[
-        "start \"$dir\\TrafficMonitor.exe\"" // run once
+        "start \"$dir\\TrafficMonitor.exe\""
     ],
     "pre_uninstall":[
         "sudo taskKill /f /im TrafficMonitor.exe",
