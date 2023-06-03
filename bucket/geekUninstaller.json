@@ -1,0 +1,41 @@
+{
+    "version": "1.5.1.162",
+    "description": "Geek Uninstaller - the best free uninstaller\nGeek Uninstaller - 非常好用的免费卸载程序",
+    "homepage": "https://geekuninstaller.com/",
+    "license": "Unknown",
+    "notes": [],
+    "url": "https://geekuninstaller.com/geek.zip",
+    "hash": "2c84c3145f9b4ae6f1e0099536902754f5b79001557a9f345bc69eb72080f61c",
+    "shortcuts": [
+        [
+            "geek.exe",
+            "Geek Uninstaller"
+        ]
+    ],
+    "bin": "geek.exe",
+    "post_install": [
+        "echo \"Persisting Geek Uninstaller\"",
+        "$data_path=\"$env:APPData\\Geek Uninstaller\"",
+        "$persist_path=\"$persist_dir\\\"",
+        "$ps1 = \"$bucketsdir\\test\\bin\\persist_link.ps1 '$data_path' '$persist_path' \"",
+        "Invoke-Expression \"$ps1\""
+    ],
+    "pre_uninstall": [
+        "sudo taskKill /f /im geek.exe",
+        "Start-Sleep -Seconds 1"
+    ],
+    "post_uninstall":[
+        "$data_path=\"$env:APPData\\Geek Uninstaller\"",
+        "if (Test-Path $data_path){",
+        "   Remove-Item -Force -Recurse $data_path",
+        "   echo \"Removing $data_path\"",
+        "}"
+    ],
+    "checkver": {
+        "url": "https://geekuninstaller.com/download",
+        "regex": "<b>([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://geekuninstaller.com/geek.zip"
+    }
+}
