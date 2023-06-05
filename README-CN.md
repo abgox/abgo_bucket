@@ -70,6 +70,7 @@
 |      aardio      |     √     |    √     |     √     |       |
 | Geek Uninstaller |     √     |    √     |     √     |       |
 |    scoop-tab     |           |          |     √     | \*ps1 |
+|   scoop-tab-cn   |           |          |     √     | \*ps1 |
 
 -   \*run : 安装后会立即运行一次
 -   \*ps1 : 只是一个 PowerShell 脚本，不需要 persist 数据，也就不需要数据清理

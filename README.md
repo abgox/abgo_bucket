@@ -51,6 +51,7 @@
 |      aardio      |     √     |     √      |        √         |       |
 | Geek Uninstaller |     √     |     √      |        √         |       |
 |    scoop-tab     |           |            |        √         | \*ps1 |
+|   scoop-tab-cn   |           |            |        √         | \*ps1 |
 
 -   \*run : Run the application once after installing
 -   \*ps1 : It's just a PowerShell script.No persistence is required, and no data cleansing is required
