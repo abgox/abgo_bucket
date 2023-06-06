@@ -38,21 +38,31 @@
     -   clear data：When the software is uninstalled, delete all data of the software (except the data under 'persist').
     -   Forced uninstall：When the software is running, using the `scoop uninstall <app_name>` will terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
 
-|       App        | Persist ? | clear data | Forced uninstall | Notes |
-| :--------------: | :-------: | :--------: | :--------------: | ----- |
-|       7zip       |     ×     |     √      |    √(\*7zip)     |       |
-|     listary      |  √(link)  |     √      |        √         | \*run |
-|     lx-music     |  √(link)  |     √      |        √         |       |
-|     snipaste     |     √     |     √      |        √         | \*run |
-|    snipaste2     |     √     |     √      |        √         | \*run |
-|  trafficMonitor  |     √     |     √      |        √         | \*run |
-|       chfs       |     √     |     √      |        √         |       |
-|     tts-vue      |  √(link)  |     √      |        √         |       |
-|      aardio      |     √     |     √      |        √         |       |
-| Geek Uninstaller |     √     |     √      |        √         |       |
-|    scoop-tab     |           |            |        √         | \*ps1 |
-|   scoop-tab-cn   |           |            |        √         | \*ps1 |
+|                               App                                | Persist ? | clear data | Forced uninstall | Notes     |
+| :--------------------------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
+|                  [7zip](https://www.7-zip.org)                   |     ×     |     √      |  √(**\*7zip**)   |           |
+|                [listary](https://www.listary.com)                |  √(link)  |     √      |        √         | **\*run** |
+|     [lx-music](https://github.com/lyswhut/lx-music-desktop)      |  √(link)  |     √      |        √         |           |
+|               [snipaste](https://www.snipaste.com)               |     √     |     √      |        √         | **\*run** |
+|              [snipaste2](https://www.snipaste.com)               |     √     |     √      |        √         | **\*run** |
+| [trafficMonitor](https://github.com/zhongyang219/TrafficMonitor) |     √     |     √      |        √         | **\*run** |
+|                  [chfs](http://iscute.cn/chfs)                   |     √     |     √      |        √         |           |
+|           [tts-vue](https://github.com/LokerL/tts-vue)           |  √(link)  |     √      |        √         |           |
+|                 [aardio](https://www.aardio.com)                 |     √     |     √      |        √         |           |
+|         [Geek Uninstaller](https://geekuninstaller.com)          |     √     |     √      |        √         |           |
 
--   \*run : Run the application once after installing
--   \*ps1 : It's just a PowerShell script.No persistence is required, and no data cleansing is required
--   \*7zip : Because 7zip has a right-click context menu, the file manager will occupy the process. In order to successfully uninstall the application, the uninstall script will terminate the file manager first, and then restart it immediately. As a result, all open file management pages will be closed
+-   **\*run** : Run the application once after installing
+-   **\*7zip** : Because 7zip has a right-click context menu, the file manager will occupy the process. In order to successfully uninstall the application, the uninstall script will terminate the file manager first, and then restart it immediately. As a result, all open file management pages will be closed
+
+#### [PS-completions](https://github.com/abgox/PS-completions)
+
+
+|                                        Script                                        | Persist ? | clear data | Forced uninstall | Notes     |
+| :-------------------------------------------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
+|  [scoop-tab](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)   |           |            |        √         | **\*ps1** |
+| [scoop-tab-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1) |           |            |        √         | **\*ps1** |
+
+-   **\*ps1** : Just some PowerShell script.
+    -   No persistence is required.
+    -   No data cleansing is required
+    -   Uninstall at any time

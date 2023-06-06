@@ -57,21 +57,30 @@
     -   数据清理：当软件卸载后，删除一切此软件数据(`persist` 下的数据除外)
     -   强制卸载：当软件正在运行时，使用 `scoop uninstall <app_name>` 会先终止进程，再进行卸载，避免卸载时出现软件正在使用，无法卸载的问题
 
-|       应用       | persist ? | 数据清理 | 强制卸载  | 备注  |
-| :--------------: | :-------: | :------: | :-------: | ----- |
-|       7zip       |     ×     |    √     | √(\*7zip) |       |
-|     listary      |  √(link)  |    √     |     √     | \*run |
-|     lx-music     |  √(link)  |    √     |     √     |       |
-|     snipaste     |     √     |    √     |     √     | \*run |
-|    snipaste2     |     √     |    √     |     √     | \*run |
-|  trafficMonitor  |     √     |    √     |     √     | \*run |
-|       chfs       |     √     |    √     |     √     |       |
-|     tts-vue      |  √(link)  |    √     |     √     |       |
-|      aardio      |     √     |    √     |     √     |       |
-| Geek Uninstaller |     √     |    √     |     √     |       |
-|    scoop-tab     |           |          |     √     | \*ps1 |
-|   scoop-tab-cn   |           |          |     √     | \*ps1 |
+|                               应用                               | persist ? | 数据清理 |   强制卸载    | 备注      |
+| :--------------------------------------------------------------: | :-------: | :------: | :-----------: | --------- |
+|                  [7zip](https://www.7-zip.org)                   |     ×     |    √     | √(**\*7zip**) |           |
+|                [listary](https://www.listary.com)                |  √(link)  |    √     |       √       | **\*run** |
+|     [lx-music](https://github.com/lyswhut/lx-music-desktop)      |  √(link)  |    √     |       √       |           |
+|               [snipaste](https://www.snipaste.com)               |     √     |    √     |       √       | **\*run** |
+|              [snipaste2](https://www.snipaste.com)               |     √     |    √     |       √       | **\*run** |
+| [trafficMonitor](https://github.com/zhongyang219/TrafficMonitor) |     √     |    √     |       √       | **\*run** |
+|                  [chfs](http://iscute.cn/chfs)                   |     √     |    √     |       √       |           |
+|           [tts-vue](https://github.com/LokerL/tts-vue)           |  √(link)  |    √     |       √       |           |
+|                 [aardio](https://www.aardio.com)                 |     √     |    √     |       √       |           |
+|         [Geek Uninstaller](https://geekuninstaller.com)          |     √     |    √     |       √       |           |
 
--   \*run : 安装后会立即运行一次
--   \*ps1 : 只是一个 PowerShell 脚本，不需要 persist 数据，也就不需要数据清理
--   \*7zip : 7zip 因为右键上下文菜单，文件管理器会占用进程，因此卸载脚本中会先终止文件管理器，之后立即重启，这会导致已经打开的文件管理页面全部关闭，如有未保存的文件管理器任务，请先保存后再进行
+-   **\*run** : 安装后会立即运行一次
+-   **\*7zip** : 7zip 因为右键上下文菜单，文件管理器会占用进程，因此卸载脚本中会先终止文件管理器，之后立即重启，这会导致已经打开的文件管理页面全部关闭，如有未保存的文件管理器任务，请先保存后再进行
+
+#### [PS-completions](https://github.com/abgox/PS-completions)
+
+|                                       脚本                                        | persist ? | 数据清理 | 强制卸载 | 备注      |
+| :-------------------------------------------------------------------------------: | :-------: | :------: | :------: | --------- |
+|  [scoop-tab](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)   |           |          |    √     | **\*ps1** |
+| [scoop-tab-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1) |           |          |    √     | **\*ps1** |
+
+-   **\*ps1** : 一些 PowerShell 脚本
+    -  不需要 persist 数据
+    -  不需要数据清理
+    -  随时卸载
