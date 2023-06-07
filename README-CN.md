@@ -77,8 +77,10 @@
 
 |                                       脚本                                        | persist ? | 数据清理 | 强制卸载 | 备注      |
 | :-------------------------------------------------------------------------------: | :-------: | :------: | :------: | --------- |
-|  [scoop-tab](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)   |           |          |    √     | **\*ps1** |
-| [scoop-tab-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1) |           |          |    √     | **\*ps1** |
+|    [tab-scoop](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)    |           |            |        √         | **\*ps1** |
+| [tab-scoop-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop-cn.ps1) |           |            |        √         | **\*ps1** |
+|  [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta.ps1)   |           |            |        √         | **\*ps1** |
+| [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta-cn.ps1) |           |            |        √         | **\*ps1** |
 
 -   **\*ps1** : 一些 PowerShell 脚本
     -  不需要 persist 数据

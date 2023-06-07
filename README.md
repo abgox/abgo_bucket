@@ -56,11 +56,12 @@
 
 #### [PS-completions](https://github.com/abgox/PS-completions)
 
-
 |                                        Script                                        | Persist ? | clear data | Forced uninstall | Notes     |
-| :-------------------------------------------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
-|  [scoop-tab](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)   |           |            |        √         | **\*ps1** |
-| [scoop-tab-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1) |           |            |        √         | **\*ps1** |
+| :----------------------------------------------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
+|    [tab-scoop](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)    |           |            |        √         | **\*ps1** |
+| [tab-scoop-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop-cn.ps1) |           |            |        √         | **\*ps1** |
+|  [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta.ps1)   |           |            |        √         | **\*ps1** |
+| [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta-cn.ps1) |           |            |        √         | **\*ps1** |
 
 -   **\*ps1** : Just some PowerShell script.
     -   No persistence is required.
