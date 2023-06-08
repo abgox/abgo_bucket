@@ -48,5 +48,8 @@
     "checkver": {
         "url": "https://raw.githubusercontent.com/abgox/PS-completions/main/pnpm/pnpm.ps1",
         "regex": "# @version.+v([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://raw.githubusercontent.com/abgox/PS-completions/main/pnpm/pnpm.ps1"
     }
 }
