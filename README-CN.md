@@ -75,15 +75,18 @@
 
 #### [PS-completions](https://github.com/abgox/PS-completions)
 
-|                                       脚本                                        | persist ? | 数据清理 | 强制卸载 | 备注      |
-| :-------------------------------------------------------------------------------: | :-------: | :------: | :------: | --------- |
-|    [tab-scoop](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)    |           |            |        √         | **\*ps1** |
-| [tab-scoop-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop-cn.ps1) |           |            |        √         | **\*ps1** |
-|  [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta.ps1)   |           |            |        √         | **\*ps1** |
-| [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta-cn.ps1) |           |            |        √         | **\*ps1** |
-| [tab-pnpm](https://github.com/abgox/PS-completions/blob/main/pnpm/pnpm.ps1) |           |            |        √         | **\*ps1** |
+-   **Auto** : 自动添加
+    -   安装时自动添加到`$PROFILE`，卸载时自动删除
+
+|                                         脚本                                         | Auto | 强制卸载 |   备注    |
+| :----------------------------------------------------------------------------------: | :--: | :------: | :-------: |
+|    [tab-scoop](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)    |  √   |    √     | **\*ps1** |
+| [tab-scoop-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop-cn.ps1) |  √   |    √     | **\*ps1** |
+|  [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta.ps1)   |  √   |    √     | **\*ps1** |
+| [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta-cn.ps1) |  √   |    √     | **\*ps1** |
+|     [tab-pnpm](https://github.com/abgox/PS-completions/blob/main/pnpm/pnpm.ps1)      |  √   |    √     | **\*ps1** |
 
 -   **\*ps1** : 一些 PowerShell 脚本
-    -  不需要 persist 数据
-    -  不需要数据清理
-    -  随时卸载
+    -   不需要 persist 数据
+    -   不需要数据清理
+    -   随时卸载

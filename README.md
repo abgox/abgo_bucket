@@ -56,15 +56,19 @@
 
 #### [PS-completions](https://github.com/abgox/PS-completions)
 
-|                                        Script                                        | Persist ? | clear data | Forced uninstall | Notes     |
-| :----------------------------------------------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
-|    [tab-scoop](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)    |           |            |        √         | **\*ps1** |
-| [tab-scoop-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop-cn.ps1) |           |            |        √         | **\*ps1** |
-|  [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta.ps1)   |           |            |        √         | **\*ps1** |
-| [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta-cn.ps1) |           |            |        √         | **\*ps1** |
-| [tab-pnpm](https://github.com/abgox/PS-completions/blob/main/pnpm/pnpm.ps1) |           |            |        √         | **\*ps1** |
+-   **Auto** : add automatically
+    -   It is automatically added to the `$PROFILE` when installed and deleted when uninstalled
+
+|                                        Script                                        | Auto | Forced uninstall | Notes     |
+| :----------------------------------------------------------------------------------: | :--: | :--------------: | --------- |
+|    [tab-scoop](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)    |  √   |        √         | **\*ps1** |
+| [tab-scoop-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop-cn.ps1) |  √   |        √         | **\*ps1** |
+|  [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta.ps1)   |  √   |        √         | **\*ps1** |
+| [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta-cn.ps1) |  √   |        √         | **\*ps1** |
+|     [tab-pnpm](https://github.com/abgox/PS-completions/blob/main/pnpm/pnpm.ps1)      |  √   |        √         | **\*ps1** |
 
 -   **\*ps1** : Just some PowerShell script.
+
     -   No persistence is required.
     -   No data cleansing is required
     -   Uninstall at any time
