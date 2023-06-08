@@ -16,7 +16,7 @@
         "           if ($Matches[0] -ne $newContent) {",
         "               $profileContent[$i] = $profileContent[$i] -replace $oldPattern, $newContent",
         "               echo \"\"",
-        "               echo \"Replace Content(PROFILE):`noldContent:`n$oldPattern`nnewContent:`n$newContent\"",
+        "               echo \"Replace Content($PROFILE):`noldContent:`n$oldPattern`nnewContent:`n$newContent\"",
         "           }",
         "       }",
         "   }",

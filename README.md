@@ -62,6 +62,7 @@
 | [tab-scoop-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop-cn.ps1) |           |            |        √         | **\*ps1** |
 |  [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta.ps1)   |           |            |        √         | **\*ps1** |
 | [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta-cn.ps1) |           |            |        √         | **\*ps1** |
+| [tab-pnpm](https://github.com/abgox/PS-completions/blob/main/pnpm/pnpm.ps1) |           |            |        √         | **\*ps1** |
 
 -   **\*ps1** : Just some PowerShell script.
     -   No persistence is required.
