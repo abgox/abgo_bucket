@@ -9,6 +9,8 @@
 <a href="README-CN.md">简体中文</a>
 </p>
 
+-   [scoop-tab-completion ](https://github.com/abgox/PS-completions/tree/main/scoop-tab-completion "scoop-tab-completion")is recommended
+
 ### For ones familiar with Scoop :
 
 -   `scoop bucket add abgo_bucket https://github.com/abgox/abgo_bucket`
@@ -53,22 +55,3 @@
 
 -   **\*run** : Run the application once after installing
 -   **\*7zip** : Because 7zip has a right-click context menu, the file manager will occupy the process. In order to successfully uninstall the application, the uninstall script will terminate the file manager first, and then restart it immediately. As a result, all open file management pages will be closed
-
-#### [PS-completions](https://github.com/abgox/PS-completions)
-
--   **Auto** : add automatically
-    -   It is automatically added to the `$PROFILE` when installed and deleted when uninstalled
-
-|                                        Script                                        | Auto | Forced uninstall | Notes     |
-| :----------------------------------------------------------------------------------: | :--: | :--------------: | --------- |
-|    [tab-scoop](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)    |  √   |        √         | **\*ps1** |
-| [tab-scoop-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop-cn.ps1) |  √   |        √         | **\*ps1** |
-|  [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta.ps1)   |  √   |        √         | **\*ps1** |
-| [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta-cn.ps1) |  √   |        √         | **\*ps1** |
-|     [tab-pnpm](https://github.com/abgox/PS-completions/blob/main/pnpm/pnpm.ps1)      |  √   |        √         | **\*ps1** |
-
--   **\*ps1** : Just some PowerShell script.
-
-    -   No persistence is required.
-    -   No data cleansing is required
-    -   Uninstall at any time

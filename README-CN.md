@@ -9,6 +9,8 @@
 <a href="README-CN.md">简体中文</a>
 </p>
 
+-   推荐使用 [Scoop 命令补全 ](https://github.com/abgox/PS-completions/tree/main/scoop-tab-completion "scoop-tab-completion")
+
 ### 正在使用 Scoop :
 
 -   `scoop bucket add abgo_bucket https://github.com/abgox/abgo_bucket`
@@ -72,21 +74,3 @@
 
 -   **\*run** : 安装后会立即运行一次
 -   **\*7zip** : 7zip 因为右键上下文菜单，文件管理器会占用进程，因此卸载脚本中会先终止文件管理器，之后立即重启，这会导致已经打开的文件管理页面全部关闭，如有未保存的文件管理器任务，请先保存后再进行
-
-#### [PS-completions](https://github.com/abgox/PS-completions)
-
--   **Auto** : 自动添加
-    -   安装时自动添加到`$PROFILE`，卸载时自动删除
-
-|                                         脚本                                         | Auto | 强制卸载 |   备注    |
-| :----------------------------------------------------------------------------------: | :--: | :------: | :-------: |
-|    [tab-scoop](https://github.com/abgox/PS-completions/blob/main/scoop/scoop.ps1)    |  √   |    √     | **\*ps1** |
-| [tab-scoop-cn](https://github.com/abgox/PS-completions/blob/main/scoop/scoop-cn.ps1) |  √   |    √     | **\*ps1** |
-|  [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta.ps1)   |  √   |    √     | **\*ps1** |
-| [tab-volta-cn](https://github.com/abgox/PS-completions/blob/main/volta/volta-cn.ps1) |  √   |    √     | **\*ps1** |
-|     [tab-pnpm](https://github.com/abgox/PS-completions/blob/main/pnpm/pnpm.ps1)      |  √   |    √     | **\*ps1** |
-
--   **\*ps1** : 一些 PowerShell 脚本
-    -   不需要 persist 数据
-    -   不需要数据清理
-    -   随时卸载
