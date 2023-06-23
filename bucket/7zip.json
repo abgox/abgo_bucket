@@ -1,9 +1,8 @@
 {
     "version": "23.00",
-    "description": "A multi-format file archiver with high compression ratios\n具有高压缩比的多格式文件归档器",
+    "description": "A multi-format file archiver with high compression ratios. 具有高压缩比的多格式文件归档器",
     "homepage": "https://www.7-zip.org/",
     "license": "LGPL-2.1-or-later",
-    "notes": [],
     "architecture": {
         "64bit": {
             "url": "https://www.7-zip.org/a/7z2300-x64.msi",

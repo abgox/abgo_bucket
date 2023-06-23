@@ -1,9 +1,8 @@
 {
     "version": "2.2.2",
-    "description": "An electron-based music player.\n一个基于 electron 的音乐软件",
+    "description": "An electron-based music player. 一个基于 electron 的音乐软件",
     "homepage": "https://github.com/lyswhut/lx-music-desktop",
     "license": "Apache-2.0",
-    "notes": [],
     "architecture": {
         "64bit": {
             "url": "https://github.com/lyswhut/lx-music-desktop/releases/download/v2.2.2/lx-music-desktop-v2.2.2-win_x64-green.7z",
@@ -21,7 +20,7 @@
         ]
     ],
     "post_install": [
-        "echo \"Persisting LxDatas\"",
+        "Write-Host \"Persisting LxDatas\" -f Green",
         "$data_path=\"$env:APPData\\lx-music-desktop\\LxDatas\"",
         "$persist_path=\"$persist_dir\\LxDatas\"",
         "",

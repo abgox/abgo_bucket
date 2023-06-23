@@ -1,7 +1,7 @@
 {
     "homepage": "https://github.com/LokerL/tts-vue",
     "version": "1.9.3",
-    "description": "🎤 Microsoft speech synthesis tool, built using Electron + Vue + ElementPlus + Vite.\n🎤 微软语音合成工具，使用 Electron + Vue + ElementPlus + Vite 构建。",
+    "description": "🎤 Microsoft speech synthesis tool, built using Electron + Vue + ElementPlus + Vite. 🎤 微软语音合成工具，使用 Electron + Vue + ElementPlus + Vite 构建。",
     "license": {
         "identifier": "Freeware"
     },
@@ -14,7 +14,7 @@
     "post_install": [
         "$CmdString = \"$dir\\$version\\tts-vue_$version.exe /S /D=$dir\\$version\"",
         "Invoke-Expression $CmdString",
-        "echo \"Persisting config.json\"",
+        "Write-Host \"Persisting config.json\" -f Green",
         "$data_path=\"$env:APPData\\tts-vue\\config.json\"",
         "$persist_path=\"$persist_dir\\config.json\"",
         "",

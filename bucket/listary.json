@@ -1,6 +1,6 @@
 {
     "version": "6.1.0.38",
-    "description": "A revolutionary search utility for Windows.\n一个革命性的Windows搜索工具",
+    "description": "A revolutionary search utility for Windows. 一个革命性的Windows搜索工具",
     "homepage": "https://www.listary.com",
     "license": "Shareware",
     "url": "https://www.listary.com/download/Listary.exe?version=6.1.0.38#/dl.exe",
@@ -13,7 +13,7 @@
         ]
     ],
     "post_install": [
-        "echo \"Persisting Listary\"",
+        "Write-Host \"Persisting Listary\" -f Green",
         "$data_path=\"$env:APPData\\Listary\\UserProfile\\Settings\"",
         "$persist_path=\"$persist_dir\\UserProfile\\Settings\"",
         "",
