@@ -15,5 +15,5 @@ Get-ChildItem -Path $folderPath -Filter "*.json" -File | ForEach-Object {
     $output = "{0,-20} {1}" -f $fileNameWithoutExtension,$version
 
     # output
-    Write-Host $output
+    Write-Host $output -f Green
 }
