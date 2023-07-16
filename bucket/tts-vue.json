@@ -12,7 +12,7 @@
         }
     },
     "post_install": [
-        "$CmdString = \"$dir\\$version\\tts-vue_$version.exe /S /D=$dir\\$version\"",
+        "$CmdString = \"$dir\\$version\\tts-vue-$version.exe /S /D=$dir\\$version\"",
         "Invoke-Expression $CmdString",
         "Write-Host \"Persisting config.json\" -f Green",
         "$data_path=\"$env:APPData\\tts-vue\\config.json\"",
