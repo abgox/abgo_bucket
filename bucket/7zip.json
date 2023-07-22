@@ -54,8 +54,6 @@
         "sudo taskKill /f /im 7z.exe",
         "sudo taskKill /f /im 7zFM.exe",
         "sudo taskKill /f /im 7zG.exe",
-        "sudo taskKill /f /im explorer.exe",
-        "start explorer.exe",
         "if ($cmd -eq 'uninstall') {",
         "   reg import \"$dir\\uninstall-context.reg\"",
         "}"
