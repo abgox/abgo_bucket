@@ -28,8 +28,10 @@
     ],
     "post_uninstall": [
         "$shortcut_link_path = \"$env:APPData\\Microsoft\\Windows\\Start Menu\\Programs\\tts-vue.lnk\"",
-        "echo \"Removing shortcut > $shortcut_link_path\"",
-        "Remove-Item -Force \"$shortcut_link_path\"",
+        "if (Test-Path $shortcut_link_path){",
+        "   echo \"Removing shortcut > $shortcut_link_path\"",
+        "   Remove-Item -Force \"$shortcut_link_path\"",
+        "}",
         "$data_path=\"$env:APPData\\tts-vue\"",
         "if (Test-Path $data_path){",
         "   Remove-Item -Force -Recurse $data_path",
