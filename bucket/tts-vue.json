@@ -20,14 +20,26 @@
         "",
         "$count=0;$current_bucket_name=foreach($_ in scoop bucket list,$count){if(($count -eq 0) -and ($_.Source -match \"abgox/abgo_bucket\")){echo $_.Name};$count++}",
         "$ps1 = \"$bucketsdir\\$current_bucket_name\\bin\\persist_link.ps1 $data_path $persist_path\"",
-        "Invoke-Expression \"$ps1\""
+        "Invoke-Expression \"$ps1\"",
+        "$shortcut_dir=\"$env:Appdata\\Microsoft\\Windows\\Start Menu\\Programs\"",
+        "while (-Not (Test-Path \"$shortcut_dir\\tts-vue.lnk\")) {",
+        "   Start-Sleep -Milliseconds 500",
+        "}",
+        "Move-Item \"$shortcut_dir\\tts-vue.lnk\" \"$shortcut_dir\\Scoop Apps\""
     ],
     "pre_uninstall": [
-        "sudo taskKill /f /im tts-vue.exe",
-        "Start-Sleep -Seconds 1"
+        "$App_name=\"tts-vue\"",
+        "$existProcess=Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue",
+        "foreach($_ in $existProcess.ProcessName){ Write-Host \"Stop-Process  $_\" -f red }",
+        "while($true){",
+        "   if(Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue){",
+        "       Stop-Process -Name \"$App_name*\" -Force",
+        "   }else { break }",
+        "   Start-Sleep -Milliseconds 500",
+        "}"
     ],
     "post_uninstall": [
-        "$shortcut_link_path = \"$env:APPData\\Microsoft\\Windows\\Start Menu\\Programs\\tts-vue.lnk\"",
+        "$shortcut_link_path = \"$env:APPData\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\tts-vue.lnk\"",
         "if (Test-Path $shortcut_link_path){",
         "   echo \"Removing shortcut > $shortcut_link_path\"",
         "   Remove-Item -Force \"$shortcut_link_path\"",

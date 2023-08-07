@@ -51,12 +51,19 @@
         "   reg import \"$dir\\install-context.reg\""
     ],
     "pre_uninstall": [
-        "sudo taskKill /f /im 7z.exe",
-        "sudo taskKill /f /im 7zFM.exe",
-        "sudo taskKill /f /im 7zG.exe",
-        "if ($cmd -eq 'uninstall') {",
-        "   reg import \"$dir\\uninstall-context.reg\"",
-        "}"
+        "Write-Host \"Uninstalling 7zip will restart the file manager(explorer.exe).Continue?\nPress Enter to continue\" -f red",
+        "Read-Host",
+        "$App_name=\"7z\"",
+        "$existProcess=Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue",
+        "foreach($_ in $existProcess.ProcessName){ Write-Host \"Stop-Process  $_\" -f red }",
+        "while($true){",
+        "   if(Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue){",
+        "       Stop-Process -Name \"$App_name*\" -Force",
+        "   }else { break }",
+        "   Start-Sleep -Milliseconds 500",
+        "}",
+        "Stop-Process -Name \"explorer\" -Force",
+        "start explorer.exe"
     ],
     "checkver": {
         "url": "https://www.7-zip.org/download.html",

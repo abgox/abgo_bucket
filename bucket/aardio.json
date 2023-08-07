@@ -16,8 +16,15 @@
         ]
     ],
     "pre_uninstall": [
-        "sudo taskKill /f /im aardio.exe",
-        "Start-Sleep -Seconds 1"
+        "$App_name=\"aardio\"",
+        "$existProcess=Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue",
+        "foreach($_ in $existProcess.ProcessName){ Write-Host \"Stop-Process  $_\" -f red }",
+        "while($true){",
+        "   if(Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue){",
+        "       Stop-Process -Name \"$App_name*\" -Force",
+        "   }else { break }",
+        "   Start-Sleep -Milliseconds 500",
+        "}"
     ],
     "checkver": {
         "url": "https://ide.update.aardio.com/log/",

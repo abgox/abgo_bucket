@@ -6,7 +6,9 @@
 
 <p align="left">
 <a href="README.md">English</a> |
-<a href="README-CN.md">简体中文</a>
+<a href="README-CN.md">简体中文</a> |
+<a href="https://github.com/abgox/abgo_bucket">Github</a> |
+<a href="https://gitee.com/abgox/abgo_bucket">Gitee</a>
 </p>
 
 -   [scoop-tab-completion ](https://github.com/abgox/PS-completions/tree/main#how-to-use-themeg-scoop-tab-completion "scoop-tab-completion")is recommended
@@ -14,11 +16,9 @@
 ### For ones familiar with Scoop :
 
 -   `scoop bucket add abgo_bucket https://github.com/abgox/abgo_bucket`
--   _**You should install `sudo` first `scoop install sudo`**_.( `sudo` is used in all App Manifests)
-    -   Why use `sudo` in App Manifest ?
-        > -   Some Apps require administrator permissions to create a link to persist data.
-        > -   To ensure that the process cannot be terminated due to permission issues when uninstalling the App.
--   List all installable apps
+    -  The `abgo_bucket` here is the name of the bucket added locally, you can name it freely
+
+-   List all installable apps in `abgo_bucket`
 
     ```powershell>
     <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
@@ -45,11 +45,12 @@
     - ...
 
 2. Organize my commonly used apps.
+
     - Sometimes, to add a `bucket` for few App, and it causes too many buckets.(`scoop bucket list`)
 
     - Every time I install an App, it takes a long time to trigger updates to the `bucket` (or manually update by running `scoop update`), and a large number of updates are useless to me.
-      - Now I know that It can avoid triggering the update with the `-u` parameter, very cool !
-      - eg. `scoop install sudo -u`
+        - Now I know that It can avoid triggering the update with the `-u` parameter, very cool !
+        - eg. `scoop install sudo -u`
 
 ---
 
@@ -63,7 +64,7 @@
 
 |                               App                                | Persist ? | clear data | Forced uninstall | Notes     |
 | :--------------------------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
-|                  [7zip](https://www.7-zip.org)                   |     ×     |     √      |  √(**\*7zip**)   |           |
+|                  [7zip](https://www.7-zip.org)                   |     ×     |     √      |        √         |           |
 |                [listary](https://www.listary.com)                |  √(link)  |     √      |        √         | **\*run** |
 |     [lx-music](https://github.com/lyswhut/lx-music-desktop)      |  √(link)  |     √      |        √         |           |
 |               [snipaste](https://www.snipaste.com)               |     √     |     √      |        √         | **\*run** |
@@ -76,4 +77,3 @@
 |      [fastGithub](https://github.com/dotnetcore/FastGithub)      |     /     |     /      |        √         |           |
 
 -   **\*run** : Run the application once after installing.
--   **\*7zip** : Because 7zip has a right-click context menu, the file manager will occupy the process. In order to successfully uninstall the application, the uninstall script will terminate the file manager first, and then restart it immediately. As a result, all open file management pages will be closed.
