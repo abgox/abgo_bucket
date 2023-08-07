@@ -62,15 +62,19 @@
 |                               应用                               | persist ? | 数据清理 | 强制卸载 | 备注      |
 | :--------------------------------------------------------------: | :-------: | :------: | :------: | --------- |
 |                  [7zip](https://www.7-zip.org)                   |     /     |    √     |    √     |           |
-|                [listary](https://www.listary.com)                |  √(link)  |    √     |    √     | **\*run** |
-|     [lx-music](https://github.com/lyswhut/lx-music-desktop)      |  √(link)  |    √     |    √     |           |
+|                [listary](https://www.listary.com)                |     √     |    √     |    √     | **\*run** |
+|     [lx-music](https://github.com/lyswhut/lx-music-desktop)      |     √     |    √     |    √     |           |
 |               [snipaste](https://www.snipaste.com)               |     √     |    √     |    √     | **\*run** |
 |              [snipaste2](https://www.snipaste.com)               |     √     |    √     |    √     | **\*run** |
 | [trafficMonitor](https://github.com/zhongyang219/TrafficMonitor) |     √     |    √     |    √     | **\*run** |
 |                  [chfs](http://iscute.cn/chfs)                   |     √     |    √     |    √     |           |
-|           [tts-vue](https://github.com/LokerL/tts-vue)           |  √(link)  |    √     |    √     |           |
+|           [tts-vue](https://github.com/LokerL/tts-vue)           |     √     |    √     |    √     |           |
 |                 [aardio](https://www.aardio.com)                 |     √     |    √     |    √     |           |
 |         [Geek Uninstaller](https://geekuninstaller.com)          |     √     |    √     |    √     |           |
 |      [fastGithub](https://github.com/dotnetcore/FastGithub)      |     /     |    /     |    √     |           |
+|         [downKyi](https://github.com/leiurayer/downkyi)          |     √     |    /     |    √     |           |
 
+-   **√**：已实现
+-   **x**：未实现
+-   **/**：没有必要进行此操作
 -   **\*run** : 安装后会立即运行一次

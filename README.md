@@ -16,7 +16,8 @@
 ### For ones familiar with Scoop :
 
 -   `scoop bucket add abgo_bucket https://github.com/abgox/abgo_bucket`
-    -  The `abgo_bucket` here is the name of the bucket added locally, you can name it freely
+
+    -   The `abgo_bucket` here is the name of the bucket added locally, you can name it freely
 
 -   List all installable apps in `abgo_bucket`
 
@@ -65,15 +66,18 @@
 |                               App                                | Persist ? | clear data | Forced uninstall | Notes     |
 | :--------------------------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
 |                  [7zip](https://www.7-zip.org)                   |     ×     |     √      |        √         |           |
-|                [listary](https://www.listary.com)                |  √(link)  |     √      |        √         | **\*run** |
-|     [lx-music](https://github.com/lyswhut/lx-music-desktop)      |  √(link)  |     √      |        √         |           |
+|                [listary](https://www.listary.com)                |     √     |     √      |        √         | **\*run** |
+|     [lx-music](https://github.com/lyswhut/lx-music-desktop)      |     √     |     √      |        √         |           |
 |               [snipaste](https://www.snipaste.com)               |     √     |     √      |        √         | **\*run** |
 |              [snipaste2](https://www.snipaste.com)               |     √     |     √      |        √         | **\*run** |
 | [trafficMonitor](https://github.com/zhongyang219/TrafficMonitor) |     √     |     √      |        √         | **\*run** |
 |                  [chfs](http://iscute.cn/chfs)                   |     √     |     √      |        √         |           |
-|           [tts-vue](https://github.com/LokerL/tts-vue)           |  √(link)  |     √      |        √         |           |
+|           [tts-vue](https://github.com/LokerL/tts-vue)           |     √     |     √      |        √         |           |
 |                 [aardio](https://www.aardio.com)                 |     √     |     √      |        √         |           |
 |         [Geek Uninstaller](https://geekuninstaller.com)          |     √     |     √      |        √         |           |
 |      [fastGithub](https://github.com/dotnetcore/FastGithub)      |     /     |     /      |        √         |           |
 
+-   **√**：It has been done.
+-   **x**：It hasn't been done yet.
+-   **/**：It means there's no need for this operation.
 -   **\*run** : Run the application once after installing.
