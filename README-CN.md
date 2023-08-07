@@ -9,7 +9,7 @@
 <a href="README-CN.md">简体中文</a>
 </p>
 
--   推荐使用 [Scoop 命令补全 ](https://github.com/abgox/PS-completions/tree/main/scoop-tab-completion "scoop-tab-completion")
+-   推荐使用 [Scoop 命令补全 ](https://github.com/abgox/PS-completions/tree/main#how-to-use-themeg-scoop-tab-completion "scoop-tab-completion")
 
 ### 正在使用 Scoop :
 
@@ -36,18 +36,21 @@
 
 ---
 
-### 为什么创建此 bucket
+### 为什么创建此 `bucket` ？
 
 1. 在使用官方或第三方 `bucket` 时，可能存在以下问题
 
-    - 少数软件并没有进行`persist`
+    - 一些软件并没有进行`persist`
+        - 没有必要持久化数据的软件除外
     - 软件卸载后,本地数据没有得到及时清理(如 `~/AppData/Roaming` 下的软件数据)
     - 软件卸载时，存在进程占用无法卸载问题
     - ...
 
 2. 用于整理我的常用应用
-    - 有时候经常为了几个软件而去添加一个`bucket`，导致 `scoop bucket list` 有很多 `bucket`
+    - 有时候为了几个软件而去添加一个`bucket`，导致 `scoop bucket list` 有很多 `bucket`
     - 每次安装应用触发`bucket`的更新(或手动更新 `scoop update`)的时间很长，且大量更新对我无用
+        - 现在我知道它可以用`-u`来避免更新
+        - 如: `scoop install sudo -u`
 
 ---
 
@@ -56,12 +59,12 @@
 -   说明
     -   应用：以添加应用清单前后进行排序
     -   persist: 软件重要数据保存到 `Scoop` 安装目录下的 `persist` 中
-    -   数据清理：当软件卸载后，删除一切此软件数据(`persist` 下的数据除外)
+    -   数据清理：当软件卸载后，删除软件数据(`persist` 数据除外)
     -   强制卸载：当软件正在运行时，使用 `scoop uninstall <app_name>` 会先终止进程，再进行卸载，避免卸载时出现软件正在使用，无法卸载的问题
 
 |                               应用                               | persist ? | 数据清理 |   强制卸载    | 备注      |
 | :--------------------------------------------------------------: | :-------: | :------: | :-----------: | --------- |
-|                  [7zip](https://www.7-zip.org)                   |     ×     |    √     | √(**\*7zip**) |           |
+|                  [7zip](https://www.7-zip.org)                   |     /     |    √     | √(**\*7zip**) |           |
 |                [listary](https://www.listary.com)                |  √(link)  |    √     |       √       | **\*run** |
 |     [lx-music](https://github.com/lyswhut/lx-music-desktop)      |  √(link)  |    √     |       √       |           |
 |               [snipaste](https://www.snipaste.com)               |     √     |    √     |       √       | **\*run** |
@@ -71,6 +74,7 @@
 |           [tts-vue](https://github.com/LokerL/tts-vue)           |  √(link)  |    √     |       √       |           |
 |                 [aardio](https://www.aardio.com)                 |     √     |    √     |       √       |           |
 |         [Geek Uninstaller](https://geekuninstaller.com)          |     √     |    √     |       √       |           |
+|      [fastGithub](https://github.com/dotnetcore/FastGithub)      |     /     |    /     |       √       |           |
 
 -   **\*run** : 安装后会立即运行一次
 -   **\*7zip** : 7zip 因为右键上下文菜单，文件管理器会占用进程，因此卸载脚本中会先终止文件管理器，之后立即重启，这会导致已经打开的文件管理页面全部关闭，如有未保存的文件管理器任务，请先保存后再进行
