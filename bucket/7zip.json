@@ -37,30 +37,23 @@
         ]
     ],
     "post_install": [
-        "$count=0;$current_bucket_name=foreach($_ in scoop bucket list,$count){if(($count -eq 0) -and ($_.Source -match \"abgox/abgo_bucket\")){echo $_.Name};$count++}",
-        "$current_bucket_path = \"$bucketsdir\\$current_bucket_name\"",
         "$7zip_root = \"$dir\".Replace('\\', '\\\\')",
         "'install-context.reg', 'uninstall-context.reg' | ForEach-Object {",
-        "    $content = Get-Content \"$current_bucket_path\\scripts\\7-zip\\$_\"",
+        "    $content = Get-Content \"$bucketsdir\\$bucket\\scripts\\7-zip\\$_\"",
         "    $content = $content.Replace('$7zip_root', $7zip_root)",
         "    if ($global) {",
         "       $content = $content.Replace('HKEY_CURRENT_USER', 'HKEY_LOCAL_MACHINE')",
         "    }",
         "    Set-Content \"$dir\\$_\" $content -Encoding Ascii",
         "}",
-        "   reg import \"$dir\\install-context.reg\""
+        "reg import \"$dir\\install-context.reg\""
     ],
     "pre_uninstall": [
-        "Write-Host \"Uninstalling 7zip will restart the file manager(explorer.exe).Continue?\nPress Enter to continue\" -f red",
-        "Read-Host",
-        "$App_name=\"7z\"",
-        "$existProcess=Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue",
-        "foreach($_ in $existProcess.ProcessName){ Write-Host \"Stop-Process  $_\" -f red }",
-        "while($true){",
-        "   if(Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue){",
-        "       Stop-Process -Name \"$App_name*\" -Force",
-        "   }else { break }",
-        "   Start-Sleep -Milliseconds 500",
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "if ($cmd -eq 'uninstall') {",
+        "   reg import \"$dir\\uninstall-context.reg\"",
         "}",
         "Stop-Process -Name \"explorer\" -Force",
         "start explorer.exe"

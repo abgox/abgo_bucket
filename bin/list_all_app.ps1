@@ -1,19 +1,26 @@
+. $PSScriptRoot\utils.ps1
+
 $parentPath = Split-Path -Path $PSScriptRoot -Parent
 $folderPath = $parentPath + "\bucket"
 
-Get-ChildItem -Path $folderPath -Filter "*.json" -File | ForEach-Object {
-    $fileName = $_.Name
-    $fileNameWithoutExtension = $fileName -replace '\.[^.]+$'
-    $filePath = $_.FullName
+$result = @()
+$max_len=0
+$files= Get-ChildItem -Path $folderPath -Filter "*.json" -File
+$files | ForEach-Object {
+    $app_name = $_.Name -replace '\.[^.]+$'
+    $len= $app_name.Length
+    if($len -gt $max_len){
+        $max_len = $len
+    }
+}
+$files| ForEach-Object{
+    $app_name = $_.Name -replace '\.[^.]+$'
+    $version = (Get-Content -Path $_.FullName -Raw | ConvertFrom-Json).version
+    $result += "{0,-$($max_len + 3)} {1}" -f $app_name, $version
+}
 
-    # read JSON
-    $jsonContent = Get-Content -Path $filePath -Raw | ConvertFrom-Json
-
-    # get version
-    $version = $jsonContent.version
-
-    $output = "{0,-20} {1}" -f $fileNameWithoutExtension,$version
-
-    # output
-    Write-Host $output -f Green
+less ($result | Where-Object {$_ -ne ''}) {
+    Write-Host ' '
+    Write-Host ("{0,-$($max_len + 3)} {1}" -f 'App', 'Version') -f Cyan
+    Write-Host ' '
 }

@@ -13,28 +13,21 @@
     ],
     "bin": "geek.exe",
     "post_install": [
-        "Write-Host \"Persisting Geek Uninstaller\" -f Green",
-        "$data_path=\"$env:APPData\\Geek Uninstaller\"",
-        "$persist_path=\"$persist_dir\\\"",
-        "$ps1 = \"$bucketsdir\\test\\bin\\persist_link.ps1 '$data_path' '$persist_path' \"",
-        "Invoke-Expression \"$ps1\""
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist @(\"$env:APPData\\Geek Uninstaller\")"
     ],
     "pre_uninstall": [
-        "$App_name=\"geek\"",
-        "$existProcess=Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue",
-        "foreach($_ in $existProcess.ProcessName){ Write-Host \"Stop-Process  $_\" -f red }",
-        "while($true){",
-        "   if(Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue){",
-        "       Stop-Process -Name \"$App_name*\" -Force",
-        "   }else { break }",
-        "   Start-Sleep -Milliseconds 500",
-        "}"
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
     ],
     "post_uninstall": [
-        "$data_path=\"$env:APPData\\Geek Uninstaller\"",
-        "if (Test-Path $data_path){",
-        "   Remove-Item -Force -Recurse $data_path",
-        "   echo \"Removing $data_path\"",
+        "$data=@(\"$env:APPData\\Geek Uninstaller\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
         "}"
     ],
     "checkver": {

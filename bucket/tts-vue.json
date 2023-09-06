@@ -1,53 +1,34 @@
 {
     "homepage": "https://github.com/LokerL/tts-vue",
-    "version": "1.9.12",
+    "version": "1.9.15",
     "description": "🎤 Microsoft speech synthesis tool, built using Electron + Vue + ElementPlus + Vite. 🎤 微软语音合成工具，使用 Electron + Vue + ElementPlus + Vite 构建。",
     "license": {
         "identifier": "Freeware"
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/LokerL/tts-vue/releases/download/1.9.12/tts-vue-windows-latest.zip",
-            "hash": "ef0287f1a3c157075dffa2612650449f683fe8a9b996207a1c3789a211210ecb"
+            "url": "https://github.com/LokerL/tts-vue/releases/download/1.9.15/tts-vue-windows-latest.zip",
+            "hash": "e8cd45a3f1ca1335723554e41ab06fd1f289bacad666ff8adbe9af74a07800de"
         }
     },
     "post_install": [
         "$CmdString = \"$dir\\$version\\tts-vue-$version.exe /S /D=$dir\\$version\"",
         "Invoke-Expression $CmdString",
-        "Write-Host \"Persisting config.json\" -f Green",
-        "$data_path=\"$env:APPData\\tts-vue\\config.json\"",
-        "$persist_path=\"$persist_dir\\config.json\"",
-        "",
-        "$count=0;$current_bucket_name=foreach($_ in scoop bucket list,$count){if(($count -eq 0) -and ($_.Source -match \"abgox/abgo_bucket\")){echo $_.Name};$count++}",
-        "$ps1 = \"$bucketsdir\\$current_bucket_name\\bin\\persist_link.ps1 $data_path $persist_path\"",
-        "Invoke-Expression \"$ps1\"",
-        "$shortcut_dir=\"$env:Appdata\\Microsoft\\Windows\\Start Menu\\Programs\"",
-        "while (-Not (Test-Path \"$shortcut_dir\\tts-vue.lnk\")) {",
-        "   Start-Sleep -Milliseconds 500",
-        "}",
-        "Move-Item \"$shortcut_dir\\tts-vue.lnk\" \"$shortcut_dir\\Scoop Apps\""
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist @(\"$env:APPData\\tts-vue\\config.json\") @(\"$persist_dir\\config.json\")"
     ],
     "pre_uninstall": [
-        "$App_name=\"tts-vue\"",
-        "$existProcess=Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue",
-        "foreach($_ in $existProcess.ProcessName){ Write-Host \"Stop-Process  $_\" -f red }",
-        "while($true){",
-        "   if(Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue){",
-        "       Stop-Process -Name \"$App_name*\" -Force",
-        "   }else { break }",
-        "   Start-Sleep -Milliseconds 500",
-        "}"
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
     ],
     "post_uninstall": [
-        "$shortcut_link_path = \"$env:APPData\\Microsoft\\Windows\\Start Menu\\Programs\\Scoop Apps\\tts-vue.lnk\"",
-        "if (Test-Path $shortcut_link_path){",
-        "   echo \"Removing shortcut > $shortcut_link_path\"",
-        "   Remove-Item -Force \"$shortcut_link_path\"",
-        "}",
-        "$data_path=\"$env:APPData\\tts-vue\"",
-        "if (Test-Path $data_path){",
-        "   Remove-Item -Force -Recurse $data_path",
-        "   echo \"Removing $data_path\"",
+        "$data=@(\"$env:APPData\\Microsoft\\Windows\\Start Menu\\Programs\\tts-vue.lnk\",\"$env:APPData\\tts-vue\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
         "}"
     ],
     "checkver": "github",

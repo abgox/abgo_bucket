@@ -1,0 +1,11 @@
+{
+    "less":"Press Enter to view more, or any other key to exit!({{$lines}} lines remaining)",
+    "persist_data":[
+        "Persisting Data",
+        "Original Directory",
+        "Persist  Directory",
+        "Original File",
+        "Persist  File"
+    ],
+    "stop_process":"Stop Process -- "
+}

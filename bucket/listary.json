@@ -13,31 +13,32 @@
         ]
     ],
     "post_install": [
-        "Write-Host \"Persisting Listary\" -f Green",
-        "$data_path=\"$env:APPData\\Listary\\UserProfile\\Settings\"",
-        "$persist_path=\"$persist_dir\\UserProfile\\Settings\"",
-        "",
-        "$count=0;$current_bucket_name=foreach($_ in scoop bucket list,$count){if(($count -eq 0) -and ($_.Source -match \"abgox/abgo_bucket\")){echo $_.Name};$count++}",
-        "$ps1 = \"$bucketsdir\\$current_bucket_name\\bin\\persist_link.ps1 $data_path $persist_path\"",
-        "Invoke-Expression \"$ps1\"",
-        "start \"$dir\\Listary.exe\""
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$data=@(\"$env:APPData\\Listary\\UserProfile\\Settings\")",
+        "$persist=@(\"$persist_dir\\UserProfile\\Settings\")",
+        "persist $data $persist",
+        "explorer \"$dir\\Listary.exe\""
     ],
     "pre_uninstall": [
-        "$App_name=\"Snipaste\"",
-        "$existProcess=Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue",
-        "foreach($_ in $existProcess.ProcessName){ Write-Host \"Stop-Process  $_\" -f red }",
-        "while($true){",
-        "   if(Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue){",
-        "       Stop-Process -Name \"$App_name*\" -Force",
-        "   }else { break }",
-        "   Start-Sleep -Milliseconds 500",
-        "}"
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
     ],
     "post_uninstall": [
-        "$data_path=\"$env:APPData\\Listary\"",
-        "if (Test-Path $data_path){",
-        "   Remove-Item -Force -Recurse $data_path",
-        "   echo \"Removing $data_path\"",
+        "$data=@(\"$env:APPData\\Listary\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
         "}"
     ]
+    // ,
+    // "checkver": {
+    //     "url": "https://www.listary.com/download",
+    //     "regex": "<h2>([\\d.]+) \\([\\d/]+\\)</h2>"
+    // },
+    // "autoupdate": {
+    //     "url": "https://www.listary.com/download/Listary.exe?version=$version#/dl.exe"
+    // }
 }

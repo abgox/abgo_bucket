@@ -5,26 +5,22 @@
     "license": "Unknown",
     "url": "https://ide.update.aardio.com/releases/aardio.7z",
     "hash": "a3c99fa58f63340b1e1c39ab94dff9745b7a6399ecda098317f63425587d2de1",
-    "persist": [
-        "config",
-        "project"
-    ],
     "shortcuts": [
         [
             "aardio.exe",
             "aardio"
         ]
     ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$data=@(\"$dir\\config\",\"$dir\\project\")",
+        "$persist=@(\"$persist_dir\\config\",\"$persist_dir\\project\")",
+        "persist $data $persist"
+    ],
     "pre_uninstall": [
-        "$App_name=\"aardio\"",
-        "$existProcess=Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue",
-        "foreach($_ in $existProcess.ProcessName){ Write-Host \"Stop-Process  $_\" -f red }",
-        "while($true){",
-        "   if(Get-Process -Name \"$App_name*\" -ErrorAction SilentlyContinue){",
-        "       Stop-Process -Name \"$App_name*\" -Force",
-        "   }else { break }",
-        "   Start-Sleep -Milliseconds 500",
-        "}"
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
     ],
     "checkver": {
         "url": "https://ide.update.aardio.com/log/",
