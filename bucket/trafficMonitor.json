@@ -30,7 +30,8 @@
     "pre_uninstall":[
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
-        "confirm \"TrafficMonitor needs to be manually closed to uninstall`nPlease confirm that you have closed it and press Enter to continue\"",
+        "$app_name=\"TrafficMonitor\"",
+        "confirm $(data_replace $json.need_close)",
         "stop_process"
     ],
     "post_uninstall":[
@@ -48,12 +49,6 @@
             "TrafficMonitor"
         ]
     ],
-    // "persist": [
-    //     "config.ini",
-    //     "global_cfg.ini",
-    //     "history_traffic.dat",
-    //     "plugins"
-    // ],
     "checkver": {
         "github": "https://github.com/zhongyang219/TrafficMonitor"
     },
