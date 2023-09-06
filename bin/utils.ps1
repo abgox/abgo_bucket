@@ -71,7 +71,7 @@ function persist($data_list, $persist_list = @($persist_dir)) {
         $sudo_path = "$PSScriptRoot\sudo.ps1"
         $link = Start-Job -ScriptBlock {
             param($sudo_path, $data_dir, $persist_dir)
-            Invoke-Expression "$sudo_path New-Item -ItemType SymbolicLink $data_dir -Target $persist_dir"
+            Invoke-Expression "$sudo_path New-Item -ItemType SymbolicLink `"$data_dir`" -Target `"$persist_dir`""
         } -ArgumentList $sudo_path, $data_dir, $persist_dir
         $state = (Wait-Job $link).HasMoreData
         return $state
