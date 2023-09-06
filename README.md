@@ -1,17 +1,30 @@
-# ✨ abgo_bucket ✨
-
-[![license](https://img.shields.io/github/license/abgox/abgo_bucket)](https://github.com/abgox/abgo_bucket/blob/main/LICENSE)
-[![code size](https://img.shields.io/github/languages/code-size/abgox/abgo_bucket.svg)](https://img.shields.io/github/languages/code-size/abgox/abgo_bucket.svg)
-[![repo size](https://img.shields.io/github/repo-size/abgox/abgo_bucket.svg)](https://img.shields.io/github/repo-size/abgox/abgo_bucket.svg)
-
-<p align="left">
-<a href="README.md">English</a> |
-<a href="README-CN.md">简体中文</a> |
-<a href="https://github.com/abgox/abgo_bucket">Github</a> |
-<a href="https://gitee.com/abgox/abgo_bucket">Gitee</a>
+<p align="center">
+    <h1 align="center">✨ abgo_bucket ✨</h1>
 </p>
 
--   [scoop-tab-completion ](https://github.com/abgox/PS-completions/tree/main#how-to-use-themeg-scoop-tab-completion "scoop-tab-completion")is recommended
+<p align="center">
+    <a href="README.md">English</a> |
+    <a href="README-CN.md">简体中文</a> |
+    <a href="https://github.com/abgox/abgo_bucket">Github</a> |
+    <a href="https://gitee.com/abgox/abgo_bucket">Gitee</a>
+</p>
+
+<p align="center">
+    <a href="https://github.com/abgox/abgo_bucket/blob/main/LICENSE">
+        <img src="https://img.shields.io/github/license/abgox/abgo_bucket" alt="license" />
+    </a>
+    <a href="https://img.shields.io/github/languages/code-size/abgox/abgo_bucket.svg">
+        <img src="https://img.shields.io/github/languages/code-size/abgox/abgo_bucket.svg" alt="code size" />
+    </a>
+    <a href="https://img.shields.io/github/repo-size/abgox/abgo_bucket.svg">
+        <img src="https://img.shields.io/github/repo-size/abgox/abgo_bucket.svg" alt="code size" />
+    </a>
+    <a href="https://github.com/abgox/abgo_bucket">
+        <img src="https://img.shields.io/badge/created-2023--6--1-blue" alt="created" />
+    </a>
+</p>
+
+-   [Scoop completion in PSCompletions ](https://github.com/abgox/PSCompletions "PSCompletions")is recommended
 
 ### For ones familiar with Scoop :
 
@@ -63,19 +76,20 @@
     -   clear data：When the software is uninstalled, delete data of the software (Except for `persist` data).
     -   Forced uninstall：When the software is running, using the `scoop uninstall <app_name>` will terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
 
-|                               App                                | Persist ? | clear data | Forced uninstall | Notes     |
-| :--------------------------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
-|                  [7zip](https://www.7-zip.org)                   |     ×     |     √      |        √         |           |
-|                [listary](https://www.listary.com)                |     √     |     √      |        √         | **\*run** |
-|     [lx-music](https://github.com/lyswhut/lx-music-desktop)      |     √     |     √      |        √         |           |
-|               [snipaste](https://www.snipaste.com)               |     √     |     √      |        √         | **\*run** |
-|              [snipaste2](https://www.snipaste.com)               |     √     |     √      |        √         | **\*run** |
-| [trafficMonitor](https://github.com/zhongyang219/TrafficMonitor) |     √     |     √      |        √         | **\*run** |
-|                  [chfs](http://iscute.cn/chfs)                   |     √     |     √      |        √         |           |
-|           [tts-vue](https://github.com/LokerL/tts-vue)           |     √     |     √      |        √         |           |
-|                 [aardio](https://www.aardio.com)                 |     √     |     √      |        √         |           |
-|         [Geek Uninstaller](https://geekuninstaller.com)          |     √     |     √      |        √         |           |
-|      [fastGithub](https://github.com/dotnetcore/FastGithub)      |     /     |     /      |        √         |           |
+|                       App                        | Persist ? | clear data | Forced uninstall | Notes     |
+| :----------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
+|            [7zip](/bucket/7zip.json)             |     /     |     √      |        √         |           |
+|         [listary](/bucket/listary.json)          |     √     |     √      |        √         | **\*run** |
+|        [lx-music](/bucket/lx-music.json)         |     √     |     √      |        √         |           |
+|        [snipaste](/bucket/snipaste.json)         |     √     |     √      |        √         | **\*run** |
+|       [snipaste2](/bucket/snipaste2.json)        |     √     |     √      |        √         | **\*run** |
+|  [trafficMonitor](/bucket/trafficMonitor.json)   |     √     |     √      |        √         | **\*run** |
+|            [chfs](/bucket/chfs.json)             |     √     |     √      |        √         |           |
+|         [tts-vue](/bucket/tts-vue.json)          |     √     |     √      |        √         |           |
+|          [aardio](/bucket/aardio.json)           |     √     |     √      |        √         |           |
+| [Geek Uninstaller](/bucket/geekUninstaller.json) |     √     |     √      |        √         |           |
+|      [fastGithub](/bucket/fastGithub.json)       |     /     |     /      |        √         |           |
+|         [downKyi](/bucket/downkyi.json)          |     √     |     /      |        √         |           |
 
 -   **√**：It has been done.
 -   **x**：It hasn't been done yet.
