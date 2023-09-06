@@ -24,11 +24,11 @@
     </a>
 </p>
 
--   推荐使用 [PSCompletions 项目中的 scoop 补全 ](https://github.com/abgox/PSCompletions "PSCompletions")
+-   推荐使用 [PSCompletions 项目中的 scoop 补全 ](https://gitee.com/abgox/PSCompletions "PSCompletions")
 
 ### 正在使用 Scoop :
 
--   `scoop bucket add abgo_bucket https://github.com/abgox/abgo_bucket`
+-   `scoop bucket add abgo_bucket https://gitee.com/abgox/abgo_bucket`
 
     -   此处的 `abgo_bucket` 为添加到本地的桶名称，可自由命名
 
