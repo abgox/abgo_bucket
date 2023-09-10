@@ -157,7 +157,7 @@ function stop_process($app_dir = $dir) {
         }
         catch {}
     }
-    Start-Sleep -Seconds 1
+    Start-Sleep -Seconds 3
 }
 
 
