@@ -149,15 +149,11 @@ function persist_file($data_list, $persist_list) {
 }
 
 function stop_process($app_dir = $dir) {
-    Get-ChildItem $app_dir -Recurse
-    | Where-Object { $_.Extension -match '\.exe$' } | ForEach-Object {
-        try {
-            Stop-Process -Name $_.BaseName -Force -ErrorAction Stop;
-            Write-Host ($json.stop_process + $_.FullName) -f Cyan
-        }
-        catch {}
+    Get-ChildItem $app_dir -Recurse | Where-Object { $_.Extension -match '\.exe$' } | ForEach-Object {
+        sudo.ps1 Stop-Process -Name $_.BaseName -Force -ErrorAction SilentlyContinue
+        Write-Host ($json.stop_process + $_.FullName) -f Cyan
     }
-    Start-Sleep -Seconds 3
+    sudo.ps1 Remove-Item $app_dir -Force -Recurse -ErrorAction SilentlyContinue
 }
 
 
