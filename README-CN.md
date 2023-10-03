@@ -67,27 +67,27 @@
 ### 应用清单
 
 -   说明
-    -   应用：以添加应用清单前后进行排序
+    -   应用：按照数字字母排序(0-9,a-z)
     -   persist: 软件重要数据保存到 `Scoop` 安装目录下的 `persist` 中
     -   数据清理：当软件卸载后，删除软件数据(`persist` 数据除外)
     -   强制卸载：当软件正在运行时，使用 `scoop uninstall <app_name>` 会先终止进程，再进行卸载，避免卸载时出现软件正在使用，无法卸载的问题
+    -   **√**：已实现
+    -   **x**：未实现
+    -   **/**：没必要或不满足条件
+    -   **\*run** : 安装后会立即运行一次
 
 |                       应用                       | persist ? | 数据清理 | 强制卸载 | 备注      |
 | :----------------------------------------------: | :-------: | :------: | :------: | --------- |
 |            [7zip](/bucket/7zip.json)             |     /     |    √     |    √     |           |
+|          [aardio](/bucket/aardio.json)           |     √     |    √     |    √     |           |
+|            [chfs](/bucket/chfs.json)             |     √     |    √     |    √     |           |
+|         [downKyi](/bucket/downkyi.json)          |     √     |    /     |    √     |           |
+|      [fastGithub](/bucket/fastGithub.json)       |     /     |    /     |    √     |           |
+| [Geek Uninstaller](/bucket/geekUninstaller.json) |     √     |    √     |    √     |           |
 |         [listary](/bucket/listary.json)          |     √     |    √     |    √     | **\*run** |
 |        [lx-music](/bucket/lx-music.json)         |     √     |    √     |    √     |           |
+|       [pyenv-win](/bucket/pyenv-win.json)        |     √     |    √     |    √     |           |
 |        [snipaste](/bucket/snipaste.json)         |     √     |    √     |    √     | **\*run** |
 |       [snipaste2](/bucket/snipaste2.json)        |     √     |    √     |    √     | **\*run** |
 |  [trafficMonitor](/bucket/trafficMonitor.json)   |     √     |    √     |    √     | **\*run** |
-|            [chfs](/bucket/chfs.json)             |     √     |    √     |    √     |           |
 |         [tts-vue](/bucket/tts-vue.json)          |     √     |    √     |    √     |           |
-|          [aardio](/bucket/aardio.json)           |     √     |    √     |    √     |           |
-| [Geek Uninstaller](/bucket/geekUninstaller.json) |     √     |    √     |    √     |           |
-|      [fastGithub](/bucket/fastGithub.json)       |     /     |    /     |    √     |           |
-|         [downKyi](/bucket/downkyi.json)          |     √     |    /     |    √     |           |
-
--   **√**：已实现
--   **x**：未实现
--   **/**：没有必要进行此操作
--   **\*run** : 安装后会立即运行一次

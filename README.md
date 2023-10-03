@@ -71,27 +71,27 @@
 ### App Manifests
 
 -   Guide
-    -   App：Sort before and after adding the App Manifest.
+    -   App：Sort by first letter(0-9,a-z).
     -   Persist: Important data of software is saved to `persist` under the installation directory of 'Scoop'.
     -   clear data：When the software is uninstalled, delete data of the software (Except for `persist` data).
     -   Forced uninstall：When the software is running, using the `scoop uninstall <app_name>` will terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
+    -   **√**：It has been done.
+    -   **x**：It hasn't been done yet.
+    -   **/**：It's not necessary, or the conditions are not meet.
+    -   **\*run** : Run the application once after installing.
 
 |                       App                        | Persist ? | clear data | Forced uninstall | Notes     |
 | :----------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
-|            [7zip](/bucket/7zip.json)             |     /     |     √      |        √         |           |
-|         [listary](/bucket/listary.json)          |     √     |     √      |        √         | **\*run** |
-|        [lx-music](/bucket/lx-music.json)         |     √     |     √      |        √         |           |
-|        [snipaste](/bucket/snipaste.json)         |     √     |     √      |        √         | **\*run** |
-|       [snipaste2](/bucket/snipaste2.json)        |     √     |     √      |        √         | **\*run** |
-|  [trafficMonitor](/bucket/trafficMonitor.json)   |     √     |     √      |        √         | **\*run** |
-|            [chfs](/bucket/chfs.json)             |     √     |     √      |        √         |           |
-|         [tts-vue](/bucket/tts-vue.json)          |     √     |     √      |        √         |           |
-|          [aardio](/bucket/aardio.json)           |     √     |     √      |        √         |           |
-| [Geek Uninstaller](/bucket/geekUninstaller.json) |     √     |     √      |        √         |           |
-|      [fastGithub](/bucket/fastGithub.json)       |     /     |     /      |        √         |           |
-|         [downKyi](/bucket/downkyi.json)          |     √     |     /      |        √         |           |
-
--   **√**：It has been done.
--   **x**：It hasn't been done yet.
--   **/**：It means there's no need for this operation.
--   **\*run** : Run the application once after installing.
+|            [7zip](/bucket/7zip.json)             |     /     |    √     |    √     |           |
+|          [aardio](/bucket/aardio.json)           |     √     |    √     |    √     |           |
+|            [chfs](/bucket/chfs.json)             |     √     |    √     |    √     |           |
+|         [downKyi](/bucket/downkyi.json)          |     √     |    /     |    √     |           |
+|      [fastGithub](/bucket/fastGithub.json)       |     /     |    /     |    √     |           |
+| [Geek Uninstaller](/bucket/geekUninstaller.json) |     √     |    √     |    √     |           |
+|         [listary](/bucket/listary.json)          |     √     |    √     |    √     | **\*run** |
+|        [lx-music](/bucket/lx-music.json)         |     √     |    √     |    √     |           |
+|       [pyenv-win](/bucket/pyenv-win.json)        |     √     |    √     |    √     |           |
+|        [snipaste](/bucket/snipaste.json)         |     √     |    √     |    √     | **\*run** |
+|       [snipaste2](/bucket/snipaste2.json)        |     √     |    √     |    √     | **\*run** |
+|  [trafficMonitor](/bucket/trafficMonitor.json)   |     √     |    √     |    √     | **\*run** |
+|         [tts-vue](/bucket/tts-vue.json)          |     √     |        √      |        √         |           |

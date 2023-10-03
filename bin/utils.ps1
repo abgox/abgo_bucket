@@ -4,6 +4,7 @@ if ($lang -ne 'zh-CN') {
 }
 $json = Get-Content -Path "$PSScriptRoot\lang\$lang.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 
+$scoop_apps_lnk= "$env:AppData\Microsoft\Windows\Start Menu\Programs\Scoop Apps"
 function data_replace($data) {
     $data = $data -join ''
     $pattern = '\{\{(.*?(\})*)(?=\}\})\}\}'
@@ -47,6 +48,14 @@ function create_parent_dir($path) {
         New-Item -ItemType Directory $parent_path > $null
     }
 }
+
+function create_app_lnk($app_path,$lnk_path){
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut($lnk_path)
+    $Shortcut.TargetPath =$app_path
+    $Shortcut.Save()
+}
+
 
 function persist($data_list, $persist_list = @($persist_dir)) {
     function _do($data_dir, $persist_dir = $persist_list[0]) {
@@ -155,7 +164,6 @@ function stop_process($app_dir = $dir) {
     }
     sudo.ps1 Remove-Item $app_dir -Force -Recurse -ErrorAction SilentlyContinue
 }
-
 
 function confirm($tip_info) {
     while ($true) {
