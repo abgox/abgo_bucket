@@ -76,18 +76,19 @@
     -   **/**：没必要或不满足条件
     -   **\*run** : 安装后会立即运行一次
 
-|                       应用                       | persist ? | 数据清理 | 强制卸载 | 备注      |
-| :----------------------------------------------: | :-------: | :------: | :------: | --------- |
-|            [7zip](/bucket/7zip.json)             |     /     |    √     |    √     |           |
-|          [aardio](/bucket/aardio.json)           |     √     |    √     |    √     |           |
-|            [chfs](/bucket/chfs.json)             |     √     |    √     |    √     |           |
-|         [downKyi](/bucket/downkyi.json)          |     √     |    /     |    √     |           |
-|      [fastGithub](/bucket/fastGithub.json)       |     /     |    /     |    √     |           |
-| [Geek Uninstaller](/bucket/geekUninstaller.json) |     √     |    √     |    √     |           |
-|         [listary](/bucket/listary.json)          |     √     |    √     |    √     | **\*run** |
-|        [lx-music](/bucket/lx-music.json)         |     √     |    √     |    √     |           |
-|       [pyenv-win](/bucket/pyenv-win.json)        |     √     |    √     |    √     |           |
-|        [snipaste](/bucket/snipaste.json)         |     √     |    √     |    √     | **\*run** |
-|       [snipaste2](/bucket/snipaste2.json)        |     √     |    √     |    √     | **\*run** |
-|  [trafficMonitor](/bucket/trafficMonitor.json)   |     √     |    √     |    √     | **\*run** |
-|         [tts-vue](/bucket/tts-vue.json)          |     √     |    √     |    √     |           |
+|                       应用                       | persist | 数据清理 | 强制卸载 | 备注      |
+| :----------------------------------------------: | :-----: | :------: | :------: | --------- |
+|            [7zip](/bucket/7zip.json)             |    /    |    √     |    √     |           |
+|          [aardio](/bucket/aardio.json)           |    √    |    √     |    √     |           |
+|            [chfs](/bucket/chfs.json)             |    √    |    √     |    √     |           |
+|         [downKyi](/bucket/downkyi.json)          |    √    |    /     |    √     |           |
+|      [fastGithub](/bucket/fastGithub.json)       |    /    |    /     |    √     |           |
+| [Geek Uninstaller](/bucket/geekUninstaller.json) |    √    |    √     |    √     |           |
+|          [keyviz](/bucket/keyviz.json)           |    √    |    √     |    √     |           |
+|         [listary](/bucket/listary.json)          |    √    |    √     |    √     | **\*run** |
+|        [lx-music](/bucket/lx-music.json)         |    √    |    √     |    √     |           |
+|       [pyenv-win](/bucket/pyenv-win.json)        |    √    |    √     |    √     |           |
+|        [snipaste](/bucket/snipaste.json)         |    √    |    √     |    √     | **\*run** |
+|       [snipaste2](/bucket/snipaste2.json)        |    √    |    √     |    √     | **\*run** |
+|  [trafficMonitor](/bucket/trafficMonitor.json)   |    √    |    √     |    √     | **\*run** |
+|         [tts-vue](/bucket/tts-vue.json)          |    √    |    √     |    √     |           |

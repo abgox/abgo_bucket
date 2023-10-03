@@ -1,0 +1,43 @@
+{
+    "version": "1.0.6",
+    "description": "An electron-based music player. 一个基于 electron 的音乐软件",
+    "homepage": "https://github.com/mulaRahul/keyviz",
+    "license": " GPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/mulaRahul/keyviz/releases/download/v1.0.6/keyviz-v1.0.6-portable.zip",
+            "hash": "5dcebe08768ecd7e86d453f6be36346b2cc744183598195fee4c7b4931a8b4b3"
+        }
+    },
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$app_exe= (Get-ChildItem 'D:\\__Scoop\\apps\\keyviz\\current'| Where-Object {$_.Name -like 'keyviz*.exe'}).FullName",
+        "create_app_lnk $app_exe \"$scoop_apps_lnk\\keyviz.lnk\"",
+        "",
+        "$data=@(\"$env:APPData\\com.example\\keyviz\")",
+        "$persist=@(\"$persist_dir\\keyviz\")",
+        "persist $data $persist"
+    ],
+    "pre_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
+    "post_uninstall": [
+        "$data=@(\"$env:APPData\\com.example\\keyviz\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
+        "}"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/mulaRahul/keyviz/releases/download/v$version/keyviz-v$version-portable.zip"
+            }
+        }
+    }
+}

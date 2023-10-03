@@ -80,18 +80,19 @@
     -   **/**：It's not necessary, or the conditions are not meet.
     -   **\*run** : Run the application once after installing.
 
-|                       App                        | Persist ? | clear data | Forced uninstall | Notes     |
-| :----------------------------------------------: | :-------: | :--------: | :--------------: | --------- |
-|            [7zip](/bucket/7zip.json)             |     /     |    √     |    √     |           |
-|          [aardio](/bucket/aardio.json)           |     √     |    √     |    √     |           |
-|            [chfs](/bucket/chfs.json)             |     √     |    √     |    √     |           |
-|         [downKyi](/bucket/downkyi.json)          |     √     |    /     |    √     |           |
-|      [fastGithub](/bucket/fastGithub.json)       |     /     |    /     |    √     |           |
-| [Geek Uninstaller](/bucket/geekUninstaller.json) |     √     |    √     |    √     |           |
-|         [listary](/bucket/listary.json)          |     √     |    √     |    √     | **\*run** |
-|        [lx-music](/bucket/lx-music.json)         |     √     |    √     |    √     |           |
-|       [pyenv-win](/bucket/pyenv-win.json)        |     √     |    √     |    √     |           |
-|        [snipaste](/bucket/snipaste.json)         |     √     |    √     |    √     | **\*run** |
-|       [snipaste2](/bucket/snipaste2.json)        |     √     |    √     |    √     | **\*run** |
-|  [trafficMonitor](/bucket/trafficMonitor.json)   |     √     |    √     |    √     | **\*run** |
-|         [tts-vue](/bucket/tts-vue.json)          |     √     |        √      |        √         |           |
+|                       App                        | Persist | clear data | Forced uninstall | Notes     |
+| :----------------------------------------------: | :-----: | :--------: | :--------------: | --------- |
+|            [7zip](/bucket/7zip.json)             |    /    |     √      |        √         |           |
+|          [aardio](/bucket/aardio.json)           |    √    |     √      |        √         |           |
+|            [chfs](/bucket/chfs.json)             |    √    |     √      |        √         |           |
+|         [downKyi](/bucket/downkyi.json)          |    √    |     /      |        √         |           |
+|      [fastGithub](/bucket/fastGithub.json)       |    /    |     /      |        √         |           |
+| [Geek Uninstaller](/bucket/geekUninstaller.json) |    √    |     √      |        √         |           |
+|          [keyviz](/bucket/keyviz.json)           |    √    |     √      |        √         |           |
+|         [listary](/bucket/listary.json)          |    √    |     √      |        √         | **\*run** |
+|        [lx-music](/bucket/lx-music.json)         |    √    |     √      |        √         |           |
+|       [pyenv-win](/bucket/pyenv-win.json)        |    √    |     √      |        √         |           |
+|        [snipaste](/bucket/snipaste.json)         |    √    |     √      |        √         | **\*run** |
+|       [snipaste2](/bucket/snipaste2.json)        |    √    |     √      |        √         | **\*run** |
+|  [trafficMonitor](/bucket/trafficMonitor.json)   |    √    |     √      |        √         | **\*run** |
+|         [tts-vue](/bucket/tts-vue.json)          |    √    |     √      |        √         |           |
