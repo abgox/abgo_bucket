@@ -39,6 +39,11 @@ $out_dir = $cache_dir
 $out_file = (($app_content | Select-String -Pattern "^out=.*").Matches.Groups[0].Value).Substring(4)
 
 Remove-Item $app_txt -Force
+Get-ChildItem $cache_dir | Where-Object {
+    $_.Name -match "^$app.*\.aria2"
+}| ForEach-Object {
+    Remove-Item $_.FullName -Force
+}
 
 Write-Host "下载路径：$download_url" -f Green
 Write-Host "---------------" -f Cyan
