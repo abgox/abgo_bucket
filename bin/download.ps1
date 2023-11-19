@@ -1,4 +1,7 @@
-param($app)
+﻿param(
+    [string]$app,
+    [switch]$is_update
+)
 $scoop_dir = (Split-Path (Split-Path (Split-Path  (scoop prefix scoop) -Parent) -Parent) -Parent)
 $shims_dir = $scoop_dir + '\shims'
 $isExist_aria2 = Get-ChildItem $shims_dir | Where-Object { $_.Name -eq "aria2c.exe" }
@@ -41,7 +44,7 @@ $out_file = (($app_content | Select-String -Pattern "^out=.*").Matches.Groups[0]
 Remove-Item $app_txt -Force
 Get-ChildItem $cache_dir | Where-Object {
     $_.Name -match "^$app.*\.aria2"
-}| ForEach-Object {
+} | ForEach-Object {
     Remove-Item $_.FullName -Force
 }
 
@@ -50,4 +53,10 @@ Write-Host "---------------" -f Cyan
 Write-Host "请点击下载路径进行手动下载`n请输入下载完成的文件路径：" -f Yellow -NoNewline
 $download_path = $(Read-Host) -replace '"', ''
 Move-Item $download_path "$out_dir\$out_file" -Force
-scoop install $app -u
+
+if ($is_update) {
+    scoop update $app
+}
+else {
+    scoop install $app -u
+}
