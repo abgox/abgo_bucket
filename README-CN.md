@@ -59,7 +59,7 @@
 2. 用于整理我的常用应用
     - 有时候为了几个软件而去添加一个`bucket`，导致 `scoop bucket list` 有很多 `bucket`
     - 每次安装应用触发`bucket`的更新(或手动更新 `scoop update`)的时间很长，且大量更新对我无用
-        - 现在我知道它可以用`-u`来避免更新
+        - 当然现在我知道了它可以用`-u`来避免更新
         - 如: `scoop install sudo -u`
 
 ---
@@ -74,7 +74,8 @@
     -   **√**：已实现
     -   **x**：未实现
     -   **/**：没必要或不满足条件
-    -   **\*run** : 安装后会立即运行一次
+    -   **\*run**: 安装后会立即运行一次
+    -   **invalid**: 无效应用，已放入 deprecated(废弃) 文件夹中
 
 |                       应用                       | persist | 数据清理 | 强制卸载 | 备注      |
 | :----------------------------------------------: | :-----: | :------: | :------: | --------- |
@@ -82,7 +83,7 @@
 |          [aardio](/bucket/aardio.json)           |    √    |    √     |    √     |           |
 |            [chfs](/bucket/chfs.json)             |    √    |    √     |    √     |           |
 |         [downKyi](/bucket/downkyi.json)          |    √    |    /     |    √     |           |
-|      [fastGithub](/bucket/fastGithub.json)       |    /    |    /     |    √     |           |
+|    [fastGithub](/deprecated/fastGithub.json)     |    /    |    /     |    √     | **invalid**  |
 | [Geek Uninstaller](/bucket/geekUninstaller.json) |    √    |    √     |    √     |           |
 |          [keyviz](/bucket/keyviz.json)           |    √    |    √     |    √     |           |
 |         [listary](/bucket/listary.json)          |    √    |    √     |    √     | **\*run** |
