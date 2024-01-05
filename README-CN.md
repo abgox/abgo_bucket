@@ -77,19 +77,21 @@
     -   **\*run**: 安装后会立即运行一次
     -   **invalid**: 无效应用，已放入 deprecated(废弃) 文件夹中
 
-|                       应用                       | persist | 数据清理 | 强制卸载 | 备注      |
-| :----------------------------------------------: | :-----: | :------: | :------: | --------- |
-|            [7zip](/bucket/7zip.json)             |    /    |    √     |    √     |           |
-|          [aardio](/bucket/aardio.json)           |    √    |    √     |    √     |           |
-|            [chfs](/bucket/chfs.json)             |    √    |    √     |    √     |           |
-|         [downKyi](/bucket/downkyi.json)          |    √    |    /     |    √     |           |
-|    [fastGithub](/deprecated/fastGithub.json)     |    /    |    /     |    √     | **invalid**  |
-| [Geek Uninstaller](/bucket/geekUninstaller.json) |    √    |    √     |    √     |           |
-|          [keyviz](/bucket/keyviz.json)           |    √    |    √     |    √     |           |
-|         [listary](/bucket/listary.json)          |    √    |    √     |    √     | **\*run** |
-|        [lx-music](/bucket/lx-music.json)         |    √    |    √     |    √     |           |
-|       [pyenv-win](/bucket/pyenv-win.json)        |    √    |    √     |    √     |           |
-|        [snipaste](/bucket/snipaste.json)         |    √    |    √     |    √     | **\*run** |
-|       [snipaste2](/bucket/snipaste2.json)        |    √    |    √     |    √     | **\*run** |
-|  [trafficMonitor](/bucket/trafficMonitor.json)   |    √    |    √     |    √     | **\*run** |
-|         [tts-vue](/bucket/tts-vue.json)          |    √    |    √     |    √     |           |
+|                               应用                               | persist | 数据清理 | 强制卸载 | 备注        |
+| :--------------------------------------------------------------: | :-----: | :------: | :------: | ----------- |
+|                    [7zip](https://7-zip.org)                     |    /    |    √     |    √     |             |
+|                   [aardio](https://aardio.com)                   |    √    |    √     |    √     |             |
+|                  [chfs](http://iscute.cn/chfs)                   |    √    |    √     |    √     |             |
+|          [DownKyi](https://leiurayer.github.io/downkyi)          |    √    |    /     |    √     |             |
+|               [Final2x](https://final2x.tohru.top)               |    x    |    /     |    √     |             |
+|      [FastGithub](https://github.com/dotnetcore/FastGithub)      |    /    |    /     |    √     | **invalid** |
+|         [Geek Uninstaller](https://geekuninstaller.com)          |    √    |    √     |    √     |             |
+|           [Keyviz](https://mularahul.github.io/keyviz)           |    √    |    √     |    √     |             |
+|                [Listary](https://www.listary.com)                |    √    |    √     |    √     | **\*run**   |
+|               [LX-Music](https://docs.lxmusic.top)               |    √    |    √     |    √     |             |
+|                 [PixPin](https://pixpinapp.com)                  |    √    |    √     |    √     | **\*run**   |
+|       [pyenv-win](https://github.com/pyenv-win/pyenv-win)        |    √    |    √     |    √     |             |
+|               [Snipaste](https://www.snipaste.com)               |    √    |    √     |    √     | **\*run**   |
+|              [Snipaste2](https://www.snipaste.com)               |    √    |    √     |    √     | **\*run**   |
+| [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor) |    √    |    √     |    √     | **\*run**   |
+|           [tts-vue](https://github.com/LokerL/tts-vue)           |    √    |    √     |    √     |             |
