@@ -7,6 +7,6 @@
         "Original File",
         "Persist  File"
     ],
-    "stop_process":"Try to stop Process -- ",
+    "stop_process":"Try to stop possible Process -- ",
     "need_close":"{{$app_name}} needs to be manually closed to uninstall\nPlease confirm that you have closed it and press Enter to continue"
 }

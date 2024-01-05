@@ -1,12 +1,12 @@
 {
-    "less":"按下 Enter 键查看更多，按下其他任意键退出！(剩余 {{$lines}} 行)",
-    "persist_data":[
+    "less": "按下 Enter 键查看更多，按下其他任意键退出！(剩余 {{$lines}} 行)",
+    "persist_data": [
         "持久化数据(Persist Data)",
         "软件原数据目录",
         "持久化数据目录",
         "软件原数据文件",
         "持久化数据文件"
     ],
-    "stop_process":"尝试终止应用进程 -- ",
-    "need_close":"{{$app_name}} 需要先手动关闭软件再进行卸载\n请在确认已经关闭了软件后按下 Enter 键继续进行卸载流程"
+    "stop_process": "尝试终止可能存在的进程 -- ",
+    "need_close": "{{$app_name}} 需要先手动关闭软件再进行卸载\n请在确认已经关闭了软件后按下 Enter 键继续进行卸载流程"
 }
