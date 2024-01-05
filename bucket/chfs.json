@@ -31,7 +31,7 @@
         "    Set-Content \"$dir\\chfs.ini\" $null -Encoding Ascii",
         "}",
         "persist_file @(\"$dir\\chfs.ini\",\"$env:LocalAppData\\chfsgui\\chfs.setting.ini\",\"$env:LocalAppData\\chfsgui\\chfs.ini\") @(\"$persist_dir\\chfs.ini\",\"$persist_dir\\chfsgui.setting.ini\",\"$persist_dir\\chfsgui.ini\")",
-        "Rename-Item \"$dir\\chfs-windows-x64-$version.exe\" chfs.exe"
+        "Rename-Item \"$dir\\chfs-windows-x64-$version.exe\" chfs-windows-x64.exe"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
@@ -39,8 +39,17 @@
         "stop_process"
     ],
     "bin": [
-        "chfs.exe",
+        [
+            "chfs-windows-x64.exe",
+            "chfs"
+        ],
         "chfsgui.exe"
+    ],
+    "shortcuts": [
+        [
+            "chfsgui.exe",
+            "chfs Gui"
+        ]
     ],
     "checkver": {
         "regex": "chfs-windows-x64-([\\d.]+).zip"
