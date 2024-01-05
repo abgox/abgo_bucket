@@ -1,5 +1,6 @@
 name: Gitee repos mirror periodic job
 on:
+  workflow_dispatch:
   schedule:
     # 每天北京时间9点跑
     - cron:  '0 1 * * *'
