@@ -1,0 +1,21 @@
+name: Gitee repos mirror periodic job
+on:
+  schedule:
+    # 每天北京时间9点跑
+    - cron:  '0 1 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror the Github organization repos to Gitee.
+      uses: Yikun/gitee-mirror-action@v0.01
+      with:
+        src: github/abgox
+        dst: gitee/abgox
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token:  ${{ secrets.GITEE_TOKEN }}
+        # 如果是组织，指定组织即可，默认为用户user
+        # account_type: org
+        static_list: "abgo_bucket"
+        # black_list: 'repo_name,repo_name2'
+        # white_list: 'repo_name,repo_name2'
