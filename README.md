@@ -67,7 +67,7 @@
 -   Guide
     -   App：Sort by first letter(0-9,a-z).
     -   Persist: Important data of software is saved to `persist` under the installation directory of 'Scoop'.
-    -   clear data：When the software is uninstalled, delete data of the software (Except for `persist` data).
+    -   clear data：When the software is uninstalled, delete data of the software if it exists.(Except for `persist` data).
     -   Forced uninstall：When the software is running, using the `scoop uninstall <app_name>` will terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
     -   **√**：It has been done.
     -   **x**：It hasn't been done yet.
@@ -87,6 +87,7 @@
 |         [Geek Uninstaller](https://geekuninstaller.com)          |    √    |     √      |        √         |             |
 |           [Keyviz](https://mularahul.github.io/keyviz)           |    √    |     √      |        √         |             |
 |                [Listary](https://www.listary.com)                |    √    |     √      |        √         | **\*run**   |
+|               [LocalSend](https://localsend.org/)                |    √    |     √      |        √         |             |
 |               [LX-Music](https://docs.lxmusic.top)               |    √    |     √      |        √         |             |
 |                   [Motrix](https://motrix.app)                   |    √    |     √      |        √         |             |
 |   [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)   |    √    |     √      |        √         |             |

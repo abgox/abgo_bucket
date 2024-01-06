@@ -65,7 +65,7 @@
 -   说明
     -   应用：按照数字字母排序(0-9,a-z)
     -   persist: 软件重要数据保存到 `Scoop` 安装目录下的 `persist` 中
-    -   数据清理：当软件卸载后，删除软件数据(`persist` 数据除外)
+    -   数据清理：当软件卸载后，如果存在软件残留数据则删除(`persist` 数据除外)
     -   强制卸载：当软件正在运行时，使用 `scoop uninstall <app_name>` 会先终止进程，再进行卸载，避免卸载时出现软件正在使用，无法卸载的问题
     -   **√**：已实现
     -   **x**：未实现
@@ -85,6 +85,7 @@
 |         [Geek Uninstaller](https://geekuninstaller.com)          |    √    |    √     |    √     |             |
 |           [Keyviz](https://mularahul.github.io/keyviz)           |    √    |    √     |    √     |             |
 |                [Listary](https://www.listary.com)                |    √    |    √     |    √     | **\*run**   |
+|               [LocalSend](https://localsend.org/)                |    √    |    √     |    √     |             |
 |               [LX-Music](https://docs.lxmusic.top)               |    √    |    √     |    √     |             |
 |                   [Motrix](https://motrix.app)                   |    √    |    √     |    √     |             |
 |   [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)   |    √    |    √     |    √     |             |
