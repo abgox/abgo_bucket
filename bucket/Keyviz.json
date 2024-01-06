@@ -11,11 +11,9 @@
     },
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$app_exe= (Get-ChildItem 'D:\\__Scoop\\apps\\keyviz\\current'| Where-Object {$_.Name -like 'keyviz*.exe'}).Name",
+        "$app_exe= (Get-ChildItem 'D:\\__Scoop\\apps\\keyviz\\current'| Where-Object {$_.Name -like 'keyviz*.exe'}).FullName",
         "create_app_lnk $app_exe \"$scoop_apps_lnk\\keyviz.lnk\"",
-        "$data=@(\"$env:APPData\\com.example\\keyviz\")",
-        "$persist=@(\"$persist_dir\\keyviz\")",
-        "persist -dir $data $persist"
+        "persist -dir @(\"$env:APPData\\com.example\\keyviz\") @(\"$persist_dir\\keyviz\")"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

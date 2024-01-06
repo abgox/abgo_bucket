@@ -17,9 +17,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$env:APPData\\lx-music-desktop\\LxDatas\")",
-        "$persist=@(\"$persist_dir\\LxDatas\")",
-        "persist -dir $data $persist"
+        "persist -dir @(\"$env:APPData\\lx-music-desktop\") @(\"$persist_dir\")"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

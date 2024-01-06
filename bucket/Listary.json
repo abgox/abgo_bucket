@@ -14,9 +14,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$env:APPData\\Listary\\UserProfile\\Settings\")",
-        "$persist=@(\"$persist_dir\\UserProfile\\Settings\")",
-        "persist -dir $data $persist",
+        "persist -dir @(\"$env:APPData\\Listary\") @(\"$persist_dir\")",
         "explorer \"$dir\\Listary.exe\""
     ],
     "pre_uninstall": [

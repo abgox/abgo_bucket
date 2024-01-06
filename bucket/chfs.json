@@ -42,7 +42,8 @@
         "}",
         "$app_exe= (Get-ChildItem 'D:\\__Scoop\\apps\\chfs\\current'| Where-Object {$_.Name -like 'chfsgui.exe'}).FullName",
         "create_app_lnk $app_exe \"$scoop_apps_lnk\\chfs Gui.lnk\"",
-        "persist -file @(\"$dir\\chfs.ini\",\"$env:LocalAppData\\chfsgui\\chfs.setting.ini\",\"$env:LocalAppData\\chfsgui\\chfs.ini\") @(\"$persist_dir\\chfs.ini\",\"$persist_dir\\chfsgui.setting.ini\",\"$persist_dir\\chfsgui.ini\")"
+        "persist -file @(\"$dir\\chfs.ini\") @(\"$persist_dir\\chfs.ini\")",
+        "persist -dir @(\"$env:LocalAppData\\chfsgui\") @(\"$persist_dir\\chfsgui\")"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
@@ -52,7 +53,7 @@
     "post_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$scoop_apps_lnk\\chfs Gui.lnk\")",
+        "$data=@(\"$scoop_apps_lnk\\chfs Gui.lnk\",\"$env:LocalAppData\\chfsgui\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",
         "       Remove-Item -Force -Recurse $_",
