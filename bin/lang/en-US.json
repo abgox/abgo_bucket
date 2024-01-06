@@ -7,6 +7,12 @@
         "Original File",
         "Persist  File"
     ],
+    "persist_err":[
+        "This is an error in the application manifest.\n",
+        "The function (persist) must specify the parameter -dir or -file.\n",
+        "The function (persist) has been terminated, and the built-in option(persist) in Scoop is not affected (if it's configured)"
+    ],
+    "shortcut":"Creating shortcut for {{$app}}\n{{$lnk_path}}",
     "stop_process":"Try to stop possible Process -- ",
     "need_close":"{{$app_name}} needs to be manually closed to uninstall\nPlease confirm that you have closed it and press Enter to continue"
 }

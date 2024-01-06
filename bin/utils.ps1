@@ -1,10 +1,16 @@
-$lang = (Get-WinSystemLocale).name
-if ($lang -ne 'zh-CN') {
+try {
+    $lang = (Get-WinSystemLocale).name
+    if ($lang -ne 'zh-CN') {
+        $lang = 'en-US'
+    }
+}
+catch {
     $lang = 'en-US'
 }
+
 $json = Get-Content -Path "$PSScriptRoot\lang\$lang.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 
-$scoop_apps_lnk= "$env:AppData\Microsoft\Windows\Start Menu\Programs\Scoop Apps"
+$scoop_apps_lnk = "$env:AppData\Microsoft\Windows\Start Menu\Programs\Scoop Apps"
 function data_replace($data) {
     $data = $data -join ''
     $pattern = '\{\{(.*?(\})*)(?=\}\})\}\}'
@@ -18,7 +24,7 @@ function data_replace($data) {
     else { return $data }
 }
 
-function less($str_list, $do = {}, $color = 'Green', $show_line) {
+function less([array]$str_list, [scriptblock]$do = {}, [string]$color = 'Green', [int]$show_line) {
     $i = 0
     $cmd_line = if ($show_line) { $show_line }else { [System.Console]::WindowHeight - 10 }
     $lines = $str_list.Count - $cmd_line
@@ -42,51 +48,58 @@ function less($str_list, $do = {}, $color = 'Green', $show_line) {
     }
 }
 
-function create_parent_dir($path) {
+function create_parent_dir([string]$path) {
     $parent_path = Split-Path $path -Parent
     if (!(Test-Path $parent_path)) {
         New-Item -ItemType Directory $parent_path > $null
     }
 }
 
-function create_app_lnk($app_path,$lnk_path){
+function create_app_lnk([string]$app_path, [string]$lnk_path) {
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($lnk_path)
-    $Shortcut.TargetPath =$app_path
+    $Shortcut.TargetPath = $app_path
     $Shortcut.Save()
+    $app = Split-Path $app_path -Leaf
+    Write-Host (data_replace $json.shortcut) -f Green
 }
 
-# persist dir
-function persist($data_list, $persist_list = @($persist_dir)) {
-    function _do($data_dir, $persist_dir = $persist_list[0]) {
-        create_parent_dir $data_dir
-        create_parent_dir $persist_dir
-        if (Test-Path $persist_dir) {
-            if (Test-Path $data_dir) {
-                sudo.ps1 Remove-Item -Force -Recurse $data_dir
+function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file) {
+    if (!($dir -or $file)) {
+        Write-Error (data_replace $json.persist_err)
+        return
+    }
+    function _do($_data, $_persist) {
+        create_parent_dir $_data
+        create_parent_dir $_persist
+        if (Test-Path $_persist) {
+            if (Test-Path $_data) {
+                sudo.ps1 Remove-Item -Force -Recurse $_data
             }
         }
         else {
-            New-Item -ItemType Directory $persist_dir > $null
-            if (Test-Path($data_dir)) {
-                $isLink = (Get-Item $data_dir).Attributes -match "ReparsePoint"
+            if ($dir) {
+                New-Item -ItemType Directory $_persist > $null
+            }
+            elseif ($file) {
+                New-Item $_persist > $null
+            }
+            if (Test-Path($_data)) {
+                $isLink = (Get-Item $_data).Attributes -match "ReparsePoint"
                 if (!$isLink) {
-                    sudo.ps1 Move-Item "$data_dir\*" $persist_dir -Force
+                    sudo.ps1 Move-Item "$_data\*" $_persist -Force
                 }
-                else { sudo.ps1 Remove-Item -Force -Recurse $data_dir }
+                else { sudo.ps1 Remove-Item -Force -Recurse $_data }
             }
         }
-
-
         $sudo_path = "$PSScriptRoot\sudo.ps1"
         $link = Start-Job -ScriptBlock {
-            param($sudo_path, $data_dir, $persist_dir)
-            Invoke-Expression "$sudo_path New-Item -ItemType SymbolicLink `"$data_dir`" -Target `"$persist_dir`""
-        } -ArgumentList $sudo_path, $data_dir, $persist_dir
+            param($sudo_path, $_data, $_persist)
+            Invoke-Expression "$sudo_path New-Item -ItemType SymbolicLink `"$_data`" -Target `"$_persist`""
+        } -ArgumentList $sudo_path, $_data, $_persist
         $state = (Wait-Job $link).HasMoreData
         return $state
     }
-
     $result = @()
     for ($i = 0; $i -lt $data_list.Count; $i++) {
         $state = _do $data_list[$i] $persist_list[$i]
@@ -98,67 +111,30 @@ function persist($data_list, $persist_list = @($persist_dir)) {
         }
     }
     Write-Host "`n--------------------- $($json.persist_data[0])" -f Yellow
+
     $flag = 0
+    if ($dir) {
+        $text = @{
+            origin  = $json.persist_data[1]
+            persist = $json.persist_data[2]
+        }
+    }
+    elseif ($file) {
+        $text = @{
+            origin  = $json.persist_data[3]
+            persist = $json.persist_data[4]
+        }
+    }
     $result | ForEach-Object {
         if ($flag -gt 0) { Write-Host "---------------------" -f Cyan }
-        Write-Host "$($json.persist_data[1]) -- $($_.data)" -f Green
-        Write-Host "$($json.persist_data[2]) -- $($_.persist)" -f Green
+        Write-Host "$($text.origin) -- $($_.data)" -f Green
+        Write-Host "$($text.persist) -- $($_.persist)" -f Green
         $flag++
     }
     Write-Host "---------------------`n" -f Yellow
 }
 
-function persist_file($data_list, $persist_list) {
-    function _do($data_file, $persist_file) {
-        create_parent_dir $data_file
-        create_parent_dir $persist_file
-        if (Test-Path $persist_file) {
-            if (Test-Path $data_file) {
-                sudo.ps1 Remove-Item -Force -Recurse $data_file
-            }
-        }
-        else {
-            New-Item $persist_file
-            if (Test-Path($data_file)) {
-                $isLink = (Get-Item $data_file).Attributes -match "ReparsePoint"
-                if (!$isLink) {
-                    sudo.ps1 Move-Item $data_file $persist_file -Force
-                }
-                else { sudo.ps1 Remove-Item -Force $data_file }
-            }
-        }
-
-        $sudo_path = "$PSScriptRoot\sudo.ps1"
-        $link = Start-Job -ScriptBlock {
-            param($sudo_path, $data_file, $persist_file)
-            Invoke-Expression "$sudo_path New-Item -ItemType SymbolicLink $data_file -Target $persist_file"
-        } -ArgumentList $sudo_path, $data_file, $persist_file
-        $state = (Wait-Job $link).HasMoreData
-        return $state
-    }
-
-    $result = @()
-    for ($i = 0; $i -lt $data_list.Count; $i++) {
-        $state = _do $data_list[$i] $persist_list[$i]
-        if ($state) {
-            $result += @{
-                data    = $data_list[$i]
-                persist = $persist_list[$i]
-            }
-        }
-    }
-    Write-Host "--------------------- $($json.persist_data[0])" -f Yellow
-    $flag = 0
-    $result | ForEach-Object {
-        if ($flag -gt 0) { Write-Host "---------------------" -f Cyan }
-        Write-Host "$($json.persist_data[3]) -- $($_.data)" -f Green
-        Write-Host "$($json.persist_data[4]) -- $($_.persist)" -f Green
-        $flag++
-    }
-    Write-Host "---------------------`n" -f Yellow
-}
-
-function stop_process($app_dir = $dir) {
+function stop_process([string]$app_dir = $dir) {
     Get-ChildItem $app_dir -Recurse | Where-Object { $_.Extension -match '\.exe$' } | ForEach-Object {
         sudo.ps1 Stop-Process -Name $_.BaseName -Force -ErrorAction SilentlyContinue
         Write-Host ($json.stop_process + $_.FullName) -f Cyan
@@ -166,7 +142,7 @@ function stop_process($app_dir = $dir) {
     sudo.ps1 Remove-Item $app_dir -Force -Recurse -ErrorAction SilentlyContinue
 }
 
-function confirm($tip_info) {
+function confirm([string]$tip_info) {
     while ($true) {
         Write-Host $tip_info -f Yellow
         $keyCode = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown").VirtualKeyCode
