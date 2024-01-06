@@ -1,0 +1,46 @@
+{
+    "version": "1.8.19",
+    "description": "A full-featured download manager. 一个全功能的下载器",
+    "homepage": "https://motrix.app",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/agalwood/Motrix/releases/download/v1.8.19/Motrix-1.8.19-win.zip",
+            "hash": "5238865630e99dc4981bcc6082ba2b8221c4a543f35b41c0205a34984fd8f3b5"
+        }
+    },
+    "shortcuts": [
+        [
+            "Motrix.exe",
+            "Motrix"
+        ]
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist @(\"$env:APPDATA\\Motrix\") @(\"$persist_dir\")"
+    ],
+    "pre_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
+    "post_uninstall": [
+        "$data=@(\"$env:APPData\\Motrix\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
+        "}"
+    ],
+    "checkver": {
+        "github": "https://github.com/agalwood/Motrix"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/agalwood/Motrix/releases/download/v$version/Motrix-$version-win.zip"
+            }
+        }
+    }
+}

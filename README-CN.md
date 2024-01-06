@@ -86,6 +86,7 @@
 |           [Keyviz](https://mularahul.github.io/keyviz)           |    √    |    √     |    √     |             |
 |                [Listary](https://www.listary.com)                |    √    |    √     |    √     | **\*run**   |
 |               [LX-Music](https://docs.lxmusic.top)               |    √    |    √     |    √     |             |
+|                   [Motrix](https://motrix.app)                   |    √    |    √     |    √     |             |
 |   [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)   |    √    |    √     |    √     |             |
 |                 [PixPin](https://pixpinapp.com)                  |    √    |    √     |    √     | **\*run**   |
 |       [pyenv-win](https://github.com/pyenv-win/pyenv-win)        |    √    |    √     |    √     |             |
