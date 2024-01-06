@@ -3,7 +3,8 @@
     "homepage": "https://github.com/LokerL/tts-vue",
     "description": "🎤 Microsoft speech synthesis tool, built using Electron + Vue + ElementPlus + Vite. 🎤 微软语音合成工具，使用 Electron + Vue + ElementPlus + Vite 构建。",
     "license": {
-        "identifier": "Freeware"
+        "identifier": "MIT",
+        "url": "https://github.com/LokerL/tts-vue/blob/main/LICENSE"
     },
     "architecture": {
         "64bit": {
@@ -12,10 +13,20 @@
         }
     },
     "post_install": [
-        "$CmdString = \"$dir\\$version\\tts-vue-$version.exe /S /D=$dir\\$version\"",
-        "Invoke-Expression $CmdString",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:APPData\\tts-vue\") @(\"$persist_dir\")"
+        "$CmdString = \"$dir\\$version\\tts-vue-$version.exe /S /D=$dir\"",
+        "Invoke-Expression $CmdString",
+        "create_app_lnk \"$dir\\tts-vue.exe\" \"$scoop_apps_lnk\\tts-vue.lnk\"",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$env:APPData\\tts-vue\") @(\"$persist_dir\")",
+        "Write-Host \"There will be a delayed backend behavior soon: Delete redundant files after 10 seconds\n\" -f Yellow",
+        "$null=Start-Job -ScriptBlock {",
+        "   param($path1,$path2)",
+        "   Start-Sleep -Seconds 10",
+        "   @($path1,$path2) | ForEach-Object {",
+        "       if (Test-Path($_)) { Remove-Item -Force -Recurse $_ }",
+        "   }",
+        "} -ArgumentList \"$dir\\$version\",\"$env:AppData\\Microsoft\\Windows\\Start Menu\\Programs\\tts-vue.lnk\""
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
@@ -23,7 +34,9 @@
         "stop_process"
     ],
     "post_uninstall": [
-        "$data=@(\"$env:APPData\\Microsoft\\Windows\\Start Menu\\Programs\\tts-vue.lnk\",\"$env:APPData\\tts-vue\")",
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$data=@(\"$env:APPData\\tts-vue\",\"$scoop_apps_lnk\\tts-vue.lnk\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",
         "       Remove-Item -Force -Recurse $_",
@@ -33,7 +46,6 @@
     ],
     "checkver": "github",
     "autoupdate": {
-        "note": "Thanks for using autoupdate, please test your updates!",
         "url": "https://github.com/LokerL/tts-vue/releases/download/$version/tts-vue-windows-latest.zip"
     }
 }
