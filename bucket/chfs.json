@@ -1,7 +1,7 @@
 {
     "version": "3.1",
-    "description": "CuteHttpFileServer(chfs) is a free file sharing http server tool. CuteHttpFileServer(chfs)是一个免费的http服务器文件共享工具，通过局域网实现文件传输",
     "homepage": "http://iscute.cn/chfs",
+    "description": "CuteHttpFileServer(chfs) is a free file sharing http server tool. CuteHttpFileServer(chfs)是一个免费的http服务器文件共享工具，通过局域网实现文件传输",
     "license": "Freeware",
     "architecture": {
         "64bit": {
@@ -25,19 +25,6 @@
             ]
         }
     },
-    "pre_install": [
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "if (!(Test-Path \"$persist_dir\\chfs.ini\")) {",
-        "    Set-Content \"$dir\\chfs.ini\" $null -Encoding Ascii",
-        "}",
-        "persist_file @(\"$dir\\chfs.ini\",\"$env:LocalAppData\\chfsgui\\chfs.setting.ini\",\"$env:LocalAppData\\chfsgui\\chfs.ini\") @(\"$persist_dir\\chfs.ini\",\"$persist_dir\\chfsgui.setting.ini\",\"$persist_dir\\chfsgui.ini\")",
-        "Rename-Item \"$dir\\chfs-windows-x64-$version.exe\" chfs-windows-x64.exe"
-    ],
-    "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
     "bin": [
         [
             "chfs-windows-x64.exe",
@@ -45,11 +32,33 @@
         ],
         "chfsgui.exe"
     ],
-    "shortcuts": [
-        [
-            "chfsgui.exe",
-            "chfs Gui"
-        ]
+    "pre_install": [
+        "Rename-Item \"$dir\\chfs-windows-x64-$version.exe\" chfs-windows-x64.exe"
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "if (!(Test-Path \"$persist_dir\\chfs.ini\")) {",
+        "    Set-Content \"$dir\\chfs.ini\" $null -Encoding Ascii",
+        "}",
+        "$app_exe= (Get-ChildItem 'D:\\__Scoop\\apps\\chfs\\current'| Where-Object {$_.Name -like 'chfsgui.exe'}).FullName",
+        "create_app_lnk $app_exe \"$scoop_apps_lnk\\chfs Gui.lnk\"",
+        "persist -file @(\"$dir\\chfs.ini\",\"$env:LocalAppData\\chfsgui\\chfs.setting.ini\",\"$env:LocalAppData\\chfsgui\\chfs.ini\") @(\"$persist_dir\\chfs.ini\",\"$persist_dir\\chfsgui.setting.ini\",\"$persist_dir\\chfsgui.ini\")"
+    ],
+    "pre_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
+    "post_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$data=@(\"$scoop_apps_lnk\\chfs Gui.lnk\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
+        "}"
     ],
     "checkver": {
         "regex": "chfs-windows-x64-([\\d.]+).zip"

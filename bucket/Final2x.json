@@ -1,19 +1,14 @@
 {
     "version": "1.2.0",
-    "description": "2^x Image Super-Resolution. 2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具",
     "homepage": "https://github.com/Tohrusky/Final2x",
-    "license": "BSD 3-Clause License",
+    "description": "2^x Image Super-Resolution. 2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具",
+    "license": "BSD 3-Clause",
     "architecture": {
         "64bit": {
             "url": "https://github.com/Tohrusky/Final2x/releases/download/2024-01-02/Final2x-windows-x64-unpacked.zip",
             "hash": "8d7231827c193caa2a743c2734ac17f6f51440224448212f76afdfd9f2d3bb3e"
         }
     },
-    "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
     "bin": "final2x.exe",
     "shortcuts": [
         [
@@ -21,13 +16,17 @@
             "Final2x"
         ]
     ],
+    "pre_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
     "checkver": {
         "url": "https://github.com/Tohrusky/Final2x/releases",
         "regex": "<a.+tag/(?<date>[\\d-]+).+>v(?<version>[\\d.]+)",
         "replace": "${version}"
     },
     "autoupdate": {
-        "note": "Thanks for using autoupdate, please test your updates!",
         "url": "https://github.com/Tohrusky/Final2x/releases/download/$matchDate/Final2x-windows-x64-unpacked.zip"
     }
 }

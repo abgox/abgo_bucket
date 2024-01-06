@@ -1,7 +1,7 @@
 {
     "version": "1.84.1",
+    "homepage": "https://github.com/zhongyang219/TrafficMonitor",
     "description": "Network monitoring floating window software on Windows. It can display the current network speed, CPU and memory usage. It also supports being embedded into the taskbar, theme changing and traffic statistics. Windows上的网络监控窗口软件。可显示当前网络速度/CPU/内存使用情况。支持嵌入任务栏/主题更改/流量统计",
-    "homepage": "https://github.com/zhongyang219/TrafficMonitor/blob/master/README_en-us.md",
     "license": "MIT",
     "suggest": {
         "vcredist": "extras/vcredist2022"
@@ -17,12 +17,18 @@
         }
     },
     "extract_dir": "TrafficMonitor",
+    "shortcuts": [
+        [
+            "TrafficMonitor.exe",
+            "TrafficMonitor"
+        ]
+    ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist @(\"$dir\\plugins\") @(\"$persist_dir\\plugins\")",
         "$data=@(\"$dir\\config.ini\",\"$dir\\global_cfg.ini\")",
         "$persist=@(\"$persist_dir\\config.ini\",\"$persist_dir\\global_cfg.ini\")",
-        "persist_file $data $persist"
+        "persist -file $data $persist"
     ],
     "post_install":[
         "explorer \"$dir\\TrafficMonitor.exe\""
@@ -42,12 +48,6 @@
         "       Write-Host \"Removing $_\" -f Yellow",
         "   }",
         "}"
-    ],
-    "shortcuts": [
-        [
-            "TrafficMonitor.exe",
-            "TrafficMonitor"
-        ]
     ],
     "checkver": {
         "github": "https://github.com/zhongyang219/TrafficMonitor"

@@ -1,7 +1,7 @@
 {
     "version": "2.5.0",
-    "description": "An electron-based music player. 一个基于 electron 的音乐软件",
     "homepage": "https://github.com/lyswhut/lx-music-desktop",
+    "description": "An electron-based music player. 一个基于 electron 的音乐软件",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
@@ -19,7 +19,7 @@
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$data=@(\"$env:APPData\\lx-music-desktop\\LxDatas\")",
         "$persist=@(\"$persist_dir\\LxDatas\")",
-        "persist $data $persist"
+        "persist -dir $data $persist"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

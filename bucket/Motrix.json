@@ -1,7 +1,7 @@
 {
     "version": "1.8.19",
-    "description": "A full-featured download manager. 一个全功能的下载器",
     "homepage": "https://motrix.app",
+    "description": "A full-featured download manager. 一个全功能的下载器",
     "license": "MIT",
     "architecture": {
         "64bit": {
@@ -17,7 +17,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist @(\"$env:APPDATA\\Motrix\") @(\"$persist_dir\")"
+        "persist -dir @(\"$env:APPDATA\\Motrix\") @(\"$persist_dir\")"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

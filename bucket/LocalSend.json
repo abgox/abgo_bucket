@@ -1,7 +1,7 @@
 {
     "version": "1.13.1",
-    "description": "Share files to nearby devices. An open source cross-platform alternative to AirDrop. 将文件共享到附近的设备。免费、开源、跨平台。",
     "homepage": "https://localsend.org/",
+    "description": "Share files to nearby devices. An open source cross-platform alternative to AirDrop. 将文件共享到附近的设备。免费、开源、跨平台。",
     "license": "MIT",
     "architecture": {
         "64bit": {
@@ -9,15 +9,6 @@
             "hash": "601a24aa5765eb75750ad6c8a1d7606944ba63b3f073284dadd7a10f26239c16"
         }
     },
-    "pre_install": [
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist_file @(\"$dir\\settings.json\") @(\"$persist_dir\\settings.json\")"
-    ],
-    "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
     "bin": [
         [
             "localsend_app.exe",
@@ -30,6 +21,16 @@
             "LocalSend"
         ]
     ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -file @(\"$dir\\settings.json\") @(\"$persist_dir\\settings.json\")"
+    ],
+    "pre_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
+
     "checkver": {
         "github": "https://github.com/localsend/localsend"
     },

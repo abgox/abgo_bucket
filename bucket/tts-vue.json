@@ -1,6 +1,6 @@
 {
-    "homepage": "https://github.com/LokerL/tts-vue",
     "version": "1.9.15",
+    "homepage": "https://github.com/LokerL/tts-vue",
     "description": "🎤 Microsoft speech synthesis tool, built using Electron + Vue + ElementPlus + Vite. 🎤 微软语音合成工具，使用 Electron + Vue + ElementPlus + Vite 构建。",
     "license": {
         "identifier": "Freeware"
@@ -15,7 +15,7 @@
         "$CmdString = \"$dir\\$version\\tts-vue-$version.exe /S /D=$dir\\$version\"",
         "Invoke-Expression $CmdString",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist_file @(\"$env:APPData\\tts-vue\\config.json\") @(\"$persist_dir\\config.json\")"
+        "persist -file @(\"$env:APPData\\tts-vue\\config.json\") @(\"$persist_dir\\config.json\")"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

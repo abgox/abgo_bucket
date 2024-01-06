@@ -1,8 +1,8 @@
 {
     "version": "1.35.1",
-    "description": "Fast and simple Node.js version manager, built in Rust. 快速、简单的 Node.js 版本管理器，采用 Rust 内建",
     "homepage": "https://github.com/Schniz/fnm",
-    "license": "GPL-3.0 license",
+    "description": "Fast and simple Node.js version manager, built in Rust. 快速、简单的 Node.js 版本管理器，采用 Rust 内建",
+    "license": "GPL-3.0",
     "notes": [
         "Don't forget to add \"fnm env --use-on-cd | Out-String | Invoke-Expression\" to your powershell profile.",
         "不要忘记添加 \"fnm env --use-on-cd | Out-String | Invoke-Expression\" 到你的 powershell 配置文件"

@@ -1,7 +1,7 @@
 {
     "version": "231220",
-    "description": "Highly customizable media player. 高度可定制的媒体播放器",
     "homepage": "https://potplayer.daum.net",
+    "description": "Highly customizable media player. 高度可定制的媒体播放器",
     "license": {
         "identifier": "Freeware",
         "url": "https://potplayer.daum.net/publicRelation"
@@ -36,6 +36,18 @@
             ]
         }
     },
+    "persist": [
+        "Capture",
+        "Extension",
+        "Extention",
+        "IconPack",
+        "Logos",
+        "Module",
+        "Playlist",
+        "PxShader",
+        "Skins",
+        "UrlList"
+    ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$config = @(",
@@ -55,25 +67,13 @@
         "   }",
         "}",
         "if($data_arr.Count -gt 0){",
-        "   persist_file $data_arr $persist_arr",
+        "   persist -file $data_arr $persist_arr",
         "}"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
         "stop_process"
-    ],
-    "persist": [
-        "Capture",
-        "Extension",
-        "Extention",
-        "IconPack",
-        "Logos",
-        "Module",
-        "Playlist",
-        "PxShader",
-        "Skins",
-        "UrlList"
     ],
     "checkver": {
         "url": "https://t1.daumcdn.net/potplayer/PotPlayer/v4/Update2/UpdateEng.html",

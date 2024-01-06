@@ -1,7 +1,7 @@
 {
     "version": "23.01",
-    "description": "A multi-format file archiver with high compression ratios. 具有高压缩比的多格式文件归档器",
     "homepage": "https://www.7-zip.org/",
+    "description": "A multi-format file archiver with high compression ratios. 具有高压缩比的多格式文件归档器",
     "license": "LGPL-2.1-or-later",
     "architecture": {
         "64bit": {
@@ -63,6 +63,7 @@
         "regex": "Download 7-Zip ([\\d.]+)"
     },
     "autoupdate": {
+        "note": "Thanks for using autoupdate, please test your updates!",
         "architecture": {
             "64bit": {
                 "url": "https://www.7-zip.org/a/7z$cleanVersion-x64.msi"

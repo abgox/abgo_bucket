@@ -1,7 +1,7 @@
 {
     "version": "23.10",
-    "description": "A post-modern modal text editor. 后现代文本编辑器",
     "homepage": "https://helix-editor.com",
+    "description": "A post-modern modal text editor. 后现代文本编辑器",
     "license": "MPL-2.0",
     "suggest": {
         "vcredist": "extras/vcredist2022"
@@ -13,9 +13,21 @@
             "extract_dir": "helix-23.10-x86_64-windows"
         }
     },
+    "bin": [
+        [
+            "hx.exe",
+            "hx",
+            "--config \"$persist_dir\\config.toml\""
+        ],
+        [
+            "hx.exe",
+            "helix",
+            "--config \"$persist_dir\\config.toml\""
+        ]
+    ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist_file @(\"$env:APPDATA\\helix\\config.toml\") @(\"$persist_dir\\config.toml\")"
+        "persist -file @(\"$env:APPDATA\\helix\\config.toml\") @(\"$persist_dir\\config.toml\")"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
@@ -30,18 +42,6 @@
         "       Write-Host \"Removing $_\" -f Yellow",
         "   }",
         "}"
-    ],
-    "bin": [
-        [
-            "hx.exe",
-            "hx",
-            "--config \"$persist_dir\\config.toml\""
-        ],
-        [
-            "hx.exe",
-            "helix",
-            "--config \"$persist_dir\\config.toml\""
-        ]
     ],
     "checkver": {
         "github": "https://github.com/helix-editor/helix"

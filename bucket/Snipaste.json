@@ -1,7 +1,7 @@
 {
     "version": "1.16.2",
-    "description": "A snipping tool, which allows you to pin the screenshot back onto the screen. 一个剪切工具，可以让你把截图固定在屏幕上",
     "homepage": "https://www.snipaste.com/",
+    "description": "A snipping tool, which allows you to pin the screenshot back onto the screen. 一个剪切工具，可以让你把截图固定在屏幕上",
     "license": "Unknown",
     "suggest": {
         "vcredist": "extras/vcredist2022"
@@ -16,6 +16,13 @@
             "hash": "sha1:c198dfa47010e6591e51299d985d7411e80d1f54"
         }
     },
+    "bin": "Snipaste.exe",
+    "shortcuts": [
+        [
+            "Snipaste.exe",
+            "Snipaste"
+        ]
+    ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "Write-Host \"--------------------- $($json.persist_data[0])\" -f Yellow",
@@ -31,13 +38,6 @@
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
         "stop_process"
-    ],
-    "bin": "Snipaste.exe",
-    "shortcuts": [
-        [
-            "Snipaste.exe",
-            "Snipaste"
-        ]
     ],
     "checkver": "(?sm)Desktop.*?>v([\\d.]+) [^B]",
     "autoupdate": {
