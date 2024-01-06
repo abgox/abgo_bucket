@@ -26,7 +26,7 @@
         "   @($path1,$path2) | ForEach-Object {",
         "       if (Test-Path($_)) { Remove-Item -Force -Recurse $_ }",
         "   }",
-        "} -ArgumentList \"$dir\\$version\",\"$env:AppData\\Microsoft\\Windows\\Start Menu\\Programs\\tts-vue.lnk\""
+        "} -ArgumentList \"$dir\\$version\",\"$env:UserProfile\\Desktop\\tts-vue.lnk\",\"$env:AppData\\Microsoft\\Windows\\Start Menu\\Programs\\tts-vue.lnk\""
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
