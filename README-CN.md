@@ -93,11 +93,12 @@
 |                      [Helix](https://helix-editor.com)                      |    √    |    √     |    √     |             |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |    √    |    √     |    √     |             |
 |                     [Listary](https://www.listary.com)                      |    √    |    √     |    √     | **\*run**   |
-|                     [LocalSend](https://localsend.org/)                     |    √    |    √     |    √     |             |
+|                     [LocalSend](https://localsend.org)                      |    √    |    √     |    √     |             |
 |                    [LX-Music](https://docs.lxmusic.top)                     |    √    |    √     |    √     |             |
 |                        [Motrix](https://motrix.app)                         |    √    |    √     |    √     |             |
 |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |    √    |    √     |    √     |             |
-|                        [Neovim](https://neovim.io/)                         |    √    |    √     |    √     |             |
+|                         [Neovim](https://neovim.io)                         |    √    |    √     |    √     |             |
+|                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |    √     |    √     |             |
 |                       [PixPin](https://pixpinapp.com)                       |    √    |    √     |    √     | **\*run**   |
 |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |    √     |    √     |             |
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |    √    |    √     |    √     |             |
