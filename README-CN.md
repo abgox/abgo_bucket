@@ -52,15 +52,11 @@
 
     - 一些软件并没有进行`persist`
         - 没有必要持久化数据的软件除外
-    - 软件卸载后,本地数据没有得到及时清理(如 `~/AppData/Roaming` 下的软件数据)
+    - 软件卸载后,本地数据没有得到及时清理(如 `$env:AppData` 下的软件数据)
     - 软件卸载时，存在进程占用无法卸载问题
     - ...
 
-2. 用于整理我的常用应用
-    - 有时候为了几个软件而去添加一个`bucket`，导致 `scoop bucket list` 有很多 `bucket`
-    - 每次安装应用触发`bucket`的更新(或手动更新 `scoop update`)的时间很长，且大量更新对我无用
-        - 当然现在我知道了它可以用`-u`来避免更新
-        - 如: `scoop install sudo -u`
+2. 主要用于整理我的常用应用
 
 ---
 
@@ -95,3 +91,4 @@
 |              [Snipaste2](https://www.snipaste.com)               |    √    |    √     |    √     | **\*run**   |
 | [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor) |    √    |    √     |    √     | **\*run**   |
 |           [tts-vue](https://github.com/LokerL/tts-vue)           |    √    |    √     |    √     |             |
+|      [XBYDriver](https://github.com/gaozhangmin/aliyunpan)       |    √    |    √     |    √     |             |

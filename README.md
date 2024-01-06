@@ -53,18 +53,12 @@
 1. When using official or third-party `buckets`, there may be the following issues.
 
     - Some Apps doesn't `persist` data.
-        - It doesn't include Apps that do not necessarily `persist` data.
-    - After uninstalling App, local data was not cleaned up. (eg. the App's data under `~/AppData/Roaming`)
+        - They don't include Apps that do not necessarily `persist` data.
+    - After uninstalling App, local data was not cleaned up. (e.g. the App's data under `$env:AppData`)
     - When uninstalling App, there's a problem where the process is occupied and cannot be uninstalled.
     - ...
 
 2. Organize my commonly used apps.
-
-    - Sometimes, to add a `bucket` for few App, and it causes too many buckets.(`scoop bucket list`)
-
-    - Every time I install an App, it takes a long time to trigger updates to the `bucket` (or manually update by running `scoop update`), and a large number of updates are useless to me.
-        - Now I know that It can avoid triggering the update with the `-u` parameter, very cool !
-        - eg. `scoop install sudo -u`
 
 ---
 
@@ -99,3 +93,4 @@
 |              [Snipaste2](https://www.snipaste.com)               |    √    |     √      |        √         | **\*run**   |
 | [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor) |    √    |     √      |        √         | **\*run**   |
 |           [tts-vue](https://github.com/LokerL/tts-vue)           |    √    |     √      |        √         |             |
+|      [XBYDriver](https://github.com/gaozhangmin/aliyunpan)       |    √    |     √      |        √         |             |
