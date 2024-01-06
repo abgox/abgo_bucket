@@ -1,0 +1,60 @@
+{
+    "version": "0.9.5",
+    "homepage": "https://neovim.io/",
+    "description": "Neovim is a project that seeks to aggressively refactor Vim. Neovim 文本编辑器是一个旨在重构 Vim的一个项目",
+    "license": {
+        "identifier": "Apache-2.0,Vim",
+        "url": "https://github.com/neovim/neovim/blob/master/LICENSE"
+    },
+    "suggest": {
+        "vcredist": "extras/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-win64.zip",
+            "hash": "de6dc1f0edb45f5f225ee24ce80a4fcbc3a337932037e98ae143975fca2556bf"
+        }
+    },
+    "extract_dir": "nvim-win64",
+    "bin": [
+        "bin\\nvim.exe",
+        "bin\\nvim-qt.exe"
+    ],
+    "shortcuts": [
+        [
+            "bin\\nvim-qt.exe",
+            "Neovim"
+        ]
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$env:LocalAppData\\nvim\",\"$env:LocalAppData\\nvim-data\") @(\"$persist_dir\\nvim\",\"$persist_dir\\nvim-data\")"
+    ],
+    "pre_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
+    "post_uninstall": [
+        "$data=@(\"$env:LocalAppData\\nvim\",\"$env:LocalAppData\\nvim-data\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
+        "}"
+    ],
+    "checkver": {
+        "github": "https://github.com/neovim/neovim"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/neovim/neovim/releases/download/v$version/nvim-win64.zip"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256sum"
+        }
+    }
+}

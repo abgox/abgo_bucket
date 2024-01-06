@@ -97,6 +97,7 @@
 |               [LX-Music](https://docs.lxmusic.top)               |    √    |    √     |    √     |             |
 |                   [Motrix](https://motrix.app)                   |    √    |    √     |    √     |             |
 |   [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)   |    √    |    √     |    √     |             |
+|                   [Neovim](https://neovim.io/)                   |    √    |    √     |    √     |             |
 |                 [PixPin](https://pixpinapp.com)                  |    √    |    √     |    √     | **\*run**   |
 |             [PotPlayer](https://potplayer.daum.net)              |    √    |    √     |    √     |             |
 |       [pyenv-win](https://github.com/pyenv-win/pyenv-win)        |    √    |    √     |    √     |             |
