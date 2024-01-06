@@ -4,8 +4,8 @@ if ($lang -ne 'zh-CN') {
 }
 $json = Get-Content -Path "$PSScriptRoot\lang\$lang.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 
-$scoop_apps_lnk = "$env:AppData\Microsoft\Windows\Start Menu\Programs\Scoop Apps"
-function __replace($data) {
+$scoop_apps_lnk= "$env:AppData\Microsoft\Windows\Start Menu\Programs\Scoop Apps"
+function data_replace($data) {
     $data = $data -join ''
     $pattern = '\{\{(.*?(\})*)(?=\}\})\}\}'
     $matches = [regex]::Matches($data, $pattern)
@@ -13,7 +13,7 @@ function __replace($data) {
         $data = $data.Replace($match.Value, (Invoke-Expression $match.Groups[1].Value))
     }
     if ($data -match $pattern) {
-        __replace $data
+        data_replace $data
     }
     else { return $data }
 }
@@ -24,7 +24,7 @@ function less($str_list, $do = {}, $color = 'Green', $show_line) {
     $lines = $str_list.Count - $cmd_line
     if ($cmd_line -lt $str_list.Count) {
         Write-Host "--------------------------------------------------" -f Yellow
-        Write-Host (__replace $json.less) -f Cyan
+        Write-Host (data_replace $json.less) -f Cyan
         Write-Host "--------------------------------------------------" -f Yellow
     }
     & $do
@@ -49,16 +49,18 @@ function create_parent_dir($path) {
     }
 }
 
-function create_app_lnk($app_path, $lnk_path) {
+function create_app_lnk($app_path,$lnk_path){
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($lnk_path)
-    $Shortcut.TargetPath = $app_path
+    $Shortcut.TargetPath =$app_path
     $Shortcut.Save()
 }
 
 # persist dir
 function persist($data_list, $persist_list = @($persist_dir)) {
     function _do($data_dir, $persist_dir = $persist_list[0]) {
+        create_parent_dir $data_dir
+        create_parent_dir $persist_dir
         if (Test-Path $persist_dir) {
             if (Test-Path $data_dir) {
                 sudo.ps1 Remove-Item -Force -Recurse $data_dir
@@ -74,8 +76,7 @@ function persist($data_list, $persist_list = @($persist_dir)) {
                 else { sudo.ps1 Remove-Item -Force -Recurse $data_dir }
             }
         }
-        create_parent_dir $data_dir
-        create_parent_dir $persist_dir
+
 
         $sudo_path = "$PSScriptRoot\sudo.ps1"
         $link = Start-Job -ScriptBlock {
@@ -109,6 +110,8 @@ function persist($data_list, $persist_list = @($persist_dir)) {
 
 function persist_file($data_list, $persist_list) {
     function _do($data_file, $persist_file) {
+        create_parent_dir $data_file
+        create_parent_dir $persist_file
         if (Test-Path $persist_file) {
             if (Test-Path $data_file) {
                 sudo.ps1 Remove-Item -Force -Recurse $data_file
@@ -124,8 +127,6 @@ function persist_file($data_list, $persist_list) {
                 else { sudo.ps1 Remove-Item -Force $data_file }
             }
         }
-        create_parent_dir $data_file
-        create_parent_dir $persist_file
 
         $sudo_path = "$PSScriptRoot\sudo.ps1"
         $link = Start-Job -ScriptBlock {
