@@ -1,0 +1,53 @@
+{
+    "version": "2.76.1",
+    "homepage": "https://github.com/zhongyang219/MusicPlayer2",
+    "description": "Audio player which supports music collection playback, lyrics display, format conversion and many other functions. 一款集音乐播放、歌词显示、格式转换等众多功能于一身的音频播放软件",
+    "license": "GPL-3.0 license",
+    "architecture": {
+        "32bit": {
+            "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V2.76.1/MusicPlayer2_V2.76.1_x86.zip",
+            "hash": "51ec0ec4a87b0c018d5144cd8e8a3e280a3e391119d1b84b57842f11b973e2b2",
+            "extract_dir": "MusicPlayer2"
+        },
+        "64bit": {
+            "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V2.76.1/MusicPlayer2_V2.76.1_x64.zip",
+            "hash": "f8e352570e8c5c553efbaff6bbb0ea007a2a9f0bd3f457024fabdb5cf99ce033",
+            "extract_dir": "MusicPlayer2_x64"
+        }
+    },
+    "shortcuts": [
+        [
+            "MusicPlayer2.exe",
+            "MusicPlayer2"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist @(\"$env:APPDATA\\MusicPlayer2\") @(\"$persist_dir\")"
+    ],
+    "pre_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
+    "post_uninstall": [
+        "$data=@(\"$env:APPData\\MusicPlayer2\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
+        "}"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "32bit": {
+                "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V$version/MusicPlayer2_V$version_x86.zip"
+            },
+            "64bit": {
+                "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V$version/MusicPlayer2_V$version_x64.zip"
+            }
+        }
+    }
+}
