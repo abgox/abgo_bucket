@@ -85,6 +85,7 @@
 |               [fnm](https://github.com/Schniz/fnm)               |    /    |     /      |        √         |             |
 |      [FastGithub](https://github.com/dotnetcore/FastGithub)      |    /    |     /      |        √         | **invalid** |
 |         [Geek Uninstaller](https://geekuninstaller.com)          |    √    |     √      |        √         |             |
+|                [Helix](https://helix-editor.com)                 |    √    |     √      |        √         |             |
 |           [Keyviz](https://mularahul.github.io/keyviz)           |    √    |     √      |        √         |             |
 |                [Listary](https://www.listary.com)                |    √    |     √      |        √         | **\*run**   |
 |               [LocalSend](https://localsend.org/)                |    √    |     √      |        √         |             |
