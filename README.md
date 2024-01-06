@@ -82,29 +82,31 @@
     -   **\*run** : Run the application once after installing.
     -   **invalid**: Invalid app placed in the deprecated folder. It may be removed from the list in the future.
 
-|                               App                                | Persist | Clear Data | Forced uninstall | Notes       |
-| :--------------------------------------------------------------: | :-----: | :--------: | :--------------: | ----------- |
-|                    [7zip](https://7-zip.org)                     |    /    |     √      |        √         |             |
-|                   [aardio](https://aardio.com)                   |    √    |     √      |        √         |             |
-|                  [chfs](http://iscute.cn/chfs)                   |    √    |     √      |        √         |             |
-|          [DownKyi](https://leiurayer.github.io/downkyi)          |    √    |     √      |        √         |             |
-|               [Final2x](https://final2x.tohru.top)               |    √    |     √      |        √         |             |
-|               [fnm](https://github.com/Schniz/fnm)               |    /    |     √      |        √         |             |
-|      [FastGithub](https://github.com/dotnetcore/FastGithub)      |    /    |     √      |        √         | **invalid** |
-|         [Geek Uninstaller](https://geekuninstaller.com)          |    √    |     √      |        √         |             |
-|                [Helix](https://helix-editor.com)                 |    √    |     √      |        √         |             |
-|           [Keyviz](https://mularahul.github.io/keyviz)           |    √    |     √      |        √         |             |
-|                [Listary](https://www.listary.com)                |    √    |     √      |        √         | **\*run**   |
-|               [LocalSend](https://localsend.org/)                |    √    |     √      |        √         |             |
-|               [LX-Music](https://docs.lxmusic.top)               |    √    |     √      |        √         |             |
-|                   [Motrix](https://motrix.app)                   |    √    |     √      |        √         |             |
-|   [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)   |    √    |     √      |        √         |             |
-|                   [Neovim](https://neovim.io/)                   |    √    |     √      |        √         |             |
-|                 [PixPin](https://pixpinapp.com)                  |    √    |     √      |        √         | **\*run**   |
-|             [PotPlayer](https://potplayer.daum.net)              |    √    |     √      |        √         |             |
-|       [pyenv-win](https://github.com/pyenv-win/pyenv-win)        |    √    |     √      |        √         |             |
-|               [Snipaste](https://www.snipaste.com)               |    √    |     √      |        √         | **\*run**   |
-|              [Snipaste2](https://www.snipaste.com)               |    √    |     √      |        √         | **\*run**   |
-| [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor) |    √    |     √      |        √         | **\*run**   |
-|           [tts-vue](https://github.com/LokerL/tts-vue)           |    √    |     √      |        √         |             |
-|      [XBYDriver](https://github.com/gaozhangmin/aliyunpan)       |    √    |     √      |        √         |             |
+|                                     App                                     | Persist | Clear Data | Forced uninstall | Notes       |
+| :-------------------------------------------------------------------------: | :-----: | :--------: | :--------------: | ----------- |
+|                          [7zip](https://7-zip.org)                          |    /    |     √      |        √         |             |
+|                        [aardio](https://aardio.com)                         |    √    |     √      |        √         |             |
+|                        [chfs](http://iscute.cn/chfs)                        |    √    |     √      |        √         |             |
+|               [DownKyi](https://leiurayer.github.io/downkyi)                |    √    |     √      |        √         |             |
+|                    [Final2x](https://final2x.tohru.top)                     |    √    |     √      |        √         |             |
+|                    [fnm](https://github.com/Schniz/fnm)                     |    /    |     √      |        √         |             |
+|           [FastGithub](https://github.com/dotnetcore/FastGithub)            |    /    |     √      |        √         | **invalid** |
+|               [Geek Uninstaller](https://geekuninstaller.com)               |    √    |     √      |        √         |             |
+|                      [Helix](https://helix-editor.com)                      |    √    |     √      |        √         |             |
+|                [Keyviz](https://mularahul.github.io/keyviz)                 |    √    |     √      |        √         |             |
+|                     [Listary](https://www.listary.com)                      |    √    |     √      |        √         | **\*run**   |
+|                     [LocalSend](https://localsend.org/)                     |    √    |     √      |        √         |             |
+|                    [LX-Music](https://docs.lxmusic.top)                     |    √    |     √      |        √         |             |
+|                        [Motrix](https://motrix.app)                         |    √    |     √      |        √         |             |
+|        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |    √    |     √      |        √         |             |
+|                        [Neovim](https://neovim.io/)                         |    √    |     √      |        √         |             |
+|                       [PixPin](https://pixpinapp.com)                       |    √    |     √      |        √         | **\*run**   |
+|                   [PotPlayer](https://potplayer.daum.net)                   |    √    |     √      |        √         |             |
+|             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |    √    |     √      |        √         |             |
+|              [Rubick](https://github.com/rubickCenter/rubick)               |    √    |     √      |        √         |             |
+| [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |    √    |     √      |        √         |             |
+|                    [Snipaste](https://www.snipaste.com)                     |    √    |     √      |        √         | **\*run**   |
+|                    [Snipaste2](https://www.snipaste.com)                    |    √    |     √      |        √         | **\*run**   |
+|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |     √      |        √         | **\*run**   |
+|                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |     √      |        √         |             |
+|            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |     √      |        √         |             |
