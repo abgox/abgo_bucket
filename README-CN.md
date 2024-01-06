@@ -34,15 +34,15 @@
 
 -   列出 `abgo_bucket` 中所有可安装的应用
 
-```powershell
-    <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
-```
+    ```powershell
+        <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
+    ```
 
 -   使用外部浏览器下载应用
 
-```powershell
-    <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-is_update]
-```
+    ```powershell
+        <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-is_update]
+    ```
 
 ### 没有使用过 Scoop :
 

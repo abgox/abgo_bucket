@@ -34,15 +34,15 @@
 
 -   List all installable apps in `abgo_bucket`
 
-    ```powershell>
+    ```powershell
     <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
     ```
 
 -   Use an external browser to download app.
 
-```powershell
+    ```powershell
     <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-is_update]
-```
+    ```
 
 ---
 
