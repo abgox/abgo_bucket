@@ -91,6 +91,7 @@
 |                   [Motrix](https://motrix.app)                   |    √    |    √     |    √     |             |
 |   [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)   |    √    |    √     |    √     |             |
 |                 [PixPin](https://pixpinapp.com)                  |    √    |    √     |    √     | **\*run**   |
+|             [PotPlayer](https://potplayer.daum.net)              |    √    |    √     |    √     |             |
 |       [pyenv-win](https://github.com/pyenv-win/pyenv-win)        |    √    |    √     |    √     |             |
 |               [Snipaste](https://www.snipaste.com)               |    √    |    √     |    √     | **\*run**   |
 |              [Snipaste2](https://www.snipaste.com)               |    √    |    √     |    √     | **\*run**   |
