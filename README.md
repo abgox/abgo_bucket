@@ -82,6 +82,7 @@
 |                  [chfs](http://iscute.cn/chfs)                   |    √    |     √      |        √         |             |
 |          [DownKyi](https://leiurayer.github.io/downkyi)          |    √    |     /      |        √         |             |
 |               [Final2x](https://final2x.tohru.top)               |    x    |     /      |        √         |             |
+|               [fnm](https://github.com/Schniz/fnm)               |    /    |     /      |        √         |             |
 |      [FastGithub](https://github.com/dotnetcore/FastGithub)      |    /    |     /      |        √         | **invalid** |
 |         [Geek Uninstaller](https://geekuninstaller.com)          |    √    |     √      |        √         |             |
 |           [Keyviz](https://mularahul.github.io/keyviz)           |    √    |     √      |        √         |             |
