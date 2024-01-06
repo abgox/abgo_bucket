@@ -1,7 +1,7 @@
 {
     "version": "2.1.4",
-    "description": "github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题",
     "homepage": "https://github.com/dotnetcore/FastGithub",
+    "description": "github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题",
     "license": "MIT",
     "architecture": {
         "64bit": {
@@ -10,13 +10,13 @@
             "extract_dir": "fastgithub_win-x64"
         }
     },
+    "bin": "fastgithub.exe",
     "shortcuts": [
         [
             "FastGithub.UI.exe",
             "FastGithub"
         ]
     ],
-    "bin": "fastgithub.exe",
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
