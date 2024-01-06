@@ -89,12 +89,12 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
                 if (!$isLink) {
                     sudo.ps1 Move-Item "$_data\*" $_persist -Force
                 }
-                else { sudo.ps1 Remove-Item -Force -Recurse $_data }
             }
         }
         $sudo_path = "$PSScriptRoot\sudo.ps1"
         $link = Start-Job -ScriptBlock {
             param($sudo_path, $_data, $_persist)
+            if (Test-Path($_data)) { Remove-Item -Force -Recurse $_data }
             Invoke-Expression "$sudo_path New-Item -ItemType SymbolicLink `"$_data`" -Target `"$_persist`""
         } -ArgumentList $sudo_path, $_data, $_persist
         $state = (Wait-Job $link).HasMoreData
