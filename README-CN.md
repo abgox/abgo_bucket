@@ -38,6 +38,12 @@
     <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
 ```
 
+-   使用外部浏览器下载应用
+
+```powershell
+    <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-is_update]
+```
+
 ### 没有使用过 Scoop :
 
 -   [什么是 Scoop](https://github.com/ScoopInstaller/Scoop)
@@ -52,7 +58,7 @@
 
     - 一些软件并没有进行`persist`
         - 没有必要持久化数据的软件除外
-    - 软件卸载后,本地数据没有得到及时清理(如 `$env:AppData` 下的软件数据)
+    - 软件卸载后,本地数据没有得到及时清理(如 `$env:AppData`、`$env:LocalAppData` 或其他目录下的软件数据)
     - 软件卸载时，存在进程占用无法卸载问题
     - ...
 
@@ -68,20 +74,21 @@
     -   数据清理：当软件卸载后，如果存在软件残留数据则删除(`persist` 数据除外)
     -   强制卸载：当软件正在运行时，使用 `scoop uninstall <app_name>` 会先终止进程，再进行卸载，避免卸载时出现软件正在使用，无法卸载的问题
     -   **√**：已实现
+        -   对于`数据清理`, 卸载后不存在残留数据，就视为已完成
     -   **x**：未实现
     -   **/**：没必要或不满足条件
     -   **\*run**: 安装后会立即运行一次
-    -   **invalid**: 无效应用，已放入 deprecated(废弃) 文件夹中
+    -   **invalid**: 无效应用，已放入 deprecated(废弃) 文件夹中，未来可能从清单中移除
 
 |                               应用                               | persist | 数据清理 | 强制卸载 | 备注        |
 | :--------------------------------------------------------------: | :-----: | :------: | :------: | ----------- |
 |                    [7zip](https://7-zip.org)                     |    /    |    √     |    √     |             |
 |                   [aardio](https://aardio.com)                   |    √    |    √     |    √     |             |
 |                  [chfs](http://iscute.cn/chfs)                   |    √    |    √     |    √     |             |
-|          [DownKyi](https://leiurayer.github.io/downkyi)          |    √    |    /     |    √     |             |
-|               [Final2x](https://final2x.tohru.top)               |    x    |    /     |    √     |             |
-|               [fnm](https://github.com/Schniz/fnm)               |    /    |    /     |    √     |             |
-|      [FastGithub](https://github.com/dotnetcore/FastGithub)      |    /    |    /     |    √     | **invalid** |
+|          [DownKyi](https://leiurayer.github.io/downkyi)          |    √    |    √     |    √     |             |
+|               [Final2x](https://final2x.tohru.top)               |    √    |    √     |    √     |             |
+|               [fnm](https://github.com/Schniz/fnm)               |    /    |    √     |    √     |             |
+|      [FastGithub](https://github.com/dotnetcore/FastGithub)      |    /    |    √     |    √     | **invalid** |
 |         [Geek Uninstaller](https://geekuninstaller.com)          |    √    |    √     |    √     |             |
 |                [Helix](https://helix-editor.com)                 |    √    |    √     |    √     |             |
 |           [Keyviz](https://mularahul.github.io/keyviz)           |    √    |    √     |    √     |             |

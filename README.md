@@ -38,6 +38,12 @@
     <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
     ```
 
+-   Use an external browser to download app.
+
+```powershell
+    <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-is_update]
+```
+
 ---
 
 ### Never used Scoop :
@@ -54,7 +60,7 @@
 
     - Some Apps doesn't `persist` data.
         - They don't include Apps that do not necessarily `persist` data.
-    - After uninstalling App, local data was not cleaned up. (e.g. the App's data under `$env:AppData`)
+    - After uninstalling App, local data was not cleaned up. (e.g. the App's data under `$env:AppData`,`$env:LocalAppData` or ohter directory)
     - When uninstalling App, there's a problem where the process is occupied and cannot be uninstalled.
     - ...
 
@@ -65,25 +71,26 @@
 ### App Manifests
 
 -   Guide
-    -   App：Sort by first letter(0-9,a-z).
-    -   Persist: Important data of software is saved to `persist` under the installation directory of 'Scoop'.
-    -   clear data：When the software is uninstalled, delete data of the software if it exists.(Except for `persist` data).
-    -   Forced uninstall：When the software is running, using the `scoop uninstall <app_name>` will terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
+    -   `App`：Sort by first letter(0-9,a-z).
+    -   `Persist`: Important data of software is saved to `persist` under the installation directory of 'Scoop'.
+    -   `Clear Data`：When the software is uninstalled, delete data of the software if it exists.(Except for `persist` data).
+    -   `Forced uninstall`：When the software is running, using the `scoop uninstall <app_name>` will terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
     -   **√**：It has been done.
+        -   For `Clear Data`, it is considered complete if there is no remaining data after uninstallation.
     -   **x**：It hasn't been done yet.
     -   **/**：It's not necessary, or the conditions are not meet.
     -   **\*run** : Run the application once after installing.
-    -   **invalid**: Invalid app placed in the deprecated folder
+    -   **invalid**: Invalid app placed in the deprecated folder. It may be removed from the list in the future.
 
-|                               App                                | Persist | clear data | Forced uninstall | Notes       |
+|                               App                                | Persist | Clear Data | Forced uninstall | Notes       |
 | :--------------------------------------------------------------: | :-----: | :--------: | :--------------: | ----------- |
 |                    [7zip](https://7-zip.org)                     |    /    |     √      |        √         |             |
 |                   [aardio](https://aardio.com)                   |    √    |     √      |        √         |             |
 |                  [chfs](http://iscute.cn/chfs)                   |    √    |     √      |        √         |             |
-|          [DownKyi](https://leiurayer.github.io/downkyi)          |    √    |     /      |        √         |             |
-|               [Final2x](https://final2x.tohru.top)               |    x    |     /      |        √         |             |
-|               [fnm](https://github.com/Schniz/fnm)               |    /    |     /      |        √         |             |
-|      [FastGithub](https://github.com/dotnetcore/FastGithub)      |    /    |     /      |        √         | **invalid** |
+|          [DownKyi](https://leiurayer.github.io/downkyi)          |    √    |     √      |        √         |             |
+|               [Final2x](https://final2x.tohru.top)               |    √    |     √      |        √         |             |
+|               [fnm](https://github.com/Schniz/fnm)               |    /    |     √      |        √         |             |
+|      [FastGithub](https://github.com/dotnetcore/FastGithub)      |    /    |     √      |        √         | **invalid** |
 |         [Geek Uninstaller](https://geekuninstaller.com)          |    √    |     √      |        √         |             |
 |                [Helix](https://helix-editor.com)                 |    √    |     √      |        √         |             |
 |           [Keyviz](https://mularahul.github.io/keyviz)           |    √    |     √      |        √         |             |
