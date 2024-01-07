@@ -1,0 +1,62 @@
+{
+    "version": "1.7.6",
+    "homepage": "https://typora.io",
+    "description": "A minimal Markdown editor and reader",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://support.typora.io/License-Agreement/"
+    },
+    "notes": "For old beta version, install: versions/typora0.11.18",
+    "architecture": {
+        "64bit": {
+            "url": "https://download.typora.io/windows/typora-setup-x64-1.7.6.exe",
+            "hash": "959cfdb3c45e5141e35c13ed0b0e2ab00aad1275db16b7d07652f1f5b70bd563"
+        },
+        "32bit": {
+            "url": "https://download.typora.io/windows/typora-setup-ia32-1.7.6.exe",
+            "hash": "7b711841c855f2a583d6036e5844e24c5d895f98dc8c2f2d5e4489ea90080f5d"
+        }
+    },
+    "innosetup": true,
+    "bin": "Typora.exe",
+    "shortcuts": [
+        [
+            "Typora.exe",
+            "Typora"
+        ]
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$env:AppData\\Typora\") @(\"$persist_dir\")"
+    ],
+    "pre_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
+    "post_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$data=@(\"$env:AppData\\Typora\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
+        "}"
+    ],
+    "checkver": {
+        "url": "https://typora.io/releases/stable",
+        "regex": "<h2>([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.typora.io/windows/typora-setup-x64-$version.exe"
+            },
+            "32bit": {
+                "url": "https://download.typora.io/windows/typora-setup-ia32-$version.exe"
+            }
+        }
+    }
+}

@@ -112,4 +112,5 @@
 |                [Steampp(Watt Toolkit)](https://steampp.net/)                |    √    |     √      |        √         |             |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |     √      |        √         | **\*run**   |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |     √      |        √         |             |
+|                         [Typora](https://typora.io)                         |    √    |     √      |        √         |             |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |     √      |        √         |             |
