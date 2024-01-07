@@ -14,5 +14,15 @@
     ],
     "shortcut": "为程序 {{$app}} 创建快捷方式\n{{$lnk_path}}",
     "stop_process": "尝试终止可能存在的进程 -- ",
-    "need_close": "{{$app_name}} 需要先手动关闭软件再进行卸载\n请在确认已经关闭了软件后按下 Enter 键继续进行卸载流程"
+    "need_close": "{{$app_name}} 需要先手动关闭软件再进行卸载\n请在确认已经关闭了软件后按下 Enter 键继续进行卸载流程",
+    "download":{
+        "exist":"{{$app}} 已经安装了最新版本({{$installed_version}})",
+        "no_aria2":"aria2 还没有安装",
+        "installing_aria2":"正在安装 aria2",
+        "install_aria2_failed":"aria2 安装失败，请重试",
+        "enable_aria2":"正在启用 aria2",
+        "cache":"cache目录下有 {{$app}} 的安装包，现在 {{$app}} 已经安装完成\n如果你希望看到安装过程，你可以运行以下命令:\nscoop uninstall {{$app}}; scoop install {{$app}}",
+        "url":"下载地址: ",
+        "download":"请手动点击下载\n并将下载完成的文件路径复制到此处: "
+    }
 }

@@ -2,12 +2,16 @@ param(
     [string]$app,
     [switch]$is_update
 )
-$info =scoop info $app
+. $PSScriptRoot\utils.ps1
+
+$json_d = $json.download
+
+$info = scoop info $app
 $latest_version = $info.Version
 $installed_version = ($info.Installed -split "`n")[-1]
 
-if($latest_version -eq $installed_version){
-    Write-Host "The latest version($installed_version) is already installed" -f Yellow
+if ($latest_version -eq $installed_version) {
+    Write-Host (data_replace $json_d.exist) -f Yellow
     return
 }
 
@@ -16,18 +20,18 @@ $shims_dir = $scoop_dir + '\shims'
 $isExist_aria2 = Get-ChildItem $shims_dir | Where-Object { $_.Name -eq "aria2c.exe" }
 $is_enable_aria = scoop config aria2-enabled
 if (!$isExist_aria2) {
-    Write-Host "aria2 is not installed" -f Yellow
-    Write-Host "Installing aria2" -f Cyan
+    Write-Host $json_d.no_aria2 -f Yellow
+    Write-Host $json_d.installing_aria2 -f Cyan
     try {
         scoop install aria2 -u
     }
     catch {
-        Write-Host "It's failed to install aria2. Please try again" -f Red
+        Write-Host $json_d.install_aria2_failed -f Red
         return
     }
 }
 if (!$is_enable_aria) {
-    Write-Host "Enabling it --- aria2-enabled" -f Cyan
+    Write-Host $json_d.enable_aria2 -f Cyan
     scoop config aria2-enabled true
 }
 $cache_dir = $scoop_dir + '\cache'
@@ -47,6 +51,9 @@ while ($true) {
     if (Test-Path($app_txt)) {
         Stop-Job -Job $job
         break
+    }elseif($job.State -eq "Completed"){
+        Write-Host (data_replace $json_d.cache) -f Green
+        return
     }
     Start-Sleep -Milliseconds 100
 }
@@ -73,15 +80,15 @@ Get-ChildItem $cache_dir | Where-Object {
 }
 
 foreach ($item in $result) {
-    if(!(Test-Path("$out_dir\$out_file"))){
+    if (!(Test-Path("$out_dir\$out_file"))) {
         continue
     }
     $download_url = $item.Url
     $out_dir = $cache_dir
     $out_file = $item.Out
-    Write-Host "Url: $download_url" -f Green
+    Write-Host ($json_d.url + $download_url) -f Green
     Write-Host "---------------" -f Cyan
-    Write-Host "Please download manually.`nPlease enter the downloaded file path: " -f Yellow -NoNewline
+    Write-Host $json_d.download -f Yellow -NoNewline
     $download_path = $(Read-Host) -replace '"', ''
     Move-Item $download_path "$out_dir\$out_file" -Force
 }
