@@ -95,6 +95,7 @@
 |                     [Listary](https://www.listary.com)                      |    √    |    √     |    √     | **\*run**   |
 |                     [LocalSend](https://localsend.org)                      |    √    |    √     |    √     |             |
 |                    [LX-Music](https://docs.lxmusic.top)                     |    √    |    √     |    √     |             |
+|                     [MarkText](https://www.marktext.cc)                     |    √    |    √     |    √     |             |
 |                        [Motrix](https://motrix.app)                         |    √    |    √     |    √     |             |
 |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |    √    |    √     |    √     |             |
 |                         [Neovim](https://neovim.io)                         |    √    |    √     |    √     |             |
@@ -107,7 +108,7 @@
 | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |    √    |    √     |    √     |             |
 |                    [Snipaste](https://www.snipaste.com)                     |    √    |    √     |    √     | **\*run**   |
 |                    [Snipaste2](https://www.snipaste.com)                    |    √    |    √     |    √     | **\*run**   |
-|                [Steampp(Watt Toolkit)](https://steampp.net/)                |    √    |    √     |    √     |             |
+|                [Steampp(Watt Toolkit)](https://steampp.net)                 |    √    |    √     |    √     |             |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |    √     |    √     | **\*run**   |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |    √     |    √     |             |
 |                         [Typora](https://typora.io)                         |    √    |    √     |    √     |             |
