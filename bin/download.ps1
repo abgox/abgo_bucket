@@ -1,6 +1,6 @@
 param(
     [string]$app,
-    [switch]$is_update
+    [switch]$isUpdate
 )
 . $PSScriptRoot\utils.ps1
 
@@ -38,14 +38,14 @@ $cache_dir = $scoop_dir + '\cache'
 $app_txt = "$cache_dir\$app.txt"
 
 $job = Start-Job -ScriptBlock {
-    param($app, $is_update)
-    if ($is_update) {
+    param($app, $isUpdate)
+    if ($isUpdate) {
         scoop update $app
     }
     else {
         scoop install $app -u
     }
-} -ArgumentList $app, $is_update
+} -ArgumentList $app, $isUpdate
 
 while ($true) {
     if (Test-Path($app_txt)) {
@@ -93,7 +93,7 @@ foreach ($item in $result) {
     Move-Item $download_path "$out_dir\$out_file" -Force
 }
 
-if ($is_update) {
+if ($isUpdate) {
     scoop update $app
 }
 else {
