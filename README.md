@@ -41,14 +41,15 @@
 -   Use an external browser to download app.
 
     ```powershell
-    <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-is_update]
+    <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-isUpdate]
     ```
 
 ---
 
 ### Never used Scoop :
 
--   [What is Scoop](https://github.com/ScoopInstaller/Scoop)
+-   [What is Scoop?](https://github.com/ScoopInstaller/Scoop)
+-   [What is bucket in Scoop?](https://github.com/ScoopInstaller/Scoop/wiki/Buckets)
 -   [Scoop install](https://github.com/ScoopInstaller/Install)
 -   [Scoop Document](https://github.com/ScoopInstaller/Scoop/wiki)
 
@@ -58,10 +59,10 @@
 
 1. When using official or third-party `buckets`, there may be the following issues.
 
-    - Some Apps doesn't `persist` data.
-        - They don't include Apps that do not necessarily `persist` data.
-    - After uninstalling App, local data was not cleaned up. (e.g. the App's data under `$env:AppData`,`$env:LocalAppData` or ohter directory)
-    - When uninstalling App, there's a problem where the process is occupied and cannot be uninstalled.
+    - Some apps doesn't `persist` data.
+        - They don't include apps that do not necessarily `persist` data.
+    - After uninstalling app, local data was not cleaned up. (e.g. the app's data under `$env:AppData`,`$env:LocalAppData` or ohter directory)
+    - When uninstalling app, there's a problem where the process is occupied and cannot be uninstalled.
     - ...
 
 2. Organize my commonly used apps.
@@ -101,6 +102,7 @@
 |                        [Motrix](https://motrix.app)                         |    √    |     √      |        √         |             |
 |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |    √    |     √      |        √         |             |
 |                         [Neovim](https://neovim.io)                         |    √    |     √      |        √         |             |
+|                         [ngrok](https://ngrok.com)                          |    √    |     √      |        √         |             |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |     √      |        √         |             |
 |                       [PixPin](https://pixpinapp.com)                       |    √    |     √      |        √         | **\*run**   |
 |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |     √      |        √         |             |

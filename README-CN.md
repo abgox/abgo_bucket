@@ -41,12 +41,13 @@
 -   使用外部浏览器下载应用
 
     ```powershell
-        <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-is_update]
+        <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-isUpdate]
     ```
 
 ### 没有使用过 Scoop :
 
--   [什么是 Scoop](https://github.com/ScoopInstaller/Scoop)
+-   [什么是 Scoop?](https://github.com/ScoopInstaller/Scoop)
+-   [什么是 Scoop 中的 bucket?](https://github.com/ScoopInstaller/Scoop)
 -   [安装 Scoop](https://github.com/ScoopInstaller/Install)
 -   [Scoop 文档](https://github.com/ScoopInstaller/Scoop/wiki)
 
@@ -99,6 +100,7 @@
 |                        [Motrix](https://motrix.app)                         |    √    |    √     |    √     |             |
 |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |    √    |    √     |    √     |             |
 |                         [Neovim](https://neovim.io)                         |    √    |    √     |    √     |             |
+|                         [ngrok](https://ngrok.com)                          |    √    |    √     |    √     |             |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |    √     |    √     |             |
 |                       [PixPin](https://pixpinapp.com)                       |    √    |    √     |    √     | **\*run**   |
 |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |    √     |    √     |             |

@@ -1,0 +1,56 @@
+{
+    "version": "3.5.0",
+    "description": "Spend more time programming. One command for an instant, secure URL to your localhost server through any NAT or firewall. 一个命令用于通过任何 NAT 或防火墙向本地主机服务器提供即时、安全的 URL，即内网穿透",
+    "homepage": "https://ngrok.com/",
+    "license": {
+        "identifier": "Shareware",
+        "url": "https://ngrok.com/tos"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://bin.equinox.io/a/5CREvcnBfSd/ngrok-v3-3.5.0-windows-amd64.zip",
+            "hash": "d5ce821dc787ad3e8604cbc98f510d30ed1534c5a7e17fff480b82d388af4ef7"
+        },
+        "32bit": {
+            "url": "https://bin.equinox.io/a/jarhu6gP9Yg/ngrok-v3-3.5.0-windows-386.zip",
+            "hash": "17ee7f086f07eca736ef542a3b824ec17765021ae9ad9b3d0c1561f7002b46a6"
+        }
+    },
+    "bin": "ngrok.exe",
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$env:LocalAppData\\ngrok\") @(\"$persist_dir\")"
+    ],
+    "pre_uninstall": [
+        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
+    "post_uninstall": [
+        "$data=@(\"$env:LocalAppData\\ngrok\")",
+        "$data | ForEach-Object {",
+        "   if (Test-Path($_)) {",
+        "       Remove-Item -Force -Recurse $_",
+        "       Write-Host \"Removing $_\" -f Yellow",
+        "   }",
+        "}"
+    ],
+    "checkver": {
+        "url": "https://dl.equinox.io/ngrok/ngrok-v3/stable/archive",
+        "regex": "/a/(?<hash64bit>\\w+)/ngrok-v[\\d.]+-([\\d.]+)-windows-amd64.zip(?:.|\\n)+?/a/(?<hash32bit>\\w+)/ngrok-v[\\d.]+-([\\d.]+)-windows-386.zip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://bin.equinox.io/a/$matchHash64bit/ngrok-v$majorVersion-$version-windows-amd64.zip"
+            },
+            "32bit": {
+                "url": "https://bin.equinox.io/a/$matchHash32bit/ngrok-v$majorVersion-$version-windows-386.zip"
+            }
+        },
+        "hash": {
+            "url": "https://dl.equinox.io/ngrok/ngrok-v3/stable/archive",
+            "regex": "$url(?:.|\\n)+?value=\"(\\w+)"
+        }
+    }
+}
