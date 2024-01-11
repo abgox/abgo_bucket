@@ -1,12 +1,16 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.7.6",
+    "description": "A minimal Markdown editor and reader. 一个 Markdown 编辑器和阅读器，所见即所得",
     "homepage": "https://typora.io",
-    "description": "A minimal Markdown editor and reader",
     "license": {
         "identifier": "Proprietary",
         "url": "https://support.typora.io/License-Agreement/"
     },
-    "notes": "For old beta version, install: versions/typora0.11.18",
+    "notes": [
+        "For old beta version, install: versions/typora0.11.18",
+        "需要旧的测试版本，安装 versions/typora0.11.18"
+    ],
     "architecture": {
         "64bit": {
             "url": "https://download.typora.io/windows/typora-setup-x64-1.7.6.exe",
@@ -30,13 +34,13 @@
         "persist -dir @(\"$env:AppData\\Typora\") @(\"$persist_dir\")"
     ],
     "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process"
     ],
     "post_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$data=@(\"$env:AppData\\Typora\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",

@@ -1,7 +1,8 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.5.2.165",
+    "description": "The good free uninstaller. 非常好用的免费卸载程序",
     "homepage": "https://geekuninstaller.com/",
-    "description": "Geek Uninstaller - the best free uninstaller. Geek Uninstaller - 非常好用的免费卸载程序",
     "license": "Unknown",
     "url": "https://geekuninstaller.com/geek.zip",
     "hash": "3706c440557692c612527c0eb437577ef2dae8a1ca947dd2bc259b451e192f42",
@@ -14,15 +15,15 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:APPData\\Geek Uninstaller\") @(\"$persist_dir\")"
+        "persist -dir @(\"$env:AppData\\Geek Uninstaller\") @(\"$persist_dir\")"
     ],
     "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process"
     ],
     "post_uninstall": [
-        "$data=@(\"$env:APPData\\Geek Uninstaller\")",
+        "$data=@(\"$env:AppData\\Geek Uninstaller\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",
         "       Remove-Item -Force -Recurse $_",

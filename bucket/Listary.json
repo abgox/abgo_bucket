@@ -1,7 +1,8 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "6.2.0.42",
+    "description": "A revolutionary search utility for Windows. 一个革命性的 Windows 搜索工具",
     "homepage": "https://www.listary.com",
-    "description": "A revolutionary search utility for Windows. 一个革命性的Windows搜索工具",
     "license": "Shareware",
     "url": "https://www.listary.com/download/Listary.exe?version=6.2.0.42#/dl.exe",
     "hash": "c7c9733d1dbc95cd29f35809f8f55169f1e958d1cb42432fcf92f4af6d4373d1",
@@ -14,16 +15,16 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:APPData\\Listary\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\Listary\") @(\"$persist_dir\")",
         "explorer \"$dir\\Listary.exe\""
     ],
     "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process"
     ],
     "post_uninstall": [
-        "$data=@(\"$env:APPData\\Listary\")",
+        "$data=@(\"$env:AppData\\Listary\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",
         "       Remove-Item -Force -Recurse $_",

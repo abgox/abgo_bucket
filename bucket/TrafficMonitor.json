@@ -1,8 +1,12 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.84.1",
+    "description": "Network monitoring floating window software on Windows. It can display the current network speed, CPU and memory usage. It also supports being embedded into the taskbar, theme changing and traffic statistics. Windows 上的网络监控窗口软件。可显示当前网速/CPU/内存使用情况。支持嵌入任务栏/主题更改/流量统计",
     "homepage": "https://github.com/zhongyang219/TrafficMonitor",
-    "description": "Network monitoring floating window software on Windows. It can display the current network speed, CPU and memory usage. It also supports being embedded into the taskbar, theme changing and traffic statistics. Windows上的网络监控窗口软件。可显示当前网络速度/CPU/内存使用情况。支持嵌入任务栏/主题更改/流量统计",
-    "license": "MIT",
+    "license": {
+        "identifier": "\"Anti 996\" License",
+        "url": "https://github.com/zhongyang219/TrafficMonitor/blob/master/LICENSE"
+    },
     "suggest": {
         "vcredist": "extras/vcredist2022"
     },
@@ -23,25 +27,19 @@
             "TrafficMonitor"
         ]
     ],
-    "pre_install": [
+    "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist @(\"$dir\\plugins\") @(\"$persist_dir\\plugins\")",
-        "$data=@(\"$dir\\config.ini\",\"$dir\\global_cfg.ini\")",
-        "$persist=@(\"$persist_dir\\config.ini\",\"$persist_dir\\global_cfg.ini\")",
-        "persist -file $data $persist"
-    ],
-    "post_install":[
+        "persist -dir @(\"$env:AppData\\TrafficMonitor\") @(\"$persist_dir\")",
         "explorer \"$dir\\TrafficMonitor.exe\""
     ],
-    "pre_uninstall":[
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$app_name=\"TrafficMonitor\"",
-        "confirm $(data_replace $json.need_close)",
-        "stop_process"
+        "confirm $(data_replace $json.need_close)"
     ],
-    "post_uninstall":[
-        "$data=@(\"$env:APPData\\TrafficMonitor\")",
+    "post_uninstall": [
+        "$data=@(\"$env:AppData\\TrafficMonitor\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",
         "       Remove-Item -Force -Recurse $_",

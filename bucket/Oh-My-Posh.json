@@ -1,4 +1,5 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "19.5.1",
     "description": "A prompt theme engine for any shell. 任何 shell 的提示主题引擎",
     "homepage": "https://ohmyposh.dev",

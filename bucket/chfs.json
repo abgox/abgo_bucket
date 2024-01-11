@@ -1,7 +1,8 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "3.1",
+    "description": "A free file sharing http server tool. 一个免费的http服务器文件共享工具，通过局域网实现文件传输",
     "homepage": "http://iscute.cn/chfs",
-    "description": "CuteHttpFileServer(chfs) is a free file sharing http server tool. CuteHttpFileServer(chfs)是一个免费的http服务器文件共享工具，通过局域网实现文件传输",
     "license": "Freeware",
     "architecture": {
         "64bit": {
@@ -12,6 +13,13 @@
             "hash": [
                 "252fd34b162bc92ab6a1d2f193831b0693efe8c22bc56bdf73e709ed05f1744a",
                 "05aa08b34d82ec78673984a1399321fc14dddaac8181694be9baf13589b8b583"
+            ],
+            "bin": [
+                [
+                    "chfs-windows-x64-3.1.exe",
+                    "chfs"
+                ],
+                "chfsgui.exe"
             ]
         },
         "32bit": {
@@ -22,38 +30,35 @@
             "hash": [
                 "7aefd42c6e1e3c5970dfe4e0bc3793e88535b0876bba3cad9c67e801c1518cfc",
                 "05aa08b34d82ec78673984a1399321fc14dddaac8181694be9baf13589b8b583"
+            ],
+            "bin": [
+                [
+                    "chfs-windows-x86-3.1.exe",
+                    "chfs"
+                ],
+                "chfsgui.exe"
             ]
         }
     },
-    "bin": [
+    "shortcuts": [
         [
-            "chfs-windows-x64.exe",
-            "chfs"
-        ],
-        "chfsgui.exe"
-    ],
-    "pre_install": [
-        "Rename-Item \"$dir\\chfs-windows-x64-$version.exe\" chfs-windows-x64.exe"
+            "chfsgui.exe",
+            "chfs Gui"
+        ]
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "if (!(Test-Path \"$persist_dir\\chfs.ini\")) {",
-        "    Set-Content \"$dir\\chfs.ini\" $null -Encoding Ascii",
-        "}",
-        "$app_exe= (Get-ChildItem 'D:\\__Scoop\\apps\\chfs\\current'| Where-Object {$_.Name -like 'chfsgui.exe'}).FullName",
-        "create_app_lnk $app_exe \"$scoop_apps_lnk\\chfs Gui.lnk\"",
-        "persist -file @(\"$dir\\chfs.ini\") @(\"$persist_dir\\chfs.ini\")",
         "persist -dir @(\"$env:LocalAppData\\chfsgui\") @(\"$persist_dir\\chfsgui\")"
     ],
     "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process"
     ],
     "post_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$scoop_apps_lnk\\chfs Gui.lnk\",\"$env:LocalAppData\\chfsgui\")",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$data=@(\"$env:LocalAppData\\chfsgui\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",
         "       Remove-Item -Force -Recurse $_",
@@ -70,12 +75,26 @@
                 "url": [
                     "http://iscute.cn/tar/chfs/$version/chfs-windows-x64-$version.zip",
                     "http://iscute.cn/tar/chfs/$version/gui-chfs-windows.zip"
+                ],
+                "bin": [
+                    [
+                        "chfs-windows-x64-$version.exe",
+                        "chfs"
+                    ],
+                    "chfsgui.exe"
                 ]
             },
             "32bit": {
                 "url": [
                     "http://iscute.cn/tar/chfs/$version/chfs-windows-x86-$version.zip",
                     "http://iscute.cn/tar/chfs/$version/gui-chfs-windows.zip"
+                ],
+                "bin": [
+                    [
+                        "chfs-windows-x86-$version.exe",
+                        "chfs"
+                    ],
+                    "chfsgui.exe"
                 ]
             }
         }

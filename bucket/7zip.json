@@ -1,8 +1,12 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "23.01",
-    "homepage": "https://www.7-zip.org/",
     "description": "A multi-format file archiver with high compression ratios. 具有高压缩比的多格式文件归档器",
-    "license": "LGPL-2.1-or-later",
+    "homepage": "https://www.7-zip.org/",
+    "license":{
+        "identifier": "GNU Lesser General Public License v3.0",
+        "url": "https://github.com/sparanoid/7z/blob/master/LICENSE"
+    },
     "architecture": {
         "64bit": {
             "url": "https://www.7-zip.org/a/7z2301-x64.msi",
@@ -49,8 +53,8 @@
         "reg import \"$dir\\install-context.reg\""
     ],
     "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
         "if ($cmd -eq 'uninstall') {",
         "   reg import \"$dir\\uninstall-context.reg\"",
@@ -63,7 +67,6 @@
         "regex": "Download 7-Zip ([\\d.]+)"
     },
     "autoupdate": {
-        "note": "Thanks for using autoupdate, please test your updates!",
         "architecture": {
             "64bit": {
                 "url": "https://www.7-zip.org/a/7z$cleanVersion-x64.msi"

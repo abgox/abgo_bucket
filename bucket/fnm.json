@@ -1,25 +1,21 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.35.1",
-    "homepage": "https://github.com/Schniz/fnm",
     "description": "Fast and simple Node.js version manager, built in Rust. 快速、简单的 Node.js 版本管理器，采用 Rust 内建",
-    "license": "GPL-3.0",
+    "homepage": "https://github.com/Schniz/fnm",
+    "license": {
+        "identifier": "GNU General Public License v3.0",
+        "url": "https://github.com/Schniz/fnm/blob/master/LICENSE"
+    },
     "notes": [
         "Don't forget to add \"fnm env --use-on-cd | Out-String | Invoke-Expression\" to your powershell profile.",
-        "不要忘记添加 \"fnm env --use-on-cd | Out-String | Invoke-Expression\" 到你的 powershell 配置文件"
+        "不要忘记添加 \"fnm env --use-on-cd | Out-String | Invoke-Expression\" 到你的 powershell 配置文件中"
     ],
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/Schniz/fnm/releases/download/v1.35.1/fnm-windows.zip",
-            "hash": "f083e7256c24f359d2101934426c87e3066831a40303ebe6e538cea917a0f184"
-        }
-    },
+    "url": "https://github.com/Schniz/fnm/releases/download/v1.35.1/fnm-windows.zip",
+    "hash": "f083e7256c24f359d2101934426c87e3066831a40303ebe6e538cea917a0f184",
     "bin": "fnm.exe",
     "checkver": "github",
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/Schniz/fnm/releases/download/v$version/fnm-windows.zip"
-            }
-        }
+        "url": "https://github.com/Schniz/fnm/releases/download/v$version/fnm-windows.zip"
     }
 }

@@ -1,41 +1,39 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "23.10",
-    "homepage": "https://helix-editor.com",
     "description": "A post-modern modal text editor. 后现代文本编辑器",
-    "license": "MPL-2.0",
+    "homepage": "https://helix-editor.com",
+    "license": {
+        "identifier": "Mozilla Public License 2.0",
+        "url": "https://github.com/helix-editor/helix/blob/master/LICENSE"
+    },
     "suggest": {
         "vcredist": "extras/vcredist2022"
     },
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/helix-editor/helix/releases/download/23.10/helix-23.10-x86_64-windows.zip",
-            "hash": "16c5201ff48bbd3ad0bc8fa4d75f2f30307f3e1d002a40bbea0fcfe1f55d0d28",
-            "extract_dir": "helix-23.10-x86_64-windows"
-        }
-    },
+    "url": "https://github.com/helix-editor/helix/releases/download/23.10/helix-23.10-x86_64-windows.zip",
+    "hash": "16c5201ff48bbd3ad0bc8fa4d75f2f30307f3e1d002a40bbea0fcfe1f55d0d28",
+    "extract_dir": "helix-23.10-x86_64-windows",
     "bin": [
         [
             "hx.exe",
-            "hx",
-            "--config \"$persist_dir\\config.toml\""
+            "hx"
         ],
         [
             "hx.exe",
-            "helix",
-            "--config \"$persist_dir\\config.toml\""
+            "helix"
         ]
     ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:APPDATA\\helix\") @(\"$persist_dir\")"
+        "persist -dir @(\"$env:AppData\\helix\") @(\"$persist_dir\")"
     ],
     "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process"
     ],
     "post_uninstall": [
-        "$data=@(\"$env:APPDATA\\helix\")",
+        "$data=@(\"$env:AppData\\helix\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",
         "       Remove-Item -Force -Recurse $_",
@@ -47,11 +45,7 @@
         "github": "https://github.com/helix-editor/helix"
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/helix-editor/helix/releases/download/$version/helix-$version-x86_64-windows.zip",
-                "extract_dir": "helix-$version-x86_64-windows"
-            }
-        }
+        "url": "https://github.com/helix-editor/helix/releases/download/$version/helix-$version-x86_64-windows.zip",
+        "extract_dir": "helix-$version-x86_64-windows"
     }
 }

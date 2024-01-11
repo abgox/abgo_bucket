@@ -1,14 +1,14 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.2.0",
-    "homepage": "https://github.com/Tohrusky/Final2x",
     "description": "2^x Image Super-Resolution. 2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具",
-    "license": "BSD 3-Clause",
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/Tohrusky/Final2x/releases/download/2024-01-02/Final2x-windows-x64-unpacked.zip",
-            "hash": "8d7231827c193caa2a743c2734ac17f6f51440224448212f76afdfd9f2d3bb3e"
-        }
+    "homepage": "https://github.com/Tohrusky/Final2x",
+    "license": {
+        "identifier": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "url": "https://github.com/Tohrusky/Final2x/blob/main/LICENSE"
     },
+    "url": "https://github.com/Tohrusky/Final2x/releases/download/2024-01-02/Final2x-windows-x64-unpacked.zip",
+    "hash": "8d7231827c193caa2a743c2734ac17f6f51440224448212f76afdfd9f2d3bb3e",
     "bin": "final2x.exe",
     "shortcuts": [
         [
@@ -21,12 +21,12 @@
         "persist -dir @(\"$env:AppData\\Final2x\") @(\"$persist_dir\")"
     ],
     "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process"
     ],
     "post_uninstall": [
-        "$data=@(\"$env:APPData\\Final2x\")",
+        "$data=@(\"$env:AppData\\Final2x\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",
         "       Remove-Item -Force -Recurse $_",

@@ -1,14 +1,14 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.13.1",
-    "homepage": "https://localsend.org/",
     "description": "Share files to nearby devices. An open source cross-platform alternative to AirDrop. 将文件共享到附近的设备。免费、开源、跨平台。",
-    "license": "MIT",
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/localsend/localsend/releases/download/v1.13.1/LocalSend-1.13.1-windows-x86-64.zip",
-            "hash": "601a24aa5765eb75750ad6c8a1d7606944ba63b3f073284dadd7a10f26239c16"
-        }
+    "homepage": "https://localsend.org/",
+    "license": {
+        "identifier": "MIT",
+        "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
     },
+    "url": "https://github.com/localsend/localsend/releases/download/v1.13.1/LocalSend-1.13.1-windows-x86-64.zip",
+    "hash": "601a24aa5765eb75750ad6c8a1d7606944ba63b3f073284dadd7a10f26239c16",
     "bin": [
         [
             "localsend_app.exe",
@@ -26,19 +26,14 @@
         "persist -file @(\"$dir\\settings.json\") @(\"$persist_dir\\settings.json\")"
     ],
     "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process"
     ],
-
     "checkver": {
         "github": "https://github.com/localsend/localsend"
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/localsend/localsend/releases/download/v$version/LocalSend-$version-windows-x86-64.zip"
-            }
-        }
+        "url": "https://github.com/localsend/localsend/releases/download/v$version/LocalSend-$version-windows-x86-64.zip"
     }
 }

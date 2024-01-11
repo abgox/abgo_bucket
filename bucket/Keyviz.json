@@ -1,29 +1,33 @@
 {
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.0.6",
-    "homepage": "https://github.com/mulaRahul/keyviz",
-    "description": "An electron-based music player. 一个基于 electron 的音乐软件",
-    "license": " GPL-3.0",
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/mulaRahul/keyviz/releases/download/v1.0.6/keyviz-v1.0.6-portable.zip",
-            "hash": "5dcebe08768ecd7e86d453f6be36346b2cc744183598195fee4c7b4931a8b4b3"
-        }
+    "description": "A free and open-source tool to visualize your keystrokes ⌨️ and 🖱️ mouse actions in real-time. 一个免费的开源工具来可视化你的击键 ⌨️ 和 🖱️ 鼠标实时动作。",
+    "homepage": "https://mularahul.github.io/keyviz",
+    "license": {
+        "identifier": "GNU General Public License v3.0",
+        "url": "https://github.com/mulaRahul/keyviz/blob/main/LICENSE"
     },
+    "url": "https://github.com/mulaRahul/keyviz/releases/download/v1.0.6/keyviz-v1.0.6-portable.zip",
+    "hash": "5dcebe08768ecd7e86d453f6be36346b2cc744183598195fee4c7b4931a8b4b3",
+    "shortcuts": [
+        [
+            "keyviz-v$version-portable.exe",
+            "Keyviz"
+        ]
+    ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$app_exe= (Get-ChildItem 'D:\\__Scoop\\apps\\keyviz\\current'| Where-Object {$_.Name -like 'keyviz*.exe'}).FullName",
-        "create_app_lnk $app_exe \"$scoop_apps_lnk\\keyviz.lnk\"",
-        "persist -dir @(\"$env:APPData\\com.example\\keyviz\") @(\"$persist_dir\\keyviz\")"
+        "persist -dir @(\"$env:AppData\\com.example\\keyviz\") @(\"$persist_dir\\keyviz\")"
     ],
     "pre_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process"
     ],
     "post_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$env:APPData\\com.example\\keyviz\",\"$scoop_apps_lnk\\keyviz.lnk\")",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$data=@(\"$env:AppData\\com.example\\keyviz\")",
         "$data | ForEach-Object {",
         "   if (Test-Path($_)) {",
         "       Remove-Item -Force -Recurse $_",
@@ -31,12 +35,16 @@
         "   }",
         "}"
     ],
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/mulaRahul/keyviz"
+    },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/mulaRahul/keyviz/releases/download/v$version/keyviz-v$version-portable.zip"
-            }
-        }
+        "url": "https://github.com/mulaRahul/keyviz/releases/download/v$version/keyviz-v$version-portable.zip",
+        "shortcuts": [
+            [
+                "keyviz-v$version-portable.exe",
+                "Keyviz"
+            ]
+        ]
     }
 }
