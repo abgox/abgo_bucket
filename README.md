@@ -50,6 +50,7 @@
 
 -   [What is Scoop?](https://github.com/ScoopInstaller/Scoop)
 -   [What is bucket in Scoop?](https://github.com/ScoopInstaller/Scoop/wiki/Buckets)
+-   [What is App-Manifests in Scoop?](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
 -   [Scoop install](https://github.com/ScoopInstaller/Install)
 -   [Scoop Document](https://github.com/ScoopInstaller/Scoop/wiki)
 
@@ -61,7 +62,7 @@
 
     - Some apps doesn't `persist` data.
         - They don't include apps that do not necessarily `persist` data.
-    - After uninstalling app, local data was not cleaned up. (e.g. the app's data under `$env:AppData`,`$env:LocalAppData` or ohter directory)
+    - After uninstalling app, local data was not cleaned up. (e.g. the app's data under `$env:AppData`,`$env:LocalAppData` or other directory)
     - When uninstalling app, there's a problem where the process is occupied and cannot be uninstalled.
     - ...
 
@@ -73,11 +74,11 @@
 
 -   Guide
     -   `App`：Sort by first letter(0-9,a-z).
-    -   `Persist`: Important data of software is saved to `persist` under the installation directory of 'Scoop'.
+    -   `Persist`: Important data of software is saved to `persist` under the installation directory of "Scoop".
     -   `Clear Data`：When the software is uninstalled, delete data of the software if it exists.(Except for `persist` data).
     -   `Forced uninstall`：When the software is running, using the `scoop uninstall <app_name>` will terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
     -   **√**：It has been done.
-        -   For `Clear Data`, it is considered complete if there is no remaining data after uninstallation.
+        -   For `Clear Data`, it is considered complete if there is no remaining data after uninstalling.
     -   **x**：It hasn't been done yet.
     -   **/**：It's not necessary, or the conditions are not meet.
     -   **\*run** : Run the application once after installing.
@@ -95,7 +96,7 @@
 |               [Geek Uninstaller](https://geekuninstaller.com)               |    √    |     √      |        √         |             |
 |                      [Helix](https://helix-editor.com)                      |    √    |     √      |        √         |             |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |    √    |     √      |        √         |             |
-|                     [Listary](https://www.listary.com)                      |    √    |     √      |        √         | **\*run**   |
+|                     [Listary](https://www.listary.com)                      |    √    |     √      |        √         |             |
 |                     [LocalSend](https://localsend.org)                      |    √    |     √      |        √         |             |
 |                    [LX-Music](https://docs.lxmusic.top)                     |    √    |     √      |        √         |             |
 |                     [MarkText](https://www.marktext.cc)                     |    √    |     √      |        √         |             |
@@ -104,16 +105,16 @@
 |                         [Neovim](https://neovim.io)                         |    √    |     √      |        √         |             |
 |                         [ngrok](https://ngrok.com)                          |    √    |     √      |        √         |             |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |     √      |        √         |             |
-|                       [PixPin](https://pixpinapp.com)                       |    √    |     √      |        √         | **\*run**   |
+|                       [PixPin](https://pixpinapp.com)                       |    √    |     √      |        √         |             |
 |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |     √      |        √         |             |
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |    √    |     √      |        √         |             |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |    √    |     √      |        √         |             |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |    √    |     √      |        √         |             |
 | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |    √    |     √      |        √         |             |
-|                    [Snipaste](https://www.snipaste.com)                     |    √    |     √      |        √         | **\*run**   |
-|                    [Snipaste2](https://www.snipaste.com)                    |    √    |     √      |        √         | **\*run**   |
+|                    [Snipaste](https://www.snipaste.com)                     |    √    |     √      |        √         |             |
+|                    [Snipaste2](https://www.snipaste.com)                    |    √    |     √      |        √         |             |
 |                [Steampp(Watt Toolkit)](https://steampp.net)                 |    √    |     √      |        √         |             |
-|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |     √      |        √         | **\*run**   |
+|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |     √      |        √         |             |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |     √      |        √         |             |
 |                         [Typora](https://typora.io)                         |    √    |     √      |        √         |             |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |     √      |        √         |             |

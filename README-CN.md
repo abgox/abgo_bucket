@@ -48,6 +48,7 @@
 
 -   [什么是 Scoop?](https://github.com/ScoopInstaller/Scoop)
 -   [什么是 Scoop 中的 bucket?](https://github.com/ScoopInstaller/Scoop)
+-   [什么是 Scoop 中的应用清单(App-Manifests)?](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
 -   [安装 Scoop](https://github.com/ScoopInstaller/Install)
 -   [Scoop 文档](https://github.com/ScoopInstaller/Scoop/wiki)
 
@@ -93,7 +94,7 @@
 |               [Geek Uninstaller](https://geekuninstaller.com)               |    √    |    √     |    √     |             |
 |                      [Helix](https://helix-editor.com)                      |    √    |    √     |    √     |             |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |    √    |    √     |    √     |             |
-|                     [Listary](https://www.listary.com)                      |    √    |    √     |    √     | **\*run**   |
+|                     [Listary](https://www.listary.com)                      |    √    |    √     |    √     |             |
 |                     [LocalSend](https://localsend.org)                      |    √    |    √     |    √     |             |
 |                    [LX-Music](https://docs.lxmusic.top)                     |    √    |    √     |    √     |             |
 |                     [MarkText](https://www.marktext.cc)                     |    √    |    √     |    √     |             |
@@ -102,16 +103,16 @@
 |                         [Neovim](https://neovim.io)                         |    √    |    √     |    √     |             |
 |                         [ngrok](https://ngrok.com)                          |    √    |    √     |    √     |             |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |    √     |    √     |             |
-|                       [PixPin](https://pixpinapp.com)                       |    √    |    √     |    √     | **\*run**   |
+|                       [PixPin](https://pixpinapp.com)                       |    √    |    √     |    √     |             |
 |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |    √     |    √     |             |
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |    √    |    √     |    √     |             |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |    √    |    √     |    √     |             |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |    √    |    √     |    √     |             |
 | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |    √    |    √     |    √     |             |
-|                    [Snipaste](https://www.snipaste.com)                     |    √    |    √     |    √     | **\*run**   |
-|                    [Snipaste2](https://www.snipaste.com)                    |    √    |    √     |    √     | **\*run**   |
+|                    [Snipaste](https://www.snipaste.com)                     |    √    |    √     |    √     |             |
+|                    [Snipaste2](https://www.snipaste.com)                    |    √    |    √     |    √     |             |
 |                [Steampp(Watt Toolkit)](https://steampp.net)                 |    √    |    √     |    √     |             |
-|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |    √     |    √     | **\*run**   |
+|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |    √     |    √     |             |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |    √     |    √     |             |
 |                         [Typora](https://typora.io)                         |    √    |    √     |    √     |             |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |    √     |    √     |             |
