@@ -1,8 +1,6 @@
-if (!(Test-Path("$env:AppData\abgo_bucket_Snipaste2.txt"))) {
-    return
-}
+if (!(Test-Path("$env:AppData\abgo_bucket_Snipaste.txt"))) { return }
 
-$content = Get-Content "$env:AppData\abgo_bucket_Snipaste2.txt"
+$content = Get-Content "$env:AppData\abgo_bucket_Snipaste.txt"
 
 $path_data = $content[0]
 $path_persist = $content[1]
