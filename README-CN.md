@@ -108,6 +108,7 @@
 |                       [PixPin](https://pixpinapp.com)                       |    √    |    √     |    √     |             |
 |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |    √     |    √     |             |
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |    √    |    √     |    √     |             |
+|                      [Quicker](https://getquicker.net)                      |    √    |    √     |    √     |             |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |    √    |    √     |    √     |             |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |    √    |    √     |    √     |             |
 | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |    √    |    √     |    √     |             |

@@ -1,0 +1,46 @@
+{
+    "version": "1.41.3",
+    "description": "指尖工具箱, Windows 效率工具",
+    "homepage": "https://getquicker.net",
+    "license": "Shareware",
+    "architecture": {
+        "64bit": {
+            "url": "https://getquicker.net/download/item/fast_x64#quiker.msi",
+            "hash": "81bd26e255391cd608c5bb674d3f86a974fb5434b76a9bba3775e9d0bceab128"
+        },
+        "32bit": {
+            "url": "https://getquicker.net/download/item/fast_x86#quiker.msi",
+            "hash": "15c0f22715cd3bfb68ef048469a06aa47f576d566bd37c76d99ada6fa2742076"
+        }
+    },
+    "extract_dir": "Quicker",
+    "shortcuts": [
+        [
+            "Quicker.exe",
+            "Quicker"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$env:LocalAppData\\Quicker\") @(\"$persist_dir\")",
+        "create_app_lnk \"$dir\\Quicker.exe\" \"$desktop\\Quicker.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\Quicker.lnk\",\"$env:LocalAppData\\Quicker\")"
+    ],
+    "checkver": {
+        "url": "https://getquicker.net/Download",
+        "regex": "Quicker.+v([\\d\\.]+)"
+    },
+    "autoupdate": {
+        "64bit": {
+            "url": "https://getquicker.net/download/item/fast_x64#quiker.msi"
+        },
+        "32bit": {
+            "url": "https://getquicker.net/download/item/fast_x86#quiker.msi"
+        }
+    }
+}
