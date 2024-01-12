@@ -90,6 +90,7 @@
 |                        [aardio](https://aardio.com)                         |    √    |     √      |        √         |             |
 |                        [chfs](http://iscute.cn/chfs)                        |    √    |     √      |        √         |             |
 |               [DownKyi](https://leiurayer.github.io/downkyi)                |    √    |     √      |        √         |             |
+|                   [Everything](https://www.voidtools.com)                   |    √    |     √      |        √         |             |
 |                    [Final2x](https://final2x.tohru.top)                     |    √    |     √      |        √         |             |
 |                    [fnm](https://github.com/Schniz/fnm)                     |    /    |     √      |        √         |             |
 |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |    /    |     √      |        √         | **invalid** |

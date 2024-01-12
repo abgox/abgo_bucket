@@ -1,0 +1,87 @@
+{
+    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
+    "version": "1.4.1.1024",
+    "description": "Locate files and folders by name instantly.",
+    "homepage": "https://www.voidtools.com",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.voidtools.com/zh-cn/License.txt"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.voidtools.com/Everything-1.4.1.1024.x64.zip",
+            "hash": "4be0851752e195c9c7f707b1e0905cd01caf6208f4e2bfa2a66e43c0837be8f5"
+        },
+        "32bit": {
+            "url": "https://www.voidtools.com/Everything-1.4.1.1024.x86.zip",
+            "hash": "febbdf9ffefd122e046163d23b3ce995b35bbee05964886d1db8c81b7fb5c34f"
+        },
+        "arm64": {
+            "url": "https://www.voidtools.com/Everything-1.4.1.1024.ARM64.zip",
+            "hash": "b3ce6df443270266b067c90e5c66b619372bc618c27d7b0aa57b0e19a8440f89",
+            "bin": [
+                [
+                    "EverythingARM64.exe",
+                    "Everything"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "EverythingARM64.exe",
+                    "Everything"
+                ]
+            ]
+        }
+    },
+    "bin": "Everything.exe",
+    "shortcuts": [
+        [
+            "Everything.exe",
+            "Everything"
+        ]
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$persist_file=\"$persist_dir\\Everything.ini\"",
+        "Write-Host \"--------------------- $($json.persist_data[0])\" -f Yellow",
+        "Write-Host \"$($json.persist_data[3]) --- $($dir + \"\\chfs.ini\")\" -f Green",
+        "Write-Host \"$($json.persist_data[4]) --- $persist_file\" -f Green",
+        "Write-Host \"---------------------`n\" -f Yellow",
+        "if (Test-Path $persist_file) { ",
+        "   Copy-Item $persist_file \"$dir\\Everything.ini\" ",
+        "}else{",
+        "   New-Item $persist_file > $null",
+        "}",
+        "create_app_lnk \"$dir\\Everything.exe\" \"$desktop\\Everything.lnk\"",
+        "\"$dir\\Everything.ini\n$persist_file\" | Out-File \"$env:AppData\\abgo_bucket_Everything.txt\"",
+        "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"abgo_bucket_Everything\" \"$bucketsdir\\$bucket\\schedule\\Everything.ps1\""
+    ],
+    "pre_uninstall": [
+        "Copy-Item \"$dir\\Everything.ini\" \"$persist_dir\\Everything.ini\" -Force",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\Everything.lnk\",\"$env:AppData\\abgo_bucket_Everything.txt\")"
+    ],
+    "post_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        "& \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"abgo_bucket_Everything\""
+    ],
+    "checkver": "Download Everything ([\\d.]+)",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.voidtools.com/Everything-$version.x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.voidtools.com/Everything-$version.x86.zip"
+            },
+            "arm64": {
+                "url": "https://www.voidtools.com/Everything-$version.ARM64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/Everything-$version.sha256"
+        }
+    }
+}
