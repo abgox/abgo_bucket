@@ -1,0 +1,11 @@
+{
+    "json.schemas": [
+        {
+            "url": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
+            "fileMatch": [
+                "bucket/**/*.json",
+                "deprecated/**/*.json"
+            ]
+        }
+    ]
+}
