@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.13.1",
     "description": "Share files to nearby devices. An open source cross-platform alternative to AirDrop. 将文件共享到附近的设备。免费、开源、跨平台。",
     "homepage": "https://localsend.org/",
@@ -23,12 +22,14 @@
     ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -file @(\"$dir\\settings.json\") @(\"$persist_dir\\settings.json\")"
+        "persist -file @(\"$dir\\settings.json\") @(\"$persist_dir\\settings.json\")",
+        "create_app_lnk \"$dir\\localsend_app.exe\" \"$desktop\\LocalSend.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
+        "stop_process",
+        "remove_files @(\"$desktop\\LocalSend.lnk\")"
     ],
     "checkver": {
         "github": "https://github.com/localsend/localsend"

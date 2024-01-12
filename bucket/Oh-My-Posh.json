@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "19.5.1",
     "description": "A prompt theme engine for any shell. 任何 shell 的提示主题引擎",
     "homepage": "https://ohmyposh.dev",
@@ -55,18 +54,8 @@
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$env:LocalAppData\\oh-my-posh\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$env:LocalAppData\\oh-my-posh\")"
     ],
     "checkver": {
         "github": "https://github.com/JanDeDobbeleer/oh-my-posh"

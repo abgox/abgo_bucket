@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.2.0",
     "description": "2^x Image Super-Resolution. 2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具",
     "homepage": "https://github.com/Tohrusky/Final2x",
@@ -18,21 +17,14 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Final2x\") @(\"$persist_dir\")"
+        "persist -dir @(\"$env:AppData\\Final2x\") @(\"$persist_dir\")",
+        "create_app_lnk \"$dir\\final2x.exe\" \"$desktop\\Final2x.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$data=@(\"$env:AppData\\Final2x\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$desktop\\Final2x.lnk\",\"$env:AppData\\Final2x\")"
     ],
     "checkver": {
         "url": "https://github.com/Tohrusky/Final2x/releases",

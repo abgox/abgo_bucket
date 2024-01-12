@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.35.1",
     "description": "Fast and simple Node.js version manager, built in Rust. 快速、简单的 Node.js 版本管理器，采用 Rust 内建",
     "homepage": "https://github.com/Schniz/fnm",

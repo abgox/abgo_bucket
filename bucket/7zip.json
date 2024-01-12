@@ -1,9 +1,8 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "23.01",
     "description": "A multi-format file archiver with high compression ratios. 具有高压缩比的多格式文件归档器",
     "homepage": "https://www.7-zip.org/",
-    "license":{
+    "license": {
         "identifier": "GNU Lesser General Public License v3.0",
         "url": "https://github.com/sparanoid/7z/blob/master/LICENSE"
     },
@@ -50,17 +49,22 @@
         "    }",
         "    Set-Content \"$dir\\$_\" $content -Encoding Ascii",
         "}",
-        "reg import \"$dir\\install-context.reg\""
+        "reg import \"$dir\\install-context.reg\"",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "create_app_lnk \"$dir\\7zFM.exe\" \"$desktop\\7z File Manager.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process",
+        "stop_process $false",
         "if ($cmd -eq 'uninstall') {",
         "   reg import \"$dir\\uninstall-context.reg\"",
         "}",
+        "remove_files @(\"$desktop\\7z File Manager.lnk\")",
+        "Write-Host \"\"",
+        "confirm $(data_replace $json.stop_explorer)",
         "Stop-Process -Name \"explorer\" -Force",
-        "start explorer.exe"
+        "Start-Process explorer.exe"
     ],
     "checkver": {
         "url": "https://www.7-zip.org/download.html",

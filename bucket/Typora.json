@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.7.6",
     "description": "A minimal Markdown editor and reader. 一个 Markdown 编辑器和阅读器，所见即所得",
     "homepage": "https://typora.io",
@@ -9,7 +8,7 @@
     },
     "notes": [
         "For old beta version, install: versions/typora0.11.18",
-        "需要旧的测试版本，安装 versions/typora0.11.18"
+        "需要旧的 beta 版本，安装 versions/typora0.11.18"
     ],
     "architecture": {
         "64bit": {
@@ -31,23 +30,14 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Typora\") @(\"$persist_dir\")"
+        "persist -dir @(\"$env:AppData\\Typora\") @(\"$persist_dir\")",
+        "create_app_lnk \"$dir\\Typora.exe\" \"$desktop\\Typora.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$env:AppData\\Typora\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$desktop\\Typora.lnk\",\"$env:AppData\\Typora\")"
     ],
     "checkver": {
         "url": "https://typora.io/releases/stable",

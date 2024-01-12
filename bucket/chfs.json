@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "3.1",
     "description": "A free file sharing http server tool. 一个免费的http服务器文件共享工具，通过局域网实现文件传输",
     "homepage": "http://iscute.cn/chfs",
@@ -48,23 +47,14 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:LocalAppData\\chfsgui\") @(\"$persist_dir\\chfsgui\")"
+        "persist -dir @(\"$env:LocalAppData\\chfsgui\") @(\"$persist_dir\\chfsgui\")",
+        "create_app_lnk \"$dir\\chfsgui.exe\" \"$desktop\\chfs Gui.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$env:LocalAppData\\chfsgui\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$desktop\\chfs Gui.lnk\",\"$env:LocalAppData\\chfsgui\")"
     ],
     "checkver": {
         "regex": "chfs-windows-x64-([\\d.]+).zip"

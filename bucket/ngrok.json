@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "3.5.0",
     "description": "Spend more time programming. One command for an instant, secure URL to your localhost server through any NAT or firewall. 一个命令用于通过任何 NAT 或防火墙向本地主机服务器提供即时、安全的 URL，即内网穿透",
     "homepage": "https://ngrok.com/",
@@ -25,16 +24,8 @@
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$data=@(\"$env:LocalAppData\\ngrok\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$env:LocalAppData\\ngrok\")"
     ],
     "checkver": {
         "url": "https://dl.equinox.io/ngrok/ngrok-v3/stable/archive",

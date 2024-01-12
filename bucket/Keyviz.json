@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.0.6",
     "description": "A free and open-source tool to visualize your keystrokes ⌨️ and 🖱️ mouse actions in real-time. 一个免费的开源工具来可视化你的击键 ⌨️ 和 🖱️ 鼠标实时动作。",
     "homepage": "https://mularahul.github.io/keyviz",
@@ -11,29 +10,20 @@
     "hash": "5dcebe08768ecd7e86d453f6be36346b2cc744183598195fee4c7b4931a8b4b3",
     "shortcuts": [
         [
-            "keyviz-v$version-portable.exe",
+            "keyviz-v1.0.6-portable.exe",
             "Keyviz"
         ]
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\com.example\\keyviz\") @(\"$persist_dir\\keyviz\")"
+        "persist -dir @(\"$env:AppData\\com.example\\keyviz\") @(\"$persist_dir\\keyviz\")",
+        "create_app_lnk \"$dir\\keyviz-v1.0.6-portable.exe\" \"$desktop\\Keyviz.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$env:AppData\\com.example\\keyviz\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$desktop\\Keyviz.lnk\",\"$env:AppData\\com.example\\keyviz\")"
     ],
     "checkver": {
         "github": "https://github.com/mulaRahul/keyviz"
@@ -45,6 +35,11 @@
                 "keyviz-v$version-portable.exe",
                 "Keyviz"
             ]
+        ],
+        "post_install": [
+            ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+            "persist -dir @(\"$env:AppData\\com.example\\keyviz\") @(\"$persist_dir\\keyviz\")",
+            "create_app_lnk \"$dir\\keyviz-v$version-portable.exe\" \"$desktop\\Keyviz.lnk\""
         ]
     }
 }

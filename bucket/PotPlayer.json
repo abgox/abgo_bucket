@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "231220",
     "description": "Highly customizable media player. 高度可定制的媒体播放器",
     "homepage": "https://potplayer.daum.net",
@@ -20,6 +19,30 @@
                     "PotPlayerMini64.exe",
                     "PotPlayer Mini"
                 ]
+            ],
+            "post_install": [
+                ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+                "$config = @(",
+                "    '[Settings]'",
+                "    'AutoUpdateStart=0'",
+                "    'CheckAutoUpdate=0'",
+                "    'FastAutoUpdate=0'",
+                ")",
+                "$data_arr=@()",
+                "$persist_arr=@()",
+                "foreach ($i in @('PotPlayerMini64.ini', 'PotPlayerMini.ini', 'PotPlayer64.ini', 'PotPlayer.ini')) {",
+                "   if (!(Test-Path \"$persist_dir\\$i\")) {",
+                "       Set-Content \"$dir\\$i\" $config -Encoding Ascii",
+                "   }else{ ",
+                "       $data_arr+=\"$dir\\$i\"",
+                "       $persist_arr+=\"$persist_dir\\$i\"",
+                "   }",
+                "}",
+                "if($data_arr.Count -gt 0){",
+                "   persist -file $data_arr $persist_arr",
+                "}",
+                "create_app_lnk \"$dir\\PotPlayer64.exe\" \"$desktop\\PotPlayer.lnk\"",
+                "create_app_lnk \"$dir\\PotPlayerMini64.exe\" \"$desktop\\PotPlayer Mini.lnk\""
             ]
         },
         "32bit": {
@@ -34,6 +57,30 @@
                     "PotPlayerMini.exe",
                     "PotPlayer Mini"
                 ]
+            ],
+            "post_install": [
+                ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+                "$config = @(",
+                "    '[Settings]'",
+                "    'AutoUpdateStart=0'",
+                "    'CheckAutoUpdate=0'",
+                "    'FastAutoUpdate=0'",
+                ")",
+                "$data_arr=@()",
+                "$persist_arr=@()",
+                "foreach ($i in @('PotPlayerMini64.ini', 'PotPlayerMini.ini', 'PotPlayer64.ini', 'PotPlayer.ini')) {",
+                "   if (!(Test-Path \"$persist_dir\\$i\")) {",
+                "       Set-Content \"$dir\\$i\" $config -Encoding Ascii",
+                "   }else{ ",
+                "       $data_arr+=\"$dir\\$i\"",
+                "       $persist_arr+=\"$persist_dir\\$i\"",
+                "   }",
+                "}",
+                "if($data_arr.Count -gt 0){",
+                "   persist -file $data_arr $persist_arr",
+                "}",
+                "create_app_lnk \"$dir\\PotPlayer.exe\" \"$desktop\\PotPlayer.lnk\"",
+                "create_app_lnk \"$dir\\PotPlayerMini.exe\" \"$desktop\\PotPlayer Mini.lnk\""
             ]
         }
     },
@@ -49,32 +96,11 @@
         "Skins",
         "UrlList"
     ],
-    "pre_install": [
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$config = @(",
-        "    '[Settings]'",
-        "    'AutoUpdateStart=0'",
-        "    'CheckAutoUpdate=0'",
-        "    'FastAutoUpdate=0'",
-        ")",
-        "$data_arr=@()",
-        "$persist_arr=@()",
-        "foreach ($i in @('PotPlayerMini64.ini', 'PotPlayerMini.ini', 'PotPlayer64.ini', 'PotPlayer.ini')) {",
-        "   if (!(Test-Path \"$persist_dir\\$i\")) {",
-        "       Set-Content \"$dir\\$i\" $config -Encoding Ascii",
-        "   }else{ ",
-        "       $data_arr+=\"$dir\\$i\"",
-        "       $persist_arr+=\"$persist_dir\\$i\"",
-        "   }",
-        "}",
-        "if($data_arr.Count -gt 0){",
-        "   persist -file $data_arr $persist_arr",
-        "}"
-    ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
+        "stop_process",
+        "remove_files @(\"$desktop\\PotPlayer.lnk\",\"$desktop\\PotPlayer Mini.lnk\")"
     ],
     "checkver": {
         "url": "https://t1.daumcdn.net/potplayer/PotPlayer/v4/Update2/UpdateEng.html",

@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "2.8.6",
     "description": "A toolbox with lots of Steam tools. Its other name is \"Watt Toolkit\". 一个开源跨平台的多功能 Steam 工具箱，它有另一个名字: \"Watt Toolkit\"",
     "homepage": "https://steampp.net/",
@@ -25,12 +24,14 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$dir\\AppData\") @(\"$persist_dir\\AppData\")"
+        "persist -dir @(\"$dir\\AppData\") @(\"$persist_dir\\AppData\")",
+        "create_app_lnk \"$dir\\Steam++.exe\" \"$desktop\\Steam++.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
+        "stop_process",
+        "remove_files @(\"$desktop\\Steam++.lnk\")"
     ],
     "checkver": {
         "github": "https://github.com/SteamTools-Team/SteamTools"

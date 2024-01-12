@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.8.19",
     "description": "A full-featured download manager. 一个全功能的下载器",
     "homepage": "https://motrix.app",
@@ -17,21 +16,14 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Motrix\") @(\"$persist_dir\")"
+        "persist -dir @(\"$env:AppData\\Motrix\") @(\"$persist_dir\")",
+        "create_app_lnk \"$dir\\Motrix.exe\" \"$desktop\\Motrix.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$data=@(\"$env:AppData\\Motrix\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$desktop\\Motrix.lnk\",\"$env:AppData\\Motrix\")"
     ],
     "checkver": {
         "github": "https://github.com/agalwood/Motrix"

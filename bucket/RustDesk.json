@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.2.3",
     "description": "An open-source remote desktop software, written in Rust. 一个安全的远程桌面访问工具，用 Rust 语言编写",
     "homepage": "https://github.com/rustdesk/rustdesk",
@@ -22,6 +21,11 @@
                     "rustdesk-1.2.3-x86_64.exe",
                     "RustDesk"
                 ]
+            ],
+            "post_install": [
+                ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+                "persist -dir @(\"$env:AppData\\RustDesk\") @(\"$persist_dir\")",
+                "create_app_lnk \"$dir\\rustdesk-1.2.3-x86_64.exe\" \"$desktop\\RustDesk.lnk\""
             ]
         },
         "32bit": {
@@ -38,28 +42,19 @@
                     "rustdesk-1.2.3-x86-sciter.exe",
                     "RustDesk"
                 ]
+            ],
+            "post_install": [
+                ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+                "persist -dir @(\"$env:AppData\\RustDesk\") @(\"$persist_dir\")",
+                "create_app_lnk \"$dir\\rustdesk-1.2.3-x86-sciter.exe\" \"$desktop\\RustDesk.lnk\""
             ]
         }
     },
-    "post_install": [
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\RustDesk\") @(\"$persist_dir\")"
-    ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$env:AppData\\RustDesk\",\"$env:LocalAppData\\rustdesk\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$desktop\\RustDesk.lnk\",\"$env:AppData\\RustDesk\",\"$env:LocalAppData\\rustdesk\")"
     ],
     "checkver": "github",
     "autoupdate": {
@@ -77,6 +72,11 @@
                         "rustdesk-$version-x86_64.exe",
                         "RustDesk"
                     ]
+                ],
+                "post_install": [
+                    ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+                    "persist -dir @(\"$env:AppData\\RustDesk\") @(\"$persist_dir\")",
+                    "create_app_lnk \"$dir\\rustdesk-$version-x86_64.exe\" \"$desktop\\RustDesk.lnk\""
                 ]
             },
             "32bit": {
@@ -92,6 +92,11 @@
                         "rustdesk-$version-x86-sciter.exe",
                         "RustDesk"
                     ]
+                ],
+                "post_install": [
+                    ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+                    "persist -dir @(\"$env:AppData\\RustDesk\") @(\"$persist_dir\")",
+                    "create_app_lnk \"$dir\\rustdesk-$version-x86-sciter.exe\" \"$desktop\\RustDesk.lnk\""
                 ]
             }
         }

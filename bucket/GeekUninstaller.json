@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.5.2.165",
     "description": "The good free uninstaller. 非常好用的免费卸载程序",
     "homepage": "https://geekuninstaller.com/",
@@ -15,21 +14,14 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Geek Uninstaller\") @(\"$persist_dir\")"
+        "persist -dir @(\"$env:AppData\\Geek Uninstaller\") @(\"$persist_dir\")",
+        "create_app_lnk \"$dir\\geek.exe\" \"$desktop\\Geek Uninstaller.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$data=@(\"$env:AppData\\Geek Uninstaller\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$desktop\\Geek Uninstaller.lnk\",\"$env:AppData\\Geek Uninstaller\")"
     ],
     "checkver": {
         "url": "https://geekuninstaller.com/download",

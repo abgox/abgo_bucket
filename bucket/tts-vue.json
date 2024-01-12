@@ -1,5 +1,4 @@
 {
-    "$schema": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
     "version": "1.9.15",
     "description": "🎤 Microsoft speech synthesis tool, built using Electron + Vue + ElementPlus + Vite. 🎤 微软语音合成工具，使用 Electron + Vue + ElementPlus + Vite 构建。",
     "homepage": "https://github.com/LokerL/tts-vue",
@@ -12,33 +11,16 @@
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "& \"$dir\\$version\\tts-vue-$version.exe\" /S /D=$dir",
-        "create_app_lnk \"$dir\\tts-vue.exe\" \"$scoop_apps_lnk\\tts-vue.lnk\"",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\tts-vue\") @(\"$persist_dir\")",
-        "Write-Host \"There will be a delayed backend behavior soon: Delete redundant files after 10 seconds\n\" -f Yellow",
-        "$null=Start-Job -ScriptBlock {",
-        "   param($path1,$path2)",
-        "   Start-Sleep -Seconds 10",
-        "   @($path1,$path2) | ForEach-Object {",
-        "       if (Test-Path($_)) { Remove-Item -Force -Recurse $_ }",
-        "   }",
-        "} -ArgumentList \"$dir\\$version\\tts-vue-$version.exe\",\"$env:UserProfile\\Desktop\\tts-vue.lnk\",\"$env:AppData\\Microsoft\\Windows\\Start Menu\\Programs\\tts-vue.lnk\""
+        "create_app_lnk \"$dir\\tts-vue.exe\" \"$desktop\\tts-vue.lnk\"",
+        "create_app_lnk \"$dir\\tts-vue.exe\" \"$scoop_apps_lnk\\tts-vue.lnk\"",
+        "clean_redundant_files @(\"$apps_lnk\\tts-vue.lnk\",\"$dir\\$version\\tts-vue-$version.exe\") 10"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
-    ],
-    "post_uninstall": [
-        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$data=@(\"$env:AppData\\tts-vue\",\"$scoop_apps_lnk\\tts-vue.lnk\")",
-        "$data | ForEach-Object {",
-        "   if (Test-Path($_)) {",
-        "       Remove-Item -Force -Recurse $_",
-        "       Write-Host \"Removing $_\" -f Yellow",
-        "   }",
-        "}"
+        "stop_process",
+        "remove_files @(\"$desktop\\tts-vue.lnk\",\"$scoop_apps_lnk\\tts-vue.lnk\",\"$env:AppData\\tts-vue\")"
     ],
     "checkver": "github",
     "autoupdate": {
