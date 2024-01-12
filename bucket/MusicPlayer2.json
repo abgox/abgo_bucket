@@ -24,7 +24,7 @@
             "MusicPlayer2"
         ]
     ],
-    "pre_install": [
+    "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\MusicPlayer2\") @(\"$persist_dir\")",
         "create_app_lnk \"$dir\\MusicPlayer2.exe\" \"$desktop\\MusicPlayer2.lnk\""

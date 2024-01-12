@@ -20,7 +20,7 @@
             "LocalSend"
         ]
     ],
-    "pre_install": [
+    "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -file @(\"$dir\\settings.json\") @(\"$persist_dir\\settings.json\")",
         "create_app_lnk \"$dir\\localsend_app.exe\" \"$desktop\\LocalSend.lnk\""
