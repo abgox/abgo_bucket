@@ -86,6 +86,7 @@
 | :-------------------------------------------------------------------------: | :-----: | :------: | :------: | ----------- |
 |                          [7zip](https://7-zip.org)                          |    /    |    √     |    √     |             |
 |                        [aardio](https://aardio.com)                         |    √    |    √     |    √     |             |
+|                    [AutoHotkey](https://autohotkey.com)                     |    √    |    √     |    √     |             |
 |                        [chfs](http://iscute.cn/chfs)                        |    √    |    √     |    √     |             |
 |               [DownKyi](https://leiurayer.github.io/downkyi)                |    √    |    √     |    √     |             |
 |                   [Everything](https://www.voidtools.com)                   |    √    |    √     |    √     |             |

@@ -1,0 +1,40 @@
+{
+    "version": "2.0.11",
+    "description": "The ultimate automation scripting language for Windows. 适用于 Windows 的终极自动化脚本语言。",
+    "homepage": "https://www.autohotkey.com",
+    "license": {
+        "identifier": "GNU General Public License v2.0",
+        "url": "https://github.com/AutoHotkey/AutoHotkey/blob/v2.0/license.txt"
+    },
+    "url": "https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.11/AutoHotkey_2.0.11_setup.exe",
+    "hash": "510a833bdd0f896cc398eaae4ff475f5b7cfe37649efbf647b50d21e442394b9",
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "& \"$dir\\AutoHotkey_2.0.11.exe\" /to $dir",
+        "persist -dir @(\"$env:UserProfile\\Documents\\AutoHotkey\") @(\"$persist_dir\")"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process -isRemove $false",
+        "remove_files @(\"$env:UserProfile\\Documents\\AutoHotkey\",\"$apps_lnk\\AutoHotkey Dash.lnk\",\"$apps_lnk\\Ahk2Exe.lnk\",\"$apps_lnk\\AutoHotkey Window Spy.lnk\")",
+        "Get-ChildItem \"$dir\\UX\" | Where-Object { $_ -like \"*.csv\" } | ForEach-Object {",
+        "   Remove-Item $_.FullName -Force -Recurse",
+        "}",
+        "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" Start-Process \"$dir\\UX\\AutoHotkeyUX.exe\" -ArgumentList '/script', \"$dir\\UX\\install.ahk\", '/uninstall', '/silent' -Wait"
+    ],
+    "checkver": {
+        "github": "https://github.com/AutoHotkey/AutoHotkey"
+    },
+    "autoupdate": {
+        "url": "https://github.com/AutoHotkey/AutoHotkey/releases/download/v$version/AutoHotkey_$version_setup.exe",
+        "hash": {
+            "url": "https://www.autohotkey.com/download/$majorVersion.$minorVersion/AutoHotkey_$version_setup.exe.sha256"
+        },
+        "post_install": [
+            ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+            "& \"$dir\\AutoHotkey_$version.exe\" /to $dir",
+            "persist -dir @(\"$env:UserProfile\\Documents\\AutoHotkey\") @(\"$persist_dir\")"
+        ]
+    }
+}
