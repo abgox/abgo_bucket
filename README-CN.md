@@ -112,6 +112,7 @@
 |                      [Quicker](https://getquicker.net)                      |    √    |    √     |    √     |             |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |    √    |    √     |    √     |             |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |    √    |    √     |    √     |             |
+|         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |    √    |    √     |    √     |             |
 | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |    √    |    √     |    √     |             |
 |                    [Snipaste](https://www.snipaste.com)                     |    √    |    √     |    √     |             |
 |                    [Snipaste2](https://www.snipaste.com)                    |    √    |    √     |    √     |             |
