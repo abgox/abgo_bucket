@@ -10,11 +10,11 @@
     "hash": "0abf70b7efd8c855c270bcecc237809ba48b08c22f582f17bf33fb5c7f55d1b1",
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "& \"$dir\\rubick-Setup-$version-x64.exe\" /S /D=$dir",
+        "& \"$dir\\rubick-Setup-$($version)-x64.exe\" /S /D=$dir",
         "persist -dir @(\"$env:AppData\\rubick\") @(\"$persist_dir\")",
         "create_app_lnk \"$dir\\rubick.exe\" \"$desktop\\rubick.lnk\"",
         "create_app_lnk \"$dir\\rubick.exe\" \"$scoop_apps_lnk\\rubick.lnk\"",
-        "clean_redundant_files @(\"$apps_lnk\\rubick.lnk\",\"$dir\\rubick-Setup-$version-x64.exe\") 10"
+        "clean_redundant_files @(\"$apps_lnk\\rubick.lnk\",\"$dir\\rubick-Setup-$($version)-x64.exe\") 10"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

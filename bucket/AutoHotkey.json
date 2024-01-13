@@ -10,10 +10,11 @@
     "hash": "510a833bdd0f896cc398eaae4ff475f5b7cfe37649efbf647b50d21e442394b9",
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "& \"$dir\\AutoHotkey_2.0.11.exe\" /to $dir",
+        "& (\"$dir\\AutoHotkey_$($version)_setup.exe\") /to $dir",
         "persist -dir @(\"$env:UserProfile\\Documents\\AutoHotkey\") @(\"$persist_dir\")"
     ],
     "pre_uninstall": [
+        "$ErrorActionPreference=\"SilentlyContinue\"",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process -isRemove $false",
@@ -30,11 +31,6 @@
         "url": "https://github.com/AutoHotkey/AutoHotkey/releases/download/v$version/AutoHotkey_$version_setup.exe",
         "hash": {
             "url": "https://www.autohotkey.com/download/$majorVersion.$minorVersion/AutoHotkey_$version_setup.exe.sha256"
-        },
-        "post_install": [
-            ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-            "& \"$dir\\AutoHotkey_$version.exe\" /to $dir",
-            "persist -dir @(\"$env:UserProfile\\Documents\\AutoHotkey\") @(\"$persist_dir\")"
-        ]
+        }
     }
 }
