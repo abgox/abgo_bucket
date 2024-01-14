@@ -1,6 +1,6 @@
 {
     "version": "1.13.1",
-    "description": "Share files to nearby devices. An open source cross-platform alternative to AirDrop. 将文件共享到附近的设备。免费、开源、跨平台。",
+    "description": "将文件共享到附近的设备。免费、开源、跨平台。Share files to nearby devices. An open source cross-platform alternative to AirDrop.",
     "homepage": "https://localsend.org/",
     "license": {
         "identifier": "MIT",

@@ -1,6 +1,6 @@
 {
     "version": "1.5.2.165",
-    "description": "The good free uninstaller. 非常好用的免费卸载程序",
+    "description": "非常好用的免费卸载程序。The good free uninstaller.",
     "homepage": "https://geekuninstaller.com/",
     "license": "Unknown",
     "url": "https://geekuninstaller.com/geek.zip",
@@ -14,7 +14,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Geek Uninstaller\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\Geek Uninstaller\") @(\"$persist_dir\\Geek Uninstaller\")",
         "create_app_lnk \"$dir\\geek.exe\" \"$desktop\\Geek Uninstaller.lnk\""
     ],
     "pre_uninstall": [

@@ -1,6 +1,6 @@
 {
     "version": "2.8.6",
-    "description": "A toolbox with lots of Steam tools. Its other name is \"Watt Toolkit\". 一个开源跨平台的多功能 Steam 工具箱，它有另一个名字: \"Watt Toolkit\"",
+    "description": "一个开源跨平台的多功能 Steam 工具箱，它有另一个名字: \"Watt Toolkit\"。A toolbox with lots of Steam tools. Its other name is \"Watt Toolkit\".",
     "homepage": "https://steampp.net/",
     "license": {
         "identifier": "GNU General Public License v3.0",

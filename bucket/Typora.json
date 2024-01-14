@@ -1,6 +1,6 @@
 {
     "version": "1.7.6",
-    "description": "A minimal Markdown editor and reader. 一个 Markdown 编辑器和阅读器，所见即所得",
+    "description": "一个 Markdown 编辑器和阅读器，所见即所得。A minimal Markdown editor and reader.",
     "homepage": "https://typora.io",
     "license": {
         "identifier": "Proprietary",
@@ -30,7 +30,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Typora\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\Typora\") @(\"$persist_dir\\Typora\")",
         "create_app_lnk \"$dir\\Typora.exe\" \"$desktop\\Typora.lnk\""
     ],
     "pre_uninstall": [

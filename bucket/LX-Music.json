@@ -1,6 +1,6 @@
 {
     "version": "2.5.0",
-    "description": "An electron-based music player. 一个基于 electron 的音乐软件",
+    "description": "一个基于 electron 的音乐软件。An electron-based music player.",
     "homepage": "https://github.com/lyswhut/lx-music-desktop",
     "license": {
         "identifier": "Apache License 2.0",
@@ -16,7 +16,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\lx-music-desktop\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\lx-music-desktop\") @(\"$persist_dir\\lx-music-desktop\")",
         "create_app_lnk \"$dir\\lx-music-desktop.exe\" \"$desktop\\lx-music.lnk\""
     ],
     "pre_uninstall": [

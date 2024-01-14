@@ -1,6 +1,6 @@
 {
     "version": "0.9.5",
-    "description": "A project that seeks to aggressively refactor Vim. 一个旨在重构 Vim 的项目",
+    "description": "一个旨在重构 Vim 的文本编辑器项目。A project that seeks to aggressively refactor Vim.",
     "homepage": "https://neovim.io/",
     "license": {
         "identifier": "Apache License 2.0,Vim",

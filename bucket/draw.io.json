@@ -1,0 +1,60 @@
+{
+    "version": "22.1.18",
+    "description": "Professional diagramming",
+    "homepage": "https://www.diagrams.net",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v22.1.18/draw.io-22.1.18-windows-installer.exe",
+            "hash": "cd9a392d59b21eec7cdfd7bdb5e90a394823d9a5cab653016494c71ba2c20b9e",
+            "pre_install": [
+                ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+                "& \"$dir\\draw.io-$($version)-windows-installer.exe\" /S /D=$dir",
+                "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
+                "clean_redundant_files @(\"$apps_lnk\\100.lnk\",\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
+            ]
+        },
+        "arm64": {
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v22.1.18/draw.io-ia32-22.1.18-windows-32bit-installer.exe",
+            "hash": "b6517ef408446a41db7d3e27bff6157fc393cf02b621476c172b1a8760affb03",
+            "pre_install": [
+                ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+                "& \"$dir\\draw.io-ia32-$($version)-windows-32bit-installer.exe\" /S /D=$dir",
+                "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
+                "clean_redundant_files @(\"$apps_lnk\\100.lnk\",\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
+            ]
+        }
+    },
+    "bin": "draw.io.exe",
+    "shortcuts": [
+        [
+            "draw.io.exe",
+            "draw.io"
+        ]
+    ],
+    "pre_uninstall": [
+        "$ErrorActionPreference=\"SilentlyContinue\"",
+        "& \"$dir\\Uninstall draw.io.exe\" /S",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$env:AppData\\draw.io\",\"$env:LocalAppData\\draw.io-updater\")"
+    ],
+    "checkver": {
+        "github": "https://github.com/jgraph/drawio-desktop"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-$version-windows-installer.exe"
+            },
+            "arm64": {
+                "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-ia32-$version-windows-32bit-installer.exe"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/Files-SHA256-Hashes.txt",
+            "regex": "$basename\\s*?$sha256"
+        }
+    }
+}

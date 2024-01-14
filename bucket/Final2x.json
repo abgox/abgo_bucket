@@ -1,6 +1,6 @@
 {
     "version": "1.2.0",
-    "description": "2^x Image Super-Resolution. 2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具",
+    "description": "2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具。2^x Image Super-Resolution.",
     "homepage": "https://github.com/Tohrusky/Final2x",
     "license": {
         "identifier": "BSD 3-Clause \"New\" or \"Revised\" License",
@@ -17,7 +17,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Final2x\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\Final2x\") @(\"$persist_dir\\Final2x\")",
         "create_app_lnk \"$dir\\final2x.exe\" \"$desktop\\Final2x.lnk\""
     ],
     "pre_uninstall": [

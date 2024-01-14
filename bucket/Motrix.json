@@ -1,6 +1,6 @@
 {
     "version": "1.8.19",
-    "description": "A full-featured download manager. 一个全功能的下载器",
+    "description": "一个全功能的下载器。A full-featured download manager.",
     "homepage": "https://motrix.app",
     "license": {
         "identifier": "MIT",
@@ -16,7 +16,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Motrix\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\Motrix\") @(\"$persist_dir\\Motrix\")",
         "create_app_lnk \"$dir\\Motrix.exe\" \"$desktop\\Motrix.lnk\""
     ],
     "pre_uninstall": [

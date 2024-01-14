@@ -1,6 +1,6 @@
 {
     "version": "2.0.11",
-    "description": "The ultimate automation scripting language for Windows. 适用于 Windows 的终极自动化脚本语言。",
+    "description": "适用于 Windows 的终极自动化脚本语言。The ultimate automation scripting language for Windows.",
     "homepage": "https://www.autohotkey.com",
     "license": {
         "identifier": "GNU General Public License v2.0",
@@ -8,18 +8,19 @@
     },
     "url": "https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.11/AutoHotkey_2.0.11_setup.exe",
     "hash": "510a833bdd0f896cc398eaae4ff475f5b7cfe37649efbf647b50d21e442394b9",
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "& (\"$dir\\AutoHotkey_$($version)_setup.exe\") /to $dir",
-        "persist -dir @(\"$env:UserProfile\\Documents\\AutoHotkey\") @(\"$persist_dir\")"
+        "persist -dir @(\"$env:UserProfile\\Documents\\AutoHotkey\") @(\"$persist_dir\\AutoHotkey\")",
+        "clean_redundant_files @(\"$dir\\AutoHotkey_$($version)_setup.exe\") 10"
     ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process -isRemove $false",
+        "stop_process $false",
         "remove_files @(\"$env:UserProfile\\Documents\\AutoHotkey\",\"$apps_lnk\\AutoHotkey Dash.lnk\",\"$apps_lnk\\Ahk2Exe.lnk\",\"$apps_lnk\\AutoHotkey Window Spy.lnk\")",
-        "Get-ChildItem \"$dir\\UX\" | Where-Object { $_ -like \"*.csv\" } | ForEach-Object {",
+        "Get-ChildItem \"$dir\" -Recurse | Where-Object { $_ -like \"*.csv\" } | ForEach-Object {",
         "   Remove-Item $_.FullName -Force -Recurse",
         "}",
         "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" Start-Process \"$dir\\UX\\AutoHotkeyUX.exe\" -ArgumentList '/script', \"$dir\\UX\\install.ahk\", '/uninstall', '/silent' -Wait"

@@ -1,6 +1,6 @@
 {
     "version": "1.84.1",
-    "description": "Network monitoring floating window software on Windows. It can display the current network speed, CPU and memory usage. It also supports being embedded into the taskbar, theme changing and traffic statistics. Windows 上的网络监控窗口软件。可显示当前网速/CPU/内存使用情况。支持嵌入任务栏/主题更改/流量统计",
+    "description": "Windows 上的网络监控窗口软件。可显示当前网速/CPU/内存使用情况。支持嵌入任务栏/主题更改/流量统计。Network monitoring floating window software on Windows. It can display the current network speed, CPU and memory usage. It also supports being embedded into the taskbar, theme changing and traffic statistics.",
     "homepage": "https://github.com/zhongyang219/TrafficMonitor",
     "license": {
         "identifier": "\"Anti 996\" License",
@@ -28,7 +28,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\TrafficMonitor\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\TrafficMonitor\") @(\"$persist_dir\\TrafficMonitor\")",
         "create_app_lnk \"$dir\\TrafficMonitor.exe\" \"$desktop\\TrafficMonitor.lnk\""
     ],
     "pre_uninstall": [

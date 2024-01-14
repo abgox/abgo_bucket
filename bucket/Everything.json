@@ -1,6 +1,6 @@
 {
     "version": "1.4.1.1024",
-    "description": "Locate files and folders by name instantly.",
+    "description": "文件搜索工具，基于名称快速定位文件和文件夹。Locate files and folders by name instantly.",
     "homepage": "https://www.voidtools.com",
     "license": {
         "identifier": "Freeware",
@@ -41,18 +41,19 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$data_file=\"$dir\\Everything.ini\"",
         "$persist_file=\"$persist_dir\\Everything.ini\"",
         "Write-Host \"--------------------- $($json.persist_data[0])\" -f Yellow",
-        "Write-Host \"$($json.persist_data[3]) --- $($dir + \"\\chfs.ini\")\" -f Green",
+        "Write-Host \"$($json.persist_data[3]) --- $data_file\" -f Green",
         "Write-Host \"$($json.persist_data[4]) --- $persist_file\" -f Green",
         "Write-Host \"---------------------`n\" -f Yellow",
         "if (Test-Path $persist_file) { ",
-        "   Copy-Item $persist_file \"$dir\\Everything.ini\" ",
+        "   Copy-Item $persist_file $data_file",
         "}else{",
         "   New-Item $persist_file > $null",
         "}",
         "create_app_lnk \"$dir\\Everything.exe\" \"$desktop\\Everything.lnk\"",
-        "\"$dir\\Everything.ini\n$persist_file\" | Out-File \"$env:AppData\\abgo_bucket_Everything.txt\"",
+        "\"$data_file\n$persist_file\" | Out-File \"$env:AppData\\abgo_bucket_Everything.txt\"",
         "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"abgo_bucket_Everything\" \"$bucketsdir\\$bucket\\schedule\\Everything.ps1\""
     ],
     "pre_uninstall": [
@@ -60,10 +61,7 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Everything.lnk\",\"$env:AppData\\abgo_bucket_Everything.txt\")"
-    ],
-    "post_uninstall": [
-        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        "remove_files @(\"$desktop\\Everything.lnk\",\"$env:AppData\\abgo_bucket_Everything.txt\")",
         "& \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"abgo_bucket_Everything\""
     ],
     "checkver": "Download Everything ([\\d.]+)",

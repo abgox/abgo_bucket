@@ -1,6 +1,6 @@
 {
     "version": "23.01",
-    "description": "A multi-format file archiver with high compression ratios. 具有高压缩比的多格式文件归档器",
+    "description": "具有高压缩比的多格式文件归档器。A multi-format file archiver with high compression ratios.",
     "homepage": "https://www.7-zip.org/",
     "license": {
         "identifier": "GNU Lesser General Public License v3.0",

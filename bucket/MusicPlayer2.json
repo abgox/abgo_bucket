@@ -1,6 +1,6 @@
 {
     "version": "2.76.1",
-    "description": "Audio player which supports music collection playback, lyrics display, format conversion and many other functions. 一款集音乐播放、歌词显示、格式转换等众多功能于一身的音频播放软件",
+    "description": "一款集音乐播放、歌词显示、格式转换等众多功能于一身的音频播放软件。Audio player which supports music collection playback, lyrics display, format conversion and many other functions.",
     "homepage": "https://github.com/zhongyang219/MusicPlayer2",
     "license": {
         "identifier": "GNU General Public License v3.0",
@@ -26,7 +26,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\MusicPlayer2\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\MusicPlayer2\") @(\"$persist_dir\\MusicPlayer2\")",
         "create_app_lnk \"$dir\\MusicPlayer2.exe\" \"$desktop\\MusicPlayer2.lnk\""
     ],
     "pre_uninstall": [

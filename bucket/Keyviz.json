@@ -1,6 +1,6 @@
 {
     "version": "1.0.6",
-    "description": "A free and open-source tool to visualize your keystrokes ⌨️ and 🖱️ mouse actions in real-time. 一个免费的开源工具来可视化你的击键 ⌨️ 和 🖱️ 鼠标实时动作。",
+    "description": "一个免费的开源工具来可视化你的击键 ⌨️ 和 🖱️ 鼠标实时动作。A free and open-source tool to visualize your keystrokes ⌨️ and 🖱️ mouse actions in real-time.",
     "homepage": "https://mularahul.github.io/keyviz",
     "license": {
         "identifier": "GNU General Public License v3.0",

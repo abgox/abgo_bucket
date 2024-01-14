@@ -1,6 +1,6 @@
 {
     "version": "6.2.0.42",
-    "description": "A revolutionary search utility for Windows. 一个革命性的 Windows 搜索工具",
+    "description": "一个革命性的 Windows 搜索工具。A revolutionary search utility for Windows.",
     "homepage": "https://www.listary.com",
     "license": "Shareware",
     "url": "https://www.listary.com/download/Listary.exe?version=6.2.0.42#/dl.exe",
@@ -14,7 +14,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Listary\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\Listary\") @(\"$persist_dir\\Listary\")",
         "create_app_lnk \"$dir\\Listary.exe\" \"$desktop\\Listary.lnk\""
     ],
     "pre_uninstall": [

@@ -1,6 +1,6 @@
 {
     "version": "2.1.2",
-    "description": "Display and control Android device via TCP/IP or USB.",
+    "description": "通过TCP/IP或USB显示和控制Android设备。Display and control Android device via TCP/IP or USB.",
     "homepage": "https://github.com/barry-ran/QtScrcpy",
     "license": {
         "identifier": "Apache License 2.0",
@@ -24,7 +24,7 @@
             "QtScrcpy"
         ]
     ],
-    "pre_install": [
+    "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$dir\\config\") @(\"$persist_dir\\config\")",
         "create_app_lnk \"$dir\\QtScrcpy.exe\" \"$desktop\\QtScrcpy.lnk\""

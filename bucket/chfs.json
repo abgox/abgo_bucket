@@ -1,6 +1,6 @@
 {
     "version": "3.1",
-    "description": "A free file sharing http server tool. 一个免费的http服务器文件共享工具，通过局域网实现文件传输",
+    "description": "一个免费的http服务器文件共享工具，通过局域网实现文件传输。A free file sharing http server tool.",
     "homepage": "http://iscute.cn/chfs",
     "license": "Freeware",
     "architecture": {

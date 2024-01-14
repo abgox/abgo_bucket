@@ -1,6 +1,6 @@
 {
     "version": "1.6.1",
-    "description": "A bilibili video download tool. 一个B站(bilibili)视频下载工具。",
+    "description": "一个B站(bilibili)视频下载工具。A bilibili video download tool.",
     "homepage": "https://github.com/leiurayer/downkyi",
     "license": {
         "identifier": "GNU General Public License v3.0",
@@ -25,9 +25,7 @@
         "stop_process",
         "remove_files @(\"$desktop\\DownKyi.lnk\")"
     ],
-    "checkver": {
-        "github": "https://github.com/leiurayer/downkyi"
-    },
+    "checkver": "github",
     "autoupdate": {
         "url": "https://github.com/leiurayer/downkyi/releases/download/v$version/DownKyi-$version.zip"
     }

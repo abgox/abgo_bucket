@@ -1,6 +1,6 @@
 {
     "version": "19.5.2",
-    "description": "A prompt theme engine for any shell. 任何 shell 的提示主题引擎",
+    "description": "任何 shell 的提示主题引擎。A prompt theme engine for any shell.",
     "homepage": "https://ohmyposh.dev",
     "license": {
         "identifier": "MIT",
@@ -49,7 +49,7 @@
     "bin": "oh-my-posh.exe",
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:LocalAppData\\oh-my-posh\") @(\"$persist_dir\")"
+        "persist -dir @(\"$env:LocalAppData\\oh-my-posh\") @(\"$persist_dir\\oh-my-posh\")"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

@@ -1,6 +1,6 @@
 {
     "version": "0.17.1",
-    "description": "A simple and elegant markdown editor, available for Linux, macOS and Windows. 一个简单优雅的 MarkDown 编辑器，可用于 Linux、macOS 和 Windows",
+    "description": "一个简单优雅的 MarkDown 编辑器，可用于 Linux、macOS 和 Windows。A simple and elegant markdown editor, available for Linux, macOS and Windows.",
     "homepage": "https://www.marktext.cc",
     "license": {
         "identifier": "MIT",
@@ -25,7 +25,7 @@
     ],
     "post_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\MarkText\") @(\"$persist_dir\")",
+        "persist -dir @(\"$env:AppData\\MarkText\") @(\"$persist_dir\\MarkText\")",
         "create_app_lnk \"$dir\\MarkText.exe\" \"$desktop\\MarkText.lnk\""
     ],
     "pre_uninstall": [
