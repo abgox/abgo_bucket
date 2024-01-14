@@ -14,6 +14,8 @@
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
                 "& \"$dir\\draw.io-$($version)-windows-installer.exe\" /S /D=$dir",
                 "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
+                "create_app_lnk \"$dir\\draw.io.exe\" \"$desktop\\draw.io.lnk\"",
+                "create_app_lnk \"$dir\\draw.io.exe\" \"$scoop_apps_lnk\\draw.io.lnk\"",
                 "clean_redundant_files @(\"$apps_lnk\\100.lnk\",\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
             ]
         },
@@ -24,17 +26,12 @@
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
                 "& \"$dir\\draw.io-ia32-$($version)-windows-32bit-installer.exe\" /S /D=$dir",
                 "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
+                "create_app_lnk \"$dir\\draw.io.exe\" \"$desktop\\draw.io.lnk\"",
+                "create_app_lnk \"$dir\\draw.io.exe\" \"$scoop_apps_lnk\\draw.io.lnk\"",
                 "clean_redundant_files @(\"$apps_lnk\\100.lnk\",\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
             ]
         }
     },
-    "bin": "draw.io.exe",
-    "shortcuts": [
-        [
-            "draw.io.exe",
-            "draw.io"
-        ]
-    ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\Uninstall draw.io.exe\" /S",
