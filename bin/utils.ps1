@@ -139,6 +139,9 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
 
 function stop_process($isRemove = $true, [string]$app_dir = $dir) {
     Get-ChildItem $app_dir -Recurse | Where-Object { $_.Extension -match '\.exe$' } | ForEach-Object {
+        & $path_sudo Remove-Item $_.BaseName -Force -ErrorAction SilentlyContinue
+    }
+    Get-ChildItem $app_dir -Recurse | Where-Object { $_.Extension -match '\.exe$' } | ForEach-Object {
         & $path_sudo Stop-Process -Name $_.BaseName -Force -ErrorAction SilentlyContinue
         Write-Host ($json.stop_process + $_.FullName) -f Cyan
     }
