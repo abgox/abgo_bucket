@@ -104,6 +104,7 @@
 |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |    √    |    √     |    √     |             |
 |                         [Neovim](https://neovim.io)                         |    √    |    √     |    √     |             |
 |                         [ngrok](https://ngrok.com)                          |    √    |    √     |    √     |             |
+|            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |    √    |    √     |    √     |             |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |    √     |    √     |             |
 |                       [PixPin](https://pixpinapp.com)                       |    √    |    √     |    √     |             |
 |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |    √     |    √     |             |
