@@ -106,6 +106,7 @@
 |                    [AutoHotkey](https://autohotkey.com)                     |    √    |     √      |        √         |             |
 |                        [chfs](http://iscute.cn/chfs)                        |    √    |     √      |        √         |             |
 |               [DownKyi](https://leiurayer.github.io/downkyi)                |    √    |     √      |        √         |             |
+|                     [draw.io](https://www.diagrams.net)                     |    √    |     √      |        √         |             |
 |                   [Everything](https://www.voidtools.com)                   |    √    |     √      |        √         |             |
 |                    [Final2x](https://final2x.tohru.top)                     |    √    |     √      |        √         |             |
 |                    [fnm](https://github.com/Schniz/fnm)                     |    /    |     √      |        √         |             |
