@@ -73,11 +73,11 @@
 ### About `persist`
 
 -   The apps in this `bucket` will use the built-in `persist` in `Scoop`, and will also implement `persist` through file linking.
--   The strategy is radical. If there is a data directory, the app will `persist` the entire data directory instead of some important configuration files.
+-   The strategy is **radical**. If there is a data directory, the app will `persist` the entire data directory instead of some important configuration files.
 -   Take `Neovim` as an example.It will form two directories under `$env: LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
     -   The advantage of it is that the software has a smooth and seamless user experience after reinstallation, but it may take up more storage space.
 -   ⚠︎ If the app in this `bucket` is installed before January 15, 2024, please uninstall and remove(or move) the data in the `persist` directory, and then reinstall the application. ⚠︎
-    -   the `persist` action has changed.
+    -   The `persist` action has changed.
     -   The following `$persist_dir` refers to the app data directory under `persist`
     -   e.g. If you install `Neovim`, then `$persist_dir` is the `neovim` directory under the `persist` directory.
         -   `persist` (before): `data_file` => `$persist_dir\data_file`， `data_dir` => `$persist_dir`
@@ -123,6 +123,7 @@
 |                         [Neovim](https://neovim.io)                         |    √    |     √      |        √         |             |
 |                         [ngrok](https://ngrok.com)                          |    √    |     √      |        √         |             |
 |            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |    √    |     √      |        √         |             |
+|                       [Obsidian](https://obsidian.md)                       |    √    |     √      |        √         |             |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |     √      |        √         |             |
 |                       [PixPin](https://pixpinapp.com)                       |    √    |     √      |        √         |             |
 |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |     √      |        √         |             |

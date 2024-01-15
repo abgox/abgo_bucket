@@ -71,7 +71,7 @@
 ### 关于 persist(数据持久化)
 
 -   此 `bucket` 中的应用会使用 `Scoop` 内置的 `persist`，同时也会通过文件链接的方式去实现 `persist`
--   持久化策略比较激进，如果存在数据目录，此 `bucket` 中的应用就会将整个数据目录持久化，而非一些重要的配置文件
+-   持久化策略**比较激进**，如果存在数据目录，此 `bucket` 中的应用就会将整个数据目录持久化，而非一些重要的配置文件
     -   以 `Neovim` 为例，它会在 `$env:LocalAppData` 下形成两个目录，`nvim` 和 `nvim-data` ,而这两个目录都会被持久化。
     -   这样做的好处是软件在拥有 `persist` 时，安装后的使用体验是流畅无感的，但可能导致占用的存储空间会更多
 -   ⚠︎ 如果在 2024 年 1 月 15 日之前安装了此 `bucket` 中的应用，请卸载并移除(或移动) `persist` 目录下的数据，然后重装应用 ⚠︎
@@ -121,6 +121,7 @@
 |                         [Neovim](https://neovim.io)                         |    √    |    √     |    √     |             |
 |                         [ngrok](https://ngrok.com)                          |    √    |    √     |    √     |             |
 |            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |    √    |    √     |    √     |             |
+|                       [Obsidian](https://obsidian.md)                       |    √    |    √     |    √     |             |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |    √     |    √     |             |
 |                       [PixPin](https://pixpinapp.com)                       |    √    |    √     |    √     |             |
 |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |    √     |    √     |             |
