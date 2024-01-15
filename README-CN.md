@@ -139,4 +139,5 @@
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |    √     |    √     |             |
 |                         [Typora](https://typora.io)                         |    √    |    √     |    √     |             |
 |                          [uTools](https://u.tools)                          |    √    |    √     |    √     |             |
+|                   [VSCode](https://code.visualstudio.com)                   |    √    |    √     |    √     |             |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |    √     |    √     |             |
