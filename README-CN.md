@@ -75,7 +75,7 @@
     -   以 `Neovim` 为例，它会在 `$env:LocalAppData` 下形成两个目录，`nvim` 和 `nvim-data` ,而这两个目录都会被持久化。
     -   这样做的好处是软件在拥有 `persist` 时，安装后的使用体验是流畅无感的，但可能导致占用的存储空间会更多
 -   ⚠︎ 如果在 2024 年 1 月 15 日之前安装了此 `bucket` 中的应用，请卸载并移除(或移动) `persist` 目录下的数据，然后重装应用 ⚠︎
-    -   持久化操作发生了一些变动
+    -   持久化操作发生了一些变动 [点击查看这个 commit](https://github.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
     -   以下的 `$persist_dir` 指的是 `persist` 下的应用数据目录
     -   如安装 `Neovim` ,则 `$persist_dir` 就是 `persist` 目录下的 `neovim` 目录
         -   `persist` 数据持久化(以前)，如: `数据文件` => `$persist_dir\数据文件`， `数据目录` => `$persist_dir`
@@ -138,4 +138,5 @@
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |    √     |    √     |             |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |    √     |    √     |             |
 |                         [Typora](https://typora.io)                         |    √    |    √     |    √     |             |
+|                          [uTools](https://u.tools)                          |    √    |    √     |    √     |             |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |    √     |    √     |             |

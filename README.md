@@ -77,7 +77,7 @@
 -   Take `Neovim` as an example.It will form two directories under `$env: LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
     -   The advantage of it is that the software has a smooth and seamless user experience after reinstallation, but it may take up more storage space.
 -   ⚠︎ If the app in this `bucket` is installed before January 15, 2024, please uninstall and remove(or move) the data in the `persist` directory, and then reinstall the application. ⚠︎
-    -   The `persist` action has changed.
+    -   The `persist` action has changed. [Click here to look this commit.](https://github.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
     -   The following `$persist_dir` refers to the app data directory under `persist`
     -   e.g. If you install `Neovim`, then `$persist_dir` is the `neovim` directory under the `persist` directory.
         -   `persist` (before): `data_file` => `$persist_dir\data_file`， `data_dir` => `$persist_dir`
@@ -140,4 +140,5 @@
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |     √      |        √         |             |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |     √      |        √         |             |
 |                         [Typora](https://typora.io)                         |    √    |     √      |        √         |             |
+|                          [uTools](https://u.tools)                          |    √    |     √      |        √         |             |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |     √      |        √         |             |
