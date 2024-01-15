@@ -14,9 +14,8 @@
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
                 "& \"$dir\\draw.io-$($version)-windows-installer.exe\" /S /D=$dir",
                 "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
-                "create_app_lnk \"$dir\\draw.io.exe\" \"$desktop\\draw.io.lnk\"",
                 "create_app_lnk \"$dir\\draw.io.exe\" \"$scoop_apps_lnk\\draw.io.lnk\"",
-                "clean_redundant_files @(\"$apps_lnk\\100.lnk\",\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
+                "clean_redundant_files @(\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
             ]
         },
         "arm64": {
@@ -26,9 +25,8 @@
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
                 "& \"$dir\\draw.io-ia32-$($version)-windows-32bit-installer.exe\" /S /D=$dir",
                 "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
-                "create_app_lnk \"$dir\\draw.io.exe\" \"$desktop\\draw.io.lnk\"",
                 "create_app_lnk \"$dir\\draw.io.exe\" \"$scoop_apps_lnk\\draw.io.lnk\"",
-                "clean_redundant_files @(\"$apps_lnk\\100.lnk\",\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
+                "clean_redundant_files @(\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
             ]
         }
     },
@@ -38,7 +36,7 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$env:AppData\\draw.io\",\"$env:LocalAppData\\draw.io-updater\")"
+        "remove_files @(\"$desktop\\draw.io.lnk\",\"$scoop_apps_lnk\\draw.io.lnk\",\"$env:AppData\\draw.io\",\"$env:LocalAppData\\draw.io-updater\")"
     ],
     "checkver": {
         "github": "https://github.com/jgraph/drawio-desktop"
