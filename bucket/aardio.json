@@ -20,7 +20,7 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\aardio.lnk\")"
+        "remove_files @(\"$desktop\\aardio.lnk\",\"$env:LocalAppData\\aardio\")"
     ],
     "checkver": {
         "url": "https://ide.update.aardio.com/log/",

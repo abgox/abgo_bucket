@@ -30,7 +30,7 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$env:AppData\\helix\")"
+        "remove_files @(\"$env:AppData\\helix\",\"$env:LocalAppData\\helix\")"
     ],
     "checkver": {
         "github": "https://github.com/helix-editor/helix"

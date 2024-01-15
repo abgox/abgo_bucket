@@ -7,8 +7,8 @@
         "url": "https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/COPYING"
     },
     "notes": [
-        "Refer to \"https://ohmyposh.dev/docs/installation/prompt\" for shell specific configurations.",
-        "参考 \"https://ohmyposh.dev/docs/installation/prompt\" 为 shell 配置主题"
+        "参考 \"https://ohmyposh.dev/docs/installation/prompt\" 为 shell 配置主题",
+        "Refer to \"https://ohmyposh.dev/docs/installation/prompt\" for shell specific configurations."
     ],
     "architecture": {
         "64bit": {

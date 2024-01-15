@@ -1,6 +1,6 @@
 {
     "version": "22.1.18",
-    "description": "一款专业的绘图工具。Professional diagramming",
+    "description": "一款专业的绘图工具。Professional diagramming.",
     "homepage": "https://www.diagrams.net",
     "license": {
         "identifier": "Apache License 2.0",
@@ -12,21 +12,23 @@
             "hash": "cd9a392d59b21eec7cdfd7bdb5e90a394823d9a5cab653016494c71ba2c20b9e",
             "pre_install": [
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-                "& \"$dir\\draw.io-$($version)-windows-installer.exe\" /S /D=$dir",
+                "$path_exe=\"$dir\\draw.io-$($version)-windows-installer.exe\"",
+                "& $path_exe /S /D=$dir",
                 "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
                 "create_app_lnk \"$dir\\draw.io.exe\" \"$scoop_apps_lnk\\draw.io.lnk\"",
-                "clean_redundant_files @(\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
+                "clean_redundant_files @($path_exe) 10"
             ]
         },
-        "arm64": {
+        "32bit": {
             "url": "https://github.com/jgraph/drawio-desktop/releases/download/v22.1.18/draw.io-ia32-22.1.18-windows-32bit-installer.exe",
             "hash": "b6517ef408446a41db7d3e27bff6157fc393cf02b621476c172b1a8760affb03",
             "pre_install": [
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-                "& \"$dir\\draw.io-ia32-$($version)-windows-32bit-installer.exe\" /S /D=$dir",
+                "$path_exe=\"$dir\\draw.io-ia32-$($version)-windows-32bit-installer.exe\"",
+                "& $path_exe /S /D=$dir",
                 "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
                 "create_app_lnk \"$dir\\draw.io.exe\" \"$scoop_apps_lnk\\draw.io.lnk\"",
-                "clean_redundant_files @(\"$dir\\draw.io-$($version)-windows-installer.exe\") 10"
+                "clean_redundant_files @($path_exe) 10"
             ]
         }
     },
@@ -46,7 +48,7 @@
             "64bit": {
                 "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-$version-windows-installer.exe"
             },
-            "arm64": {
+            "32bit": {
                 "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-ia32-$version-windows-32bit-installer.exe"
             }
         },
