@@ -1,0 +1,50 @@
+{
+    "version": "4.1.2.6086",
+    "description": "一个管理、切换多个 hosts 方案的工具，快速切换 hosts！An App for hosts management & switching.Switch hosts quickly!",
+    "homepage": "https://switchhosts.vercel.app",
+    "license": {
+        "identifier": "Apache License 2.0",
+        "url": "https://github.com/oldj/SwitchHosts/blob/master/LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/oldj/SwitchHosts/releases/download/v4.1.2/SwitchHosts_windows_installer_x64_4.1.2.6086.exe#/_installer_.exe",
+            "hash": "0cd93979185592d6b81d0cc968e5f6e14ca3588b02d2f641f99f865aa724d17d"
+        },
+        "32bit": {
+            "url": "https://github.com/oldj/SwitchHosts/releases/download/v4.1.2/SwitchHosts_windows_installer_ia32_4.1.2.6086.exe#/_installer_.exe",
+            "hash": "7a53576cd8ae7b7e592a7a69510a1d1d25aacbd04f4422ac59a91486f7af4615"
+        }
+    },
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "persist -dir @(\"$env:AppData\\SwitchHosts\",\"$env:UserProfile\\.SwitchHosts\") @(\"$persist_dir\\SwitchHosts\",\"$persist_dir\\.SwitchHosts\")",
+        "create_app_lnk \"$dir\\SwitchHosts.exe\" \"$desktop\\SwitchHosts.lnk\"",
+        "create_app_lnk \"$dir\\SwitchHosts.exe\" \"$scoop_apps_lnk\\SwitchHosts.lnk\"",
+        "clean_redundant_files @(\"$apps_lnk\\SwitchHosts.lnk\",$path_exe) 10"
+    ],
+    "pre_uninstall": [
+        "$ErrorActionPreference=\"SilentlyContinue\"",
+        "& \"$dir\\Uninstall SwitchHosts.exe\" /S",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\SwitchHosts.lnk\",\"$scoop_apps_lnk\\SwitchHosts.lnk\",\"$env:AppData\\SwitchHosts\",\"$env:UserProfile\\.SwitchHosts\",\"$env:LocalAppData\\switchhosts-updater\")"
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repositories/2312977/releases/latest",
+        "regex": "SwitchHosts_windows_installer_x64_([\\d.]+)\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/oldj/SwitchHosts/releases/download/v$matchHead/SwitchHosts_windows_installer_x64_$version.exe#/_installer_.exe"
+            },
+            "32bit": {
+                "url": "https://github.com/oldj/SwitchHosts/releases/download/v$matchHead/SwitchHosts_windows_installer_ia32_$version.exe#/_installer_.exe"
+            }
+        }
+    }
+}

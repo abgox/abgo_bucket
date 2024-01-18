@@ -111,6 +111,7 @@
 |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |    /    |    √     |    √     | **invalid** |
 |               [Geek Uninstaller](https://geekuninstaller.com)               |    √    |    √     |    √     |             |
 |                      [Helix](https://helix-editor.com)                      |    √    |    √     |    √     |             |
+|                            [jan](https://jan.ai)                            |    √    |    √     |    √     |             |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |    √    |    √     |    √     |             |
 |                     [Listary](https://www.listary.com)                      |    √    |    √     |    √     |             |
 |                     [LocalSend](https://localsend.org)                      |    √    |    √     |    √     |             |
@@ -135,6 +136,7 @@
 |                    [Snipaste](https://www.snipaste.com)                     |    √    |    √     |    √     |             |
 |                    [Snipaste2](https://www.snipaste.com)                    |    √    |    √     |    √     |             |
 |                [Steampp(Watt Toolkit)](https://steampp.net)                 |    √    |    √     |    √     |             |
+|                [SwitchHosts](https://switchhosts.vercel.app)                |    √    |    √     |    √     |             |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |    √     |    √     |             |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |    √     |    √     |             |
 |                         [Typora](https://typora.io)                         |    √    |    √     |    √     |             |
