@@ -14,6 +14,16 @@ if ($latest_version -eq $installed_version) {
     Write-Host (data_replace $json_d.exist) -f Yellow
     return
 }
+Write-Host (data_replace $json_d.check_cache[0]) -f Yellow
+$has_cache = scoop cache | Where-Object { $_.Name -eq $app -and $_.Version -eq $latest_version }
+if ($has_cache) {
+    Write-Host (data_replace $json_d.check_cache[1]) -f Green
+    scoop install $app -u
+    return
+}
+Write-Host (data_replace $json_d.check_cache[2]) -f Yellow
+
+Write-Host "---------------" -f Cyan
 
 $scoop_dir = (Split-Path (Split-Path (Split-Path  (scoop prefix scoop) -Parent) -Parent) -Parent)
 $shims_dir = $scoop_dir + '\shims'
@@ -51,11 +61,8 @@ while ($true) {
     if (Test-Path($app_txt)) {
         Stop-Job -Job $job
         break
-    }elseif($job.State -eq "Completed"){
-        Write-Host (data_replace $json_d.cache) -f Green
-        return
     }
-    Start-Sleep -Milliseconds 100
+    Start-Sleep -Milliseconds 50
 }
 $app_content = Get-Content $app_txt | ForEach-Object { $_.Trim() }
 $result = @()
@@ -72,11 +79,13 @@ for ($i = 0; $i -lt $app_content.Count; $i += 4) {
     }
 }
 
-if (Test-Path($app_txt)) { Remove-Item $app_txt -Force }
+if (Test-Path($app_txt)) {
+    remove_file $app_txt
+}
 Get-ChildItem $cache_dir | Where-Object {
     $_.Name -match "^$app.*\.aria2"
 } | ForEach-Object {
-    Remove-Item $_.FullName -Force
+    remove_file $_.FullName
 }
 
 foreach ($item in $result) {
@@ -90,9 +99,10 @@ foreach ($item in $result) {
     Write-Host "---------------" -f Cyan
     Write-Host $json_d.download -f Yellow -NoNewline
     $download_path = $(Read-Host) -replace '"', ''
-    Move-Item $download_path "$out_dir\$out_file" -Force
+    move_file $download_path "$out_dir\$out_file"
 }
 
+Write-Host ''
 if ($isUpdate) {
     scoop update $app
 }

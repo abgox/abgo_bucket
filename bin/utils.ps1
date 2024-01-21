@@ -51,10 +51,37 @@ function less([array]$str_list, [scriptblock]$do = {}, [string]$color = 'Green',
     }
 }
 
+function create_file([string]$path, [switch]$is_dir) {
+    $job = Start-Job -ScriptBlock {
+        param($path_sudo, $file, $is_dir)
+        if ($is_dir) {
+            & $path_sudo New-Item -ItemType Directory $file
+        }
+        else {
+            & $path_sudo New-Item $file
+        }
+    } -ArgumentList $path_sudo, $path, $is_dir
+    $null = Wait-Job $job
+}
+function remove_file([string]$path) {
+    $job = Start-Job -ScriptBlock {
+        param($path_sudo, $path)
+        & $path_sudo Remove-Item -Force -Recurse $path
+    } -ArgumentList $path_sudo, $path
+    $null = Wait-Job $job
+}
+function move_file([string]$path, [string]$target) {
+    $job = Start-Job -ScriptBlock {
+        param($path_sudo, $path, $target)
+        & $path_sudo Move-Item -Force $path $target
+    } -ArgumentList $path_sudo, $path, $target
+    $null = Wait-Job $job
+}
+
 function create_parent_dir([string]$path) {
     $parent_path = Split-Path $path -Parent
     if (!(Test-Path $parent_path)) {
-        New-Item -ItemType Directory $parent_path > $null
+        create_file $parent_path -is_dir
     }
 }
 
@@ -78,29 +105,25 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
         create_parent_dir $_persist
         if (Test-Path $_persist) {
             if (Test-Path $_data) {
-                & $path_sudo Remove-Item -Force -Recurse $_data
+                remove_file $_data
             }
         }
         else {
-            if ($dir) {
-                New-Item -ItemType Directory $_persist > $null
-            }
-            elseif ($file) {
-                New-Item $_persist > $null
-            }
+            if ($dir) { create_file $_persist -is_dir }
+            elseif ($file) { create_file $_persist }
             if (Test-Path($_data)) {
                 $isLink = (Get-Item $_data).Attributes -match "ReparsePoint"
                 if (!$isLink) {
-                    & $path_sudo Move-Item "$_data\*" $_persist -Force
+                    move_file "$_data\*" $_persist
                 }
             }
         }
-        $link = Start-Job -ScriptBlock {
+        $job = Start-Job -ScriptBlock {
             param($path_sudo, $_data, $_persist)
-            if (Test-Path($_data)) { Remove-Item -Force -Recurse $_data }
+            if (Test-Path($_data)) { & $path_sudo Remove-Item -Force -Recurse $_data }
             & $path_sudo New-Item -ItemType SymbolicLink $_data -Target $_persist
         } -ArgumentList $path_sudo, $_data, $_persist
-        $state = (Wait-Job $link).HasMoreData
+        $state = (Wait-Job $job).HasMoreData
         return $state
     }
     $result = @()
@@ -136,17 +159,17 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
     }
     Write-Host "---------------------`n" -f Yellow
 }
-
 function stop_process($isRemove = $true, [string]$app_dir = $dir) {
-    Get-ChildItem $app_dir -Recurse | Where-Object { $_.Extension -match '\.exe$' } | ForEach-Object {
-        & $path_sudo Remove-Item $_.BaseName -Force -ErrorAction SilentlyContinue
-    }
-    Get-ChildItem $app_dir -Recurse | Where-Object { $_.Extension -match '\.exe$' } | ForEach-Object {
-        & $path_sudo Stop-Process -Name $_.BaseName -Force -ErrorAction SilentlyContinue
-        Write-Host ($json.stop_process + $_.FullName) -f Cyan
-    }
+    Write-Host ($json.stop_process) -f Cyan
+    $job = Start-Job -ScriptBlock {
+        param($path_sudo, $path)
+        Get-ChildItem $path -Recurse | Where-Object { $_.Extension -match '\.exe$' } | ForEach-Object {
+            & $path_sudo Stop-Process -Name $_.BaseName -Force -ErrorAction SilentlyContinue
+        }
+    } -ArgumentList $path_sudo, $app_dir
+    $null = Wait-Job $job
     if ($isRemove) {
-        & $path_sudo Remove-Item $app_dir -Force -Recurse -ErrorAction SilentlyContinue
+        remove_file $app_dir
     }
 }
 
@@ -169,7 +192,7 @@ function clean_redundant_files ([array]$files, [int]$delay = 5, [switch]$tip) {
             param($path_sudo, $delay)
             Start-Sleep -Seconds $delay
             $args | ForEach-Object {
-                if (Test-Path($_)) { Remove-Item -Force -Recurse $_ }
+                if (Test-Path($_)) { & $path_sudo Remove-Item -Force -Recurse $_ }
             }
         } -ArgumentList $path_sudo, $delay, $_
     }
@@ -178,7 +201,7 @@ function clean_redundant_files ([array]$files, [int]$delay = 5, [switch]$tip) {
 function remove_files([array]$files) {
     $files | ForEach-Object {
         if (Test-Path($_)) {
-            & $path_sudo Remove-Item -Force -Recurse $_
+            remove_file $_
             Write-Host  ($json.remove + $_)  -f Yellow
         }
     }
