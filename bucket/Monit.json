@@ -18,7 +18,7 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Monit.lnk\",\"$env:AppData\\monit\")"
+        "remove_files @(\"$desktop\\Monit.lnk\",\"$scoop_apps_lnk\\Monit.lnk\",\"$env:AppData\\monit\")"
     ],
     "checkver": {
         "github": "https://github.com/fzf404/Monit"

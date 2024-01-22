@@ -8,30 +8,22 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v22.1.21/draw.io-22.1.21-windows-installer.exe",
-            "hash": "1fc22c3260244f4bfd5efde1346f6f953dce17f829e37fa1a6b7fe6fd585392d",
-            "pre_install": [
-                ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-                "$path_exe=\"$dir\\draw.io-$($version)-windows-installer.exe\"",
-                "& $path_exe /S /D=$dir",
-                "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
-                "create_app_lnk \"$dir\\draw.io.exe\" \"$scoop_apps_lnk\\draw.io.lnk\"",
-                "clean_redundant_files @($path_exe) 10"
-            ]
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v22.1.21/draw.io-22.1.21-windows-installer.exe#/_installer_.exe",
+            "hash": "1fc22c3260244f4bfd5efde1346f6f953dce17f829e37fa1a6b7fe6fd585392d"
         },
         "32bit": {
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v22.1.21/draw.io-ia32-22.1.21-windows-32bit-installer.exe",
-            "hash": "8124afbeb873daa0887f971b38cfb5982b0e59eed1edd713a140ecf00df7ab9f",
-            "pre_install": [
-                ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-                "$path_exe=\"$dir\\draw.io-ia32-$($version)-windows-32bit-installer.exe\"",
-                "& $path_exe /S /D=$dir",
-                "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
-                "create_app_lnk \"$dir\\draw.io.exe\" \"$scoop_apps_lnk\\draw.io.lnk\"",
-                "clean_redundant_files @($path_exe) 10"
-            ]
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v22.1.21/draw.io-ia32-22.1.21-windows-32bit-installer.exe#/_installer_.exe",
+            "hash": "8124afbeb873daa0887f971b38cfb5982b0e59eed1edd713a140ecf00df7ab9f"
         }
     },
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
+        "create_app_lnk \"$dir\\draw.io.exe\" \"$scoop_apps_lnk\\draw.io.lnk\"",
+        "clean_redundant_files @($path_exe) 10"
+    ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\Uninstall draw.io.exe\" /S",
@@ -46,10 +38,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-$version-windows-installer.exe"
+                "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-$version-windows-installer.exe#/_installer_.exe"
             },
             "32bit": {
-                "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-ia32-$version-windows-32bit-installer.exe"
+                "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-ia32-$version-windows-32bit-installer.exe#/_installer_.exe"
             }
         },
         "hash": {

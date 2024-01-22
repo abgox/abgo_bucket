@@ -53,7 +53,9 @@
         "   New-Item $persist_file > $null",
         "}",
         "create_app_lnk \"$dir\\Everything.exe\" \"$desktop\\Everything.lnk\"",
-        "\"$data_file\n$persist_file\" | Out-File \"$env:AppData\\abgo_bucket_Everything.txt\"",
+        "$path_schedule=\"$env:AppData\\abgo_bucket_Everything.txt\"",
+        "\"$data_file\" | Out-File $path_schedule",
+        "\"$persist_file\" | Out-File $path_schedule -Append",
         "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"abgo_bucket_Everything\" \"$bucketsdir\\$bucket\\schedule\\Everything.ps1\""
     ],
     "pre_uninstall": [
