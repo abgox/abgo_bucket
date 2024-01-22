@@ -74,73 +74,76 @@
 -   持久化策略**比较激进**，如果存在数据目录，此 `bucket` 中的应用就会将整个数据目录持久化，而非一些重要的配置文件
     -   以 `Neovim` 为例，它会在 `$env:LocalAppData` 下形成两个目录，`nvim` 和 `nvim-data` ,而这两个目录都会被持久化。
     -   这样做的好处是软件在拥有 `persist` 时，安装后的使用体验是流畅无感的，但可能导致占用的存储空间会更多
--   ⚠︎ 如果在 2024 年 1 月 15 日之前安装了此 `bucket` 中的应用，请卸载并移除(或移动) `persist` 目录下的数据，然后重装应用 ⚠︎
-    -   持久化操作发生了一些变动 [点击查看这个 commit](https://github.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
-    -   以下的 `$persist_dir` 指的是 `persist` 下的应用数据目录
-    -   如安装 `Neovim` ,则 `$persist_dir` 就是 `persist` 目录下的 `neovim` 目录
-        -   `persist` 数据持久化(以前)，如: `数据文件` => `$persist_dir\数据文件`， `数据目录` => `$persist_dir`
-        -   `persist` 数据持久化(现在)，如: `数据文件` => `$persist_dir\数据文件`， `数据目录1` => `$persist_dir\数据目录1`，`数据目录2` => `$persist_dir\数据目录2`...
+
+#### ⚠︎ 关于 persist 目录变动 ⚠︎
+
+-   **2024 年 1 月 15 日**，部分应用的持久化操作发生了一些变动。[点击查看这个 commit](https://gitee.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
+-   变动的应用有：`Final2x`,`GeekUninstaller`,`Helix`,`LX-Music`,`Listary`,`MarkText`,`Motrix`,`MusicPlayer2`,`ngrok`,`Oh-My-Posh`,`Quicker`,`Rubick`,`RustDesk`,`ScreenToGif`,`Sigma-File-Manager`,`TrafficMonitor`,`tts-vue`,`Typora`,`XBYDriver`
+    -   以 `GeekUninstaller`为例：
+        -   之前: `<your_scoop_path>\persist\geekuninstaller`
+        -   现在: `<your_scoop_path>\persist\geekuninstaller\Geek Uninstaller`
 
 ---
 
 ### 应用清单
 
+-   所有清单默认支持:
+    -   **数据清理**:当软件卸载后，如果存在软件残留数据则删除(`persist` 数据除外)
+    -   **强制卸载**：当软件正在运行时，使用 `scoop uninstall <app_name>` 会先尝试终止进程，再进行卸载，避免卸载时出现软件正在使用，无法卸载的问题
 -   说明
-    -   应用：按照数字字母排序(0-9,a-z)
-    -   persist: 软件重要数据保存到 `Scoop` 安装目录下的 `persist` 中
-    -   数据清理：当软件卸载后，如果存在软件残留数据则删除(`persist` 数据除外)
-    -   强制卸载：当软件正在运行时，使用 `scoop uninstall <app_name>` 会先尝试终止进程，再进行卸载，避免卸载时出现软件正在使用，无法卸载的问题
-    -   **√**：已实现
-        -   对于`数据清理`, 卸载后不存在残留数据，就视为已完成
-    -   **x**：未实现
-    -   **/**：没必要或不满足条件
-    -   **\*run**: 安装后会立即运行一次
-    -   **invalid**: 无效应用，已放入 deprecated(废弃) 文件夹中，未来可能从清单中移除
 
-|                                    应用                                     | persist | 数据清理 | 强制卸载 | 备注        |
-| :-------------------------------------------------------------------------: | :-----: | :------: | :------: | ----------- |
-|                          [7zip](https://7-zip.org)                          |    /    |    √     |    √     |             |
-|                        [aardio](https://aardio.com)                         |    √    |    √     |    √     |             |
-|                    [AutoHotkey](https://autohotkey.com)                     |    √    |    √     |    √     |             |
-|                        [chfs](http://iscute.cn/chfs)                        |    √    |    √     |    √     |             |
-|               [DownKyi](https://leiurayer.github.io/downkyi)                |    √    |    √     |    √     |             |
-|                     [draw.io](https://www.diagrams.net)                     |    √    |    √     |    √     |             |
-|                   [Everything](https://www.voidtools.com)                   |    √    |    √     |    √     |             |
-|                    [Final2x](https://final2x.tohru.top)                     |    √    |    √     |    √     |             |
-|                    [fnm](https://github.com/Schniz/fnm)                     |    /    |    √     |    √     |             |
-|           [FastGithub](https://github.com/dotnetcore/FastGithub)            |    /    |    √     |    √     | **invalid** |
-|               [Geek Uninstaller](https://geekuninstaller.com)               |    √    |    √     |    √     |             |
-|                      [Helix](https://helix-editor.com)                      |    √    |    √     |    √     |             |
-|                            [jan](https://jan.ai)                            |    √    |    √     |    √     |             |
-|                [Keyviz](https://mularahul.github.io/keyviz)                 |    √    |    √     |    √     |             |
-|                     [Listary](https://www.listary.com)                      |    √    |    √     |    √     |             |
-|                     [LocalSend](https://localsend.org)                      |    √    |    √     |    √     |             |
-|                    [LX-Music](https://docs.lxmusic.top)                     |    √    |    √     |    √     |             |
-|                     [MarkText](https://www.marktext.cc)                     |    √    |    √     |    √     |             |
-|                      [Monit](https://monit.fzf404.art)                      |    √    |    √     |    √     |             |
-|                        [Motrix](https://motrix.app)                         |    √    |    √     |    √     |             |
-|        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |    √    |    √     |    √     |             |
-|                         [Neovim](https://neovim.io)                         |    √    |    √     |    √     |             |
-|                         [ngrok](https://ngrok.com)                          |    √    |    √     |    √     |             |
-|            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |    √    |    √     |    √     |             |
-|                       [Obsidian](https://obsidian.md)                       |    √    |    √     |    √     |             |
-|                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |    √     |    √     |             |
-|                       [PixPin](https://pixpinapp.com)                       |    √    |    √     |    √     |             |
-|                   [PotPlayer](https://potplayer.daum.net)                   |    √    |    √     |    √     |             |
-|             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |    √    |    √     |    √     |             |
-|              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |    √    |    √     |    √     |             |
-|                      [Quicker](https://getquicker.net)                      |    √    |    √     |    √     |             |
-|              [Rubick](https://github.com/rubickCenter/rubick)               |    √    |    √     |    √     |             |
-|              [RustDesk](https://github.com/rustdesk/rustdesk)               |    √    |    √     |    √     |             |
-|         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |    √    |    √     |    √     |             |
-| [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |    √    |    √     |    √     |             |
-|                    [Snipaste](https://www.snipaste.com)                     |    √    |    √     |    √     |             |
-|                    [Snipaste2](https://www.snipaste.com)                    |    √    |    √     |    √     |             |
-|                [Steampp(Watt Toolkit)](https://steampp.net)                 |    √    |    √     |    √     |             |
-|                [SwitchHosts](https://switchhosts.vercel.app)                |    √    |    √     |    √     |             |
-|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |    √     |    √     |             |
-|                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |    √     |    √     |             |
-|                         [Typora](https://typora.io)                         |    √    |    √     |    √     |             |
-|                          [uTools](https://u.tools)                          |    √    |    √     |    √     |             |
-|                   [VSCode](https://code.visualstudio.com)                   |    √    |    √     |    √     |             |
-|            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |    √     |    √     |             |
+    -   **`App`**：点击跳转官网或仓库，按照数字字母排序(0-9,a-z)
+    -   **`persist`**: 软件重要数据保存到 `Scoop` 安装目录下的 `persist` 中
+    -   **`√`**：已实现
+    -   **`x`**：未实现
+    -   **`/`**：没必要或不满足条件
+    -   **`*run`**: 安装后会立即运行一次
+    -   **`invalid`**: 无效应用，已放入 deprecated(废弃) 文件夹中，未来可能从清单中移除
+
+    |                                     App                                     | persist | Note |
+    | :-------------------------------------------------------------------------: | :-----: | ---- |
+    |                          [7zip](https://7-zip.org)                          |    /    |      |
+    |                        [aardio](https://aardio.com)                         |    √    |      |
+    |                    [AutoHotkey](https://autohotkey.com)                     |    √    |      |
+    |                        [chfs](http://iscute.cn/chfs)                        |    √    |      |
+    |               [DownKyi](https://leiurayer.github.io/downkyi)                |    √    |      |
+    |                     [draw.io](https://www.diagrams.net)                     |    √    |      |
+    |                   [Everything](https://www.voidtools.com)                   |    √    |      |
+    |                    [Final2x](https://final2x.tohru.top)                     |    √    |      |
+    |                    [fnm](https://github.com/Schniz/fnm)                     |    /    |      |
+    |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |    /    |      |
+    |               [Geek Uninstaller](https://geekuninstaller.com)               |    √    |      |
+    |                      [Helix](https://helix-editor.com)                      |    √    |      |
+    |                            [jan](https://jan.ai)                            |    √    |      |
+    |                [Keyviz](https://mularahul.github.io/keyviz)                 |    √    |      |
+    |                     [Listary](https://www.listary.com)                      |    √    |      |
+    |                     [LocalSend](https://localsend.org)                      |    √    |      |
+    |                    [LX-Music](https://docs.lxmusic.top)                     |    √    |      |
+    |                     [MarkText](https://www.marktext.cc)                     |    √    |      |
+    |                      [Monit](https://monit.fzf404.art)                      |    √    |      |
+    |                        [Motrix](https://motrix.app)                         |    √    |      |
+    |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |    √    |      |
+    |                         [Neovim](https://neovim.io)                         |    √    |      |
+    |                         [ngrok](https://ngrok.com)                          |    √    |      |
+    |            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |    √    |      |
+    |                       [Obsidian](https://obsidian.md)                       |    √    |      |
+    |                     [Oh-My-Posh](https://ohmyposh.dev)                      |    √    |      |
+    |                       [PixPin](https://pixpinapp.com)                       |    √    |      |
+    |                   [PotPlayer](https://potplayer.daum.net)                   |    √    |      |
+    |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |    √    |      |
+    |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |    √    |      |
+    |                      [Quicker](https://getquicker.net)                      |    √    |      |
+    |              [Rubick](https://github.com/rubickCenter/rubick)               |    √    |      |
+    |              [RustDesk](https://github.com/rustdesk/rustdesk)               |    √    |      |
+    |         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |    √    |      |
+    | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |    √    |      |
+    |                    [Snipaste](https://www.snipaste.com)                     |    √    |      |
+    |                    [Snipaste2](https://www.snipaste.com)                    |    √    |      |
+    |                [Steampp(Watt Toolkit)](https://steampp.net)                 |    √    |      |
+    |                [SwitchHosts](https://switchhosts.vercel.app)                |    √    |      |
+    |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |    √    |      |
+    |                [tts-vue](https://github.com/LokerL/tts-vue)                 |    √    |      |
+    |                         [Typora](https://typora.io)                         |    √    |      |
+    |                          [uTools](https://u.tools)                          |    √    |      |
+    |                   [VSCode](https://code.visualstudio.com)                   |    √    |      |
+    |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |      |
