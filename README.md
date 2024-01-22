@@ -106,6 +106,7 @@
     | :-------------------------------------------------------------------------: | :-----: | ---- |
     |                          [7zip](https://7-zip.org)                          |    /    |      |
     |                        [aardio](https://aardio.com)                         |    √    |      |
+    |                        [AFFINE](https://affine.pro)                         |    √    |      |
     |                    [AutoHotkey](https://autohotkey.com)                     |    √    |      |
     |                        [chfs](http://iscute.cn/chfs)                        |    √    |      |
     |               [DownKyi](https://leiurayer.github.io/downkyi)                |    √    |      |
