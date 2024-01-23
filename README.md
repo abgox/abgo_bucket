@@ -90,17 +90,17 @@
 ### App Manifests
 
 -   All app Manifests are supported by default:
-    -   **`Clear Data`**：When the software is uninstalled, delete data of the software if it exists.(Except for `persist` data).
-    -   **`Forced uninstall`**：When the software is running, using the `scoop uninstall <app_name>` will try to terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
+    -   **`Clear Data`** : When the software is uninstalled, delete data of the software if it exists.(Except for `persist` data).
+    -   **`Forced uninstall`** : When the software is running, using the `scoop uninstall <app_name>` will try to terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
 -   Guide
 
-    -   **`App`**：Click to view to the official website or repository. Sort by first letter(0-9,a-z).
-    -   **`Persist`**: Important data of software is saved to `persist` under the installation directory of "Scoop".
-    -   **√**：It has been done.
-    -   **x**：It hasn't been done yet.
-    -   **/**：It's not necessary, or the conditions are not meet.
+    -   **`App`** : Click to view to the official website or repository. Sort by first letter(0-9,a-z).
+    -   **`Persist`** : Important data of software is saved to `persist` under the installation directory of "Scoop".
+    -   **√** : It has been done.
+    -   **x** : It hasn't been done yet.
+    -   **/** : It's not necessary, or the conditions are not meet.
     -   **\*run** : Run the application once after installing.
-    -   **invalid**: Invalid app placed in the deprecated folder. It may be removed from the list in the future.
+    -   **invalid** : Invalid app placed in the deprecated folder. It may be removed from the list in the future.
 
     |                                     App                                     | persist | Note |
     | :-------------------------------------------------------------------------: | :-----: | ---- |
@@ -150,4 +150,5 @@
     |                         [Typora](https://typora.io)                         |    √    |      |
     |                          [uTools](https://u.tools)                          |    √    |      |
     |                   [VSCode](https://code.visualstudio.com)                   |    √    |      |
+    |               [WonderPen](https://www.tominlab.com/wonderpen)               |    √    |      |
     |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |    √    |      |
