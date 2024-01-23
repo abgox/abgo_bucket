@@ -139,6 +139,7 @@
     |              [RustDesk](https://github.com/rustdesk/rustdesk)               |    √    |      |
     |         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |    √    |      |
     | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |    √    |      |
+    |                     [SiYuan](https://b3log.org/siyuan)                      |    √    |      |
     |                    [Snipaste](https://www.snipaste.com)                     |    √    |      |
     |                    [Snipaste2](https://www.snipaste.com)                    |    √    |      |
     |                [Steampp(Watt Toolkit)](https://steampp.net)                 |    √    |      |
