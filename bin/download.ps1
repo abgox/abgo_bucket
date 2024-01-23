@@ -65,20 +65,20 @@ while ($true) {
     Start-Sleep -Milliseconds 50
 }
 $app_content = Get-Content $app_txt | ForEach-Object { $_.Trim() }
-$result = @()
-for ($i = 0; $i -lt $app_content.Count; $i += 4) {
-    if ($i + 4 -gt $app_content.Count) { break }
-    $url = $app_content[$i].Trim()
-    # $referer = $app_content[$i + 1] -replace 'referer=', ''
-    # $dir = $app_content[$i + 2] -replace 'dir=', ''
-    $out = $app_content[$i + 3] -replace 'out=', ''
 
-    $result += [ordered]@{
-        Url = $url
-        Out = $out
+$result = @{
+    url = @()
+    out = @()
+}
+foreach ($i in $app_content) {
+    $i = $i.Trim()
+    if ($i -like "http*") {
+        $result.url += $i
+    }
+    elseif ($i -like "out=*") {
+        $result.out += $i -replace 'out=', ''
     }
 }
-
 if (Test-Path($app_txt)) {
     remove_file $app_txt
 }
@@ -88,18 +88,14 @@ Get-ChildItem $cache_dir | Where-Object {
     remove_file $_.FullName
 }
 
-foreach ($item in $result) {
-    if (!(Test-Path("$out_dir\$out_file"))) {
-        continue
-    }
-    $download_url = $item.Url
-    $out_dir = $cache_dir
-    $out_file = $item.Out
-    Write-Host ($json_d.url + $download_url) -f Green
+for ($i = 0; $i -lt $result.url.Count; $i++) {
+    $url = $result.url[$i]
+    $out = $result.out[$i]
+    Write-Host ($json_d.url + $url) -f Green
     Write-Host "---------------" -f Cyan
     Write-Host $json_d.download -f Yellow -NoNewline
-    $download_path = $(Read-Host) -replace '"', ''
-    move_file $download_path "$out_dir\$out_file"
+    $dl_path = $(Read-Host) -replace '"', ''
+    move_file $dl_path "$cache_dir\$out"
 }
 
 Write-Host ''
