@@ -114,6 +114,7 @@
     |                    [fnm](https://github.com/Schniz/fnm)                     |    /    |      |
     |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |    /    |      |
     |               [Geek Uninstaller](https://geekuninstaller.com)               |    √    |      |
+    |                        [Gopeed](https://gopeed.com)                         |    √    |      |
     |                      [Helix](https://helix-editor.com)                      |    √    |      |
     |                            [jan](https://jan.ai)                            |    √    |      |
     |                [Keyviz](https://mularahul.github.io/keyviz)                 |    √    |      |
