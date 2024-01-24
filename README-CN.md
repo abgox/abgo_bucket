@@ -118,6 +118,7 @@
     |                      [Helix](https://helix-editor.com)                      |    √    |      |
     |                            [jan](https://jan.ai)                            |    √    |      |
     |                [Keyviz](https://mularahul.github.io/keyviz)                 |    √    |      |
+    |                  [Koodo-Reader](https://koodo.960960.xyz)                   |    √    |      |
     |                     [Listary](https://www.listary.com)                      |    √    |      |
     |                     [LocalSend](https://localsend.org)                      |    √    |      |
     |                    [LX-Music](https://docs.lxmusic.top)                     |    √    |      |
