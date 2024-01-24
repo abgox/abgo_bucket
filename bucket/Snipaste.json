@@ -36,21 +36,19 @@
         "   New-Item $persist_file > $null",
         "}",
         "create_app_lnk \"$dir\\Snipaste.exe\" \"$desktop\\Snipaste.lnk\"",
-        "$path_schedule=\"$env:AppData\\abgo_bucket_Snipaste.txt\"",
-        "\"$data_file\" | Out-File $path_schedule",
-        "\"$persist_file\" | Out-File $path_schedule -Append",
-        "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"abgo_bucket_Snipaste\" \"$bucketsdir\\$bucket\\schedule\\Snipaste.ps1\""
+        "$path_schedule=\"$scoopdir\\shims\\Snipaste_abgo_bucket_schedule_persist.cmd\"",
+        "\"@echo off\" | Out-File $path_schedule",
+        "\"echo $data_file\" | Out-File $path_schedule -Append",
+        "\"echo $persist_file\" | Out-File $path_schedule -Append",
+        "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Snipaste_abgo_bucket_schedule_persist\" \"$bucketsdir\\$bucket\\schedule\\Snipaste.ps1\""
     ],
     "pre_uninstall": [
         "Copy-Item \"$dir\\config.ini\" \"$persist_dir\\config.ini\" -Force",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Snipaste.lnk\",\"$env:AppData\\abgo_bucket_Snipaste.txt\")"
-    ],
-    "post_uninstall": [
-        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        "& \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"abgo_bucket_Snipaste\""
+        "remove_files @(\"$desktop\\Snipaste.lnk\",\"$scoopdir\\shims\\Snipaste_abgo_bucket_schedule_persist.cmd\")",
+        "& \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Snipaste_abgo_bucket_schedule_persist\""
     ],
     "checkver": {
         "url": "https://dl.snipaste.com/sha-1.txt",
