@@ -53,18 +53,19 @@
         "   New-Item $persist_file > $null",
         "}",
         "create_app_lnk \"$dir\\Everything.exe\" \"$desktop\\Everything.lnk\"",
-        "$path_schedule=\"$env:AppData\\abgo_bucket_Everything.txt\"",
-        "\"$data_file\" | Out-File $path_schedule",
-        "\"$persist_file\" | Out-File $path_schedule -Append",
-        "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"abgo_bucket_Everything\" \"$bucketsdir\\$bucket\\schedule\\Everything.ps1\""
+        "$path_schedule=\"$scoopdir\\shims\\Everything_abgo_bucket_schedule_persist.cmd\"",
+        "\"@echo off\" | Out-File $path_schedule",
+        "\"echo $data_file\" | Out-File $path_schedule -Append",
+        "\"echo $persist_file\" | Out-File $path_schedule -Append",
+        "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Everything_abgo_bucket_schedule_persist\" \"$bucketsdir\\$bucket\\schedule\\Everything.ps1\""
     ],
     "pre_uninstall": [
         "Copy-Item \"$dir\\Everything.ini\" \"$persist_dir\\Everything.ini\" -Force",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Everything.lnk\",\"$env:AppData\\abgo_bucket_Everything.txt\")",
-        "& \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"abgo_bucket_Everything\""
+        "remove_files @(\"$desktop\\Everything.lnk\",\"$scoopdir\\shims\\Everything_abgo_bucket_schedule_persist.cmd\")",
+        "& \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Everything_abgo_bucket_schedule_persist\""
     ],
     "checkver": "Download Everything ([\\d.]+)",
     "autoupdate": {
