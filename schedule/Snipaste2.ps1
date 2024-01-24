@@ -1,6 +1,9 @@
-if (!(Test-Path("$env:AppData\abgo_bucket_Snipaste2.txt"))) { return }
-
-$content = Get-Content "$env:AppData\abgo_bucket_Snipaste2.txt"
+try {
+    $content = Snipaste2_abgo_bucket_schedule_persist
+}
+catch {
+    return
+}
 
 $path_data = $content[0]
 $path_persist = $content[1]
