@@ -1,0 +1,34 @@
+{
+    "version": "2023.2",
+    "description": "一个轻量级的实用程序，使 Windows 任务栏半透明/透明。A lightweight utility that makes the Windows taskbar translucent/transparent.",
+    "homepage": "https://github.com/TranslucentTB/TranslucentTB",
+    "license": {
+        "identifier": "GNU General Public License v3.0",
+        "url": "https://github.com/TranslucentTB/TranslucentTB/blob/release/LICENSE.md"
+    },
+    "notes": [
+        "此应用的程序文件不在 Scoop 中。Scoop 只管理数据的持久化(persist)、安装、更新以及卸载操作。",
+        "The app's program files are not within Scoop. Scoop only manages the persistence of data and operations for installing, updating, and uninstalling."
+    ],
+    "url": "https://github.com/TranslucentTB/TranslucentTB/releases/download/2023.2/bundle.msixbundle",
+    "hash": "ed6ee7975ad1551a57b48f94da8fb6bf74875f5fd19e224bacb7ea9042ff03e8",
+    "post_install": [
+        "$path_msi=\"$dir\\bundle.msixbundle\"",
+        "Add-AppPackage -Path $path_msi",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$env:LocalAppData\\Packages\\28017CharlesMilette.TranslucentTB_v826wp6bftszj\") @(\"$persist_dir\\28017CharlesMilette.TranslucentTB_v826wp6bftszj\")",
+        "clean_redundant_files @($path_msi) 10"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "Write-Host ($json.stop_process) -f Cyan",
+        "Stop-Process -Name TranslucentTB -Force -ErrorAction SilentlyContinue",
+        "remove_files @(\"$env:LocalAppData\\Packages\\28017CharlesMilette.TranslucentTB_v826wp6bftszj\")",
+        "Get-AppxPackage -Name \"28017CharlesMilette.TranslucentTB\" | Remove-AppxPackage"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/TranslucentTB/TranslucentTB/releases/download/$version/bundle.msixbundle"
+    }
+}
