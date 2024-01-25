@@ -113,6 +113,7 @@
     |                     [draw.io](https://www.diagrams.net)                     |    √    |      |
     |                   [Everything](https://www.voidtools.com)                   |    √    |      |
     |                    [Final2x](https://final2x.tohru.top)                     |    √    |      |
+    |                  [Fluent-Search](https://fluentsearch.net)                  |    √    |      |
     |                    [fnm](https://github.com/Schniz/fnm)                     |    /    |      |
     |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |    /    |      |
     |               [Geek Uninstaller](https://geekuninstaller.com)               |    √    |      |
