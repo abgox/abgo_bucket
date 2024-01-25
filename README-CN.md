@@ -141,6 +141,7 @@
 |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |   ✔️    |      |
 |                         [Neovim](https://neovim.io)                         |   ✔️    |      |
 |                         [ngrok](https://ngrok.com)                          |   ✔️    |      |
+|                   [Notepads](https://www.notepadsapp.com)                   |   ✔️    | UWP  |
 |            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |   ✔️    |      |
 |                       [Obsidian](https://obsidian.md)                       |   ✔️    |      |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |      |
