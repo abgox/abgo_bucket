@@ -130,6 +130,7 @@
 |               [Geek Uninstaller](https://geekuninstaller.com)               |   ✔️    |      |
 |                        [Gopeed](https://gopeed.com)                         |   ✔️    |      |
 |                      [Helix](https://helix-editor.com)                      |   ✔️    |      |
+|                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |      |
 |                            [jan](https://jan.ai)                            |   ✔️    |      |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |      |
 |                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |      |
