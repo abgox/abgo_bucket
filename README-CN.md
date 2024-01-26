@@ -153,6 +153,7 @@
 |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |
 |                      [Quicker](https://getquicker.net)                      |   ✔️    |              |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |              |
+|           [RunCat](https://github.com/Kyome22/RunCat_for_windows)           |   ➖    |              |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |              |
 |         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |   ✔️    |              |
 | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |   ✔️    |              |
