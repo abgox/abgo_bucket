@@ -172,3 +172,4 @@
 |               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |
 |               [XYplorer](https://www.xyplorer.com/index.php)                |   ✔️    |              |
+|              [XYplorerFree](https://www.xyplorer.com/free.php)              |   ✔️    |              |
