@@ -119,6 +119,7 @@
 |                        [AFFINE](https://affine.pro)                         |   ✔️    |              |
 |                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |              |
 |                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |
+| [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |
 |                       [DevToys](https://devtoys.app)                        |   ✔️    | UWP          |
 |               [DownKyi](https://leiurayer.github.io/downkyi)                |   ✔️    |              |
 |                     [draw.io](https://www.diagrams.net)                     |   ✔️    |              |
