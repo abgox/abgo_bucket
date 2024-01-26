@@ -1,0 +1,58 @@
+{
+    "version": "9.6.0",
+    "description": "一个基于开放源码技术的免费文件归档(压缩)实用程序。A free file archiver utility, based on Open Source technologies.",
+    "homepage": "https://peazip.github.io",
+    "license": {
+        "identifier": "GNU Lesser General Public License v3.0",
+        "url": "https://github.com/peazip/PeaZip/blob/sources/LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/peazip/PeaZip/releases/download/9.6.0/peazip_portable-9.6.0.WIN64.zip",
+            "hash": "654d0098c790d00b1ab1d7b4d6c59a854e4ccb30eeeb868906c98823fc44bef3",
+            "extract_dir": "peazip_portable-9.6.0.WIN64"
+        },
+        "32bit": {
+            "url": "https://github.com/peazip/PeaZip/releases/download/9.6.0/peazip_portable-9.6.0.WINDOWS.zip",
+            "hash": "0fbd16348e26372fb6eabfa7af307463e32912b114c9e986a3eb34ac8817322f",
+            "extract_dir": "peazip_portable-9.6.0.WINDOWS"
+        }
+    },
+    "bin": "peazip.exe",
+    "shortcuts": [
+        [
+            "peazip.exe",
+            "PeaZip"
+        ]
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$dir\\res\\conf\") @(\"$persist_dir\\res\\conf\")",
+        "create_app_lnk \"$dir\\peazip.exe\" \"$desktop\\PeaZip.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\PeaZip.lnk\")"
+    ],
+    "checkver": {
+        "github": "https://github.com/peazip/PeaZip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/peazip/PeaZip/releases/download/$version/peazip_portable-$version.WIN64.zip",
+                "extract_dir": "peazip_portable-$version.WIN64"
+            },
+            "32bit": {
+                "url": "https://github.com/peazip/PeaZip/releases/download/$version/peazip_portable-$version.WINDOWS.zip",
+                "extract_dir": "peazip_portable-$version.WINDOWS"
+            }
+        },
+        "hash": {
+            "url": "https://peazip.github.io/changelog.html",
+            "regex": "$sha256.*\\s+$basename"
+        }
+    }
+}
