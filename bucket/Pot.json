@@ -27,7 +27,7 @@
         "persist -file @(\"$env:AppData\\com.pot-app.desktop\\config.json\") @(\"$persist_dir\\com.pot-app.desktop\\config.json\")",
         "if(Test-Path \"$persist_dir\\com.pot-app.desktop\\plugins\"){ Copy-Item \"$persist_dir\\com.pot-app.desktop\\plugins\" \"$env:AppData\\com.pot-app.desktop\" -Force -Recurse}",
         "create_app_lnk \"$dir\\pot.exe\" \"$scoop_apps_lnk\\pot.lnk\"",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\pot.lnk\") 10"
+        "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\pot\\pot.lnk\") 15"
     ],
     "pre_uninstall": [
         "Copy-Item \"$env:AppData\\com.pot-app.desktop\\plugins\" \"$persist_dir\\com.pot-app.desktop\\plugins\" -Force -Recurse",
