@@ -1,0 +1,46 @@
+{
+    "version": "2.0.18",
+    "description": "一个免费、现代化的工具箱，为开发人员打造。A Free, Modern Toolbox, Built for Developers.",
+    "homepage": "https://he3.app",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://he3-1309519128.cos.accelerate.myqcloud.com/2.0.18/He3_windows_installer_x64_2.0.18.exe#/_installer_.exe",
+            "hash": "c3fa5cf1fb27dbff3680deb7cad926c7ed9ac40cc3f180137935a0e6d91b2912"
+        },
+        "32bit": {
+            "url": "https://he3-1309519128.cos.accelerate.myqcloud.com/2.0.18/He3_windows_installer_ia32_2.0.18.exe#/_installer_.exe",
+            "hash": "e0435c34703c3cc3082996085872697a2eb71fcf31c4ffc6ad1123c2174c94cf"
+        }
+    },
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "persist -dir @(\"$env:AppData\\he3\") @(\"$persist_dir\\he3\")",
+        "create_app_lnk \"$dir\\He3.exe\" \"$scoop_apps_lnk\\He3.lnk\"",
+        "clean_redundant_files @(\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\He3.lnk\",$path_exe) 10"
+    ],
+    "pre_uninstall": [
+        "$ErrorActionPreference=\"SilentlyContinue\"",
+        "& \"$dir\\Uninstall He3.exe\" /S",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"C:\\Users\\Public\\Desktop\\He3.lnk\",\"$scoop_apps_lnk\\He3.lnk\",\"$env:AppData\\he3\",\"$env:LocalAppData\\he3-updater\")"
+    ],
+    "checkver": {
+        "url": "https://he3-1309519128.cos.accelerate.myqcloud.com/latest/latest.yml",
+        "regex": "version:\\s([\\d\\.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "32bit": {
+                "url": "https://he3-1309519128.cos.accelerate.myqcloud.com/$version/He3_windows_installer_ia32_$version.exe#/_installer_.exe"
+            },
+            "64bit": {
+                "url": "https://he3-1309519128.cos.accelerate.myqcloud.com/$version/He3_windows_installer_x64_$version.exe#/_installer_.exe"
+            }
+        }
+    }
+}

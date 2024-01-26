@@ -133,6 +133,7 @@
 |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |   ➖    |              |
 |               [Geek Uninstaller](https://geekuninstaller.com)               |   ✔️    |              |
 |                        [Gopeed](https://gopeed.com)                         |   ✔️    |              |
+|                           [He3](https://he3.app)                            |   ✔️    |              |
 |                      [Helix](https://helix-editor.com)                      |   ✔️    |              |
 |                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |              |
 |                            [jan](https://jan.ai)                            |   ✔️    |              |
