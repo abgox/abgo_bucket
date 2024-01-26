@@ -173,6 +173,7 @@
 |                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |              |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |              |
 |       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    | UWP          |
+|                   [TTime](https://ttime.timerecord.cn/en)                   |   ✔️    |              |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |   ✔️    |              |
 |                         [Typora](https://typora.io)                         |   ✔️    |              |
 |                          [uTools](https://u.tools)                          |   ✔️    |              |
