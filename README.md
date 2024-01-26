@@ -152,6 +152,7 @@
 |                       [Obsidian](https://obsidian.md)                       |   ✔️    |              |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |              |
 |                       [PixPin](https://pixpinapp.com)                       |   ✔️    |              |
+|                         [pot](https://pot-app.com)                          |   ✔️    |              |
 |                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |              |
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |              |
 |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |
