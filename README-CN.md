@@ -163,6 +163,7 @@
 |              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |              |
 |           [RunCat](https://github.com/Kyome22/RunCat_for_windows)           |   ➖    |              |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |              |
+|                [Screego](https://github.com/screego/server)                 |   ✔️    |              |
 |         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |   ✔️    |              |
 | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |   ✔️    |              |
 |                     [SiYuan](https://b3log.org/siyuan)                      |   ✔️    |              |
@@ -175,6 +176,7 @@
 |                    [TTime](https://ttime.timerecord.cn)                     |   ✔️    |              |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |   ✔️    |              |
 |                         [Typora](https://typora.io)                         |   ✔️    |              |
+|                [Upscayl](https://github.com/upscayl/upscayl)                |   ✔️    |              |
 |                          [uTools](https://u.tools)                          |   ✔️    |              |
 |                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |              |
 |               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    | noAutoUpdate |
