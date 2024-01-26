@@ -1,0 +1,29 @@
+{
+    "version": "2.13.15",
+    "description": "一个安全的记事和待办事项应用程序，具有同步功能，适用于 Windows、macOS、Linux、Android 和 iOS。A secure note taking and to-do app with syncing capabilities for Windows, macOS, Linux, Android and iOS.",
+    "homepage": "https://joplinapp.org",
+    "license": {
+        "identifier": "GNU Affero General Public License v3.0 or later",
+        "url": "https://github.com/laurent22/joplin/blob/dev/LICENSE"
+    },
+    "url": "https://github.com/laurent22/joplin/releases/download/v2.13.15/JoplinPortable.exe",
+    "hash": "78fbf63c2b7a3903c21630c681c58e203711577ecfba1e0f8f0081dc2ae79cdf",
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$dir\\JoplinProfile\") @(\"$persist_dir\\JoplinProfile\")",
+        "create_app_lnk \"$dir\\JoplinPortable.exe\" \"$desktop\\Joplin.lnk\"",
+        "create_app_lnk \"$dir\\JoplinPortable.exe\" \"$scoop_apps_lnk\\Joplin.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\Joplin.lnk\",\"$scoop_apps_lnk\\Joplin.lnk\",\"$env:AppData\\@joplin\",\"$env:AppData\\joplin\")"
+    ],
+    "checkver": {
+        "github": "https://github.com/laurent22/joplin"
+    },
+    "autoupdate": {
+        "url": "https://github.com/laurent22/joplin/releases/download/v$version/JoplinPortable.exe"
+    }
+}

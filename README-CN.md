@@ -137,6 +137,7 @@
 |                      [Helix](https://helix-editor.com)                      |   ✔️    |              |
 |                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |              |
 |                            [jan](https://jan.ai)                            |   ✔️    |              |
+|                       [Joplin](https://joplinapp.org)                       |   ✔️    |              |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |              |
 |                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |              |
 |                     [Listary](https://www.listary.com)                      |   ✔️    |              |
