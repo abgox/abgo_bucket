@@ -1,0 +1,31 @@
+{
+    "version": "2.9.8",
+    "description": "适用于 Linux、MacOS 和 Windows 的免费开源 AI 图像升级程序，秉承 Linux 优先的理念。Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.",
+    "homepage": "https://github.com/upscayl/upscayl",
+    "license": {
+        "identifier": "GNU Affero General Public License v3.0",
+        "url": "https://github.com/upscayl/upscayl/blob/main/LICENSE"
+    },
+    "url": "https://github.com/upscayl/upscayl/releases/download/v2.9.8/upscayl-2.9.8-win.exe",
+    "hash": "9fb867159886603e08de1e4aaeb0e77bd39eb6bdd765654d9c6bc1d4fc208da9",
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe= \"$dir\\upscayl-$($version)-win.exe\"",
+        "& $path_exe /S /D=$dir",
+        "persist -dir @(\"$env:AppData\\Upscayl\") @(\"$persist_dir\\Upscayl\")",
+        "create_app_lnk \"$dir\\Upscayl.exe\" \"$scoop_apps_lnk\\Upscayl.lnk\"",
+        "clean_redundant_files @(\"$apps_lnk\\Upscayl.lnk\",$path_exe) 10"
+    ],
+    "pre_uninstall": [
+        "$ErrorActionPreference=\"SilentlyContinue\"",
+        "& \"$dir\\Uninstall Upscayl.exe\" /S",
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\Upscayl.lnk\",\"$scoop_apps_lnk\\Upscayl.lnk\",\"$env:AppData\\Upscayl\",\"$env:LocalAppData\\upscayl-updater\")"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/upscayl/upscayl/releases/download/v$version/upscayl-$version-win.exe"
+    }
+}
