@@ -108,64 +108,66 @@
     -   **`Note`**
         -   `run` : Run the application once after installing.
         -   `UWP` : A `UWP` app. The app's program files are not within `Scoop`. `Scoop` only manages the persistence of data and operations for installing, updating, and uninstalling.
+        -   `noAutoUpdate` : `json.autoupdate` are not configured, and Scoop cannot automatically detect updates.
         -   `invalid` : Invalid app placed in the deprecated folder. It may be removed from the list in the future.
 
 ---
 
-|                                     App                                     | persist | Note |
-| :-------------------------------------------------------------------------: | :-----: | ---- |
-|                          [7zip](https://7-zip.org)                          |   ➖    |      |
-|                        [aardio](https://aardio.com)                         |   ✔️    |      |
-|                        [AFFINE](https://affine.pro)                         |   ✔️    |      |
-|                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |      |
-|                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |      |
-|                       [DevToys](https://devtoys.app)                        |   ✔️    | UWP  |
-|               [DownKyi](https://leiurayer.github.io/downkyi)                |   ✔️    |      |
-|                     [draw.io](https://www.diagrams.net)                     |   ✔️    |      |
-|                   [Everything](https://www.voidtools.com)                   |   ✔️    |      |
-|                    [Final2x](https://final2x.tohru.top)                     |   ✔️    |      |
-|                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    |      |
-|                    [fnm](https://github.com/Schniz/fnm)                     |   ➖    |      |
-|           [FastGithub](https://github.com/dotnetcore/FastGithub)            |   ➖    |      |
-|               [Geek Uninstaller](https://geekuninstaller.com)               |   ✔️    |      |
-|                        [Gopeed](https://gopeed.com)                         |   ✔️    |      |
-|                      [Helix](https://helix-editor.com)                      |   ✔️    |      |
-|                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |      |
-|                            [jan](https://jan.ai)                            |   ✔️    |      |
-|                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |      |
-|                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |      |
-|                     [Listary](https://www.listary.com)                      |   ✔️    |      |
-|                     [LocalSend](https://localsend.org)                      |   ✔️    |      |
-|                    [LX-Music](https://docs.lxmusic.top)                     |   ✔️    |      |
-|                     [MarkText](https://www.marktext.cc)                     |   ✔️    |      |
-|                      [Monit](https://monit.fzf404.art)                      |   ✔️    |      |
-|                        [Motrix](https://motrix.app)                         |   ✔️    |      |
-|        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |   ✔️    |      |
-|                         [Neovim](https://neovim.io)                         |   ✔️    |      |
-|                         [ngrok](https://ngrok.com)                          |   ✔️    |      |
-|                   [Notepads](https://www.notepadsapp.com)                   |   ✔️    | UWP  |
-|            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |   ✔️    |      |
-|                       [Obsidian](https://obsidian.md)                       |   ✔️    |      |
-|                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |      |
-|                       [PixPin](https://pixpinapp.com)                       |   ✔️    |      |
-|                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |      |
-|             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |      |
-|              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |      |
-|                      [Quicker](https://getquicker.net)                      |   ✔️    |      |
-|              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |      |
-|              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |      |
-|         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |   ✔️    |      |
-| [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |   ✔️    |      |
-|                     [SiYuan](https://b3log.org/siyuan)                      |   ✔️    |      |
-|                    [Snipaste](https://www.snipaste.com)                     |   ✔️    |      |
-|                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |      |
-|                [Steampp(Watt Toolkit)](https://steampp.net)                 |   ✔️    |      |
-|                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |      |
-|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |      |
-|       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    | UWP  |
-|                [tts-vue](https://github.com/LokerL/tts-vue)                 |   ✔️    |      |
-|                         [Typora](https://typora.io)                         |   ✔️    |      |
-|                          [uTools](https://u.tools)                          |   ✔️    |      |
-|                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |      |
-|               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |      |
-|            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |      |
+|                                     App                                     | persist | Note         |
+| :-------------------------------------------------------------------------: | :-----: | ------------ |
+|                          [7zip](https://7-zip.org)                          |   ➖    |              |
+|                        [aardio](https://aardio.com)                         |   ✔️    |              |
+|                        [AFFINE](https://affine.pro)                         |   ✔️    |              |
+|                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |              |
+|                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |
+|                       [DevToys](https://devtoys.app)                        |   ✔️    | UWP          |
+|               [DownKyi](https://leiurayer.github.io/downkyi)                |   ✔️    |              |
+|                     [draw.io](https://www.diagrams.net)                     |   ✔️    |              |
+|                   [Everything](https://www.voidtools.com)                   |   ✔️    |              |
+|                    [Final2x](https://final2x.tohru.top)                     |   ✔️    |              |
+|                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    | noAutoUpdate |
+|                    [fnm](https://github.com/Schniz/fnm)                     |   ➖    |              |
+|           [FastGithub](https://github.com/dotnetcore/FastGithub)            |   ➖    |              |
+|               [Geek Uninstaller](https://geekuninstaller.com)               |   ✔️    |              |
+|                        [Gopeed](https://gopeed.com)                         |   ✔️    |              |
+|                      [Helix](https://helix-editor.com)                      |   ✔️    |              |
+|                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |              |
+|                            [jan](https://jan.ai)                            |   ✔️    |              |
+|                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |              |
+|                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |              |
+|                     [Listary](https://www.listary.com)                      |   ✔️    |              |
+|                     [LocalSend](https://localsend.org)                      |   ✔️    |              |
+|                    [LX-Music](https://docs.lxmusic.top)                     |   ✔️    |              |
+|                     [MarkText](https://www.marktext.cc)                     |   ✔️    |              |
+|                      [Monit](https://monit.fzf404.art)                      |   ✔️    |              |
+|                        [Motrix](https://motrix.app)                         |   ✔️    |              |
+|        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |   ✔️    |              |
+|                         [Neovim](https://neovim.io)                         |   ✔️    |              |
+|                         [ngrok](https://ngrok.com)                          |   ✔️    |              |
+|                   [Notepads](https://www.notepadsapp.com)                   |   ✔️    | UWP          |
+|            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |   ✔️    |              |
+|                       [Obsidian](https://obsidian.md)                       |   ✔️    |              |
+|                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |              |
+|                       [PixPin](https://pixpinapp.com)                       |   ✔️    |              |
+|                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |              |
+|             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |              |
+|              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |
+|                      [Quicker](https://getquicker.net)                      |   ✔️    |              |
+|              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |              |
+|              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |              |
+|         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |   ✔️    |              |
+| [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |   ✔️    |              |
+|                     [SiYuan](https://b3log.org/siyuan)                      |   ✔️    |              |
+|                    [Snipaste](https://www.snipaste.com)                     |   ✔️    |              |
+|                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |              |
+|                [Steampp(Watt Toolkit)](https://steampp.net)                 |   ✔️    |              |
+|                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |              |
+|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |              |
+|       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    | UWP          |
+|                [tts-vue](https://github.com/LokerL/tts-vue)                 |   ✔️    |              |
+|                         [Typora](https://typora.io)                         |   ✔️    |              |
+|                          [uTools](https://u.tools)                          |   ✔️    |              |
+|                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |              |
+|               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    | noAutoUpdate |
+|               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |
+|            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |
