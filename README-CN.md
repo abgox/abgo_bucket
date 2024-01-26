@@ -169,6 +169,7 @@
 |                     [SiYuan](https://b3log.org/siyuan)                      |   ✔️    |              |
 |                    [Snipaste](https://www.snipaste.com)                     |   ✔️    |              |
 |                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |              |
+|                  [Spacedrive](https://www.spacedrive.com)                   |   ✔️    |              |
 |                [Steampp(Watt Toolkit)](https://steampp.net)                 |   ✔️    |              |
 |                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |              |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |              |
