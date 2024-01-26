@@ -170,3 +170,4 @@
 |               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    | noAutoUpdate |
 |               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |
+|               [XYplorer](https://www.xyplorer.com/index.php)                |   ✔️    |              |

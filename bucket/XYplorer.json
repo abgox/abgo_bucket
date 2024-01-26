@@ -1,0 +1,36 @@
+{
+    "version": "25.40.0400",
+    "description": "一个 Windows 上的第三方文件管理器。A file manager for Windows.",
+    "homepage": "https://www.xyplorer.com/index.php",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://www.xyplorer.com/purchase.php"
+    },
+    "url": "https://www.xyplorer.com/download/xyplorer_full_noinstall.zip",
+    "hash": "637cd0c53da11fa5bf904ae040e214e7c38dc261733d189b8dfac2a52a773995",
+    "bin": "XYplorer.exe",
+    "shortcuts": [
+        [
+            "XYplorer.exe",
+            "XYplorer"
+        ]
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$dir\\Data\") @(\"$persist_dir\\Data\")",
+        "create_app_lnk \"$dir\\XYplorer.exe\" \"$desktop\\XYplorer.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\XYplorer.lnk\")"
+    ],
+    "checkver": {
+        "url": "https://www.xyplorer.com/download.php",
+        "regex": "Version.+>([\\d\\.]+)"
+    },
+    "autoupdate": {
+        "url": "https://www.xyplorer.com/download/xyplorer_full_noinstall.zip"
+    }
+}
