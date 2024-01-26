@@ -125,6 +125,7 @@
 |               [Dnest](https://github.com/davidkane0526/Dnest)               |   ➖    |              |
 |               [DownKyi](https://leiurayer.github.io/downkyi)                |   ✔️    |              |
 |                     [draw.io](https://www.diagrams.net)                     |   ✔️    |              |
+|                   [Dropit](http://www.dropitproject.com)                    |   ✔️    |              |
 |                   [Everything](https://www.voidtools.com)                   |   ✔️    |              |
 |                    [Final2x](https://final2x.tohru.top)                     |   ✔️    |              |
 |                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    | noAutoUpdate |
