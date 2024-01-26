@@ -122,6 +122,7 @@
 | [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |
 |                       [DevToys](https://devtoys.app)                        |   ✔️    | UWP          |
 |                  [Ditto](https://ditto-cp.sourceforge.io)                   |   ✔️    |              |
+|               [Dnest](https://github.com/davidkane0526/Dnest)               |   ➖    |              |
 |               [DownKyi](https://leiurayer.github.io/downkyi)                |   ✔️    |              |
 |                     [draw.io](https://www.diagrams.net)                     |   ✔️    |              |
 |                   [Everything](https://www.voidtools.com)                   |   ✔️    |              |
