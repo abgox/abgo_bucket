@@ -1,13 +1,13 @@
 {
-    "version": "0.4.4",
+    "version": "0.4.5",
     "description": "ChatGPT 的开源替代品，可在计算机上百分百脱机运行。An open source alternative to ChatGPT that runs 100% offline on your computer.",
     "homepage": "https://jan.ai",
     "license": {
         "identifier": "GNU Affero General Public License v3.0",
         "url": "https://github.com/janhq/jan/blob/main/LICENSE"
     },
-    "url": "https://github.com/janhq/jan/releases/download/v0.4.4/jan-win-x64-0.4.4.exe",
-    "hash": "8fbfe42cbade98f1ef8ef24e6da27776aa2f7aee88d0da3314f05c21e8dd3fc4",
+    "url": "https://github.com/janhq/jan/releases/download/v0.4.5/jan-win-x64-0.4.5.exe",
+    "hash": "c2682d22da243c00b6d9bac1b441a2b536a571b172f9febc0a6b26f9eb22f619",
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$path_exe=\"$dir\\jan-win-x64-$($version).exe\"",
