@@ -1,0 +1,56 @@
+{
+    "version": "9.0.9.1230",
+    "description": "一个轻量级的、多功能的图像查看器。A lightweight, versatile image viewer.",
+    "homepage": "https://imageglass.org",
+    "license": {
+        "identifier": "GNU GENERAL PUBLIC LICENSE,...",
+        "url": "https://github.com/d2phap/ImageGlass/blob/develop/LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/d2phap/ImageGlass/releases/download/9.0.9.1230/ImageGlass_9.0.9.1230_x64.zip",
+            "hash": "b584c81adb64261096711ad60b985807e5f9b90ccf1e06b23d68414af80e738d",
+            "extract_dir": "ImageGlass_9.0.9.1230_x64"
+        },
+        "arm64": {
+            "url": "https://github.com/d2phap/ImageGlass/releases/download/9.0.9.1230/ImageGlass_9.0.9.1230_arm64.zip",
+            "hash": "f0ec35ac08bfbbcac52a107c1218ff05c46a534fabe4e21fe44cb74ffbf25ffd",
+            "extract_dir": "ImageGlass_9.0.9.1230_arm64"
+        }
+    },
+    "bin": [
+        "ImageGlass.exe",
+        "igcmd.exe"
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "if (!(Test-Path \"$persist_dir\\igconfig.json\")) {",
+        "   @{AutoUpdate=0} | ConvertTo-Json | Out-File \"$persist_dir\\igconfig.json\" -Encoding utf8",
+        "}",
+        "persist -file @(\"$dir\\igconfig.json\") @(\"$persist_dir\\igconfig.json\")",
+        "persist -dir @(\"$dir\\Themes\") @(\"$persist_dir\\Themes\")",
+        "create_app_lnk \"$dir\\ImageGlass.exe\" \"$desktop\\ImageGlass.lnk\"",
+        "create_app_lnk \"$dir\\ImageGlass.exe\" \"$scoop_apps_lnk\\ImageGlass.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\ImageGlass.lnk\",\"$scoop_apps_lnk\\ImageGlass.lnk\",\"$env:LocalAppData\\ImageGlass\",\"$env:LocalAppData\\ImageMagick\")"
+    ],
+    "checkver": {
+        "github": "https://github.com/d2phap/ImageGlass"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/d2phap/ImageGlass/releases/download/$version/ImageGlass_$version_x64.zip",
+                "extract_dir": "ImageGlass_$version_x64"
+            },
+            "arm64": {
+                "url": "https://github.com/d2phap/ImageGlass/releases/download/$version/ImageGlass_$version_arm64.zip",
+                "extract_dir": "ImageGlass_$version_arm64"
+            }
+        }
+    }
+}

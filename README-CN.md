@@ -136,6 +136,7 @@
 |                        [Gopeed](https://gopeed.com)                         |   ✔️    |              |
 |                           [He3](https://he3.app)                            |   ✔️    |              |
 |                      [Helix](https://helix-editor.com)                      |   ✔️    |              |
+|                    [ImageGlass](https://imageglass.org)                     |   ✔️    |              |
 |                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |              |
 |                            [jan](https://jan.ai)                            |   ✔️    |              |
 |                       [Joplin](https://joplinapp.org)                       |   ✔️    |              |
