@@ -138,6 +138,7 @@
 |                      [Helix](https://helix-editor.com)                      |   ✔️    |              |
 |                    [ImageGlass](https://imageglass.org)                     |   ✔️    |              |
 |                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |              |
+|                      [Insomnia](https://insomnia.rest)                      |   ✔️    |              |
 |                            [jan](https://jan.ai)                            |   ✔️    |              |
 |                       [Joplin](https://joplinapp.org)                       |   ✔️    |              |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |              |

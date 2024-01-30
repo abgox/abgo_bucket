@@ -1,0 +1,44 @@
+{
+    "version": "8.6.0",
+    "description": "适用于 GraphQL、REST、WebSockets、SSE 和 gRPC 的开源跨平台 API 客户端。支持云存储、本地存储和 Git 存储。The open-source, cross-platform API client for GraphQL, REST, WebSockets, SSE and gRPC. With Cloud, Local and Git storage.",
+    "homepage": "https://insomnia.rest",
+    "license": {
+        "identifier": "Apache License 2.0",
+        "url": "https://github.com/Kong/insomnia/blob/develop/LICENSE"
+    },
+    "url": [
+        "https://github.com/Kong/insomnia/releases/download/core%408.6.0/insomnia-8.6.0-full.nupkg",
+        "https://github.com/Kong/insomnia/releases/download/lib%408.6.0/inso-windows-8.6.0.zip"
+    ],
+    "hash": [
+        "16d80babd2d90ad393f27f6b7cc721b0b9cd2dff290c6287c16b0992b158ca81",
+        "7d5cfb9398020d5ad924943127aafe584321a9ef0e053c0ece06a974ba53d16e"
+    ],
+    "extract_dir": "lib\\net45",
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "Write-Host \"Creating shim for Insomnia (Insomnia.exe)\"",
+        "$shims_dir=\"$scoopdir\\shims\"",
+        "Move-Item \"$dir\\inso.exe\" \"$shims_dir\\insomnia.exe\"",
+        "persist -dir @(\"$env:AppData\\Insomnia\") @(\"$persist_dir\\Insomnia\")",
+        "create_app_lnk \"$dir\\Insomnia.exe\" \"$desktop\\Insomnia.lnk\"",
+        "create_app_lnk \"$dir\\Insomnia.exe\" \"$scoop_apps_lnk\\Insomnia.lnk\"",
+        "clean_redundant_files @(\"$dir\\inso-windows-$($version).zip\") 15"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$scoopdir\\shims\\insomnia.exe\",\"$desktop\\Insomnia.lnk\",\"$scoop_apps_lnk\\Insomnia.lnk\",\"$env:AppData\\Insomnia\")"
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repositories/56899284/releases",
+        "regex": "\"core@([\\d.]+)\""
+    },
+    "autoupdate": {
+        "url": [
+            "https://github.com/Kong/insomnia/releases/download/core%40$version/insomnia-$version-full.nupkg",
+            "https://github.com/Kong/insomnia/releases/download/lib%40$version/inso-windows-$version.zip"
+        ]
+    }
+}
