@@ -131,7 +131,8 @@
 |                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    | noAutoUpdate |
 |                    [fnm](https://github.com/Schniz/fnm)                     |   ➖    |              |
 |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |   ➖    |              |
-|               [Geek Uninstaller](https://geekuninstaller.com)               |   ✔️    |              |
+|               [GeekUninstaller](https://geekuninstaller.com)                |   ✔️    |              |
+|              [GitExtensions](https://gitextensions.github.io)               |   ✔️    |              |
 |                        [Gopeed](https://gopeed.com)                         |   ✔️    |              |
 |                           [He3](https://he3.app)                            |   ✔️    |              |
 |                      [Helix](https://helix-editor.com)                      |   ✔️    |              |
