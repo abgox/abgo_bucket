@@ -159,6 +159,7 @@
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |              |
 |                     [PeaZip](https://peazip.github.io)                      |   ✔️    |              |
 |                       [PixPin](https://pixpinapp.com)                       |   ✔️    |              |
+|                    [Postman](https://www.getpostman.com)                    |   ✔️    |              |
 |                         [pot](https://pot-app.com)                          |   ✔️    |              |
 |                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |              |
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |              |
