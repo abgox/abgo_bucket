@@ -144,6 +144,7 @@
 |                       [Joplin](https://joplinapp.org)                       |   ✔️    |              |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |              |
 |                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |              |
+|                   [Lattics](https://lattics.zineapi.com)                    |   ✔️    |              |
 |                     [Listary](https://www.listary.com)                      |   ✔️    |              |
 |                     [LocalSend](https://localsend.org)                      |   ✔️    |              |
 |                    [LX-Music](https://docs.lxmusic.top)                     |   ✔️    |              |
