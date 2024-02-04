@@ -166,6 +166,7 @@
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |              |
 |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |
 |                      [Quicker](https://getquicker.net)                      |   ✔️    |              |
+|                           [Rime](https://rime.im)                           |   ✔️    |              |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |              |
 |           [RunCat](https://github.com/Kyome22/RunCat_for_windows)           |   ➖    |              |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |              |
