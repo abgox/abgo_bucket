@@ -31,12 +31,13 @@
         "   Copy-Item \"$env:AppData\\com.pot-app.desktop\\plugins\"  \"$persist_dir\\com.pot-app.desktop\"-Force -Recurse",
         "}",
         "create_app_lnk \"$dir\\pot.exe\" \"$scoop_apps_lnk\\pot.lnk\"",
-        "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\pot\\pot.lnk\") 15"
+        "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\pot\\pot.lnk\") 60"
     ],
     "pre_uninstall": [
         "Copy-Item \"$env:AppData\\com.pot-app.desktop\\plugins\" \"$persist_dir\\com.pot-app.desktop\" -Force -Recurse",
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\uninstall.exe\" /S",
+        "Start-Sleep -S 3",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",

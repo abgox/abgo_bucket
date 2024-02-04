@@ -20,11 +20,12 @@
         "persist -dir @(\"$env:AppData\\WonderPen\") @(\"$persist_dir\\WonderPen\")",
         "create_app_lnk \"$dir\\WonderPen.exe\" \"$desktop\\WonderPen.lnk\"",
         "create_app_lnk \"$dir\\WonderPen.exe\" \"$scoop_apps_lnk\\WonderPen.lnk\"",
-        "clean_redundant_files @(\"$apps_lnk\\WonderPen.lnk\",$path_exe) 10"
+        "clean_redundant_files @(\"$apps_lnk\\WonderPen.lnk\",$path_exe) 60"
     ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\Uninstall WonderPen.exe\" /S",
+        "Start-Sleep -S 3",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",

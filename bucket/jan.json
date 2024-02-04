@@ -15,11 +15,12 @@
         "persist -dir @(\"$env:AppData\\jan\",\"$env:UserProfile\\jan\") @(\"$persist_dir\\jan\",\"$persist_dir\\jan_user\")",
         "create_app_lnk \"$dir\\jan.exe\" \"$desktop\\jan.lnk\"",
         "create_app_lnk \"$dir\\jan.exe\" \"$scoop_apps_lnk\\jan.lnk\"",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\jan.lnk\") 10"
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\jan.lnk\") 60"
     ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\Uninstall jan.exe\" /S",
+        "Start-Sleep -S 3",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",

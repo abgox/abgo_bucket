@@ -23,11 +23,12 @@
         "persist -dir @(\"$env:AppData\\SwitchHosts\",\"$env:UserProfile\\.SwitchHosts\") @(\"$persist_dir\\SwitchHosts\",\"$persist_dir\\.SwitchHosts\")",
         "create_app_lnk \"$dir\\SwitchHosts.exe\" \"$desktop\\SwitchHosts.lnk\"",
         "create_app_lnk \"$dir\\SwitchHosts.exe\" \"$scoop_apps_lnk\\SwitchHosts.lnk\"",
-        "clean_redundant_files @(\"$apps_lnk\\SwitchHosts.lnk\",$path_exe) 10"
+        "clean_redundant_files @(\"$apps_lnk\\SwitchHosts.lnk\",$path_exe) 60"
     ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\Uninstall SwitchHosts.exe\" /S",
+        "Start-Sleep -S 3",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",

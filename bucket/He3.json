@@ -19,11 +19,12 @@
         "& $path_exe /S /D=$dir",
         "persist -dir @(\"$env:AppData\\he3\") @(\"$persist_dir\\he3\")",
         "create_app_lnk \"$dir\\He3.exe\" \"$scoop_apps_lnk\\He3.lnk\"",
-        "clean_redundant_files @(\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\He3.lnk\",$path_exe) 10"
+        "clean_redundant_files @(\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\He3.lnk\",$path_exe) 60"
     ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\Uninstall He3.exe\" /S",
+        "Start-Sleep -S 3",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",

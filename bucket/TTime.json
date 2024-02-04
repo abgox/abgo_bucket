@@ -6,7 +6,7 @@
         "identifier": "Apache License 2.0(with the additional conditions)",
         "url": "https://github.com/InkTimeRecord/TTime/blob/main/LICENSE.txt"
     },
-    "url": " https://github.com/InkTimeRecord/TTime/releases/download/v0.9.5/TTime-0.9.5-setup.exe",
+    "url": "https://github.com/InkTimeRecord/TTime/releases/download/v0.9.5/TTime-0.9.5-setup.exe",
     "hash": "383d9ed7883218949eebfc71eb2324298354f21f4ead079caf6919cbe9ecd28e",
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
@@ -14,11 +14,12 @@
         "& $path_exe /S /D=$dir",
         "persist -dir @(\"$env:AppData\\time-translate\") @(\"$persist_dir\\time-translate\")",
         "create_app_lnk \"$dir\\TTime.exe\" \"$scoop_apps_lnk\\TTime.lnk\"",
-        "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\TTime.lnk\") 10"
+        "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\TTime.lnk\") 60"
     ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\Uninstall TTime.exe\" /S",
+        "Start-Sleep -S 3",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
@@ -26,6 +27,6 @@
     ],
     "checkver": "github",
     "autoupdate": {
-        "url": " https://github.com/InkTimeRecord/TTime/releases/download/v$version/TTime-$version-setup.exe"
+        "url": "https://github.com/InkTimeRecord/TTime/releases/download/v$version/TTime-$version-setup.exe"
     }
 }

@@ -26,11 +26,12 @@
         "& $path_exe /S /D=$dir",
         "persist -dir @(\"$env:AppData\\obsidian\",\"$env:UserProfile\\Documents\\Obsidian Vault\") @(\"$persist_dir\\obsidian\",\"$persist_dir\\obsidian\\Obsidian Vault\")",
         "create_app_lnk \"$dir\\Obsidian.exe\" \"$scoop_apps_lnk\\Obsidian.lnk\"",
-        "clean_redundant_files @(\"$apps_lnk\\Obsidian.lnk\",$path_exe) 10"
+        "clean_redundant_files @(\"$apps_lnk\\Obsidian.lnk\",$path_exe) 60"
     ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\Uninstall Obsidian.exe\" /S",
+        "Start-Sleep -S 3",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",

@@ -15,11 +15,12 @@
         "persist -dir @(\"$env:AppData\\SiYuan\",\"$env:AppData\\SiYuan-Electron\") @(\"$persist_dir\\SiYuan\",\"$persist_dir\\SiYuan-Electron\")",
         "create_app_lnk \"$dir\\SiYuan.exe\" \"$desktop\\SiYuan.lnk\"",
         "create_app_lnk \"$dir\\SiYuan.exe\" \"$scoop_apps_lnk\\SiYuan.lnk\"",
-        "clean_redundant_files @(\"$apps_lnk\\SiYuan.lnk\",$path_exe) 10"
+        "clean_redundant_files @(\"$apps_lnk\\SiYuan.lnk\",$path_exe) 60"
     ],
     "pre_uninstall": [
         "$ErrorActionPreference=\"SilentlyContinue\"",
         "& \"$dir\\Uninstall SiYuan.exe\" /S",
+        "Start-Sleep -S 3",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
