@@ -1,5 +1,5 @@
 {
-    "version": "8.6.0",
+    "version": "8.6.1",
     "description": "适用于 GraphQL、REST、WebSockets、SSE 和 gRPC 的开源跨平台 API 客户端。支持云存储、本地存储和 Git 存储。The open-source, cross-platform API client for GraphQL, REST, WebSockets, SSE and gRPC. With Cloud, Local and Git storage.",
     "homepage": "https://insomnia.rest",
     "license": {
@@ -7,12 +7,12 @@
         "url": "https://github.com/Kong/insomnia/blob/develop/LICENSE"
     },
     "url": [
-        "https://github.com/Kong/insomnia/releases/download/core%408.6.0/insomnia-8.6.0-full.nupkg",
-        "https://github.com/Kong/insomnia/releases/download/lib%408.6.0/inso-windows-8.6.0.zip"
+        "https://github.com/Kong/insomnia/releases/download/core%408.6.1/insomnia-8.6.1-full.nupkg",
+        "https://github.com/Kong/insomnia/releases/download/lib%408.6.1/inso-windows-8.6.1.zip"
     ],
     "hash": [
-        "16d80babd2d90ad393f27f6b7cc721b0b9cd2dff290c6287c16b0992b158ca81",
-        "7d5cfb9398020d5ad924943127aafe584321a9ef0e053c0ece06a974ba53d16e"
+        "74ad552a666189ca751ec781074142b90ab03b5f89e532ab8de655fcf78df169",
+        "21507d0cf4a19450910137fde0e2b01ff71df01e6c84e506cf3a7cff85f8e2fc"
     ],
     "extract_dir": "lib\\net45",
     "post_install": [
