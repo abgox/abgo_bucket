@@ -178,6 +178,7 @@
 |                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |              |
 |                  [Spacedrive](https://www.spacedrive.com)                   |   ✔️    |              |
 |                [Steampp(Watt Toolkit)](https://steampp.net)                 |   ✔️    |              |
+|               [StrokesPlus.net](https://www.strokesplus.net)                |   ✔️    |              |
 |                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |              |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |              |
 |       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    | UWP          |

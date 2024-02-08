@@ -165,7 +165,7 @@
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |              |
 |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |
 |                      [Quicker](https://getquicker.net)                      |   ✔️    |              |
-|                          [Rime](https://rime.im)                           |   ✔️    |              |
+|                           [Rime](https://rime.im)                           |   ✔️    |              |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |              |
 |           [RunCat](https://github.com/Kyome22/RunCat_for_windows)           |   ➖    |              |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |              |
@@ -177,6 +177,7 @@
 |                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |              |
 |                  [Spacedrive](https://www.spacedrive.com)                   |   ✔️    |              |
 |                [Steampp(Watt Toolkit)](https://steampp.net)                 |   ✔️    |              |
+|               [StrokesPlus.net](https://www.strokesplus.net)                |   ✔️    |              |
 |                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |              |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |              |
 |       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    | UWP          |
