@@ -31,5 +31,6 @@
         "download": "Please download manually.\nPlease enter the downloaded file path: "
     },
     "clean_redundant_files": "Run a background job: Delete redundant files generated during the installation process after {{$delay}} seconds\n",
-    "remove": "Removing "
+    "remove": "Removing ",
+    "uninstalling": "Running the built-in uninstaller of this app..."
 }

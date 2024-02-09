@@ -10,10 +10,16 @@ $info = scoop info $app
 $latest_version = $info.Version
 $installed_version = ($info.Installed -split "`n")[-1]
 
-if ($latest_version -eq $installed_version) {
-    Write-Host (data_replace $json_d.exist) -f Yellow
-    return
+if ($installed_version) {
+    if ($latest_version -eq $installed_version) {
+        Write-Host (data_replace $json_d.exist) -f Yellow
+        return
+    }
+    else {
+        $isUpdate = $true
+    }
 }
+
 Write-Host (data_replace $json_d.check_cache[0]) -f Yellow
 $has_cache = scoop cache | Where-Object { $_.Name -eq $app -and $_.Version -eq $latest_version }
 if ($has_cache) {

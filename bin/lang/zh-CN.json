@@ -22,7 +22,7 @@
         "installing_aria2": "正在安装 aria2",
         "install_aria2_failed": "aria2 安装失败，请重试",
         "enable_aria2": "正在启用 aria2",
-        "check_cache":[
+        "check_cache": [
             "检查是否存在最新版的安装包缓存...",
             "存在缓存，正在安装...",
             "不存在缓存，进入手动下载流程:"
@@ -31,5 +31,6 @@
         "download": "请手动点击下载\n并将下载完成的文件路径复制到此处: "
     },
     "clean_redundant_files": "运行一个后台作业：{{$delay}} 秒后删除安装过程中产生的冗余文件\n",
-    "remove":"移除 "
+    "remove": "移除 ",
+    "uninstalling": "正在运行软件自带的卸载程序..."
 }

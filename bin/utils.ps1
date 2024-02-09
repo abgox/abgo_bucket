@@ -9,11 +9,11 @@ catch {
 }
 
 $json = Get-Content -Path "$PSScriptRoot\lang\$lang.json" -Raw -Encoding UTF8 | ConvertFrom-Json
-
 $path_sudo = "$PSScriptRoot\sudo.ps1"
 $apps_lnk = "$env:AppData\Microsoft\Windows\Start Menu\Programs"
 $scoop_apps_lnk = "$apps_lnk\Scoop Apps"
 $desktop = "$env:UserProfile\Desktop"
+
 function data_replace($data) {
     $data = $data -join ''
     $pattern = '\{\{(.*?(\})*)(?=\}\})\}\}'
@@ -26,7 +26,6 @@ function data_replace($data) {
     }
     else { return $data }
 }
-
 function less([array]$str_list, [scriptblock]$do = {}, [string]$color = 'Green', [int]$show_line) {
     $i = 0
     $cmd_line = if ($show_line) { $show_line }else { [System.Console]::WindowHeight - 10 }
@@ -50,7 +49,6 @@ function less([array]$str_list, [scriptblock]$do = {}, [string]$color = 'Green',
         else { break }
     }
 }
-
 function create_file([string]$path, [switch]$is_dir) {
     $job = Start-Job -ScriptBlock {
         param($path_sudo, $file, $is_dir)
@@ -77,14 +75,12 @@ function move_file([string]$path, [string]$target) {
     } -ArgumentList $path_sudo, $path, $target
     $null = Wait-Job $job
 }
-
 function create_parent_dir([string]$path) {
     $parent_path = Split-Path $path -Parent
     if (!(Test-Path $parent_path)) {
         create_file $parent_path -is_dir
     }
 }
-
 function create_app_lnk([string]$app_path, [string]$lnk_path) {
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($lnk_path)
@@ -94,7 +90,6 @@ function create_app_lnk([string]$app_path, [string]$lnk_path) {
     $app = Split-Path $app_path -Leaf
     Write-Host (data_replace $json.shortcut) -f Green
 }
-
 function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file) {
     if (!($dir -or $file)) {
         Write-Error (data_replace $json.persist_err)
@@ -159,7 +154,28 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
     }
     Write-Host "---------------------`n" -f Yellow
 }
-function stop_process($isRemove = $true, [string]$app_dir = $dir) {
+function sleep_install([string]$core_exe, [int]$delay = 60000, [int]$duration = 300) {
+    $flag = 0
+    $num = $delay / $duration
+    if ($core_exe) {
+        while (!(Test-Path $core_exe) -and $flag -le $num) {
+            Start-Sleep -Milliseconds $duration
+            $flag++
+        }
+    }
+}
+function sleep_uninstall([string]$uninstall_exe, [int]$delay = 60000, [int]$duration = 300) {
+    $flag = 0
+    $num = $delay / $duration
+    if ($uninstall_exe) {
+        Write-Host $json.uninstalling -f Cyan
+        while (Test-Path $uninstall_exe -and $flag -le $num) {
+            Start-Sleep -Milliseconds $duration
+            $flag++
+        }
+    }
+}
+function stop_process([bool]$isRemove = $true, [string]$app_dir = $dir) {
     Write-Host ($json.stop_process) -f Cyan
     $job = Start-Job -ScriptBlock {
         param($path_sudo, $path)
@@ -172,7 +188,6 @@ function stop_process($isRemove = $true, [string]$app_dir = $dir) {
         remove_file $app_dir
     }
 }
-
 function confirm([string]$tip_info) {
     while ($true) {
         Write-Host $tip_info -f Yellow
@@ -182,7 +197,6 @@ function confirm([string]$tip_info) {
         }
     }
 }
-
 function clean_redundant_files ([array]$files, [int]$delay = 5, [switch]$tip) {
     if ($tip) {
         Write-Host (data_replace $json.clean_redundant_files) -f Yellow
@@ -197,7 +211,6 @@ function clean_redundant_files ([array]$files, [int]$delay = 5, [switch]$tip) {
         } -ArgumentList $path_sudo, $delay, $_
     }
 }
-
 function remove_files([array]$files) {
     $files | ForEach-Object {
         if (Test-Path($_)) {
