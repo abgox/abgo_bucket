@@ -1,0 +1,34 @@
+{
+    "version": "6.0.30",
+    "description": "Open-source reference management software to manage bibliographic data and related research materials.",
+    "homepage": "https://www.zotero.org/",
+    "license": "AGPL-3.0-only",
+    "url": "https://download.zotero.org/client/release/6.0.30/Zotero-6.0.30_setup.exe",
+    "hash": "1b14b89a28ee13b514d4f7f4aa1e97a9e2633d7ffacb75f3320b31d37555db8d",
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\Zotero-$($version)_setup.exe\"",
+        "& $path_exe /S /D=$dir",
+        "$core_exe=\"$dir\\Zotero.exe\"",
+        "sleep_install $core_exe",
+        "persist -dir @(\"$env:AppData\\Zotero\") @(\"$persist_dir\\Zotero\")",
+        "create_app_lnk $core_exe \"$scoop_apps_lnk\\Zotero.lnk\"",
+        "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Zotero.lnk\") 15"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "$ui_exe=\"$dir\\uninstall\\helper.exe\"",
+        "& $ui_exe /S",
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$scoop_apps_lnk\\Zotero.lnk\",\"$env:AppData\\Zotero\",\"$env:LocalAppData\\Zotero\")"
+    ],
+    "checkver": {
+        "url": "https://www.zotero.org/download/client/update/5.0.0/_/WINNT_x86-msvc/en-US/release/_/update.xml",
+        "xpath": "/updates/update/@appVersion"
+    },
+    "autoupdate": {
+        "url": "https://download.zotero.org/client/release/$version/Zotero-$version_setup.exe"
+    }
+}
