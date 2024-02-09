@@ -10,7 +10,9 @@
     "hash": "510a833bdd0f896cc398eaae4ff475f5b7cfe37649efbf647b50d21e442394b9",
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "& (\"$dir\\AutoHotkey_$($version)_setup.exe\") /to $dir",
+        "$path_exe=\"$dir\\AutoHotkey_$($version)_setup.exe\"",
+        "& $path_exe /to $dir",
+        "sleep_install \"$dir\\UX\\AutoHotkeyUX.exe\"",
         "persist -dir @(\"$env:UserProfile\\Documents\\AutoHotkey\") @(\"$persist_dir\\AutoHotkey\")",
         "clean_redundant_files @(\"$dir\\AutoHotkey_$($version)_setup.exe\") 60"
     ],

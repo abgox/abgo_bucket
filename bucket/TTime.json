@@ -12,18 +12,21 @@
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$path_exe=\"$dir\\TTime-$($version)-setup.exe\"",
         "& $path_exe /S /D=$dir",
+        "$core_exe=\"$dir\\TTime.exe\"",
+        "sleep_install $core_exe",
         "persist -dir @(\"$env:AppData\\time-translate\") @(\"$persist_dir\\time-translate\")",
-        "create_app_lnk \"$dir\\TTime.exe\" \"$scoop_apps_lnk\\TTime.lnk\"",
-        "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\TTime.lnk\") 60"
+        "create_app_lnk $core_exe \"$scoop_apps_lnk\\TTime.lnk\"",
+        "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\TTime.lnk\") 15"
     ],
     "pre_uninstall": [
-        "$ErrorActionPreference=\"SilentlyContinue\"",
-        "& \"$dir\\Uninstall TTime.exe\" /S",
-        "Start-Sleep -S 3",
+
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process",
-        "remove_files @(\"C:\\Users\\Public\\Desktop\\TTime.lnk\",\"$scoop_apps_lnk\\TTime.lnk\",\"$env:AppData\\time-translate\")"
+        "stop_process $false",
+        "$ui_exe=\"$dir\\Uninstall TTime.exe\"",
+        "& $ui_exe /S",
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$scoop_apps_lnk\\TTime.lnk\",\"$env:AppData\\time-translate\")"
     ],
     "checkver": "github",
     "autoupdate": {

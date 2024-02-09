@@ -12,19 +12,21 @@
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$path_exe=\"$dir\\Gopeed-v$($version)-windows-amd64.exe\"",
         "& $path_exe /VerySilent /Dir=\"$dir\"",
+        "$core_exe=\"$dir\\gopeed.exe\"",
+        "sleep_install $core_exe",
         "persist -dir @(\"$dir\\extensions\",\"$env:AppData\\com\\gopeed\") @(\"$persist_dir\\extensions\",\"$persist_dir\\gopeed\")",
         "persist -file @(\"$dir\\gopeed.db\") @(\"$persist_dir\\gopeed.db\")",
-        "create_app_lnk \"$dir\\gopeed.exe\" \"$desktop\\Gopeed.lnk\"",
-        "create_app_lnk \"$dir\\gopeed.exe\" \"$scoop_apps_lnk\\Gopeed.lnk\"",
-        "clean_redundant_files @(\"$apps_lnk\\gopeed.lnk\",$path_exe) 60"
+        "create_app_lnk $core_exe \"$desktop\\Gopeed.lnk\"",
+        "create_app_lnk $core_exe \"$scoop_apps_lnk\\Gopeed.lnk\"",
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\gopeed.lnk\") 15"
     ],
     "pre_uninstall": [
-        "$ErrorActionPreference=\"SilentlyContinue\"",
-        "& \"$dir\\unins000.exe\" /VerySilent",
-        "Start-Sleep -S 3",
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process",
+        "stop_process $false",
+        "$ui_exe=\"$dir\\unins000.exe\"",
+        "& $ui_exe /VerySilent",
+        "sleep_uninstall $ui_exe",
         "remove_files @(\"$desktop\\Gopeed.lnk\",\"$scoop_apps_lnk\\Gopeed.lnk\",\"$env:AppData\\com\\gopeed\")"
     ],
     "checkver": {
