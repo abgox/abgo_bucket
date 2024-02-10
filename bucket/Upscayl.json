@@ -1,13 +1,13 @@
 {
-    "version": "2.9.8",
+    "version": "2.9.9",
     "description": "适用于 Linux、MacOS 和 Windows 的免费开源 AI 图像升级程序，秉承 Linux 优先的理念。Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.",
     "homepage": "https://github.com/upscayl/upscayl",
     "license": {
         "identifier": "GNU Affero General Public License v3.0",
         "url": "https://github.com/upscayl/upscayl/blob/main/LICENSE"
     },
-    "url": "https://github.com/upscayl/upscayl/releases/download/v2.9.8/upscayl-2.9.8-win.exe",
-    "hash": "9fb867159886603e08de1e4aaeb0e77bd39eb6bdd765654d9c6bc1d4fc208da9",
+    "url": "https://github.com/upscayl/upscayl/releases/download/v2.9.9/upscayl-2.9.9-win.exe",
+    "hash": "fde36c91f547ac2f10a8eb5fe96c24819cbfbd294036412d60d3ad2f41c44b99",
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$path_exe= \"$dir\\upscayl-$($version)-win.exe\"",
@@ -19,7 +19,6 @@
         "clean_redundant_files @($path_exe,\"$apps_lnk\\Upscayl.lnk\") 15"
     ],
     "pre_uninstall": [
-
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
