@@ -118,6 +118,7 @@
 |                        [aardio](https://aardio.com)                         |   ✔️    |              |
 |                        [AFFINE](https://affine.pro)                         |   ✔️    |              |
 |                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |              |
+|        [BitMeterOS](https://codebox.net/pages/bitmeteros-downloads)         |   ➖    |              |
 |                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |
 | [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |
 |                       [DevToys](https://devtoys.app)                        |   ✔️    | UWP          |
