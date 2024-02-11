@@ -169,7 +169,7 @@ function sleep_uninstall([string]$uninstall_exe, [int]$delay = 60000, [int]$dura
     $num = $delay / $duration
     if ($uninstall_exe) {
         Write-Host $json.uninstalling -f Cyan
-        while (Test-Path $uninstall_exe -and $flag -le $num) {
+        while ((Test-Path $uninstall_exe) -and $flag -le $num) {
             Start-Sleep -Milliseconds $duration
             $flag++
         }
