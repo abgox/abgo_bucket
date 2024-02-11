@@ -149,6 +149,7 @@
 |                     [LocalSend](https://localsend.org)                      |   ✔️    |              |
 |                    [LX-Music](https://docs.lxmusic.top)                     |   ✔️    |              |
 |                     [MarkText](https://www.marktext.cc)                     |   ✔️    |              |
+|      [MediaElch](https://mediaelch.github.io/mediaelch-doc/about.html)      |   ➖    |              |
 |                      [Monit](https://monit.fzf404.art)                      |   ✔️    |              |
 |                        [Motrix](https://motrix.app)                         |   ✔️    |              |
 |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |   ✔️    |              |
