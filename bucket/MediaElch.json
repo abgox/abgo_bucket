@@ -18,8 +18,15 @@
     },
     "extract_dir": "MediaElch",
     "bin": "MediaElch.exe",
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "if (!(Test-Path \"$persist_dir\\advancedsettings.xml\")){",
+        "   \"<advancedsettings>\" | Out-File \"$persist_dir\\advancedsettings.xml\"",
+        "   \"    <portableMode>true</portableMode>\" | Out-File \"$persist_dir\\advancedsettings.xml\" -Append",
+        "   \"</advancedsettings>\" | Out-File \"$persist_dir\\advancedsettings.xml\" -Append",
+        "}",
+        "persist -dir @(\"$dir\\export_themes\") @(\"$persist_dir\\export_themes\")",
+        "persist -file @(\"$dir\\advancedsettings.xml\",\"$dir\\MediaElch.ini\") @(\"$persist_dir\\advancedsettings.xml\",\"$persist_dir\\MediaElch.ini\")",
         "create_app_lnk \"$dir\\MediaElch.exe\" \"$desktop\\MediaElch.lnk\"",
         "create_app_lnk \"$dir\\MediaElch.exe\" \"$scoop_apps_lnk\\MediaElch.lnk\""
     ],
@@ -27,7 +34,7 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\MediaElch.lnk\",\"$scoop_apps_lnk\\MediaElch.lnk\",\"$env:LocalAppData\\kvibes\\MediaElch\")"
+        "remove_files @(\"$desktop\\MediaElch.lnk\",\"$scoop_apps_lnk\\MediaElch.lnk\")"
     ],
     "checkver": {
         "url": "https://api.github.com/repositories/3618825/releases/latest",
