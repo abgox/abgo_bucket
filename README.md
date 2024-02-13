@@ -189,6 +189,7 @@
 |                         [Typora](https://typora.io)                         |   ✔️    |              |
 |                [Upscayl](https://github.com/upscayl/upscayl)                |   ✔️    |              |
 |                          [uTools](https://u.tools)                          |   ✔️    |              |
+|       [VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes)       |   ✔️    |              |
 |                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |              |
 |               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    | noAutoUpdate |
 |               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |
