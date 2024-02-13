@@ -1,5 +1,5 @@
 {
-    "version": "2.7.4",
+    "version": "2.7.5",
     "description": "一个跨平台的划词翻译和OCR软件。A cross-platform software for text translation and recognition.",
     "homepage": "https://pot-app.com/",
     "license": {
@@ -8,16 +8,16 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/pot-app/pot-desktop/releases/download/2.7.4/pot_2.7.4_x64-setup.exe#/_installer_.exe",
-            "hash": "b9d119407ba88a408de816b63b94595706074bb12b69c64617bb22603057cbee"
+            "url": "https://github.com/pot-app/pot-desktop/releases/download/2.7.5/pot_2.7.5_x64-setup.exe#/_installer_.exe",
+            "hash": "b6c8557a65598ff95bb3eb0fd2f65700d61947a814fcd3e92050d9d7deff1ee8"
         },
         "32bit": {
-            "url": "https://github.com/pot-app/pot-desktop/releases/download/2.7.4/pot_2.7.4_x86-setup.exe#/_installer_.exe",
-            "hash": "7e695842389a2e8a458ed170a805362ebc566583d3a3745401b079ea3a124c0b"
+            "url": "https://github.com/pot-app/pot-desktop/releases/download/2.7.5/pot_2.7.5_x86-setup.exe#/_installer_.exe",
+            "hash": "7f25a1c52a40677239a09960026652cf6e8ab2a836778a69b9c4d5b4a33056a7"
         },
         "arm64": {
-            "url": "https://github.com/pot-app/pot-desktop/releases/download/2.7.4/pot_2.7.4_arm64-setup.exe#/_installer_.exe",
-            "hash": "a0c875a87267c95702311b5761a2f519bf0f84b56be874cb80e386da739776ba"
+            "url": "https://github.com/pot-app/pot-desktop/releases/download/2.7.5/pot_2.7.5_arm64-setup.exe#/_installer_.exe",
+            "hash": "dde3b2d003ae7b9995bd47a5b85b512b61ce612724c60cab4da5f57dae7e6ddc"
         }
     },
     "pre_install": [
@@ -37,7 +37,6 @@
     ],
     "pre_uninstall": [
         "Copy-Item \"$env:AppData\\com.pot-app.desktop\\plugins\" \"$persist_dir\\com.pot-app.desktop\" -Force -Recurse",
-
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
