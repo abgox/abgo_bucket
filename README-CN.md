@@ -129,6 +129,7 @@
 |                        [AFFINE](https://affine.pro)                         |   ✔️    |              |               |
 |                    [aliyunDrive](https://www.alipan.com)                    |   ✔️    |              |   阿里云盘    |
 |                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |              |               |
+|               [BaiduNetdisk](https://pan.baidu.com/download)                |   ✔️    |              |   百度网盘    |
 |                  [BaiduTranslate](https://fanyi.baidu.com)                  |   ✔️    |              |   百度翻译    |
 |        [BitMeterOS](https://codebox.net/pages/bitmeteros-downloads)         |   ➖    |              |               |
 |                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |               |
