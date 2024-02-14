@@ -153,6 +153,7 @@
 |                       [Joplin](https://joplinapp.org)                       |   ✔️    |              |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |              |
 |                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |              |
+|                      [Lark](https://www.larksuite.com)                      |   ✔️    |              |
 |                [Lattics](https://lattics.zineapi.com/zh-CN)                 |   ✔️    |              |
 |                     [Listary](https://www.listary.com)                      |   ✔️    |              |
 |                     [LocalSend](https://localsend.org)                      |   ✔️    |              |

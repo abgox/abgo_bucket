@@ -1,0 +1,32 @@
+{
+    "version": "7.10.8",
+    "description": "无缝衔接的团队工作工具。Essential Work Tools, Seamless Connection",
+    "homepage": "https://www.larksuite.com/",
+    "license": "Unknown",
+    "url": "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/562a5094/Lark-win32_ia32-7.10.8-signed.exe#/dl.7z",
+    "hash": "md5:2a4b48eefad2d6c4d4e311748d4fefe9",
+    "extract_to": "app",
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$env:AppData\\LarkInternational\") @(\"$persist_dir\\LarkInternational\")",
+        "create_app_lnk \"$dir\\app\\Lark.exe\" \"$desktop\\Lark.lnk\"",
+        "create_app_lnk \"$dir\\app\\Lark.exe\" \"$scoop_apps_lnk\\Lark.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\Lark.lnk\",\"$scoop_apps_lnk\\Lark.lnk\",\"$env:AppData\\LarkInternational\",\"$env:LocalAppData\\Lark\")"
+    ],
+    "checkver": {
+        "url": "https://www.larksuite.com/api/downloads",
+        "regex": "Windows.+https://(?<path>[\\w\\.-/].*?)-(?<version>[\\d\\.]+)(?<suffix>[\\w\\.-].*?).exe"
+    },
+    "autoupdate": {
+        "url": "https://$matchPath-$version$matchSuffix.exe#/dl.7z",
+        "hash": {
+            "url": "https://www.larksuite.com/api/downloads",
+            "jsonpath": "$.versions.Windows.hash"
+        }
+    }
+}
