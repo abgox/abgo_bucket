@@ -37,7 +37,7 @@
     -   `scoop install [abgo_bucket/]<app_name>`
 
     -   Use an external browser to download app:
-
+        -   It's good choice to use it When downloads the app in the command line are slow and you have other, better ways to download the app by the install link.
         ```powershell
         <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-isUpdate]
         ```
@@ -60,26 +60,32 @@
 
 ---
 
-### Why create this `bucket`
+### Why create `abgo_bucket`
 
 1. When using official or third-party `buckets`, there may be the following issues.
 
-    - Some apps doesn't `persist` data.
-        - They don't include apps that do not necessarily `persist` data.
+    - Some apps doesn't `persist` data.(Don't include apps that do not necessarily `persist` data.)
+        - `abgo_bucket` uses soft link to persist data, which is not limited to data in app directories, including app data under directories such as `$env: AppData` and `$env: LocalAppData`.
     - After uninstalling app, local data was not cleaned up. (e.g. the app's data under `$env:AppData`,`$env:LocalAppData` or other directory.)
+        - When the app in `abgo_bucket` is uninstalled, all related app data will be deleted, and only the data in the `persist` directory will be retained.
+        - If you use the `-p/--purge` parameter when uninstalling, the data in the `persist` directory will also be deleted.
     - When uninstalling app, there's a problem where the process is occupied and cannot be uninstalled.
+        - When the app in `abgo_bucket` is running, using the `scoop uninstall <app_name>` will try to terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
+    - App installation is limited to unpacking and obtaining the app directory. Some files/libraries/registries may be missing.
+        - When the app in `abgo_bucket` is installing, If the exe installation can be run, it will be run silently to ensure the integrity of the app directory after installing.
+        - When it's uninstalling, the built-in uninstaller of the app will be used first to uninstall.
     - ...
 
-2. Organize my commonly used apps.
+2. Organize some commonly used apps with good user experience.
 
 ---
 
 ### About `persist`
 
--   The apps in this `bucket` will use the built-in `persist` in `Scoop`, and will also implement `persist` through file linking.
+-   The apps in `abgo_bucket` will uses soft link to persist data, which is not limited to data in app directories.
 -   The strategy is **radical**. If there is a data directory, the app will `persist` the entire data directory instead of some important configuration files.
--   Take `Neovim` as an example.It will form two directories under `$env: LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
-    -   The advantage of it is that the software has a smooth and seamless user experience after reinstallation, but it may take up more storage space.
+-   Take `Neovim` as an example. It will form two directories under `$env: LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
+    -   The advantage of it is that the software has a smooth and seamless user experience after reinstalling, but it may take up more storage space.
 
 #### ⚠︎ About `persist` directory changes ⚠︎
 
@@ -106,7 +112,7 @@
         -   **❌** : It hasn't been done yet.
         -   **➖** : It's not necessary, or the conditions are not meet.(e.g. data file not found)
     -   **`Note`**
-        -   `run` : Run the application once after installing.
+        -   `run` : Run the app once after installing.
         -   `UWP` : A `UWP` app. The app's program files are not within `Scoop`. `Scoop` only manages the persistence of data and operations for installing, updating, and uninstalling.
         -   `noAutoUpdate` : `json.autoupdate` are not configured, and Scoop cannot automatically detect updates.
         -   `invalid` : Invalid app placed in the deprecated folder. It may be removed from the list in the future.
@@ -196,4 +202,5 @@
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |
 |               [XYplorer](https://www.xyplorer.com/index.php)                |   ✔️    |              |
 |              [XYplorerFree](https://www.xyplorer.com/free.php)              |   ✔️    |              |
+|                       [YuQue](https://www.yuque.com)                        |   ✔️    |              |
 |                      [Zotero](https://www.zotero.org)                       |   ✔️    |              |
