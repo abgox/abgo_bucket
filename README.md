@@ -139,7 +139,7 @@
 |                   [Dropit](http://www.dropitproject.com)                    |   ✔️    |              |               |
 |                   [Everything](https://www.voidtools.com)                   |   ✔️    |              |               |
 |                    [Final2x](https://final2x.tohru.top)                     |   ✔️    |              |               |
-|                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    | noAutoUpdate |               |
+|                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    |              |               |
 |                    [fnm](https://github.com/Schniz/fnm)                     |   ➖    |              |               |
 |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |   ➖    |              |               |
 |                       [FeiShu](https://www.feishu.cn)                       |   ✔️    |              |     飞书      |
