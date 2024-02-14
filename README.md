@@ -127,6 +127,7 @@
 |                        [AFFINE](https://affine.pro)                         |   ✔️    |              |               |
 |                    [aliyunDrive](https://www.alipan.com)                    |   ✔️    |              |   阿里云盘    |
 |                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |              |               |
+|                  [BaiduTranslate](https://fanyi.baidu.com)                  |   ✔️    |              |   百度翻译    |
 |        [BitMeterOS](https://codebox.net/pages/bitmeteros-downloads)         |   ➖    |              |               |
 |                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |               |
 | [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |               |
