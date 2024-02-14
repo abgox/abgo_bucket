@@ -208,5 +208,6 @@
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |  小白羊云盘   |
 |               [XYplorer](https://www.xyplorer.com/index.php)                |   ✔️    |              |               |
 |              [XYplorerFree](https://www.xyplorer.com/free.php)              |   ✔️    |              |               |
+|        [YouDaoTranslate](https://fanyi.youdao.com/download-Windows)         |   ✔️    |              | 网易有道翻译  |
 |                       [YuQue](https://www.yuque.com)                        |   ✔️    |              |     语雀      |
 |                      [Zotero](https://www.zotero.org)                       |   ✔️    |              |               |
