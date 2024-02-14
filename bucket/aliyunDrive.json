@@ -18,8 +18,8 @@
         "remove_files @(\"$desktop\\阿里云盘.lnk\",\"$scoop_apps_lnk\\阿里云盘.lnk\",\"$env:AppData\\aDrive\")"
     ],
     "checkver": {
-        "url": "https://github.com/microsoft/winget-pkgs/commits/master/manifests/a/Alibaba/aDrive",
-        "regex": "Alibaba.aDrive version ([\\d\\.]+)"
+        "url": "https://v.abgo-bucket.workers.dev/a/Alibaba/aDrive",
+        "jsonpath": "$.version[0]"
     },
     "autoupdate": {
         "url": "https://cdn.aliyundrive.net/downloads/apps/desktop/update/$version/win32/ia32/aDrive-$version.exe#/dl.7z"
