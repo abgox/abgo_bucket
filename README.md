@@ -124,6 +124,7 @@
 | :-------------------------------------------------------------------------: | :-----: | :-: | :-----------: |
 |                          [7zip](https://7-zip.org)                          |   ➖    |     |               |
 |                        [aardio](https://aardio.com)                         |   ✔️    |     |               |
+|                    [AdsPower](https://www.adspower.net)                     |   ✔️    |     |  指纹浏览器   |
 |                        [AFFINE](https://affine.pro)                         |   ✔️    |     |               |
 |                    [aliyunDrive](https://www.alipan.com)                    |   ✔️    |     |   阿里云盘    |
 |                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |     |               |
