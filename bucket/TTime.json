@@ -16,7 +16,7 @@
         "sleep_install $core_exe",
         "persist -dir @(\"$env:AppData\\time-translate\") @(\"$persist_dir\\time-translate\")",
         "create_app_lnk $core_exe \"$scoop_apps_lnk\\TTime.lnk\"",
-        "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\TTime.lnk\") 15"
+        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\TTime.lnk\") 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
