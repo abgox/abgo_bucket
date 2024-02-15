@@ -11,8 +11,10 @@ catch {
 $json = Get-Content -Path "$PSScriptRoot\lang\$lang.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 $path_sudo = "$PSScriptRoot\sudo.ps1"
 $apps_lnk = "$env:AppData\Microsoft\Windows\Start Menu\Programs"
+$admin_apps_lnk = 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs'
 $scoop_apps_lnk = "$apps_lnk\Scoop Apps"
 $desktop = "$env:UserProfile\Desktop"
+$public_desktop = "$env:Public\Desktop"
 
 function data_replace($data) {
     $data = $data -join ''
@@ -218,4 +220,21 @@ function remove_files([array]$files) {
             Write-Host  ($json.remove + $_)  -f Yellow
         }
     }
+}
+function get_installer_info([string]$app) {
+    $rootDir = $app.ToLower()[0]
+    $parts = $app -split '/'
+    $id = $parts -join '.'
+    $versionList = (Invoke-WebRequest -Uri "https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/$($rootDir)/$($app)").Content | ConvertFrom-Json | Sort-Object { try { [version]$_.name }catch {} } -Descending
+
+    $installer_yaml = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/$($rootDir)/$($app)/$($versionList[0].name)/$($id).installer.yaml"
+
+    $installer_info = ConvertFrom-Yaml $installer_yaml.Content
+    $installer_info.Installers | ForEach-Object {
+        $arch = $_.Architecture
+        if ($arch) {
+            $installer_info.$arch = $_
+        }
+    }
+    $installer_info
 }
