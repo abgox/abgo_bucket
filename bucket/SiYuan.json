@@ -23,10 +23,11 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
+        "remove_files @(\"$env:AppData\\SiYuan\",\"$env:AppData\\SiYuan-Electron\")",
         "$ui_exe=\"$dir\\Uninstall SiYuan.exe\"",
         "& $ui_exe /S",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$desktop\\SiYuan.lnk\",\"$scoop_apps_lnk\\SiYuan.lnk\",\"$env:AppData\\SiYuan\",\"$env:AppData\\SiYuan-Electron\",\"$env:LocalAppData\\siyuan-updater\")"
+        "remove_files @(\"$desktop\\SiYuan.lnk\",\"$scoop_apps_lnk\\SiYuan.lnk\",\"$env:LocalAppData\\siyuan-updater\")"
     ],
     "checkver": {
         "github": "https://github.com/siyuan-note/siyuan"

@@ -22,10 +22,11 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
+        "remove_files @(\"$env:AppData\\yuque-desktop\")",
         "$ui_exe=\"$dir\\Uninstall 语雀.exe\"",
         "& $ui_exe /S",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$scoop_apps_lnk\\语雀.lnk\",\"$env:AppData\\yuque-desktop\",\"$env:LocalAppData\\yuque-desktop-updater\")"
+        "remove_files @(\"$scoop_apps_lnk\\语雀.lnk\",\"$env:LocalAppData\\yuque-desktop-updater\")"
     ],
     "checkver": {
         "url": "https://www.yuque.com/download",

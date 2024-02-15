@@ -24,14 +24,14 @@
         "clean_redundant_files @($path_exe,\"$apps_lnk\\uTools.lnk\") 15"
     ],
     "pre_uninstall": [
-
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
+        "remove_files @(\"$env:AppData\\uTools\")",
         "$ui_exe=\"$dir\\Uninstall uTools.exe\"",
         "& $ui_exe /S",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$desktop\\uTools.lnk\",\"$scoop_apps_lnk\\uTools.lnk\",\"$env:AppData\\uTools\",\"$env:LocalAppData\\utools-updater\")"
+        "remove_files @(\"$desktop\\uTools.lnk\",\"$scoop_apps_lnk\\uTools.lnk\",\"$env:LocalAppData\\utools-updater\")"
     ],
     "checkver": "version:.+V([\\d\\.]+)",
     "autoupdate": {

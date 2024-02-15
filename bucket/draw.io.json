@@ -30,10 +30,11 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
+        "remove_files @(\"$env:AppData\\draw.io\")",
         "$ui_exe=\"$dir\\Uninstall draw.io.exe\"",
         "& $ui_exe /S",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$desktop\\draw.io.lnk\",\"$scoop_apps_lnk\\draw.io.lnk\",\"$env:AppData\\draw.io\",\"$env:LocalAppData\\draw.io-updater\")"
+        "remove_files @(\"$desktop\\draw.io.lnk\",\"$scoop_apps_lnk\\draw.io.lnk\",\"$env:LocalAppData\\draw.io-updater\")"
     ],
     "checkver": {
         "github": "https://github.com/jgraph/drawio-desktop"

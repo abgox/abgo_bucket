@@ -19,10 +19,11 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
+        "remove_files @(\"$env:AppData\\Zotero\")",
         "$ui_exe=\"$dir\\uninstall\\helper.exe\"",
         "& $ui_exe /S",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$scoop_apps_lnk\\Zotero.lnk\",\"$env:AppData\\Zotero\",\"$env:LocalAppData\\Zotero\")"
+        "remove_files @(\"$scoop_apps_lnk\\Zotero.lnk\",\"$env:LocalAppData\\Zotero\")"
     ],
     "checkver": {
         "url": "https://www.zotero.org/download/client/update/5.0.0/_/WINNT_x86-msvc/en-US/release/_/update.xml",

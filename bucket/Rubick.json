@@ -20,14 +20,14 @@
         "clean_redundant_files @($path_exe,\"$apps_lnk\\rubick.lnk\") 15"
     ],
     "pre_uninstall": [
-
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
+        "remove_files @(\"$env:AppData\\rubick\")",
         "$ui_exe=\"$dir\\Uninstall rubick.exe\"",
         "& $ui_exe /S",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$desktop\\rubick.lnk\",\"$scoop_apps_lnk\\rubick.lnk\",\"$env:AppData\\rubick\",\"$env:LocalAppData\\Programs\\rubick\",\"$env:LocalAppData\\rubick-updater\")"
+        "remove_files @(\"$desktop\\rubick.lnk\",\"$scoop_apps_lnk\\rubick.lnk\",\"$env:LocalAppData\\Programs\\rubick\",\"$env:LocalAppData\\rubick-updater\")"
     ],
     "checkver": "github",
     "autoupdate": {
