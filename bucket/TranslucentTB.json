@@ -12,12 +12,12 @@
     ],
     "url": "https://github.com/TranslucentTB/TranslucentTB/releases/download/2023.2/bundle.msixbundle",
     "hash": "ed6ee7975ad1551a57b48f94da8fb6bf74875f5fd19e224bacb7ea9042ff03e8",
-    "post_install": [
+    "pre_install": [
         "$path_msi=\"$dir\\bundle.msixbundle\"",
         "Add-AppPackage -Path $path_msi",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:LocalAppData\\Packages\\28017CharlesMilette.TranslucentTB_v826wp6bftszj\") @(\"$persist_dir\\28017CharlesMilette.TranslucentTB_v826wp6bftszj\")",
-        "clean_redundant_files @($path_msi) 60"
+        "clean_redundant_files @($path_msi) 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

@@ -9,21 +9,26 @@
     "url": "https://cdn.strokesplus.net/files/StrokesPlus.net_Setup_0.5.7.8.exe",
     "hash": "6cccb20fe276e6642a50fc937dcfd529dbb222920b9a9bfc5333bdc580902ff0",
     "innosetup": true,
-    "post_install": [
+    "shortcuts": [
+        [
+            "StrokesPlus.net.exe",
+            "StrokesPlus.net"
+        ]
+    ],
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\StrokesPlus.net\") @(\"$persist_dir\\StrokesPlus.net\")",
-        "create_app_lnk \"$dir\\StrokesPlus.net.exe\" \"$desktop\\StrokesPlus.net.lnk\"",
-        "create_app_lnk \"$dir\\StrokesPlus.net.exe\" \"$scoop_apps_lnk\\StrokesPlus.net.lnk\""
+        "create_app_lnk \"$dir\\StrokesPlus.net.exe\" \"$desktop\\StrokesPlus.net.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\StrokesPlus.net.lnk\",\"$scoop_apps_lnk\\StrokesPlus.net.lnk\",\"$env:AppData\\StrokesPlus.net\")"
+        "remove_files @(\"$desktop\\StrokesPlus.net.lnk\",\"$env:AppData\\StrokesPlus.net\")"
     ],
     "checkver": {
         "url": "https://www.strokesplus.net/Downloads",
-        "regex": "Latest Release\\: <b>([\\d.]+)"
+        "regex": "Latest Release\\: <b>([\\d\\.]+)"
     },
     "autoupdate": {
         "url": "https://cdn.strokesplus.net/files/StrokesPlus.net_Setup_$version.exe"

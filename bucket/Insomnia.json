@@ -15,25 +15,32 @@
         "21507d0cf4a19450910137fde0e2b01ff71df01e6c84e506cf3a7cff85f8e2fc"
     ],
     "extract_dir": "lib\\net45",
-    "post_install": [
+    "bin": [
+        [
+            "inso.exe",
+            "insomnia"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Insomnia.exe",
+            "Insomnia"
+        ]
+    ],
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "Write-Host \"Creating shim for Insomnia (Insomnia.exe)\"",
-        "$shims_dir=\"$scoopdir\\shims\"",
-        "Move-Item \"$dir\\inso.exe\" \"$shims_dir\\insomnia.exe\"",
         "persist -dir @(\"$env:AppData\\Insomnia\") @(\"$persist_dir\\Insomnia\")",
-        "create_app_lnk \"$dir\\Insomnia.exe\" \"$desktop\\Insomnia.lnk\"",
-        "create_app_lnk \"$dir\\Insomnia.exe\" \"$scoop_apps_lnk\\Insomnia.lnk\"",
-        "clean_redundant_files @(\"$dir\\inso-windows-$($version).zip\") 60"
+        "create_app_lnk \"$dir\\Insomnia.exe\" \"$desktop\\Insomnia.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$scoopdir\\shims\\insomnia.exe\",\"$desktop\\Insomnia.lnk\",\"$scoop_apps_lnk\\Insomnia.lnk\",\"$env:AppData\\Insomnia\")"
+        "remove_files @(\"$desktop\\Insomnia.lnk\",\"$env:AppData\\Insomnia\")"
     ],
     "checkver": {
         "url": "https://api.github.com/repositories/56899284/releases",
-        "regex": "\"core@([\\d.]+)\""
+        "regex": "\"core@([\\d\\.]+)\""
     },
     "autoupdate": {
         "url": [

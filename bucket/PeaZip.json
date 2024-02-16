@@ -25,7 +25,7 @@
             "PeaZip"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$dir\\res\\conf\") @(\"$persist_dir\\res\\conf\")",
         "create_app_lnk \"$dir\\peazip.exe\" \"$desktop\\PeaZip.lnk\""

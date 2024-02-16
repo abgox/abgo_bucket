@@ -29,7 +29,7 @@
             "ScreenToGif"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\ScreenToGif\") @(\"$persist_dir\\ScreenToGif\")",
         "create_app_lnk \"$dir\\ScreenToGif.exe\" \"$desktop\\ScreenToGif.lnk\""

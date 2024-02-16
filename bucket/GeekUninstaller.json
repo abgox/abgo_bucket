@@ -12,7 +12,7 @@
             "Geek Uninstaller"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\Geek Uninstaller\") @(\"$persist_dir\\Geek Uninstaller\")",
         "create_app_lnk \"$dir\\geek.exe\" \"$desktop\\Geek Uninstaller.lnk\""
@@ -25,7 +25,7 @@
     ],
     "checkver": {
         "url": "https://geekuninstaller.com/download",
-        "regex": "<b>([\\d.]+)"
+        "regex": "<b>([\\d\\.]+)"
     },
     "autoupdate": {
         "url": "https://geekuninstaller.com/geek.zip"

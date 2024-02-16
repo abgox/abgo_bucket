@@ -28,7 +28,7 @@
             "Typora"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\Typora\") @(\"$persist_dir\\Typora\")",
         "create_app_lnk \"$dir\\Typora.exe\" \"$desktop\\Typora.lnk\""
@@ -41,7 +41,7 @@
     ],
     "checkver": {
         "url": "https://typora.io/releases/stable",
-        "regex": "<h2>([\\d.]+)"
+        "regex": "<h2>([\\d\\.]+)"
     },
     "autoupdate": {
         "architecture": {

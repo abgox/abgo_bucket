@@ -16,16 +16,21 @@
             "hash": "eb234a21a236eeede09d390a6786e4a48af66714ffc00131cb5170d66aeca373"
         }
     },
-    "post_install": [
+    "shortcuts": [
+        [
+            "RunCat.exe",
+            "RunCat"
+        ]
+    ],
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "create_app_lnk \"$dir\\RunCat.exe\" \"$desktop\\RunCat.lnk\"",
-        "create_app_lnk \"$dir\\RunCat.exe\" \"$scoop_apps_lnk\\RunCat.lnk\""
+        "create_app_lnk \"$dir\\RunCat.exe\" \"$desktop\\RunCat.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\RunCat.lnk\",\"$scoop_apps_lnk\\RunCat.lnk\")"
+        "remove_files @(\"$desktop\\RunCat.lnk\")"
     ],
     "checkver": "github",
     "autoupdate": {

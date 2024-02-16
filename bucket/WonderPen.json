@@ -13,6 +13,12 @@
             "hash": "5826d5914b023a1bfbda050dac5f96c9b1714454fab6df5ed30aa7fb756f859d"
         }
     },
+    "shortcuts": [
+        [
+            "WonderPen.exe",
+            "WonderPen"
+        ]
+    ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$path_exe=\"$dir\\_installer_.exe\"",
@@ -20,8 +26,6 @@
         "$core_exe=\"$dir\\WonderPen.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$env:AppData\\WonderPen\") @(\"$persist_dir\\WonderPen\")",
-        "create_app_lnk $core_exe \"$desktop\\WonderPen.lnk\"",
-        "create_app_lnk $core_exe \"$scoop_apps_lnk\\WonderPen.lnk\"",
         "clean_redundant_files @($path_exe,\"$apps_lnk\\WonderPen.lnk\") 15"
     ],
     "pre_uninstall": [
@@ -30,9 +34,9 @@
         "stop_process $false",
         "remove_files @(\"$env:AppData\\WonderPen\")",
         "$ui_exe=\"$dir\\Uninstall WonderPen.exe\"",
-        "& $ui_exe /S",
+        "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$desktop\\WonderPen.lnk\",\"$scoop_apps_lnk\\WonderPen.lnk\",\"$env:LocalAppData\\wonderpen-updater\")"
+        "remove_files @(\"$env:LocalAppData\\wonderpen-updater\")"
     ],
     "checkver": {
         "url": "https://www.tominlab.com/blog",

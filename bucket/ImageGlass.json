@@ -22,21 +22,26 @@
         "ImageGlass.exe",
         "igcmd.exe"
     ],
-    "post_install": [
+    "shortcuts": [
+        [
+            "ImageGlass.exe",
+            "ImageGlass"
+        ]
+    ],
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "if (!(Test-Path \"$persist_dir\\igconfig.json\")) {",
         "   @{AutoUpdate=0} | ConvertTo-Json | Out-File \"$persist_dir\\igconfig.json\" -Encoding utf8",
         "}",
         "persist -file @(\"$dir\\igconfig.json\") @(\"$persist_dir\\igconfig.json\")",
         "persist -dir @(\"$dir\\Themes\") @(\"$persist_dir\\Themes\")",
-        "create_app_lnk \"$dir\\ImageGlass.exe\" \"$desktop\\ImageGlass.lnk\"",
-        "create_app_lnk \"$dir\\ImageGlass.exe\" \"$scoop_apps_lnk\\ImageGlass.lnk\""
+        "create_app_lnk \"$dir\\ImageGlass.exe\" \"$desktop\\ImageGlass.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\ImageGlass.lnk\",\"$scoop_apps_lnk\\ImageGlass.lnk\",\"$env:LocalAppData\\ImageGlass\",\"$env:LocalAppData\\ImageMagick\")"
+        "remove_files @(\"$desktop\\ImageGlass.lnk\",\"$env:LocalAppData\\ImageGlass\",\"$env:LocalAppData\\ImageMagick\")"
     ],
     "checkver": {
         "github": "https://github.com/d2phap/ImageGlass"

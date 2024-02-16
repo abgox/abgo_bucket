@@ -22,7 +22,7 @@
             "helix"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\helix\") @(\"$persist_dir\\helix\")"
     ],

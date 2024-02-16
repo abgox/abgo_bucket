@@ -8,17 +8,22 @@
     },
     "url": "https://github.com/laurent22/joplin/releases/download/v2.13.15/JoplinPortable.exe",
     "hash": "78fbf63c2b7a3903c21630c681c58e203711577ecfba1e0f8f0081dc2ae79cdf",
-    "post_install": [
+    "shortcuts": [
+        [
+            "JoplinPortable.exe",
+            "Joplin"
+        ]
+    ],
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$dir\\JoplinProfile\") @(\"$persist_dir\\JoplinProfile\")",
-        "create_app_lnk \"$dir\\JoplinPortable.exe\" \"$desktop\\Joplin.lnk\"",
-        "create_app_lnk \"$dir\\JoplinPortable.exe\" \"$scoop_apps_lnk\\Joplin.lnk\""
+        "create_app_lnk \"$dir\\JoplinPortable.exe\" \"$desktop\\Joplin.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Joplin.lnk\",\"$scoop_apps_lnk\\Joplin.lnk\",\"$env:AppData\\@joplin\",\"$env:AppData\\joplin\")"
+        "remove_files @(\"$desktop\\Joplin.lnk\",\"$env:AppData\\@joplin\",\"$env:AppData\\joplin\")"
     ],
     "checkver": {
         "github": "https://github.com/laurent22/joplin"

@@ -12,7 +12,7 @@
             "PixPin"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$dir\\Config\") @(\"$persist_dir\\Config\")",
         "create_app_lnk \"$dir\\PixPin.exe\" \"$desktop\\PixPin.lnk\""
@@ -24,7 +24,7 @@
         "remove_files @(\"$desktop\\PixPin.lnk\")"
     ],
     "checkver": {
-        "regex": "PixPin_([\\d.]+)\\."
+        "regex": "PixPin_([\\d\\.]+)\\."
     },
     "autoupdate": {
         "url": "https://download.pixpinapp.com/PixPin_$version.zip"

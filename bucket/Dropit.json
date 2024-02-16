@@ -15,7 +15,7 @@
             "DropIt"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$dir\\Profiles\") @(\"$persist_dir\\Profiles\")",
         "persist -file @(\"$dir\\settings.ini\") @(\"$persist_dir\\settings.ini\")",
@@ -27,7 +27,7 @@
         "stop_process",
         "remove_files @(\"$desktop\\DropIt.lnk\")"
     ],
-    "checkver": "Latest Version: v([\\d.]+)",
+    "checkver": "Latest Version: v([\\d\\.]+)",
     "autoupdate": {
         "url": "https://downloads.sourceforge.net/project/dropit/DropIt/v$version/DropIt_v$version_Portable.zip",
         "extract_dir": "DropIt_v$version_Portable"

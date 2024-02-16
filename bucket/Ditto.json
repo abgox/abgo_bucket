@@ -23,7 +23,7 @@
             "Ditto"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -file @(\"$dir\\Ditto.db\",\"$dir\\Ditto.Settings\") @(\"$persist_dir\\Ditto.db\",\"$persist_dir\\Ditto.Settings\")",
         "create_app_lnk \"$dir\\Ditto.exe\" \"$desktop\\Ditto.lnk\""

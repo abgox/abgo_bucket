@@ -47,7 +47,7 @@
         "POSH_THEMES_PATH": "$dir\\themes"
     },
     "bin": "oh-my-posh.exe",
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:LocalAppData\\oh-my-posh\") @(\"$persist_dir\\oh-my-posh\")"
     ],

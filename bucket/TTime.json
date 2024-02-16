@@ -8,6 +8,12 @@
     },
     "url": "https://github.com/InkTimeRecord/TTime/releases/download/v0.9.5/TTime-0.9.5-setup.exe",
     "hash": "383d9ed7883218949eebfc71eb2324298354f21f4ead079caf6919cbe9ecd28e",
+    "shortcuts": [
+        [
+            "TTime.exe",
+            "TTime"
+        ]
+    ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$path_exe=\"$dir\\TTime-$($version)-setup.exe\"",
@@ -15,7 +21,6 @@
         "$core_exe=\"$dir\\TTime.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$env:AppData\\time-translate\") @(\"$persist_dir\\time-translate\")",
-        "create_app_lnk $core_exe \"$scoop_apps_lnk\\TTime.lnk\"",
         "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\TTime.lnk\") 15"
     ],
     "pre_uninstall": [
@@ -24,9 +29,8 @@
         "stop_process $false",
         "remove_files @(\"$env:AppData\\time-translate\")",
         "$ui_exe=\"$dir\\Uninstall TTime.exe\"",
-        "& $ui_exe /S",
-        "sleep_uninstall $ui_exe",
-        "remove_files @(\"$scoop_apps_lnk\\TTime.lnk\")"
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe"
     ],
     "checkver": "github",
     "autoupdate": {

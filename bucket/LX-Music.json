@@ -14,7 +14,7 @@
             "lx-music"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\lx-music-desktop\") @(\"$persist_dir\\lx-music-desktop\")",
         "create_app_lnk \"$dir\\lx-music-desktop.exe\" \"$desktop\\lx-music.lnk\""

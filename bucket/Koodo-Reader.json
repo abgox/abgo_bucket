@@ -26,7 +26,7 @@
             "Koodo Reader"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\koodo-reader\") @(\"$persist_dir\\koodo-reader\")",
         "create_app_lnk \"$dir\\Koodo Reader.exe\" \"$desktop\\Koodo Reader.lnk\""

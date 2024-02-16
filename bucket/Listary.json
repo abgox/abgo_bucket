@@ -12,7 +12,7 @@
             "Listary"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\Listary\") @(\"$persist_dir\\Listary\")",
         "create_app_lnk \"$dir\\Listary.exe\" \"$desktop\\Listary.lnk\""

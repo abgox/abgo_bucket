@@ -4,29 +4,40 @@
     "homepage": "https://www.larksuite.com/",
     "license": "Unknown",
     "url": "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/562a5094/Lark-win32_ia32-7.10.8-signed.exe#/dl.7z",
-    "hash": "md5:2a4b48eefad2d6c4d4e311748d4fefe9",
+    "hash": "e4322276e70bf9c8ed0452f0c34781b9fb2ac340c91ef1149b63c52dc614516b",
     "extract_to": "app",
-    "post_install": [
+    "shortcuts": [
+        [
+            "app\\Lark.exe",
+            "Lark"
+        ]
+    ],
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\LarkInternational\") @(\"$persist_dir\\LarkInternational\")",
-        "create_app_lnk \"$dir\\app\\Lark.exe\" \"$desktop\\Lark.lnk\"",
-        "create_app_lnk \"$dir\\app\\Lark.exe\" \"$scoop_apps_lnk\\Lark.lnk\""
+        "create_app_lnk \"$dir\\app\\Lark.exe\" \"$desktop\\Lark.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Lark.lnk\",\"$scoop_apps_lnk\\Lark.lnk\",\"$env:AppData\\LarkInternational\",\"$env:LocalAppData\\Lark\")"
+        "remove_files @(\"$desktop\\Lark.lnk\",\"$env:AppData\\LarkInternational\",\"$env:LocalAppData\\Lark\")"
     ],
     "checkver": {
-        "url": "https://www.larksuite.com/api/downloads",
-        "regex": "Windows.+https://(?<path>[\\w\\.-/].*?)-(?<version>[\\d\\.]+)(?<suffix>[\\w\\.-].*?).exe"
+        "script": [
+            "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+            ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+            "$dl_info = get_installer_info 'ByteDance/Lark'",
+            "\"ver:$($dl_info.PackageVersion);\"",
+            "\"x86:$($dl_info.x86_exe.InstallerUrl);\""
+        ],
+        "regex": "ver:(?<version>.+?); x86:(?<x86>.+?);"
     },
     "autoupdate": {
-        "url": "https://$matchPath-$version$matchSuffix.exe#/dl.7z",
+        "url": "$matchX86#/dl.7z",
         "hash": {
-            "url": "https://www.larksuite.com/api/downloads",
-            "jsonpath": "$.versions.Windows.hash"
+            "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/b/ByteDance/Lark/$version/ByteDance.Lark.installer.yaml",
+            "regex": "Architecture: x86[\\s\\S]+?InstallerSha256:\\s?(.+)"
         }
     }
 }

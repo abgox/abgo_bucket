@@ -8,6 +8,12 @@
     },
     "url": "https://github.com/upscayl/upscayl/releases/download/v2.9.9/upscayl-2.9.9-win.exe",
     "hash": "fde36c91f547ac2f10a8eb5fe96c24819cbfbd294036412d60d3ad2f41c44b99",
+    "shortcuts": [
+        [
+            "Upscayl.exe",
+            "Upscayl"
+        ]
+    ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$path_exe= \"$dir\\upscayl-$($version)-win.exe\"",
@@ -15,7 +21,6 @@
         "$core_exe=\"$dir\\Upscayl.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$env:AppData\\Upscayl\") @(\"$persist_dir\\Upscayl\")",
-        "create_app_lnk $core_exe \"$scoop_apps_lnk\\Upscayl.lnk\"",
         "clean_redundant_files @($path_exe,\"$apps_lnk\\Upscayl.lnk\") 15"
     ],
     "pre_uninstall": [
@@ -24,9 +29,9 @@
         "stop_process $false",
         "remove_files @(\"$env:AppData\\Upscayl\")",
         "$ui_exe=\"$dir\\Uninstall Upscayl.exe\"",
-        "& $ui_exe /S",
+        "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$desktop\\Upscayl.lnk\",\"$scoop_apps_lnk\\Upscayl.lnk\",\"$env:LocalAppData\\upscayl-updater\")"
+        "remove_files @(\"$env:LocalAppData\\upscayl-updater\")"
     ],
     "checkver": "github",
     "autoupdate": {

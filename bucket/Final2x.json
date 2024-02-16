@@ -6,8 +6,16 @@
         "identifier": "BSD 3-Clause \"New\" or \"Revised\" License",
         "url": "https://github.com/Tohrusky/Final2x/blob/main/LICENSE"
     },
-    "url": "https://github.com/Tohrusky/Final2x/releases/download/2024-01-02/Final2x-windows-x64-unpacked.zip",
-    "hash": "8d7231827c193caa2a743c2734ac17f6f51440224448212f76afdfd9f2d3bb3e",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Tohrusky/Final2x/releases/download/2024-01-02/Final2x-windows-x64-setup.exe#/_installer_.exe",
+            "hash": "083da8626e65e6243119ea5853e86f87d7d986463aa0cab1d12f2d19ef565832"
+        },
+        "arm64": {
+            "url": "https://github.com/Tohrusky/Final2x/releases/download/2024-01-02/Final2x-windows-arm64-setup.exe#/_installer_.exe",
+            "hash": "51082d9fe022ca192b991b5eb4ab443e69d387c41a67aa5d104ed58cef896b8f"
+        }
+    },
     "bin": "final2x.exe",
     "shortcuts": [
         [
@@ -15,23 +23,52 @@
             "Final2x"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "$core_exe=\"$dir\\final2x.exe\"",
+        "sleep_install $core_exe",
         "persist -dir @(\"$env:AppData\\Final2x\") @(\"$persist_dir\\Final2x\")",
-        "create_app_lnk \"$dir\\final2x.exe\" \"$desktop\\Final2x.lnk\""
+        "clean_redundant_files @($path_exe) 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process",
-        "remove_files @(\"$desktop\\Final2x.lnk\",\"$env:AppData\\Final2x\")"
+        "stop_process $false",
+        "remove_files @(\"$env:AppData\\Final2x\")",
+        "$ui_exe=\"$dir\\Uninstall Final2x.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$env:LocalAppData\\final2x-updater\")"
     ],
     "checkver": {
-        "url": "https://github.com/Tohrusky/Final2x/releases",
-        "regex": "<a.+tag/(?<date>[\\d-]+).+>v(?<version>[\\d.]+)",
-        "replace": "${version}"
+        "script": [
+            "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+            ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+            "$dl_info = get_installer_info 'Tohrusky/Final2x'",
+            "\"ver:$($dl_info.PackageVersion);\"",
+            "\"x64:$($dl_info.x64_exe.InstallerUrl);\"",
+            "\"arm64:$($dl_info.arm64_exe.InstallerUrl);\""
+        ],
+        "regex": "ver:(?<version>.+?); x64:(?<x64>.+?); arm64:(?<arm64>.+?);"
     },
     "autoupdate": {
-        "url": "https://github.com/Tohrusky/Final2x/releases/download/$matchDate/Final2x-windows-x64-unpacked.zip"
+        "architecture": {
+            "64bit": {
+                "url": "$matchX64#/_installer_.exe",
+                "hash": {
+                    "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/t/Tohrusky/Final2x/$version/Tohrusky.Final2x.installer.yaml",
+                    "regex": "Architecture: x64[\\s\\S]+?InstallerSha256:\\s?(.+)"
+                }
+            },
+            "arm64": {
+                "url": "$matchArm64#/_installer_.exe",
+                "hash": {
+                    "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/t/Tohrusky/Final2x/$version/Tohrusky.Final2x.installer.yaml",
+                    "regex": "Architecture: arm64[\\s\\S]+?InstallerSha256:\\s?(.+)"
+                }
+            }
+        }
     }
 }

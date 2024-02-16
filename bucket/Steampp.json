@@ -22,7 +22,7 @@
             "Steam++"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$dir\\AppData\") @(\"$persist_dir\\AppData\")",
         "create_app_lnk \"$dir\\Steam++.exe\" \"$desktop\\Steam++.lnk\""

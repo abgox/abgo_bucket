@@ -24,7 +24,7 @@
             "QtScrcpy"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$dir\\config\") @(\"$persist_dir\\config\")",
         "create_app_lnk \"$dir\\QtScrcpy.exe\" \"$desktop\\QtScrcpy.lnk\""

@@ -39,7 +39,7 @@
             "7zip"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         "$7zip_root = \"$dir\".Replace('\\', '\\\\')",
         "'install-context.reg', 'uninstall-context.reg' | ForEach-Object {",
         "    $content = Get-Content \"$bucketsdir\\$bucket\\scripts\\7-zip\\$_\"",
@@ -49,26 +49,26 @@
         "    }",
         "    Set-Content \"$dir\\$_\" $content -Encoding Ascii",
         "}",
+        "Write-Host (handle_lang {'正在添加 7zip 右键菜单...'} {'Adding 7zip context menu...'}) -f Yellow",
         "reg import \"$dir\\install-context.reg\"",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "create_app_lnk \"$dir\\7zFM.exe\" \"$desktop\\7z File Manager.lnk\""
+        "create_app_lnk \"$dir\\7zFM.exe\" \"$desktop\\7zip.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "if ($cmd -eq 'uninstall') {",
-        "   reg import \"$dir\\uninstall-context.reg\"",
-        "}",
-        "remove_files @(\"$desktop\\7z File Manager.lnk\")",
         "Write-Host \"\"",
-        "confirm $(data_replace $json.stop_explorer)",
+        "confirm (handle_lang {\"卸载暂停。`n该应用的卸载需要关闭所有的文件资源管理器(explorer.exe)。`n请确定你在文件资源管理器中的所有工作已经完成且已经保存。`n然后按下 Enter(回车键) 继续卸载，或者按下其他任意键取消本次卸载。\"} {\"Uninstall paused.`nThe uninstall of this app requires closing all File Explorer(explorer.exe).`nPlease make sure that all your work in File Explorer has been completed and saved.`nPress Enter to continue or other key to cancel the uninstall.\"})",
+        "Write-Host (handle_lang {'正在移除 7zip 右键菜单...'} {'Removing 7zip context menu...'}) -f Yellow",
+        "reg import \"$dir\\uninstall-context.reg\"",
         "Stop-Process -Name \"explorer\" -Force",
-        "Start-Process explorer.exe"
+        "Start-Process explorer.exe",
+        "remove_files @(\"$desktop\\7zip.lnk\")"
     ],
     "checkver": {
         "url": "https://www.7-zip.org/download.html",
-        "regex": "Download 7-Zip ([\\d.]+)"
+        "regex": "Download 7-Zip ([\\d\\.]+)"
     },
     "autoupdate": {
         "architecture": {

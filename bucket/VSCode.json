@@ -23,7 +23,7 @@
             "Visual Studio Code"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:AppData\\Code\",\"$env:UserProfile\\.vscode\") @(\"$persist_dir\\Code\",\"$persist_dir\\.vscode\")",
         "create_app_lnk \"$dir\\Code.exe\" \"$desktop\\VS Code.lnk\"",

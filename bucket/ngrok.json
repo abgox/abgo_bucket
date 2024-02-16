@@ -17,7 +17,7 @@
         }
     },
     "bin": "ngrok.exe",
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$env:LocalAppData\\ngrok\") @(\"$persist_dir\\ngrok\")"
     ],
@@ -29,7 +29,7 @@
     ],
     "checkver": {
         "url": "https://dl.equinox.io/ngrok/ngrok-v3/stable/archive",
-        "regex": "/a/(?<hash64bit>\\w+)/ngrok-v[\\d.]+-([\\d.]+)-windows-amd64.zip(?:.|\\n)+?/a/(?<hash32bit>\\w+)/ngrok-v[\\d.]+-([\\d.]+)-windows-386.zip"
+        "regex": "/a/(?<hash64bit>\\w+)/ngrok-v[\\d\\.]+-([\\d\\.]+)-windows-amd64.zip(?:.|\\n)+?/a/(?<hash32bit>\\w+)/ngrok-v[\\d\\.]+-([\\d\\.]+)-windows-386.zip"
     },
     "autoupdate": {
         "architecture": {

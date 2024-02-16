@@ -20,7 +20,7 @@
                     "PotPlayer Mini"
                 ]
             ],
-            "post_install": [
+            "pre_install": [
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
                 "$config = @(",
                 "    '[Settings]'",
@@ -58,7 +58,7 @@
                     "PotPlayer Mini"
                 ]
             ],
-            "post_install": [
+            "pre_install": [
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
                 "$config = @(",
                 "    '[Settings]'",

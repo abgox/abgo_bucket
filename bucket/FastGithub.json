@@ -13,7 +13,7 @@
             "FastGithub"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "create_app_lnk \"$dir\\FastGithub.UI.exe\" \"$desktop\\FastGithub.lnk\""
     ],

@@ -15,7 +15,7 @@
             "XYplorer"
         ]
     ],
-    "post_install": [
+    "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$dir\\Data\") @(\"$persist_dir\\Data\")",
         "create_app_lnk \"$dir\\XYplorer.exe\" \"$desktop\\XYplorer.lnk\""
