@@ -180,6 +180,7 @@
 |                         [pot](https://pot-app.com)                          |   ✔️    |              |               |
 |                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |              |               |
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |              |               |
+|                           [QQ](https://im.qq.com)                           |   ✔️    |              |     QQ NT     |
 |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |               |
 |                      [Quicker](https://getquicker.net)                      |   ✔️    |              |               |
 |                           [Rime](https://rime.im)                           |   ✔️    |   confirm    | weasel,小狼毫 |
