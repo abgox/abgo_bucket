@@ -209,6 +209,7 @@
 |                          [uTools](https://u.tools)                          |   ✔️    |              |               |
 |       [VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes)       |   ✔️    |              |               |
 |                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |              |               |
+|                     [WeChat](https://pc.weixin.qq.com)                      |   ✔️    |              |     微信      |
 |               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    |              |   桌面组件    |
 |               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |     妙笔      |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |  小白羊云盘   |
