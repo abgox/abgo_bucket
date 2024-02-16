@@ -133,6 +133,7 @@
 |                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |              |               |
 |               [BaiduNetdisk](https://pan.baidu.com/download)                |   ✔️    |              |   百度网盘    |
 |                  [BaiduTranslate](https://fanyi.baidu.com)                  |   ✔️    |              |   百度翻译    |
+|                    [Bilibili](https://app.bilibili.com)                     |   ✔️    |              |   哔哩哔哩    |
 |        [BitMeterOS](https://codebox.net/pages/bitmeteros-downloads)         |   ➖    |              |               |
 |                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |               |
 | [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |               |
