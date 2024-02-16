@@ -14,8 +14,6 @@
     ],
     "shortcut": "Creating shortcut for {{$app}}\nPath: {{$lnk_path}}\n",
     "stop_process": "Try to stop possible Process...",
-    "stop_explorer": "The uninstall process of this app requires closing all File Explorer(explorer.exe).\nPlease make sure that all your work in File Explorer has been completed and saved.\nPress Enter to continue",
-    "need_close": "{{$app_name}} needs to be manually closed to uninstall\nPlease confirm that you have closed it and press Enter to continue.",
     "download": {
         "exist": "The latest version({{$installed_version}}) of {{$app}} is already installed.",
         "no_aria2": "aria2 is not installed",
@@ -30,7 +28,7 @@
         "url": "Url: ",
         "download": "Please download manually.\nPlease enter the downloaded file path: "
     },
-    "clean_redundant_files": "Run a background job: Delete redundant files generated during the installation process after {{$delay}} seconds\n",
+    "clean_redundant_files": "Run a background job: Delete redundant files generated during the installation process after {{$delay}} seconds.\n",
     "remove": "Removing ",
     "uninstalling": "Running the built-in uninstaller of this app..."
 }

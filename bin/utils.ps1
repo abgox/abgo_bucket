@@ -1,3 +1,4 @@
+# $ErrorActionPreference='SilentlyContinue'
 try {
     $lang = (Get-WinSystemLocale).name
     if ($lang -ne 'zh-CN') {
@@ -83,11 +84,12 @@ function create_parent_dir([string]$path) {
         create_file $parent_path -is_dir
     }
 }
-function create_app_lnk([string]$app_path, [string]$lnk_path) {
+function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($lnk_path)
     $Shortcut.TargetPath = $app_path
     $Shortcut.WorkingDirectory = Split-Path $app_path -Parent
+    $Shortcut.IconLocation = $icon_path
     $Shortcut.Save()
     $app = Split-Path $app_path -Leaf
     Write-Host (data_replace $json.shortcut) -f Green
@@ -191,11 +193,22 @@ function stop_process([bool]$isRemove = $true, [string]$app_dir = $dir) {
     }
 }
 function confirm([string]$tip_info) {
+    Write-Host $tip_info -f Yellow
     while ($true) {
-        Write-Host $tip_info -f Yellow
         $keyCode = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown").VirtualKeyCode
         if ($keyCode -eq 13) {
             break
+        }
+        else {
+            handle_lang -CN {
+                @(21368, 36733, 25805, 20316, 21462, 28040) | ForEach-Object {
+                    $cancel_info += [char]::ConvertFromUtf32($_)
+                }
+                Write-Host $cancel_info -f Red
+            } -EN {
+                Write-Host 'Uninstall canceled.' -f Red
+            }
+            Exit
         }
     }
 }
@@ -232,9 +245,15 @@ function get_installer_info([string]$app) {
     $installer_info = ConvertFrom-Yaml $installer_yaml.Content
     $installer_info.Installers | ForEach-Object {
         $arch = $_.Architecture
+        $type = [regex]::Match($_.InstallerUrl, '\.(\w+)$').Groups[1].Value
+        $res = if ($type) { $arch + '_' + $type }else { $arch }
         if ($arch) {
-            $installer_info.$arch = $_
+            $installer_info.$res = $_
         }
     }
     $installer_info
+}
+
+function handle_lang([scriptblock]$CN = {}, [scriptblock]$EN = {}) {
+    if ($lang -eq 'zh-CN') { & $CN }else { & $EN }
 }

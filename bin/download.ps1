@@ -100,7 +100,18 @@ for ($i = 0; $i -lt $result.url.Count; $i++) {
     Write-Host ($json_d.url + $url) -f Green
     Write-Host "---------------" -f Cyan
     Write-Host $json_d.download -f Yellow -NoNewline
-    $dl_path = $(Read-Host) -replace '"', ''
+    $dl_path = $(Read-Host)
+    while (!(Test-Path $dl_path)) {
+        handle_lang -CN {
+            @(36825, 20010, 25991, 20214, 19981, 23384, 22312, 65292, 35831, 37325, 26032, 36755, 20837, 58, 32) | ForEach-Object {
+                $err_info += [char]::ConvertFromUtf32($_)
+            }
+            Write-Host $err_info -f Yellow -NoNewline
+        } -EN {
+            Write-Host "File not found, please input again: " -f Yellow -NoNewline
+        }
+        $dl_path = $(Read-Host)
+    }
     move_file $dl_path "$cache_dir\$out"
 }
 
