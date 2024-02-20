@@ -1,10 +1,10 @@
 {
-    "version": "3.9.9.35",
+    "version": "3.9.9.43",
     "description": "一款跨平台的通讯工具。支持单人、多人参与。通过手机网络发送语音、图片、视频和文字。A free messaging and calling app.  Enjoy group chats that support voice and video calls, photos, videos, and stickers.",
     "homepage": "https://pc.weixin.qq.com/",
     "license": "Unknown",
     "url": "https://dldir1v6.qq.com/weixin/Windows/WeChatSetup.exe#/dl.7z",
-    "hash": "001aedccb59ec9e9067d0703ba0ba9f8e1454159dd7aa4fa9f82c0f9b9a57428",
+    "hash": "f6de40a0e0c5b51daa70456189d10f7fc1e7dcd36168cf8afcb17035efda6686",
     "shortcuts": [
         [
             "WeChat.exe",
