@@ -136,6 +136,7 @@
 |                    [Bilibili](https://app.bilibili.com)                     |   ✔️    |              |   哔哩哔哩    |
 |        [BitMeterOS](https://codebox.net/pages/bitmeteros-downloads)         |   ➖    |              |               |
 |                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |               |
+|                     [CloudMusic](https://music.163.com)                     |   ✔️    |              |  网易云音乐   |
 | [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |               |
 |                       [DevToys](https://devtoys.app)                        |   ✔️    |     UWP      |               |
 |                  [Ditto](https://ditto-cp.sourceforge.io)                   |   ✔️    |              |               |
