@@ -55,7 +55,7 @@
         "}",
         "create_app_lnk \"$dir\\Everything.exe\" \"$desktop\\Everything.lnk\"",
         "$path_schedule=\"$scoopdir\\shims\\Everything_abgo_bucket_schedule_persist.cmd\"",
-        "\"@echo off`n$data_file`n$persist_file\" | Out-File $path_schedule",
+        "\"@echo off`necho '$data_file'`necho '$persist_file'\" | Out-File $path_schedule",
         "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Everything_abgo_bucket_schedule_persist\" \"$bucketsdir\\$bucket\\schedule\\Everything.ps1\""
     ],
     "pre_uninstall": [
