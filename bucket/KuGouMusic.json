@@ -33,7 +33,7 @@
     "checkver": {
         "script": [
             "$dl_url='https://download.kugou.com/download/kugou_pc'",
-            "$out_path='Widgets-' + (New-Guid).Guid + '.exe'",
+            "$out_path='KuGou-' + (New-Guid).Guid + '.exe'",
             "Invoke-WebRequest -Uri $dl_url -OutFile $out_path",
             "(Get-Item $out_path).VersionInfo.FileVersion",
             "Remove-Item $out_path -Force"
