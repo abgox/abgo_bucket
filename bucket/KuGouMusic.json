@@ -1,0 +1,46 @@
+{
+    "version": "10.2.50.25708",
+    "description": "酷狗音乐",
+    "homepage": "https://www.kugou.com/",
+    "license": "Unknown",
+    "url": "https://download.kugou.com/download/kugou_pc#/_installer_.exe",
+    "hash": "4df0aceb15bbd181abab392fe3718178cd68b1b5b97f453717b16fa1628e7c29",
+    "shortcuts": [
+        [
+            "KuGou.exe",
+            "酷狗音乐"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "$core_exe=\"$dir\\KuGou.exe\"",
+        "sleep_install $core_exe",
+        "persist -dir @(\"$env:AppData\\KuGou8\") @(\"$persist_dir\\KuGou8\")",
+        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\酷狗音乐\",\"$admin_apps_lnk\\酷狗音乐.lnk\") 15"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "remove_files @(\"$env:AppData\\KuGou8\")",
+        "$ui_exe=\"$dir\\uninst.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe",
+        "remove_file \"$env:AppData\\KuGou8\""
+    ],
+    "checkver": {
+        "script": [
+            "$dl_url='https://download.kugou.com/download/kugou_pc'",
+            "$out_path='Widgets-' + (New-Guid).Guid + '.exe'",
+            "Invoke-WebRequest -Uri $dl_url -OutFile $out_path",
+            "(Get-Item $out_path).VersionInfo.FileVersion",
+            "Remove-Item $out_path -Force"
+        ],
+        "regex": "([\\d\\.]+)"
+    },
+    "autoupdate": {
+        "url": "https://download.kugou.com/download/kugou_pc#/_installer_.exe"
+    }
+}
