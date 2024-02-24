@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Install and Import Module to convert yaml
-        shell: pwsh
+        shell: PowerShell
         run: |
           Install-Module "powershell-yaml" -Force
           Import-Module "powershell-yaml"
