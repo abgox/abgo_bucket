@@ -14,11 +14,6 @@ jobs:
         run: |
           Install-Module "powershell-yaml" -Force
           Import-Module "powershell-yaml"
-      # - uses: actions/checkout@v3
-      # - name: Git config
-        # run: |
-          # git config --local user.email abgohxf@outlook.com
-          # git config --local user.name "abgox"
       - uses: actions/checkout@main
       - name: Excavate
         uses: ScoopInstaller/GithubActions@main
