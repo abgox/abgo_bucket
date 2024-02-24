@@ -1,0 +1,37 @@
+{
+    "version": "0.3.0",
+    "description": "人工智能助力你的世界 —— 探索、扩展、赋能。Power Your World with AI - Explore, Extend, Empower.",
+    "homepage": "https://noi.nofwl.com/",
+    "license": "Unknown",
+    "url": "https://github.com/lencx/Noi/releases/download/v0.3.0/Noi-win32-x64-0.3.0-setup.exe#/dl.7z",
+    "hash": "076190fd036ae63b6aea84634430f2f03dbb61a20aec867dcd30252f69af6bc8",
+    "shortcuts": [
+        [
+            "app\\Noi.exe",
+            "Noi"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$filter=(Get-ChildItem $dir | Where-Object {$_.Name -like \"*.nupkg\" })[0]",
+        "Rename-Item $filter.FullName \"_installer_.zip\" -Force",
+        "Expand-Archive \"$dir\\_installer_.zip\" \"$dir\\temp\"",
+        "Copy-Item \"$dir\\temp\\lib\\net45\" \"$dir\\app\" -Recurse -Force",
+        "remove_file \"$dir\\temp\"",
+        "remove_file \"$dir\\_installer_.zip\"",
+        "persist -dir @(\"$env:AppData\\Noi\") @(\"$persist_dir\\Noi\")",
+        "create_app_lnk \"$dir\\app\\Noi.exe\" \"$desktop\\Noi.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\Noi.lnk\",\"$env:AppData\\Noi\",\"$env:LocalAppData\\noi\")"
+    ],
+    "checkver": {
+        "github": "https://github.com/lencx/Noi"
+    },
+    "autoupdate": {
+        "url": "https://github.com/lencx/Noi/releases/download/v$version/Noi-win32-x64-$version-setup.exe#/dl.7z"
+    }
+}

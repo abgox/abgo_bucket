@@ -175,6 +175,7 @@
 |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |   ✔️    |              |               |
 |                         [Neovim](https://neovim.io)                         |   ✔️    |              |               |
 |                         [ngrok](https://ngrok.com)                          |   ✔️    |              |               |
+|                        [Noi](https://noi.nofwl.com)                         |   ✔️    |              |    AI 助手    |
 |                   [Notepads](https://www.notepadsapp.com)                   |   ✔️    |     UWP      |               |
 |            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |   ✔️    |              |               |
 |                       [Obsidian](https://obsidian.md)                       |   ✔️    |              |               |
