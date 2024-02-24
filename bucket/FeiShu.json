@@ -1,6 +1,6 @@
 {
     "version": "7.10.7",
-    "homepage": "https://www.feishu.cn/",
+    "homepage": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/b/ByteDance/Feishu",
     "description": "字节跳动旗下先进企业写协作与管理平台，一站式无缝办公协作。Empowering teams by messenger, meetings, calendar, docs, and emails. It's all in one place.",
     "license": "Unknown",
     "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/ea59a261/Feishu-win32_ia32-7.10.7-signed.exe#/dl.7z",
