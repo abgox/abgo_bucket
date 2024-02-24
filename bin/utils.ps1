@@ -238,8 +238,7 @@ function get_installer_info([string]$app) {
     $rootDir = $app.ToLower()[0]
     $parts = $app -split '/'
     $id = $parts -join '.'
-    $versionList = (Invoke-WebRequest -Uri "https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/$($rootDir)/$($app)").Content | ConvertFrom-Json | Sort-Object { try { [version]$_.name }catch {} } -Descending
-
+    $versionList = [array]((Invoke-WebRequest -Uri "https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/$($rootDir)/$($app)").Content | ConvertFrom-Json | Where-Object { $_.name -notmatch '^\.' } | Sort-Object { try { [version]$_.name }catch {} } -Descending)
     $installer_yaml = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/$($rootDir)/$($app)/$($versionList[0].name)/$($id).installer.yaml"
 
     $installer_info = ConvertFrom-Yaml $installer_yaml.Content
