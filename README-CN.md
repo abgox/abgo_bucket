@@ -153,6 +153,7 @@
 |               [GeekUninstaller](https://geekuninstaller.com)                |   ✔️    |              |               |
 |              [GitExtensions](https://gitextensions.github.io)               |   ✔️    |              |               |
 |                        [Gopeed](https://gopeed.com)                         |   ✔️    |              |               |
+|              [HBuilderX](https://www.dcloud.io/hbuilderx.html)              |   ✔️    |              |               |
 |                           [He3](https://he3.app)                            |   ✔️    |              |               |
 |                      [Helix](https://helix-editor.com)                      |   ✔️    |              |               |
 |                    [ImageGlass](https://imageglass.org)                     |   ✔️    |              |               |
