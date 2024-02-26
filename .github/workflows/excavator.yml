@@ -9,12 +9,23 @@ jobs:
     name: Excavate
     runs-on: windows-latest
     steps:
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
       - name: Install and Import Module to convert yaml
         shell: PowerShell
         run: |
           Install-Module "powershell-yaml" -Force
           Import-Module "powershell-yaml"
+
       - uses: actions/checkout@main
+
+      - name: Install Selenium
+        run: |
+          pip install selenium
+
       - name: Excavate
         uses: ScoopInstaller/GithubActions@main
         env:
