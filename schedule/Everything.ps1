@@ -6,6 +6,9 @@ catch {
 }
 
 $path_data = $content[0]
+
+if (!(Test-Path $path_data)) { return }
+
 $path_persist = $content[1]
 
 $content_data = Get-Content $path_data -Raw
