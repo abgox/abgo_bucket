@@ -68,6 +68,11 @@ function remove_file([string]$path) {
     $job = Start-Job -ScriptBlock {
         param($path_sudo, $path)
         & $path_sudo Remove-Item -Force -Recurse $path
+        $directory = Split-Path $path -Parent
+        $items = Get-ChildItem -Path $directory -Force
+        if ($items.Count -eq 0) {
+            & $path_sudo Remove-Item -Force -Recurse $directory
+        }
     } -ArgumentList $path_sudo, $path
     $null = Wait-Job $job
 }
@@ -221,7 +226,14 @@ function clean_redundant_files ([array]$files, [int]$delay = 5, [switch]$tip) {
             param($path_sudo, $delay)
             Start-Sleep -Seconds $delay
             $args | ForEach-Object {
-                if (Test-Path($_)) { & $path_sudo Remove-Item -Force -Recurse $_ }
+                if (Test-Path($_)) {
+                    & $path_sudo Remove-Item -Force -Recurse $_
+                    $directory = Split-Path $_ -Parent
+                    $items = Get-ChildItem -Path $directory -Force
+                    if ($items.Count -eq 0) {
+                        & $path_sudo Remove-Item -Force -Recurse $directory
+                    }
+                }
             }
         } -ArgumentList $path_sudo, $delay, $_
     }
