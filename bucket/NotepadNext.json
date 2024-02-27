@@ -1,0 +1,32 @@
+{
+    "version": "0.7",
+    "description": "Notepad++ 的跨平台重新实现。A cross-platform, reimplementation of Notepad++",
+    "homepage": "https://github.com/dail8859/NotepadNext",
+    "license": {
+        "identifier": "GNU General Public License v3.0",
+        "url": "https://github.com/dail8859/NotepadNext/blob/master/LICENSE"
+    },
+    "url": "https://github.com/dail8859/NotepadNext/releases/download/v0.7/NotepadNext-v0.7-win64.zip",
+    "hash": "4179e92d56396e5aced3c5ee9bb5060bb7ac0bc81dc625d5c6041c09b04e6149",
+    "shortcuts": [
+        [
+            "NotepadNext.exe",
+            "NotepadNext"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$env:AppData\\NotepadNext\") @(\"$persist_dir\\NotepadNext\")",
+        "create_app_lnk \"$dir\\NotepadNext.exe\" \"$desktop\\NotepadNext.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "remove_files @(\"$desktop\\NotepadNext.lnk\",\"$env:AppData\\NotepadNext\")"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/dail8859/NotepadNext/releases/download/v$version/NotepadNext-v$version-win64.zip"
+    }
+}
