@@ -197,6 +197,7 @@
 |                [Screego](https://github.com/screego/server)                 |   ✔️    |              |               |
 |         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |   ✔️    |              |               |
 | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |   ✔️    |              |               |
+|              [SimplyListenMusic](https://music.codepublic.top)              |   ✔️    |              |   普听音乐    |
 |                     [SiYuan](https://b3log.org/siyuan)                      |   ✔️    |              |     思源      |
 |                    [Snipaste](https://www.snipaste.com)                     |   ✔️    |              |               |
 |                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |              |               |
