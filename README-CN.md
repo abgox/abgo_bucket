@@ -146,6 +146,7 @@
 |                   [Dropit](http://www.dropitproject.com)                    |   ✔️    |              |               |
 |                   [Everything](https://www.voidtools.com)                   |   ✔️    |              |               |
 |                    [Final2x](https://final2x.tohru.top)                     |   ✔️    |              |               |
+|                [Flow-Launcher](https://www.flowlauncher.com)                |   ✔️    |              |               |
 |                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    |              |               |
 |                    [fnm](https://github.com/Schniz/fnm)                     |   ➖    |              |               |
 |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |   ➖    | noAutoUpdate |               |
