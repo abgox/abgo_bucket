@@ -100,7 +100,7 @@ for ($i = 0; $i -lt $result.url.Count; $i++) {
     Write-Host ($json_d.url + $url) -f Green
     Write-Host "---------------" -f Cyan
     Write-Host $json_d.download -f Yellow -NoNewline
-    $dl_path = $(Read-Host)
+    $dl_path = $(Read-Host) -replace '"',''
     while (!(Test-Path $dl_path)) {
         handle_lang -CN {
             @(36825, 20010, 25991, 20214, 19981, 23384, 22312, 65292, 35831, 37325, 26032, 36755, 20837, 58, 32) | ForEach-Object {
