@@ -162,6 +162,7 @@
 |                            [jan](https://jan.ai)                            |   ✔️    |              |               |
 |                       [Joplin](https://joplinapp.org)                       |   ✔️    |              |               |
 |                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |              |               |
+|                       [Knotes](https://knotesapp.cn)                        |   ✔️    |              |   糯词笔记    |
 |                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |              |               |
 |                     [KuGouMusic](https://www.kugou.com)                     |   ✔️    |              |   酷狗音乐    |
 |                      [Lark](https://www.larksuite.com)                      |   ✔️    |              |               |
