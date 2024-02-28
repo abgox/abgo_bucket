@@ -4,9 +4,18 @@ param(
 )
 . $PSScriptRoot\utils.ps1
 
+if ($app -like "*/*") {
+    $part = $app -split '/'
+    $bucketApp = $app
+    $app = $part[1]
+}
+else {
+    $bucketApp = $app
+}
+
 $json_d = $json.download
 
-$info = scoop info $app
+$info = scoop info $bucketApp
 $latest_version = $info.Version
 $installed_version = ($info.Installed -split "`n")[-1]
 
@@ -24,7 +33,7 @@ Write-Host (data_replace $json_d.check_cache[0]) -f Yellow
 $has_cache = scoop cache | Where-Object { $_.Name -eq $app -and $_.Version -eq $latest_version }
 if ($has_cache) {
     Write-Host (data_replace $json_d.check_cache[1]) -f Green
-    scoop install $app -u
+    scoop install $bucketApp -u
     return
 }
 Write-Host (data_replace $json_d.check_cache[2]) -f Yellow
@@ -54,14 +63,14 @@ $cache_dir = $scoop_dir + '\cache'
 $app_txt = "$cache_dir\$app.txt"
 
 $job = Start-Job -ScriptBlock {
-    param($app, $isUpdate)
+    param($bucketApp, $isUpdate)
     if ($isUpdate) {
-        scoop update $app
+        scoop update $bucketApp
     }
     else {
-        scoop install $app -u
+        scoop install $bucketApp -u
     }
-} -ArgumentList $app, $isUpdate
+} -ArgumentList $bucketApp, $isUpdate
 
 while ($true) {
     if (Test-Path($app_txt)) {
@@ -100,7 +109,7 @@ for ($i = 0; $i -lt $result.url.Count; $i++) {
     Write-Host ($json_d.url + $url) -f Green
     Write-Host "---------------" -f Cyan
     Write-Host $json_d.download -f Yellow -NoNewline
-    $dl_path = $(Read-Host) -replace '"',''
+    $dl_path = $(Read-Host) -replace '"', ''
     while (!(Test-Path $dl_path)) {
         handle_lang -CN {
             @(36825, 20010, 25991, 20214, 19981, 23384, 22312, 65292, 35831, 37325, 26032, 36755, 20837, 58, 32) | ForEach-Object {
@@ -117,8 +126,8 @@ for ($i = 0; $i -lt $result.url.Count; $i++) {
 
 Write-Host ''
 if ($isUpdate) {
-    scoop update $app
+    scoop update $bucketApp
 }
 else {
-    scoop install $app -u
+    scoop install $bucketApp -u
 }
