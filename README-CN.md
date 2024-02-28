@@ -41,7 +41,7 @@
         -   当国内使用命令行下载慢，且你有其他更好的方式可以通过安装包链接下载时，它是一个很好的选择。
 
         ```powershell
-            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 <app_name> [-isUpdate]
+            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name> [-isUpdate]
         ```
 
 -   列出 `abgo_bucket` 中所有可安装的应用：
@@ -173,7 +173,7 @@
 |                     [Listary](https://www.listary.com)                      |   ✔️    |              |               |
 |                     [LocalSend](https://localsend.org)                      |   ✔️    |              |               |
 |                    [LX-Music](https://docs.lxmusic.top)                     |   ✔️    |              | 洛雪音乐助手  |
-|           [Manuskript](https://github.com/olivierkes/manuskript)            |   ✔️    |              |               |
+|           [Manuskript](https://github.com/olivierkes/manuskript)            |   ➖    |              |               |
 |                     [MarkText](https://www.marktext.cc)                     |   ✔️    |              |               |
 |      [MediaElch](https://mediaelch.github.io/mediaelch-doc/about.html)      |   ➖    |              |               |
 |                      [Monit](https://monit.fzf404.art)                      |   ✔️    |              |               |
@@ -197,6 +197,7 @@
 |                     [QQBrowser](https://browser.qq.com)                     |   ✔️    |              |   QQ 浏览器   |
 |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |               |
 |                      [Quicker](https://getquicker.net)                      |   ✔️    |              |               |
+|                     [Recyclarr](https://recyclarr.dev)                      |   ➖    |              |               |
 |                           [Rime](https://rime.im)                           |   ✔️    |   confirm    | weasel,小狼毫 |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |              |               |
 |           [RunCat](https://github.com/Kyome22/RunCat_for_windows)           |   ➖    |              |               |
