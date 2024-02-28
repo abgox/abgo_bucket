@@ -218,6 +218,7 @@
 |                          [uTools](https://u.tools)                          |   ✔️    |              |               |
 |       [VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes)       |   ✔️    |              |               |
 |                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |              |               |
+|                      [WasmEdge](https://wasmedge.org)                       |   ➖    |              |               |
 |                     [WeChat](https://pc.weixin.qq.com)                      |   ✔️    |              |     微信      |
 |                       [WeekToDo](https://weektodo.me)                       |   ✔️    |              |               |
 |               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    |              |   桌面组件    |
