@@ -123,6 +123,7 @@
 
 |                                     App                                     | persist |     Tag      |     Note      |
 | :-------------------------------------------------------------------------: | :-----: | :----------: | :-----------: |
+|              [1History](https://github.com/1History/1History)               |   ➖    |              |               |
 |                          [7zip](https://7-zip.org)                          |   ➖    |   confirm    |               |
 |                        [aardio](https://aardio.com)                         |   ✔️    |              |               |
 |                    [AdsPower](https://www.adspower.net)                     |   ✔️    |              |  指纹浏览器   |
