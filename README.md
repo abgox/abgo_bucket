@@ -219,6 +219,7 @@
 |                    [TTime](https://ttime.timerecord.cn)                     |   ✔️    |              |               |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |   ✔️    |              |               |
 |                         [Typora](https://typora.io)                         |   ✔️    |              |               |
+|   [uncle-novel](https://uncle-novel.github.io/uncle-novel-official-site)    |   ✔️    |              |  Uncle 小说   |
 |                [Upscayl](https://github.com/upscayl/upscayl)                |   ✔️    |              |               |
 |                          [uTools](https://u.tools)                          |   ✔️    |              |               |
 |       [VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes)       |   ✔️    |              |               |
