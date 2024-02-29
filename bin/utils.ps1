@@ -90,14 +90,14 @@ function create_parent_dir([string]$path) {
     }
 }
 function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
-        $WshShell = New-Object -comObject WScript.Shell
-        $Shortcut = $WshShell.CreateShortcut($lnk_path)
-        $Shortcut.TargetPath = $app_path
-        $Shortcut.WorkingDirectory = Split-Path $app_path -Parent
-        $Shortcut.IconLocation = $icon_path
-        $Shortcut.Save()
-        $app = Split-Path $app_path -Leaf
-        Write-Host (data_replace $json.shortcut) -f Green
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut($lnk_path)
+    $Shortcut.TargetPath = $app_path
+    $Shortcut.WorkingDirectory = Split-Path $app_path -Parent
+    $Shortcut.IconLocation = $icon_path
+    $Shortcut.Save()
+    $app = Split-Path $app_path -Leaf
+    Write-Host (data_replace $json.shortcut) -f Green
 }
 function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file) {
     if (!($dir -or $file)) {
@@ -163,22 +163,22 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
     }
     Write-Host "---------------------`n" -f Yellow
 }
-function sleep_install([string]$core_exe, [int]$delay = 60000, [int]$duration = 300) {
+function sleep_install([string]$path, [int]$delay = 60000, [int]$duration = 300) {
     $flag = 0
     $num = $delay / $duration
-    if ($core_exe) {
-        while (!(Test-Path $core_exe) -and $flag -le $num) {
+    if ($path) {
+        while (!(Test-Path $path) -and $flag -le $num) {
             Start-Sleep -Milliseconds $duration
             $flag++
         }
     }
 }
-function sleep_uninstall([string]$uninstall_exe, [int]$delay = 60000, [int]$duration = 300) {
+function sleep_uninstall([string]$path, [int]$delay = 60000, [int]$duration = 300) {
     $flag = 0
     $num = $delay / $duration
-    if ($uninstall_exe) {
+    if ($path) {
         Write-Host $json.uninstalling -f Cyan
-        while ((Test-Path $uninstall_exe) -and $flag -le $num) {
+        while ((Test-Path $path) -and $flag -le $num) {
             Start-Sleep -Milliseconds $duration
             $flag++
         }
@@ -188,9 +188,7 @@ function stop_process([bool]$isRemove = $true, [string]$app_dir = $dir) {
     Write-Host ($json.stop_process) -f Cyan
     $job = Start-Job -ScriptBlock {
         param($path_sudo, $path)
-        Get-ChildItem $path -Recurse | Where-Object { $_.Extension -match '\.exe$' } | ForEach-Object {
-            & $path_sudo Stop-Process -Name $_.BaseName -Force -ErrorAction SilentlyContinue
-        }
+        & $path_sudo (Get-Process | Where-Object { $_.Modules.FileName -like "$path*" } | ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue })
     } -ArgumentList $path_sudo, $app_dir
     $null = Wait-Job $job
     if ($isRemove) {
