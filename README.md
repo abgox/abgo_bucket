@@ -213,6 +213,7 @@
 |                       [Steampp](https://steampp.net)                        |   ✔️    |              | Watt Toolkit  |
 |               [StrokesPlus.net](https://www.strokesplus.net)                |   ✔️    |              |               |
 |                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |              |               |
+|                [SyncBackFree](https://www.2brightsparks.com)                |   ✔️    |              |               |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |   confirm    |               |
 |       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    |     UWP      |               |
 |                    [TTime](https://ttime.timerecord.cn)                     |   ✔️    |              |               |
