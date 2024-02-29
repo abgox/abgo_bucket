@@ -89,8 +89,7 @@ function create_parent_dir([string]$path) {
         create_file $parent_path -is_dir
     }
 }
-function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path,[switch]$Force) {
-    if($cmd -eq 'install' -or $Force){
+function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
         $WshShell = New-Object -comObject WScript.Shell
         $Shortcut = $WshShell.CreateShortcut($lnk_path)
         $Shortcut.TargetPath = $app_path
@@ -99,7 +98,6 @@ function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path
         $Shortcut.Save()
         $app = Split-Path $app_path -Leaf
         Write-Host (data_replace $json.shortcut) -f Green
-    }
 }
 function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file) {
     if (!($dir -or $file)) {
@@ -242,7 +240,7 @@ function clean_redundant_files ([array]$files, [int]$delay = 5, [switch]$tip) {
 }
 function remove_files([array]$files) {
     $files | ForEach-Object {
-        if (Test-Path($_)) {
+        if (Test-Path $_) {
             remove_file $_
             Write-Host  ($json.remove + $_)  -f Yellow
         }
