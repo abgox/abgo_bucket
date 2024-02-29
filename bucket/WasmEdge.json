@@ -13,6 +13,11 @@
         "bin\\wasmedge.exe",
         "bin\\wasmedgec.exe"
     ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process"
+    ],
     "checkver": {
         "github": "https://github.com/WasmEdge/WasmEdge"
     },
