@@ -176,6 +176,7 @@
 |                     [LocalSend](https://localsend.org)                      |   ✔️    |              |               |
 |                    [LX-Music](https://docs.lxmusic.top)                     |   ✔️    |              | 洛雪音乐助手  |
 |           [Manuskript](https://github.com/olivierkes/manuskript)            |   ➖    |              |               |
+|                     [MarkLion](https://www.marklion.cn)                     |   ✔️    |              |    标记狮     |
 |                     [MarkText](https://www.marktext.cc)                     |   ✔️    |              |               |
 |      [MediaElch](https://mediaelch.github.io/mediaelch-doc/about.html)      |   ➖    |              |               |
 |                      [Monit](https://monit.fzf404.art)                      |   ✔️    |              |               |
