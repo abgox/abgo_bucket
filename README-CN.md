@@ -148,6 +148,7 @@
 |                   [Dropit](http://www.dropitproject.com)                    |   ✔️    |              |               |
 |                   [Everything](https://www.voidtools.com)                   |   ✔️    |              |               |
 |                    [Final2x](https://final2x.tohru.top)                     |   ✔️    |              |               |
+|                    [FishingFunds](https://ff.1zilc.top)                     |   ✔️    |              | 基金股票相关  |
 |                [Flow-Launcher](https://www.flowlauncher.com)                |   ✔️    |              |               |
 |                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    |              |               |
 |                    [fnm](https://github.com/Schniz/fnm)                     |   ➖    |              |               |

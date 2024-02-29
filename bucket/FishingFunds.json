@@ -1,0 +1,42 @@
+{
+    "version": "8.2.1",
+    "description": "基金,大盘,股票,虚拟货币状态栏显示小应用,基于 Electron 开发,数据源来自天天基金,蚂蚁基金,爱基金,腾讯证券等",
+    "homepage": "https://ff.1zilc.top/",
+    "license": {
+        "identifier": "GNU General Public License v3.0",
+        "url": "https://github.com/1zilc/fishing-funds/blob/main/LICENSE"
+    },
+    "url": "https://github.com/1zilc/fishing-funds/releases/download/v8.2.1/Fishing-Funds-Setup-8.2.1.exe#/_installer_.exe",
+    "hash": "0742650fd6e74bf4c06f481a5adf7f8f575ec217b0f0cc09ca42f4c8c1b2be1b",
+    "shortcuts": [
+        [
+            "Fishing Funds.exe",
+            "Fishing Funds"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "$core_exe=\"$dir\\Fishing Funds.exe\"",
+        "sleep_install $core_exe",
+        "persist -dir @(\"$env:AppData\\Fishing Funds\") @(\"$persist_dir\\Fishing Funds\")",
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\Fishing Funds.lnk\") 15"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "remove_files @(\"$env:AppData\\Fishing Funds\")",
+        "$ui_exe=\"$dir\\Uninstall Fishing Funds.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$env:LocalAppData\\fishing-funds-updater\")"
+    ],
+    "checkver": {
+        "github": "https://github.com/1zilc/fishing-funds"
+    },
+    "autoupdate": {
+        "url": "https://github.com/1zilc/fishing-funds/releases/download/v$version/Fishing-Funds-Setup-$version.exe#/_installer_.exe"
+    }
+}
