@@ -163,7 +163,7 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
     }
     Write-Host "---------------------`n" -f Yellow
 }
-function sleep_install([string]$path, [int]$delay = 60, [int]$duration = 0.3) {
+function sleep_install([string]$path, $delay = 60, $duration = 0.3) {
     $flag = 0
     $num = $delay / $duration
     if ($path) {
@@ -173,7 +173,7 @@ function sleep_install([string]$path, [int]$delay = 60, [int]$duration = 0.3) {
         }
     }
 }
-function sleep_uninstall([string]$path, [int]$delay = 60, [int]$duration = 0.3) {
+function sleep_uninstall([string]$path, $delay = 60, $duration = 0.3) {
     $flag = 0
     $num = $delay / $duration
     if ($path) {
@@ -215,7 +215,7 @@ function confirm([string]$tip_info) {
         }
     }
 }
-function clean_redundant_files ([array]$files, [int]$delay = 5, [switch]$tip) {
+function clean_redundant_files ([array]$files, $delay = 5, [switch]$tip) {
     if ($tip) {
         Write-Host (data_replace $json.clean_redundant_files) -f Yellow
     }
