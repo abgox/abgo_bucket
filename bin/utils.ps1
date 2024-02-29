@@ -163,23 +163,23 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
     }
     Write-Host "---------------------`n" -f Yellow
 }
-function sleep_install([string]$path, [int]$delay = 60000, [int]$duration = 300) {
+function sleep_install([string]$path, [int]$delay = 60, [int]$duration = 0.3) {
     $flag = 0
     $num = $delay / $duration
     if ($path) {
         while (!(Test-Path $path) -and $flag -le $num) {
-            Start-Sleep -Milliseconds $duration
+            Start-Sleep -Seconds $duration
             $flag++
         }
     }
 }
-function sleep_uninstall([string]$path, [int]$delay = 60000, [int]$duration = 300) {
+function sleep_uninstall([string]$path, [int]$delay = 60, [int]$duration = 0.3) {
     $flag = 0
     $num = $delay / $duration
     if ($path) {
         Write-Host $json.uninstalling -f Cyan
         while ((Test-Path $path) -and $flag -le $num) {
-            Start-Sleep -Milliseconds $duration
+            Start-Sleep -Seconds $duration
             $flag++
         }
     }
