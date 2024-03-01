@@ -30,7 +30,8 @@
         "remove_files @(\"$env:AppData\\picgo\")",
         "$ui_exe=\"$dir\\Uninstall PicGo.exe\"",
         "try{ & $ui_exe /S }catch{}",
-        "sleep_uninstall $ui_exe"
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$env:LocalAppData\\picgo-updater\")"
     ],
     "checkver": {
         "github": "https://github.com/Molunerfinn/PicGo"
