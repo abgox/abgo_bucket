@@ -1,0 +1,42 @@
+{
+    "version": "30.0.2",
+    "description": "用于视频录制和直播的免费开源软件。Free and open source software for video recording and live streaming.",
+    "homepage": "https://obsproject.com",
+    "license": {
+        "identifier": "GNU General Public License v2.0",
+        "url": "https://github.com/obsproject/obs-studio/blob/master/COPYING"
+    },
+    "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-30.0.2-Full-Installer-x64.exe#/_installer_.exe",
+    "hash": "6d192fbf295a7505ae7fdb872f12465b79931c7284ab21bc493bc3a118ae844b",
+    "shortcuts": [
+        [
+            "bin\\64bit\\obs64.exe",
+            "OBS Studio"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe= \"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "$core_exe=\"$dir\\uninstall.exe\"",
+        "sleep_install $core_exe",
+        "persist -dir @(\"$env:AppData\\obs-studio\") @(\"$persist_dir\\obs-studio\")",
+        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\OBS Studio\") 15"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "remove_files @(\"$env:AppData\\obs-studio\")",
+        "$ui_exe=\"$dir\\uninstall.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$env:LocalAppData\\obs-studio-updater\")"
+    ],
+    "checkver": {
+        "github": "https://github.com/obsproject/obs-studio"
+    },
+    "autoupdate": {
+        "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-$version-Full-Installer-x64.exe#/_installer_.exe"
+    }
+}

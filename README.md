@@ -188,6 +188,7 @@
 |           [NotepadNext](https://github.com/dail8859/NotepadNext)            |   ✔️    |              |                        |
 |                   [Notepads](https://www.notepadsapp.com)                   |   ✔️    |     UWP      |                        |
 |            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |   ✔️    |              |                        |
+|                    [OBS-Studio](https://obsproject.com)                     |   ✔️    |              |      直播录屏相关      |
 |                       [Obsidian](https://obsidian.md)                       |   ✔️    |              |                        |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |              |                        |
 |                     [PeaZip](https://peazip.github.io)                      |   ✔️    |              |                        |
