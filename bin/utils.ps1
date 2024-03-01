@@ -99,7 +99,7 @@ function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path
     $app = Split-Path $app_path -Leaf
     Write-Host (data_replace $json.shortcut) -f Green
 }
-function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file) {
+function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file, [switch]$HardLink) {
     if (!($dir -or $file)) {
         Write-Error (data_replace $json.persist_err)
         return
@@ -123,10 +123,15 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
             }
         }
         $job = Start-Job -ScriptBlock {
-            param($path_sudo, $_data, $_persist)
+            param($path_sudo, $_data, $_persist, $HardLink)
             if (Test-Path($_data)) { & $path_sudo Remove-Item -Force -Recurse $_data }
-            & $path_sudo New-Item -ItemType SymbolicLink $_data -Target $_persist
-        } -ArgumentList $path_sudo, $_data, $_persist
+            if ($HardLink) {
+                & $path_sudo New-Item -ItemType HardLink -Path $_data -Target $_persist
+            }
+            else {
+                & $path_sudo New-Item -ItemType SymbolicLink -Path $_data -Target $_persist
+            }
+        } -ArgumentList $path_sudo, $_data, $_persist, $HardLink
         $state = (Wait-Job $job).HasMoreData
         return $state
     }
