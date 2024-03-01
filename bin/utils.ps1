@@ -188,17 +188,16 @@ function sleep_uninstall([string]$path, $delay = 60, $duration = 0.3) {
             $flag++
         }
     }
+    stop_process $false $false
 }
-function stop_process([bool]$isRemove = $true, [string]$app_dir = $dir) {
-    Write-Host ($json.stop_process) -f Cyan
+function stop_process([bool]$isRemove = $true, [bool]$tip = $true, [string]$app_dir = $dir) {
+    if ($tip) { Write-Host ($json.stop_process) -f Cyan }
     $job = Start-Job -ScriptBlock {
         param($path_sudo, $path)
         & $path_sudo (Get-Process | Where-Object { $_.Modules.FileName -like "$path*" } | ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue })
     } -ArgumentList $path_sudo, $app_dir
     $null = Wait-Job $job
-    if ($isRemove) {
-        remove_file $app_dir
-    }
+    if ($isRemove) { remove_file $app_dir }
 }
 function confirm([string]$tip_info) {
     Write-Host $tip_info -f Yellow
