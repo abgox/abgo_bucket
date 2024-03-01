@@ -190,6 +190,7 @@
 |                       [Obsidian](https://obsidian.md)                       |   ✔️    |              |               |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |              |               |
 |                     [PeaZip](https://peazip.github.io)                      |   ✔️    |              |               |
+|                   [PicGo](https://molunerfinn.com/PicGo)                    |   ✔️    |              |               |
 |                       [PixPin](https://pixpinapp.com)                       |   ✔️    |              |               |
 |                    [Postman](https://www.getpostman.com)                    |   ✔️    |              |               |
 |                         [pot](https://pot-app.com)                          |   ✔️    |              |               |
