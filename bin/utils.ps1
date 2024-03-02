@@ -52,16 +52,16 @@ function less([array]$str_list, [scriptblock]$do = {}, [string]$color = 'Green',
         else { break }
     }
 }
-function create_file([string]$path, [switch]$is_dir) {
+function create_file([string]$path, [switch]$isDir) {
     $job = Start-Job -ScriptBlock {
-        param($path_sudo, $file, $is_dir)
-        if ($is_dir) {
+        param($path_sudo, $file, $isDir)
+        if ($isDir) {
             & $path_sudo New-Item -ItemType Directory $file
         }
         else {
             & $path_sudo New-Item $file
         }
-    } -ArgumentList $path_sudo, $path, $is_dir
+    } -ArgumentList $path_sudo, $path, $isDir
     $null = Wait-Job $job
 }
 function remove_file([string]$path) {
@@ -86,7 +86,7 @@ function move_file([string]$path, [string]$target) {
 function create_parent_dir([string]$path) {
     $parent_path = Split-Path $path -Parent
     if (!(Test-Path $parent_path)) {
-        create_file $parent_path -is_dir
+        create_file $parent_path -isDir
     }
 }
 function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
@@ -113,7 +113,7 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
             }
         }
         else {
-            if ($dir) { create_file $_persist -is_dir }
+            if ($dir) { create_file $_persist -isDir }
             elseif ($file) { create_file $_persist }
             if (Test-Path($_data)) {
                 $isLink = (Get-Item $_data).Attributes -match "ReparsePoint"
@@ -190,7 +190,7 @@ function sleep_uninstall([string]$path, $delay = 60, $duration = 0.3) {
     }
     stop_process $false $false
 }
-function stop_process([bool]$isRemove = $true, [bool]$tip = $true, [string]$app_dir = $dir) {
+function stop_process([bool]$isRemove = $true, [bool]$tip = $true, [string]$app_dir = (Split-Path $dir -Parent) + '\current') {
     if ($tip) { Write-Host ($json.stop_process) -f Cyan }
     $job = Start-Job -ScriptBlock {
         param($path_sudo, $path)
@@ -219,7 +219,7 @@ function confirm([string]$tip_info) {
         }
     }
 }
-function clean_redundant_files ([array]$files, $delay = 5, [switch]$tip) {
+function clean_redundant_files([array]$files, $delay = 5, [switch]$tip) {
     if ($tip) {
         Write-Host (data_replace $json.clean_redundant_files) -f Yellow
     }
