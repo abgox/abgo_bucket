@@ -1,5 +1,5 @@
 {
-    "version": "2023.2",
+    "version": "2024.1",
     "description": "一个轻量级的实用程序，使 Windows 任务栏半透明/透明。A lightweight utility that makes the Windows taskbar translucent/transparent.",
     "homepage": "https://github.com/TranslucentTB/TranslucentTB",
     "license": {
@@ -10,8 +10,8 @@
         "此应用的程序文件不在 Scoop 中。Scoop 只管理数据的持久化(persist)、安装、更新以及卸载操作。",
         "The app's program files are not within Scoop. Scoop only manages the persistence of data and operations for installing, updating, and uninstalling."
     ],
-    "url": "https://github.com/TranslucentTB/TranslucentTB/releases/download/2023.2/bundle.msixbundle",
-    "hash": "ed6ee7975ad1551a57b48f94da8fb6bf74875f5fd19e224bacb7ea9042ff03e8",
+    "url": "https://github.com/TranslucentTB/TranslucentTB/releases/download/2024.1/bundle.msixbundle",
+    "hash": "48bb52116c78164a2f49b306f4781b5885a4f98e149bbc48acf103b262560563",
     "pre_install": [
         "$path_msi=\"$dir\\bundle.msixbundle\"",
         "Add-AppPackage -Path $path_msi",
