@@ -1,5 +1,5 @@
 {
-    "version": "1.42.15",
+    "version": "1.42.15.0",
     "description": "指尖工具箱, Windows 效率工具",
     "homepage": "https://getquicker.net",
     "license": "Shareware",
@@ -32,8 +32,8 @@
         "remove_files @(\"$desktop\\Quicker.lnk\",\"$env:UserProfile\\Documents\\Quicker\",\"$env:LocalAppData\\Quicker\")"
     ],
     "checkver": {
-        "url": "https://getquicker.net/Download",
-        "regex": "Quicker.+v([\\d\\.]+)"
+        "url": "https://getquicker.net/open/api/quicker/versionhistory",
+        "jsonpath": "$[0].version"
     },
     "autoupdate": {
         "architecture": {
