@@ -65,7 +65,7 @@
 1. When using official or third-party `buckets`, there may be the following issues.
 
     - Some apps doesn't `persist` data.(Don't include apps that do not necessarily `persist` data.)
-        - `abgo_bucket` uses soft link to persist data, which is not limited to data in app directories, including app data under directories such as `$env: AppData` and `$env: LocalAppData`.
+        - `abgo_bucket` uses soft link to persist data, which is not limited to data in app directories, including app data under directories such as `$env:AppData` and `$env:LocalAppData`.
     - After uninstalling app, local data was not cleaned up. (e.g. the app's data under `$env:AppData`,`$env:LocalAppData` or other directory.)
         - When the app in `abgo_bucket` is uninstalled, all related app data will be deleted, and only the data in the `persist` directory will be retained.
         - If you use the `-p/--purge` parameter when uninstalling, the data in the `persist` directory will also be deleted.
@@ -84,7 +84,7 @@
 
 -   The apps in `abgo_bucket` will uses soft link to persist data, which is not limited to data in app directories.
 -   The strategy is **radical**. If there is a data directory, the app will `persist` the entire data directory instead of some important configuration files.
--   Take `Neovim` as an example. It will form two directories under `$env: LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
+-   Take `Neovim` as an example. It will form two directories under `$env:LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
     -   The advantage of it is that the software has a smooth and seamless user experience after reinstalling, but it may take up more storage space.
 
 #### ⚠︎ About `persist` directory changes ⚠︎
@@ -94,6 +94,13 @@
     -   Taking `GeekUninstaller` as an example:
         -   Before: `<your_scoop_path>\persist\geekuninstaller`
         -   After: `<your_scoop_path>\persist\geekuninstaller\Geek Uninstaller`
+
+### About Shortcut
+
+-   By default, apps in `abgo_bucket` automatically create desktop shortcuts when installing and updating.
+-   You can disable the creation of desktop shortcuts by running the command to add the `Scoop` configuration. `scoop config abgo_bucket_no_shortcut true`
+    -   Note that this configuration will only control desktop shortcuts created by the `abgo_bucket` script.
+    -   Some apps in `abgo_bucket` that are installed silently using the `.exe` program and are not subject to this configuration.
 
 ---
 

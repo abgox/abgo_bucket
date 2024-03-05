@@ -121,14 +121,16 @@ function create_parent_dir([string]$path) {
     }
 }
 function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
-    $WshShell = New-Object -comObject WScript.Shell
-    $Shortcut = $WshShell.CreateShortcut($lnk_path)
-    $Shortcut.TargetPath = $app_path
-    $Shortcut.WorkingDirectory = Split-Path $app_path -Parent
-    $Shortcut.IconLocation = $icon_path
-    $Shortcut.Save()
-    $app = Split-Path $app_path -Leaf
-    Write-Host (data_replace $json.shortcut) -f Green
+    if (!(scoop config abgo_bucket_no_shortcut)) {
+        $WshShell = New-Object -comObject WScript.Shell
+        $Shortcut = $WshShell.CreateShortcut($lnk_path)
+        $Shortcut.TargetPath = $app_path
+        $Shortcut.WorkingDirectory = Split-Path $app_path -Parent
+        $Shortcut.IconLocation = $icon_path
+        $Shortcut.Save()
+        $app = Split-Path $app_path -Leaf
+        Write-Host (data_replace $json.shortcut) -f Green
+    }
 }
 function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file, [switch]$HardLink) {
     if (!($dir -or $file)) {
