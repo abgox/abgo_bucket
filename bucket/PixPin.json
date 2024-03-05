@@ -15,6 +15,7 @@
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$dir\\Config\") @(\"$persist_dir\\Config\")",
+        "persist -dir @(\"$dir\\History\") @(\"$persist_dir\\History\")",
         "create_app_lnk \"$dir\\PixPin.exe\" \"$desktop\\PixPin.lnk\""
     ],
     "pre_uninstall": [
@@ -24,7 +25,9 @@
         "remove_files @(\"$desktop\\PixPin.lnk\")"
     ],
     "checkver": {
-        "regex": "PixPin_([\\d\\.]+)\\."
+        "url": "https://accounts.viewdepth.cn/deepviewapi/public/pixpin/info",
+        "jsonpath": "$.data.info",
+        "regex": "\"version\":\"(?<version>[\\d\\.]+)\""
     },
     "autoupdate": {
         "url": "https://download.pixpinapp.com/PixPin_$version.zip"
