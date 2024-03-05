@@ -38,7 +38,7 @@
         "}",
         "create_app_lnk \"$dir\\Snipaste.exe\" \"$desktop\\Snipaste.lnk\"",
         "$path_schedule=\"$scoopdir\\shims\\Snipaste_abgo_bucket_schedule_persist.cmd\"",
-        "\"@echo off`necho '$data_file'`necho '$persist_file'\" | Out-File $path_schedule",
+        "\"@echo off`necho $data_file`necho $persist_file\" | Out-File $path_schedule",
         "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Snipaste_abgo_bucket_schedule_persist\" \"$bucketsdir\\$bucket\\schedule\\Snipaste.ps1\""
     ],
     "pre_uninstall": [
