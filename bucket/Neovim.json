@@ -24,14 +24,14 @@
     ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:LocalAppData\\nvim\",\"$env:LocalAppData\\nvim-data\") @(\"$persist_dir\\nvim\",\"$persist_dir\\nvim-data\")",
+        "persist -dir @(\"$user_LocalAppData\\nvim\",\"$user_LocalAppData\\nvim-data\") @(\"$persist_dir\\nvim\",\"$persist_dir\\nvim-data\")",
         "create_app_lnk \"$dir\\bin\\nvim-qt.exe\" \"$desktop\\Neovim.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Neovim.lnk\",\"$env:LocalAppData\\nvim\",\"$env:LocalAppData\\nvim-data\")"
+        "remove_files @(\"$desktop\\Neovim.lnk\",\"$user_LocalAppData\\nvim\",\"$user_LocalAppData\\nvim-data\")"
     ],
     "checkver": {
         "github": "https://github.com/neovim/neovim"

@@ -24,7 +24,7 @@
             ],
             "pre_install": [
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-                "persist -dir @(\"$env:AppData\\RustDesk\") @(\"$persist_dir\\RustDesk\")",
+                "persist -dir @(\"$user_AppData\\RustDesk\") @(\"$persist_dir\\RustDesk\")",
                 "create_app_lnk \"$dir\\rustdesk-$($version)-x86_64.exe\" \"$desktop\\RustDesk.lnk\""
             ]
         },
@@ -45,7 +45,7 @@
             ],
             "pre_install": [
                 ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-                "persist -dir @(\"$env:AppData\\RustDesk\") @(\"$persist_dir\\RustDesk\")",
+                "persist -dir @(\"$user_AppData\\RustDesk\") @(\"$persist_dir\\RustDesk\")",
                 "create_app_lnk \"$dir\\rustdesk-$($version)-x86-sciter.exe\" \"$desktop\\RustDesk.lnk\""
             ]
         }
@@ -54,7 +54,7 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\RustDesk.lnk\",\"$env:AppData\\RustDesk\",\"$env:LocalAppData\\rustdesk\")"
+        "remove_files @(\"$desktop\\RustDesk.lnk\",\"$user_AppData\\RustDesk\",\"$user_LocalAppData\\rustdesk\")"
     ],
     "checkver": "github",
     "autoupdate": {

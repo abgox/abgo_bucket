@@ -17,18 +17,18 @@
         "& $path_exe /S /D=$dir",
         "$core_exe=\"$dir\\Zotero.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$env:AppData\\Zotero\") @(\"$persist_dir\\Zotero\")",
+        "persist -dir @(\"$user_AppData\\Zotero\") @(\"$persist_dir\\Zotero\")",
         "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\Zotero.lnk\") 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "remove_files @(\"$env:AppData\\Zotero\")",
+        "remove_files @(\"$user_AppData\\Zotero\")",
         "$ui_exe=\"$dir\\uninstall\\helper.exe\"",
         "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$env:LocalAppData\\Zotero\")"
+        "remove_files @(\"$user_LocalAppData\\Zotero\")"
     ],
     "checkver": {
         "url": "https://www.zotero.org/download/client/update/5.0.0/_/WINNT_x86-msvc/en-US/release/_/update.xml",

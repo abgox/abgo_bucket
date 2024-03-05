@@ -28,18 +28,18 @@
         "& $path_exe /S /D=$dir",
         "$core_exe=\"$dir\\draw.io.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$env:AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
+        "persist -dir @(\"$user_AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
         "clean_redundant_files @($path_exe) 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "remove_files @(\"$env:AppData\\draw.io\")",
+        "remove_files @(\"$user_AppData\\draw.io\")",
         "$ui_exe=\"$dir\\Uninstall draw.io.exe\"",
         "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$env:LocalAppData\\draw.io-updater\")"
+        "remove_files @(\"$user_LocalAppData\\draw.io-updater\")"
     ],
     "checkver": {
         "github": "https://github.com/jgraph/drawio-desktop"

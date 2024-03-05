@@ -21,7 +21,7 @@
         "& $path_exe /VerySilent /Dir=\"$dir\"",
         "$core_exe=\"$dir\\gopeed.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$dir\\extensions\",\"$env:AppData\\com\\gopeed\") @(\"$persist_dir\\extensions\",\"$persist_dir\\gopeed\")",
+        "persist -dir @(\"$dir\\extensions\",\"$user_AppData\\com\\gopeed\") @(\"$persist_dir\\extensions\",\"$persist_dir\\gopeed\")",
         "persist -file @(\"$dir\\gopeed.db\") @(\"$persist_dir\\gopeed.db\")",
         "create_app_lnk $core_exe \"$desktop\\Gopeed.lnk\"",
         "clean_redundant_files @($path_exe,\"$apps_lnk\\gopeed.lnk\") 15"
@@ -30,7 +30,7 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "remove_files @(\"$env:AppData\\com\\gopeed\")",
+        "remove_files @(\"$user_AppData\\com\\gopeed\")",
         "$ui_exe=\"$dir\\unins000.exe\"",
         "try{ & $ui_exe /VerySilent }catch{}",
         "sleep_uninstall $ui_exe",

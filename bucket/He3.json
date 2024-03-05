@@ -25,18 +25,18 @@
         "& $path_exe /S /D=$dir",
         "$core_exe=\"$dir\\He3.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$env:AppData\\he3\") @(\"$persist_dir\\he3\")",
+        "persist -dir @(\"$user_AppData\\he3\") @(\"$persist_dir\\he3\")",
         "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\He3.lnk\") 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "remove_files @(\"$env:AppData\\he3\")",
+        "remove_files @(\"$user_AppData\\he3\")",
         "$ui_exe=\"$dir\\Uninstall He3.exe\"",
         "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$env:LocalAppData\\he3-updater\")"
+        "remove_files @(\"$user_LocalAppData\\he3-updater\")"
     ],
     "checkver": {
         "url": "https://he3-1309519128.cos.accelerate.myqcloud.com/latest/latest.yml",

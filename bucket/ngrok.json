@@ -19,13 +19,13 @@
     "bin": "ngrok.exe",
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:LocalAppData\\ngrok\") @(\"$persist_dir\\ngrok\")"
+        "persist -dir @(\"$user_LocalAppData\\ngrok\") @(\"$persist_dir\\ngrok\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$env:LocalAppData\\ngrok\")"
+        "remove_files @(\"$user_LocalAppData\\ngrok\")"
     ],
     "checkver": {
         "url": "https://dl.equinox.io/ngrok/ngrok-v3/stable/archive",

@@ -17,18 +17,18 @@
         "& $path_exe /S /D=$dir",
         "$core_exe=\"$dir\\bilibili\\哔哩哔哩.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$env:AppData\\bilibili\") @(\"$persist_dir\\bilibili\")",
+        "persist -dir @(\"$user_AppData\\bilibili\") @(\"$persist_dir\\bilibili\")",
         "clean_redundant_files @($path_exe,\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\哔哩哔哩\",\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\哔哩哔哩.lnk\") 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "remove_files @(\"$env:AppData\\bilibili\")",
+        "remove_files @(\"$user_AppData\\bilibili\")",
         "$ui_exe=\"$dir\\bilibili\\卸载哔哩哔哩.exe\"",
         "& $ui_exe /S",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$env:LocalAppData\\bilibili-updater\")"
+        "remove_files @(\"$user_LocalAppData\\bilibili-updater\")"
     ],
     "checkver": {
         "script": [

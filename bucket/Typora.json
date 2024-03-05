@@ -30,14 +30,14 @@
     ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Typora\") @(\"$persist_dir\\Typora\")",
+        "persist -dir @(\"$user_AppData\\Typora\") @(\"$persist_dir\\Typora\")",
         "create_app_lnk \"$dir\\Typora.exe\" \"$desktop\\Typora.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Typora.lnk\",\"$env:AppData\\Typora\")"
+        "remove_files @(\"$desktop\\Typora.lnk\",\"$user_AppData\\Typora\")"
     ],
     "checkver": {
         "url": "https://typora.io/releases/stable",

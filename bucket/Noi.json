@@ -19,14 +19,14 @@
         "Copy-Item \"$dir\\temp\\lib\\net45\" \"$dir\\app\" -Recurse -Force",
         "remove_file \"$dir\\temp\"",
         "remove_file \"$dir\\_installer_.zip\"",
-        "persist -dir @(\"$env:AppData\\Noi\") @(\"$persist_dir\\Noi\")",
+        "persist -dir @(\"$user_AppData\\Noi\") @(\"$persist_dir\\Noi\")",
         "create_app_lnk \"$dir\\app\\Noi.exe\" \"$desktop\\Noi.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Noi.lnk\",\"$env:AppData\\Noi\",\"$env:LocalAppData\\noi\")"
+        "remove_files @(\"$desktop\\Noi.lnk\",\"$user_AppData\\Noi\",\"$user_LocalAppData\\noi\")"
     ],
     "checkver": {
         "github": "https://github.com/lencx/Noi"

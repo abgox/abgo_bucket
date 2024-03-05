@@ -28,18 +28,18 @@
         "& $path_exe /S /D=$dir",
         "$core_exe=\"$dir\\SwitchHosts.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$env:AppData\\SwitchHosts\",\"$env:UserProfile\\.SwitchHosts\") @(\"$persist_dir\\SwitchHosts\",\"$persist_dir\\.SwitchHosts\")",
+        "persist -dir @(\"$user_AppData\\SwitchHosts\",\"$env:UserProfile\\.SwitchHosts\") @(\"$persist_dir\\SwitchHosts\",\"$persist_dir\\.SwitchHosts\")",
         "clean_redundant_files @($path_exe,\"$apps_lnk\\SwitchHosts.lnk\") 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "remove_files @(\"$env:AppData\\SwitchHosts\",\"$env:UserProfile\\.SwitchHosts\")",
+        "remove_files @(\"$user_AppData\\SwitchHosts\",\"$env:UserProfile\\.SwitchHosts\")",
         "$ui_exe=\"$dir\\Uninstall SwitchHosts.exe\"",
         "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$env:LocalAppData\\switchhosts-updater\")"
+        "remove_files @(\"$user_LocalAppData\\switchhosts-updater\")"
     ],
     "checkver": {
         "url": "https://api.github.com/repositories/2312977/releases/latest",

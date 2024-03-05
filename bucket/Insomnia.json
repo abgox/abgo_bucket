@@ -29,14 +29,14 @@
     ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\Insomnia\") @(\"$persist_dir\\Insomnia\")",
+        "persist -dir @(\"$user_AppData\\Insomnia\") @(\"$persist_dir\\Insomnia\")",
         "create_app_lnk \"$dir\\Insomnia.exe\" \"$desktop\\Insomnia.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Insomnia.lnk\",\"$env:AppData\\Insomnia\")"
+        "remove_files @(\"$desktop\\Insomnia.lnk\",\"$user_AppData\\Insomnia\")"
     ],
     "checkver": {
         "url": "https://api.github.com/repositories/56899284/releases",

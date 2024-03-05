@@ -26,14 +26,14 @@
     ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\MusicPlayer2\") @(\"$persist_dir\\MusicPlayer2\")",
+        "persist -dir @(\"$user_AppData\\MusicPlayer2\") @(\"$persist_dir\\MusicPlayer2\")",
         "create_app_lnk \"$dir\\MusicPlayer2.exe\" \"$desktop\\MusicPlayer2.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\MusicPlayer2.lnk\",\"$env:AppData\\MusicPlayer2\")"
+        "remove_files @(\"$desktop\\MusicPlayer2.lnk\",\"$user_AppData\\MusicPlayer2\")"
     ],
     "checkver": "github",
     "autoupdate": {

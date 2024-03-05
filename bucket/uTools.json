@@ -25,18 +25,18 @@
         "& $path_exe /S /D=$dir",
         "$core_exe=\"$dir\\uTools.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$env:AppData\\uTools\") @(\"$persist_dir\\uTools\")",
+        "persist -dir @(\"$user_AppData\\uTools\") @(\"$persist_dir\\uTools\")",
         "clean_redundant_files @($path_exe,\"$apps_lnk\\uTools.lnk\") 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "remove_files @(\"$env:AppData\\uTools\")",
+        "remove_files @(\"$user_AppData\\uTools\")",
         "$ui_exe=\"$dir\\Uninstall uTools.exe\"",
         "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$env:LocalAppData\\utools-updater\")"
+        "remove_files @(\"$user_LocalAppData\\utools-updater\")"
     ],
     "checkver": "version:.+V([\\d\\.]+)",
     "autoupdate": {

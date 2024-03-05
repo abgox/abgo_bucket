@@ -20,18 +20,18 @@
         "& $path_exe /S /D=$dir",
         "$core_exe=\"$dir\\PicGo.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$env:AppData\\picgo\") @(\"$persist_dir\\picgo\")",
+        "persist -dir @(\"$user_AppData\\picgo\") @(\"$persist_dir\\picgo\")",
         "clean_redundant_files @($path_exe,\"$apps_lnk\\PicGo.lnk\") 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "remove_files @(\"$env:AppData\\picgo\")",
+        "remove_files @(\"$user_AppData\\picgo\")",
         "$ui_exe=\"$dir\\Uninstall PicGo.exe\"",
         "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$env:LocalAppData\\picgo-updater\")"
+        "remove_files @(\"$user_LocalAppData\\picgo-updater\")"
     ],
     "checkver": {
         "github": "https://github.com/Molunerfinn/PicGo"

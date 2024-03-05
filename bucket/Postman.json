@@ -17,14 +17,14 @@
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "Expand-7zipArchive \"$dir\\Postman-$($version)-full.nupkg\" \"$dir\" -ExtractDir 'lib\\net45' -Removal",
-        "persist -dir @(\"$env:AppData\\Postman\",\"$env:UserProfile\\Postman\") @(\"$persist_dir\\Postman\",\"$persist_dir\\Postman_User\")",
+        "persist -dir @(\"$user_AppData\\Postman\",\"$env:UserProfile\\Postman\") @(\"$persist_dir\\Postman\",\"$persist_dir\\Postman_User\")",
         "create_app_lnk \"$dir\\Postman.exe\" \"$desktop\\Postman.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Postman.lnk\",\"$env:AppData\\Postman\",\"$env:UserProfile\\Postman\")"
+        "remove_files @(\"$desktop\\Postman.lnk\",\"$user_AppData\\Postman\",\"$env:UserProfile\\Postman\")"
     ],
     "checkver": {
         "url": "https://dl.pstmn.io/changelog?channel=stable&platform=win64",

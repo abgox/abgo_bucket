@@ -24,13 +24,13 @@
     ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$env:AppData\\helix\") @(\"$persist_dir\\helix\")"
+        "persist -dir @(\"$user_AppData\\helix\") @(\"$persist_dir\\helix\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$env:AppData\\helix\",\"$env:LocalAppData\\helix\")"
+        "remove_files @(\"$user_AppData\\helix\",\"$user_LocalAppData\\helix\")"
     ],
     "checkver": {
         "github": "https://github.com/helix-editor/helix"

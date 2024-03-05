@@ -18,8 +18,8 @@
         "& $path_exe /S /D=$dir",
         "$core_exe=\"$dir\\FSViewer.exe\"",
         "sleep_install $core_exe",
-        "persist -file @(\"$env:LocalAppData\\FastStone\\FSIV\\FSSettings.db\") @(\"$persist_dir\\FSSettings.db\")",
-        "persist -file @(\"$env:LocalAppData\\FastStone\\FSIV\\HisFolderList.db\") @(\"$persist_dir\\HisFolderList.db\")",
+        "persist -file @(\"$user_LocalAppData\\FastStone\\FSIV\\FSSettings.db\") @(\"$persist_dir\\FSSettings.db\")",
+        "persist -file @(\"$user_LocalAppData\\FastStone\\FSIV\\HisFolderList.db\") @(\"$persist_dir\\HisFolderList.db\")",
         "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\FastStone Image Viewer\") 15"
     ],
     "pre_uninstall": [
@@ -29,7 +29,7 @@
         "$ui_exe=\"$dir\\uninst.exe\"",
         "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_files @(\"$env:LocalAppData\\FastStone\\FSIV\")"
+        "remove_files @(\"$user_LocalAppData\\FastStone\\FSIV\")"
     ],
     "checkver": {
         "url": "https://www.faststone.org/FSIVDownload.htm",

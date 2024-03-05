@@ -17,18 +17,18 @@
         "& $path_exe /S /D=$dir",
         "$core_exe=\"$dir\\KuGou.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$env:AppData\\KuGou8\") @(\"$persist_dir\\KuGou8\")",
+        "persist -dir @(\"$user_AppData\\KuGou8\") @(\"$persist_dir\\KuGou8\")",
         "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\酷狗音乐\",\"$admin_apps_lnk\\酷狗音乐.lnk\") 15"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process $false",
-        "remove_files @(\"$env:AppData\\KuGou8\")",
+        "remove_files @(\"$user_AppData\\KuGou8\")",
         "$ui_exe=\"$dir\\uninst.exe\"",
         "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe",
-        "remove_file \"$env:AppData\\KuGou8\""
+        "remove_file \"$user_AppData\\KuGou8\""
     ],
     "checkver": {
         "script": [

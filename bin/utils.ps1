@@ -8,14 +8,45 @@ try {
 catch {
     $lang = 'en-US'
 }
+function get_user_path_by_registry([string]$key) {
+    $folders_registry = 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
+    return Get-ItemProperty -Path $folders_registry -Name $key | Select-Object -ExpandProperty $key
+}
+$user_Desktop = get_user_path_by_registry 'Desktop'
+$user_Documents = get_user_path_by_registry 'Personal'
+$user_Downloads = get_user_path_by_registry '{374DE290-123F-4565-9164-39C4925E467B}'
+$user_Music = get_user_path_by_registry 'My Music'
+$user_Pictures = get_user_path_by_registry 'My Pictures'
+$user_Videos = get_user_path_by_registry 'My Video'
+$user_AppData = get_user_path_by_registry 'AppData'
+$user_LocalAppData = get_user_path_by_registry 'Local AppData'
+$user_Favorites = get_user_path_by_registry 'Favorites'
+$user_Programs = get_user_path_by_registry 'Programs'
+$user_Recent = get_user_path_by_registry 'Recent'
+$user_StartMenu = get_user_path_by_registry 'Start Menu'
+$user_Startup = get_user_path_by_registry 'Startup'
+
+function get_public_path_by_registry([string]$key) {
+    $folders_registry = 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
+    return Get-ItemProperty -Path $folders_registry -Name $key | Select-Object -ExpandProperty $key
+}
+
+$public_AppData = get_public_path_by_registry 'Common AppData'
+$public_Desktop = get_public_path_by_registry 'Common Desktop'
+$public_Documents = get_public_path_by_registry 'Common Documents'
+$public_Music = get_public_path_by_registry 'CommonMusic'
+$public_Pictures = get_public_path_by_registry 'CommonPictures'
+$public_Videos = get_public_path_by_registry 'CommonVideo'
+$public_Programs = get_public_path_by_registry 'Common Programs'
+$public_StartMenu = get_public_path_by_registry 'Common Start Menu'
+$public_Startup = get_public_path_by_registry 'Common Startup'
 
 $json = Get-Content -Path "$PSScriptRoot\lang\$lang.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 $path_sudo = "$PSScriptRoot\sudo.ps1"
-$apps_lnk = "$env:AppData\Microsoft\Windows\Start Menu\Programs"
-$admin_apps_lnk = 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs'
+$apps_lnk = $user_Programs
+$admin_apps_lnk = $public_Programs
 $scoop_apps_lnk = "$apps_lnk\Scoop Apps"
-$desktop = "$env:UserProfile\Desktop"
-$public_desktop = "$env:Public\Desktop"
+$desktop = $user_Desktop
 
 function data_replace($data) {
     $data = $data -join ''

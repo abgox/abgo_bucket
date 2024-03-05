@@ -23,7 +23,7 @@
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Joplin.lnk\",\"$env:AppData\\@joplin\",\"$env:AppData\\joplin\")"
+        "remove_files @(\"$desktop\\Joplin.lnk\",\"$user_AppData\\@joplin\",\"$user_AppData\\joplin\")"
     ],
     "checkver": {
         "github": "https://github.com/laurent22/joplin"
