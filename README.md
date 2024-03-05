@@ -24,7 +24,7 @@
     </a>
 </p>
 
--   [Scoop completion in PSCompletions ](https://github.com/abgox/PSCompletions "PSCompletions")is recommended.
+-   [Scoop completion in PSCompletions ](https://github.com/abgox/PSCompletions 'PSCompletions')is recommended.
 
 ### For ones familiar with Scoop
 
@@ -194,6 +194,7 @@
 |                     [PeaZip](https://peazip.github.io)                      |   ✔️    |              |                        |
 |                   [PicGo](https://molunerfinn.com/PicGo)                    |   ✔️    |              |                        |
 |                       [PixPin](https://pixpinapp.com)                       |   ✔️    |              |                        |
+|                     [PixPinBeta](https://pixpinapp.com)                     |   ✔️    |              |      PixPin Beta       |
 |                    [Postman](https://www.getpostman.com)                    |   ✔️    |              |                        |
 |                         [pot](https://pot-app.com)                          |   ✔️    |              |                        |
 |                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |              |                        |

@@ -24,7 +24,7 @@
     </a>
 </p>
 
--   推荐使用 [PSCompletions 项目中的 scoop 补全 ](https://gitee.com/abgox/PSCompletions "PSCompletions")
+-   推荐使用 [PSCompletions 项目中的 scoop 补全 ](https://gitee.com/abgox/PSCompletions 'PSCompletions')
 
 ### 正在使用 Scoop
 
@@ -196,6 +196,7 @@
 |                     [PeaZip](https://peazip.github.io)                      |   ✔️    |              |                        |
 |                   [PicGo](https://molunerfinn.com/PicGo)                    |   ✔️    |              |                        |
 |                       [PixPin](https://pixpinapp.com)                       |   ✔️    |              |                        |
+|                     [PixPinBeta](https://pixpinapp.com)                     |   ✔️    |              |      PixPin Beta       |
 |                    [Postman](https://www.getpostman.com)                    |   ✔️    |              |                        |
 |                         [pot](https://pot-app.com)                          |   ✔️    |              |                        |
 |                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |              |                        |
