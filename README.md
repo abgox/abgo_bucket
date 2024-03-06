@@ -99,8 +99,6 @@
 
 -   By default, apps in `abgo_bucket` automatically create desktop shortcuts when installing and updating.
 -   You can disable the creation of desktop shortcuts by running the command to add the `Scoop` configuration. `scoop config abgo_bucket_no_shortcut true`
-    -   Note that this configuration will only control desktop shortcuts created by the `abgo_bucket` script.
-    -   Some apps in `abgo_bucket` that are installed silently using the `.exe` program and are not subject to this configuration.
 
 ---
 

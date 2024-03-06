@@ -99,8 +99,6 @@
 
 -   `abgo_bucket` 中的应用默认会在安装和更新时，自动创建桌面快捷方式。
 -   你可以运行命令添加 `Scoop` 配置项来禁止创建桌面快捷方式。`scoop config abgo_bucket_no_shortcut true`
-    -   需要注意的是，这个配置项只会控制由 `abgo_bucket` 的脚本来创建的桌面快捷方式。
-    -   `abgo_bucket` 中的一些直接使用 `.exe` 程序静默安装的应用，不受此配置的限制。
 
 ---
 
