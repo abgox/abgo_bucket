@@ -179,7 +179,7 @@
 |                       [Knotes](https://knotesapp.cn)                        |   ✔️    |              |        糯词笔记        |
 |                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |              |                        |
 |                     [KuGouMusic](https://www.kugou.com)                     |   ✔️    |              |        酷狗音乐        |
-|                      [Lark](https://www.larksuite.com)                      |   ✔️    |              |                        |
+|                      [Lark](https://www.larksuite.com)                      |   ✔️    |              |       飞书国际版       |
 |                   [Lattics](https://lattics.zineapi.com)                    |   ✔️    |              |                        |
 |                     [Listary](https://www.listary.com)                      |   ✔️    |              |                        |
 |                     [LocalSend](https://localsend.org)                      |   ✔️    |              |                        |
@@ -249,4 +249,5 @@
 |              [XYplorerFree](https://www.xyplorer.com/free.php)              |   ✔️    | noAutoUpdate |                        |
 |        [YouDaoTranslate](https://fanyi.youdao.com/download-Windows)         |   ✔️    |   confirm    |      网易有道翻译      |
 |                       [YuQue](https://www.yuque.com)                        |   ✔️    |              |          语雀          |
+|                      [Z-Library](https://z-library.se)                      |   ✔️    |              |                        |
 |                      [Zotero](https://www.zotero.org)                       |   ✔️    |              |                        |
