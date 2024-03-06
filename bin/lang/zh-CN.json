@@ -12,7 +12,8 @@
         "函数(persist) 必须指定参数 -dir 或 -file\n",
         "函数(persist)被终止了，scoop 内置的 persist 配置项不受影响(如果配置了)"
     ],
-    "shortcut": "为程序 {{$app}} 创建快捷方式\n路径: {{$lnk_path}}\n",
+    "shortcut": "为程序 {{$app}} 创建快捷方式\n路径: {{$lnk_path}}\n如果你不需要桌面快捷方式，请运行以下命令:\nscoop config abgo_bucket_no_shortcut true\n",
+    "no_shortcut": "当前 Scoop 配置项 abgo_bucket_no_shortcut 的值为 true\n不会创建桌面快捷方式\n如果需要它，请运行以下命令:\nscoop config abgo_bucket_no_shortcut false\n",
     "stop_process": "尝试终止可能仍在运行的进程...",
     "download": {
         "exist": "{{$app}} 已经安装了最新版本({{$installed_version}})",
@@ -28,7 +29,9 @@
         "url": "下载地址: ",
         "download": "请手动点击下载\n并将下载完成的文件路径复制到此处: "
     },
-    "clean_redundant_files": "运行一个后台作业：{{$delay}} 秒后删除安装过程中产生的冗余文件\n",
+    "clean_redundant_files": "运行一个后台作业：删除安装过程中产生的冗余文件\n",
+    "remove_app_lnk": "当前 Scoop 配置项 abgo_bucket_no_shortcut 的值为 true\n将运行一个后台任务监控安装程序是否创建桌面快捷方式，如果创建了将立即删除它\n如果需要桌面快捷方式，请运行以下命令:\nscoop config abgo_bucket_no_shortcut false\n",
+    "no_remove_app_lnk": "如果你不需要桌面快捷方式，请运行以下命令:\nscoop config abgo_bucket_no_shortcut true\n",
     "remove": "移除 ",
     "uninstalling": "正在运行软件自带的卸载程序..."
 }

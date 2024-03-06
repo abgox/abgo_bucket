@@ -12,7 +12,8 @@
         "The function (persist) must specify the parameter -dir or -file.\n",
         "The function (persist) has been terminated, and the built-in option(persist) in Scoop is not affected (if it's configured)"
     ],
-    "shortcut": "Creating shortcut for {{$app}}\nPath: {{$lnk_path}}\n",
+    "shortcut": "Creating shortcut for {{$app}}\nPath: {{$lnk_path}}\nIf you don't need the desktop shortcut, run the following command:\nscoop config abgo_bucket_no_shortcut true\n",
+    "no_shortcut":"The current Scoop config 'abgo_bucket_no_shortcut' has a value of true.\nDesktop shortcuts are not created.\nIf you need the desktop shortcut, run the following command:\nscoop config abgo_bucket_no_shortcut false\n",
     "stop_process": "Try to stop possible Process...",
     "download": {
         "exist": "The latest version({{$installed_version}}) of {{$app}} is already installed.",
@@ -28,7 +29,9 @@
         "url": "Url: ",
         "download": "Please download manually.\nPlease enter the downloaded file path: "
     },
-    "clean_redundant_files": "Run a background job: Delete redundant files generated during the installation process after {{$delay}} seconds.\n",
+    "clean_redundant_files": "Run a background job: Delete redundant files generated during the installation process.\n",
+    "remove_app_lnk":"The current Scoop config 'abgo_bucket_no_shortcut' has a value of true.\nIt will run a background task to monitor if the installer create a desktop shortcut, and if it does, will delete it immediately.\nIf you need the desktop shortcut, run the following command:\nscoop config abgo_bucket_no_shortcut false\n",
+    "no_remove_app_lnk":"If you don't need the desktop shortcut, run the following command:\nscoop config abgo_bucket_no_shortcut true\n",
     "remove": "Removing ",
     "uninstalling": "Running the built-in uninstaller of this app..."
 }

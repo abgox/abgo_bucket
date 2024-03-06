@@ -33,7 +33,8 @@
         "$core_exe=\"$dir\\Obsidian.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\obsidian\",\"$user_Documents\\Obsidian Vault\") @(\"$persist_dir\\obsidian\",\"$persist_dir\\obsidian\\Obsidian Vault\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\Obsidian.lnk\") 15"
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\Obsidian.lnk\")",
+        "remove_app_lnk @(\"Obsidian.lnk\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

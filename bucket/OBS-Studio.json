@@ -21,7 +21,8 @@
         "$core_exe=\"$dir\\uninstall.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\obs-studio\") @(\"$persist_dir\\obs-studio\")",
-        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\OBS Studio\") 15"
+        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\OBS Studio\")",
+        "remove_app_lnk @(\"OBS Studio.lnk\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

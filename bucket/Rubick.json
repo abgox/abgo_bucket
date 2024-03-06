@@ -21,7 +21,8 @@
         "$core_exe=\"$dir\\rubick.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\rubick\") @(\"$persist_dir\\rubick\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\rubick.lnk\") 15"
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\rubick.lnk\")",
+        "remove_app_lnk @(\"rubick.lnk\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

@@ -21,7 +21,8 @@
         "$core_exe=\"$dir\\SiYuan.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\SiYuan\",\"$user_AppData\\SiYuan-Electron\") @(\"$persist_dir\\SiYuan\",\"$persist_dir\\SiYuan-Electron\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\SiYuan.lnk\") 15"
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\SiYuan.lnk\")",
+        "remove_app_lnk @(\"SiYuan.lnk\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

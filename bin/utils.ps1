@@ -12,18 +12,31 @@ function get_user_path_by_registry([string]$key) {
     $folders_registry = 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
     return Get-ItemProperty -Path $folders_registry -Name $key | Select-Object -ExpandProperty $key
 }
+
 $user_Desktop = get_user_path_by_registry 'Desktop'
 $user_Documents = get_user_path_by_registry 'Personal'
 $user_Downloads = get_user_path_by_registry '{374DE290-123F-4565-9164-39C4925E467B}'
 $user_Music = get_user_path_by_registry 'My Music'
 $user_Pictures = get_user_path_by_registry 'My Pictures'
 $user_Videos = get_user_path_by_registry 'My Video'
-$user_AppData = get_user_path_by_registry 'AppData'
-$user_LocalAppData = get_user_path_by_registry 'Local AppData'
 $user_Favorites = get_user_path_by_registry 'Favorites'
+
+# e.g. C:\Users\abgox\AppData\Roaming
+$user_AppData = get_user_path_by_registry 'AppData'
+
+# e.g. C:\Users\abgox\AppData\Local
+$user_LocalAppData = get_user_path_by_registry 'Local AppData'
+
+# e.g. C:\Users\abgox\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 $user_Programs = get_user_path_by_registry 'Programs'
+
+# e.g. C:\Users\abgox\AppData\Roaming\Microsoft\Windows\Recent
 $user_Recent = get_user_path_by_registry 'Recent'
+
+# e.g. C:\Users\abgox\AppData\Roaming\Microsoft\Windows\Start Menu
 $user_StartMenu = get_user_path_by_registry 'Start Menu'
+
+# e.g. C:\Users\abgox\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 $user_Startup = get_user_path_by_registry 'Startup'
 
 function get_public_path_by_registry([string]$key) {
@@ -31,14 +44,22 @@ function get_public_path_by_registry([string]$key) {
     return Get-ItemProperty -Path $folders_registry -Name $key | Select-Object -ExpandProperty $key
 }
 
-$public_AppData = get_public_path_by_registry 'Common AppData'
 $public_Desktop = get_public_path_by_registry 'Common Desktop'
 $public_Documents = get_public_path_by_registry 'Common Documents'
 $public_Music = get_public_path_by_registry 'CommonMusic'
 $public_Pictures = get_public_path_by_registry 'CommonPictures'
 $public_Videos = get_public_path_by_registry 'CommonVideo'
+
+# e.g. C:\ProgramData
+$public_AppData = get_public_path_by_registry 'Common AppData'
+
+# e.g. C:\ProgramData\Microsoft\Windows\Start Menu\Programs
 $public_Programs = get_public_path_by_registry 'Common Programs'
+
+# e.g. C:\ProgramData\Microsoft\Windows\Start Menu
 $public_StartMenu = get_public_path_by_registry 'Common Start Menu'
+
+# e.g. C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
 $public_Startup = get_public_path_by_registry 'Common Startup'
 
 $json = Get-Content -Path "$PSScriptRoot\lang\$lang.json" -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -47,6 +68,10 @@ $apps_lnk = $user_Programs
 $admin_apps_lnk = $public_Programs
 $scoop_apps_lnk = "$apps_lnk\Scoop Apps"
 $desktop = $user_Desktop
+
+$show_info = @{
+    no_shortcut = 1
+}
 
 function data_replace($data) {
     $data = $data -join ''
@@ -121,7 +146,12 @@ function create_parent_dir([string]$path) {
     }
 }
 function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
-    if (!(scoop config abgo_bucket_no_shortcut)) {
+    if (scoop config abgo_bucket_no_shortcut) {
+        if ($show_info.no_shortcut -eq 1) {
+            Write-Host $json.no_shortcut -f Yellow
+        }
+    }
+    else {
         $WshShell = New-Object -comObject WScript.Shell
         $Shortcut = $WshShell.CreateShortcut($lnk_path)
         $Shortcut.TargetPath = $app_path
@@ -129,7 +159,45 @@ function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path
         $Shortcut.IconLocation = $icon_path
         $Shortcut.Save()
         $app = Split-Path $app_path -Leaf
-        Write-Host (data_replace $json.shortcut) -f Green
+        if ($show_info.no_shortcut -eq 1) {
+            Write-Host (data_replace $json.shortcut) -f Green
+        }
+    }
+    $show_info.no_shortcut++
+}
+function remove_app_lnk([array]$lnk_name, $delay = 60, $duration = 0.3) {
+    if (scoop config abgo_bucket_no_shortcut) {
+        Write-Host $json.remove_app_lnk -f Yellow
+        $lnk = $lnk_name | ForEach-Object {
+            Join-Path $user_Desktop $_
+            Join-Path $public_Desktop $_
+        }
+        $lnk | ForEach-Object {
+            $null = Start-Job -ScriptBlock {
+                param($path_sudo, $file, $delay, $duration)
+                $flag = 0
+                $num = $delay / $duration
+                while ($true) {
+                    if (Test-Path($file)) {
+                        & $path_sudo Remove-Item -Force -Recurse $file
+                        $directory = Split-Path $file -Parent
+                        $items = Get-ChildItem -Path $directory -Force
+                        if ($items.Count -eq 0) {
+                            & $path_sudo Remove-Item -Force -Recurse $directory
+                        }
+                        break
+                    }
+                    if ($flag -ge $num) {
+                        break
+                    }
+                    $flag++
+                    Start-Sleep -Seconds $duration
+                }
+            } -ArgumentList $path_sudo, $_, $delay, $duration
+        }
+    }
+    else {
+        Write-Host $json.no_remove_app_lnk -f Yellow
     }
 }
 function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file, [switch]$HardLink) {
@@ -254,25 +322,33 @@ function confirm([string]$tip_info) {
         }
     }
 }
-function clean_redundant_files([array]$files, $delay = 5, [switch]$tip) {
+function clean_redundant_files([array]$files, $delay = 60, $duration = 0.3, [switch]$tip) {
     if ($tip) {
         Write-Host (data_replace $json.clean_redundant_files) -f Yellow
     }
     $files | ForEach-Object {
         $null = Start-Job -ScriptBlock {
-            param($path_sudo, $delay)
-            Start-Sleep -Seconds $delay
-            $args | ForEach-Object {
-                if (Test-Path($_)) {
-                    & $path_sudo Remove-Item -Force -Recurse $_
-                    $directory = Split-Path $_ -Parent
+            param($path_sudo, $file, $delay, $duration)
+            $flag = 0
+            $num = $delay / $duration
+            if ($file -like "*.exe") { Start-Sleep -Seconds 30 }
+            while ($true) {
+                if (Test-Path($file)) {
+                    & $path_sudo Remove-Item -Force -Recurse $file
+                    $directory = Split-Path $file -Parent
                     $items = Get-ChildItem -Path $directory -Force
                     if ($items.Count -eq 0) {
                         & $path_sudo Remove-Item -Force -Recurse $directory
                     }
+                    break
                 }
+                if ($flag -ge $num) {
+                    break
+                }
+                $flag++
+                Start-Sleep -Seconds $duration
             }
-        } -ArgumentList $path_sudo, $delay, $_
+        } -ArgumentList $path_sudo, $_, $delay, $duration
     }
 }
 function remove_files([array]$files) {
@@ -301,7 +377,6 @@ function get_installer_info([string]$app) {
     }
     $installer_info
 }
-
 function handle_lang([scriptblock]$CN = {}, [scriptblock]$EN = {}) {
     if ($lang -eq 'zh-CN') { & $CN }else { & $EN }
 }

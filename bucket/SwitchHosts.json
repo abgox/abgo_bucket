@@ -29,7 +29,8 @@
         "$core_exe=\"$dir\\SwitchHosts.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\SwitchHosts\",\"$env:UserProfile\\.SwitchHosts\") @(\"$persist_dir\\SwitchHosts\",\"$persist_dir\\.SwitchHosts\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\SwitchHosts.lnk\") 15"
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\SwitchHosts.lnk\")",
+        "remove_app_lnk @(\"SwitchHosts.lnk\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

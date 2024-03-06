@@ -41,6 +41,7 @@
                 "if($data_arr.Count -gt 0){",
                 "   persist -file $data_arr $persist_arr",
                 "}",
+                "persist -dir @(\"$dir\\Capture\",\"$dir\\Extension\",\"$dir\\Extention\",\"$dir\\IconPack\",\"$dir\\Logos\",\"$dir\\Module\",\"$dir\\Playlist\",\"$dir\\PxShader\",\"$dir\\Skins\",\"$dir\\UrlList\") @(\"$persist_dir\\Capture\",\"$persist_dir\\Extension\",\"$persist_dir\\Extention\",\"$persist_dir\\IconPack\",\"$persist_dir\\Logos\",\"$persist_dir\\Module\",\"$persist_dir\\Playlist\",\"$persist_dir\\PxShader\",\"$persist_dir\\Skins\",\"$persist_dir\\UrlList\")",
                 "create_app_lnk \"$dir\\PotPlayer64.exe\" \"$desktop\\PotPlayer.lnk\"",
                 "create_app_lnk \"$dir\\PotPlayerMini64.exe\" \"$desktop\\PotPlayer Mini.lnk\""
             ]
@@ -79,23 +80,12 @@
                 "if($data_arr.Count -gt 0){",
                 "   persist -file $data_arr $persist_arr",
                 "}",
+                "persist -dir @(\"$dir\\Capture\",\"$dir\\Extension\",\"$dir\\Extention\",\"$dir\\IconPack\",\"$dir\\Logos\",\"$dir\\Module\",\"$dir\\Playlist\",\"$dir\\PxShader\",\"$dir\\Skins\",\"$dir\\UrlList\") @(\"$persist_dir\\Capture\",\"$persist_dir\\Extension\",\"$persist_dir\\Extention\",\"$persist_dir\\IconPack\",\"$persist_dir\\Logos\",\"$persist_dir\\Module\",\"$persist_dir\\Playlist\",\"$persist_dir\\PxShader\",\"$persist_dir\\Skins\",\"$persist_dir\\UrlList\")",
                 "create_app_lnk \"$dir\\PotPlayer.exe\" \"$desktop\\PotPlayer.lnk\"",
                 "create_app_lnk \"$dir\\PotPlayerMini.exe\" \"$desktop\\PotPlayer Mini.lnk\""
             ]
         }
     },
-    "persist": [
-        "Capture",
-        "Extension",
-        "Extention",
-        "IconPack",
-        "Logos",
-        "Module",
-        "Playlist",
-        "PxShader",
-        "Skins",
-        "UrlList"
-    ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",

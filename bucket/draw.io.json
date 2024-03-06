@@ -29,7 +29,8 @@
         "$core_exe=\"$dir\\draw.io.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
-        "clean_redundant_files @($path_exe) 15"
+        "clean_redundant_files @($path_exe,\"$public_Programs\\draw.io.lnk\")",
+        "remove_app_lnk @(\"draw.io.lnk\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

@@ -21,7 +21,8 @@
         "$core_exe=\"$dir\\PicGo.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\picgo\") @(\"$persist_dir\\picgo\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\PicGo.lnk\") 15"
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\PicGo.lnk\")",
+        "remove_app_lnk @(\"PicGo.lnk\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

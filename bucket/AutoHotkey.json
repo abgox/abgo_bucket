@@ -21,7 +21,7 @@
         "sleep_install \"$dir\\UX\\AutoHotkeyUX.exe\"",
         "persist -dir @(\"$user_Documents\\AutoHotkey\") @(\"$persist_dir\\AutoHotkey\")",
         "create_app_lnk \"$dir\\UX\\ui-dash.ahk\" \"$desktop\\AutoHotkey Dash.lnk\" \"$dir\\UX\\AutoHotkeyUX.exe\"",
-        "clean_redundant_files @(\"$dir\\AutoHotkey_$($version)_setup.exe\") 15"
+        "clean_redundant_files @(\"$dir\\AutoHotkey_$($version)_setup.exe\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
