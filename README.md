@@ -147,6 +147,7 @@
 |                       [DevToys](https://devtoys.app)                        |   ✔️    |     UWP      |                        |
 |                  [Ditto](https://ditto-cp.sourceforge.io)                   |   ✔️    |              |                        |
 |               [Dnest](https://github.com/davidkane0526/Dnest)               |   ➖    |              |                        |
+|                      [DouYin](https://www.douyin.com)                       |   ✔️    |              |          抖音          |
 |               [DownKyi](https://leiurayer.github.io/downkyi)                |   ✔️    |              |                        |
 |                     [draw.io](https://www.diagrams.net)                     |   ✔️    |              |                        |
 |                   [Dropit](http://www.dropitproject.com)                    |   ✔️    |              |                        |
