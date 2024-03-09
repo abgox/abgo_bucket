@@ -243,6 +243,7 @@
 |                     [WeChat](https://pc.weixin.qq.com)                      |   ✔️    |              |          微信          |
 |                       [WeekToDo](https://weektodo.me)                       |   ✔️    |              |                        |
 |               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    |              |        桌面组件        |
+|                        [WinRAR](https://rarlab.com)                         |   ✔️    |              |                        |
 |               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |          妙笔          |
 |                   [Writeathon](https://www.writeathon.cn)                   |   ✔️    |              |                        |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |       小白羊云盘       |
