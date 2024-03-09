@@ -1,0 +1,61 @@
+{
+    "version": "7.00",
+    "description": "一款功能强大的存档器（RAR 和 ZIP）和解压工具，可打开所有流行的文件格式。A powerful archiver (RAR and ZIP) and extractor tool that can open all popular file formats.",
+    "homepage": "https://rarlab.com/",
+    "license": {
+        "identifier": "Shareware",
+        "url": "https://www.win-rar.com/gtb_priv.html?&L=0"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.rarlab.com/rar/winrar-x64-700sc.exe#/_installer_.exe",
+            "hash": "89138f654b92b73afb316d47a7634e0a957de0134217f6d61db6a1a933f27a51"
+        },
+        "32bit": {
+            "url": "https://www.rarlab.com/rar/winrar-x32-700sc.exe#/_installer_.exe",
+            "hash": "d53ccc5fcb207f228068074e9f8c013e41c4434d6d117ed4681dca47af16a3ec"
+        }
+    },
+    "bin": [
+        "Rar.exe",
+        "UnRAR.exe",
+        "WinRAR.exe"
+    ],
+    "shortcuts": [
+        [
+            "WinRAR.exe",
+            "WinRAR"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D\"$dir\"",
+        "$core_exe=\"$dir\\WinRAR.exe\"",
+        "sleep_install $core_exe",
+        "persist -dir @(\"$dir\\Themes\") @(\"$persist_dir\\Themes\")",
+        "persist -file @(\"$dir\\WinRAR.ini\",\"$dir\\rarreg.key\") @(\"$persist_dir\\WinRAR.ini\",\"$persist_dir\\rarreg.key\")",
+        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\WinRAR\",\"$apps_lnk\\WinRAR\")",
+        "create_app_lnk \"$dir\\WinRAR.exe\" \"$desktop\\WinRAR.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "$ui_exe=\"$dir\\Uninstall.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$user_AppData\\WinRAR\")"
+    ],
+    "checkver": "WinRAR and RAR ([\\d.]+) release",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.rarlab.com/rar/winrar-x64-$cleanVersionsc.exe#/_installer_.exe"
+            },
+            "32bit": {
+                "url": "https://www.rarlab.com/rar/winrar-x32-$cleanVersionsc.exe#/_installer_.exe"
+            }
+        }
+    }
+}
