@@ -23,19 +23,10 @@
         "remove_files @(\"$desktop\\阿里云盘.lnk\",\"$user_AppData\\aDrive\")"
     ],
     "checkver": {
-        "script": [
-            ". \"$pwd\\bin\\utils.ps1\"",
-            "$dl_info = get_installer_info 'Alibaba/aDrive'",
-            "\"ver:$($dl_info.PackageVersion);\"",
-            "\"x86:$($dl_info.x86_exe.InstallerUrl);\""
-        ],
-        "regex": "ver:(?<version>.+?); x86:(?<x86>.+?);"
+        "url": "https://www.aliyundrive.com/desktop/version/update.json",
+        "regex": "/([\\d\\.]+)"
     },
     "autoupdate": {
-        "url": "$matchX86#/dl.7z",
-        "hash": {
-            "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/a/Alibaba/aDrive/$version/Alibaba.aDrive.installer.yaml",
-            "regex": "Architecture: x86[\\s\\S]+?InstallerSha256:\\s?(.+)"
-        }
+        "url": "https://cdn.aliyundrive.net/downloads/apps/desktop/update/$version/win32/ia32/aDrive-$version.exe#/dl.7z"
     }
 }
