@@ -119,7 +119,7 @@
     -   **`Tag`**
         -   `run` : Run the app once after installing.
         -   `UWP` : A `UWP` app. The app's program files are not within `Scoop`. `Scoop` only manages the persistence of data and operations for installing, updating, and uninstalling.
-        -   `confirm` : The app has a command line interactive confirmation when uninstalling.
+        -   `confirm` : The app has a command line(or uninstaller) interactive confirmation when uninstalling.
         -   `noAutoUpdate` : `json.autoupdate` are not configured, and Scoop cannot automatically detect updates.
         -   `invalid` : Invalid app placed in the deprecated folder. It may be removed from the list in the future.
     -   **`Note`**: Some other information.
@@ -243,6 +243,7 @@
 |               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    |              |        桌面组件        |
 |                       [WinRAR-CN](https://rarlab.com)                       |   ✔️    |              |     WinRAR 中文版      |
 |                        [WinRAR](https://rarlab.com)                         |   ✔️    |              |                        |
+|        [WiseCare365](https://www.wisecleaner.com/wise-care-365.html)        |   ✔️    |   confirm    |                        |
 |               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |          妙笔          |
 |                   [Writeathon](https://www.writeathon.cn)                   |   ✔️    |              |                        |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |       小白羊云盘       |

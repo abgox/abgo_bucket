@@ -120,7 +120,7 @@
 
         -   `run` ：安装后会立即运行一次。
         -   `UWP` ：一个 `UWP` 应用，此应用的程序文件不在 `Scoop` 中。`Scoop` 只管理数据的持久化(`persist`)、安装、更新以及卸载操作。
-        -   `confirm` : 应用在卸载时有一个命令行交互确认
+        -   `confirm` : 应用在卸载时有一个命令行(或卸载程序)交互确认
         -   `noAutoUpdate` : `json.autoupdate` 未配置，Scoop 无法自动检测更新
         -   `invalid` ：无效应用，已放入 deprecated(废弃) 文件夹中，未来可能从清单中移除。
 
@@ -245,6 +245,7 @@
 |               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    |              |        桌面组件        |
 |                       [WinRAR-CN](https://rarlab.com)                       |   ✔️    |              |     WinRAR 中文版      |
 |                        [WinRAR](https://rarlab.com)                         |   ✔️    |              |                        |
+|        [WiseCare365](https://www.wisecleaner.com/wise-care-365.html)        |   ✔️    |   confirm    |                        |
 |               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |          妙笔          |
 |                   [Writeathon](https://www.writeathon.cn)                   |   ✔️    |              |                        |
 |            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |       小白羊云盘       |
