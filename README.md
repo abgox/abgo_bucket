@@ -130,6 +130,7 @@
 | :-------------------------------------------------------------------------: | :-----: | :----------: | :--------------------: |
 |              [1History](https://github.com/1History/1History)               |   ➖    |              |                        |
 |                          [7zip](https://7-zip.org)                          |   ➖    |   confirm    |                        |
+|                      [123pan](https://www.123pan.com)                       |   ✔️    |              |        123 云盘        |
 |                        [aardio](https://aardio.com)                         |   ✔️    |              |                        |
 |                    [AdsPower](https://www.adspower.net)                     |   ✔️    |              |       指纹浏览器       |
 |                        [AFFINE](https://affine.pro)                         |   ✔️    |              |                        |
