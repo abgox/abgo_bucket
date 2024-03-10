@@ -1,0 +1,43 @@
+{
+    "version": "1.10.0",
+    "description": "一个快速且 Git 友好的开源 API 客户端。A Fast and Git-Friendly OpenSource API client.",
+    "homepage": "https://www.usebruno.com/",
+    "license": {
+        "identifier": "MIT",
+        "url": "https://github.com/usebruno/bruno/blob/main/license.md"
+    },
+    "url": "https://github.com/usebruno/bruno/releases/download/v1.10.0/bruno_1.10.0_x64_win.exe#/_installer_.exe",
+    "hash": "bdd17b809e821ae635510880f2140ff70ee86aebccfbecf2952c62a5dce574b2",
+    "shortcuts": [
+        [
+            "Bruno.exe",
+            "Bruno"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "$core_exe=\"$dir\\Bruno.exe\"",
+        "sleep_install $core_exe",
+        "persist -dir @(\"$user_AppData\\bruno\") @(\"$persist_dir\\bruno\")",
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\Bruno.lnk\")",
+        "remove_app_lnk @(\"Bruno.lnk\")"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "remove_files @(\"$user_AppData\\bruno\")",
+        "$ui_exe=\"$dir\\Uninstall Bruno.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$user_LocalAppData\\bruno-updater\")"
+    ],
+    "checkver": {
+        "github": "https://github.com/usebruno/bruno"
+    },
+    "autoupdate": {
+        "url": "https://github.com/usebruno/bruno/releases/download/v$version/bruno_$version_x64_win.exe#/_installer_.exe"
+    }
+}

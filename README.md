@@ -140,6 +140,7 @@
 |                  [BaiduTranslate](https://fanyi.baidu.com)                  |   ✔️    |              |        百度翻译        |
 |                    [Bilibili](https://app.bilibili.com)                     |   ✔️    |              |        哔哩哔哩        |
 |        [BitMeterOS](https://codebox.net/pages/bitmeteros-downloads)         |   ➖    |              |                        |
+|                      [Bruno](https://www.usebruno.com)                      |   ✔️    |              |                        |
 |                       [Carnac](http://carnackeys.com)                       |   ✔️    |              |                        |
 |                      [Chatbox](https://chatboxai.app)                       |   ✔️    |              |                        |
 |                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |                        |
