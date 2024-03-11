@@ -185,6 +185,7 @@
 |                     [Listary](https://www.listary.com)                      |   ✔️    |              |                        |
 |                     [LocalSend](https://localsend.org)                      |   ✔️    |              |                        |
 |                    [LX-Music](https://docs.lxmusic.top)                     |   ✔️    |              |      洛雪音乐助手      |
+|                   [Mailpit](https://mailpit.axllent.org)                    |   ➖    |              |                        |
 |           [Manuskript](https://github.com/olivierkes/manuskript)            |   ➖    |              |                        |
 |                     [MarkLion](https://www.marklion.cn)                     |   ✔️    |              |         标记狮         |
 |                     [MarkText](https://www.marktext.cc)                     |   ✔️    |              |                        |
