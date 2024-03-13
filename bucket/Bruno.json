@@ -1,13 +1,13 @@
 {
-    "version": "1.10.0",
+    "version": "1.11.0",
     "description": "一个快速且 Git 友好的开源 API 客户端。A Fast and Git-Friendly OpenSource API client.",
     "homepage": "https://www.usebruno.com/",
     "license": {
         "identifier": "MIT",
         "url": "https://github.com/usebruno/bruno/blob/main/license.md"
     },
-    "url": "https://github.com/usebruno/bruno/releases/download/v1.10.0/bruno_1.10.0_x64_win.exe#/_installer_.exe",
-    "hash": "bdd17b809e821ae635510880f2140ff70ee86aebccfbecf2952c62a5dce574b2",
+    "url": "https://github.com/usebruno/bruno/releases/download/v1.11.0/bruno_1.11.0_x64_win.exe#/_installer_.exe",
+    "hash": "ae57646c7363cfe42f4a378de00fde577661c2bb7c48f6d70bff34a17e0bbcef",
     "shortcuts": [
         [
             "Bruno.exe",
