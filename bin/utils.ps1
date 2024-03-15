@@ -302,6 +302,15 @@ function stop_process([bool]$isRemove = $true, [bool]$tip = $true, [string]$app_
     $null = Wait-Job $job
     if ($isRemove) { remove_file $app_dir }
 }
+function stop_exe($exeName, [switch]$tip) {
+    if ($tip) { Write-Host ($json.stop_process) -f Cyan }
+    $job = Start-Job -ScriptBlock {
+        param($path_sudo, $exeName)
+        & $path_sudo (Get-Process | Where-Object { $_.ProcessName -eq $exeName } |  ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue })
+    } -ArgumentList $path_sudo, $exeName
+    $null = Wait-Job $job
+}
+
 function confirm([string]$tip_info) {
     Write-Host $tip_info -f Yellow
     while ($true) {
