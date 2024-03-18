@@ -161,6 +161,7 @@
 |                [Flow-Launcher](https://www.flowlauncher.com)                |   ✔️    |              |                        |
 |                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    |              |                        |
 |                    [fnm](https://github.com/Schniz/fnm)                     |   ➖    |              |                        |
+|                         [Fonger](http://morin.vin)                          |   ✔️    |              |        方格音乐        |
 |          [FSViewer](https://www.faststone.org/FSViewerDetail.htm)           |   ✔️    |              | FastStone Image Viewer |
 |           [FastGithub](https://github.com/dotnetcore/FastGithub)            |   ➖    | noAutoUpdate |                        |
 |                       [FeiShu](https://www.feishu.cn)                       |   ✔️    |              |          飞书          |
