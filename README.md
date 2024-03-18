@@ -235,6 +235,7 @@
 |                    [TTime](https://ttime.timerecord.cn)                     |   ✔️    |              |                        |
 |                [tts-vue](https://github.com/LokerL/tts-vue)                 |   ✔️    |              |                        |
 |                         [Typora](https://typora.io)                         |   ✔️    |              |                        |
+|                       [TyporaFree](https://typora.io)                       |   ✔️    | noAutoUpdate |                        |
 |   [uncle-novel](https://uncle-novel.github.io/uncle-novel-official-site)    |   ✔️    |              |       Uncle 小说       |
 |                     [Uninstalr](https://uninstalr.com)                      |   ➖    |              |                        |
 |                [Upscayl](https://github.com/upscayl/upscayl)                |   ✔️    |              |                        |
