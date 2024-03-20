@@ -203,6 +203,7 @@
 |                    [OBS-Studio](https://obsproject.com)                     |   ✔️    |              |      直播录屏相关      |
 |                       [Obsidian](https://obsidian.md)                       |   ✔️    |              |                        |
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |              |                        |
+|                     [PDFgear](https://www.pdfgear.com)                      |   ✔️    |              |                        |
 |                     [PeaZip](https://peazip.github.io)                      |   ✔️    |              |                        |
 |                   [PicGo](https://molunerfinn.com/PicGo)                    |   ✔️    |              |                        |
 |                       [PixPin](https://pixpinapp.com)                       |   ✔️    |              |                        |
