@@ -1,0 +1,41 @@
+{
+    "version": "0.30",
+    "description": "人工智能优先的代码编辑器。The AI-first Code Editor.",
+    "homepage": "https://cursor.sh/",
+    "license": "Unknown",
+    "url": "https://download.cursor.sh/windows/nsis/x64#/_installer_.exe",
+    "hash": "db4d7f6821e7e83e9d640ccab748e5561448ab5dacb936c7f4127230ca89a6b2",
+    "shortcuts": [
+        [
+            "Cursor.exe",
+            "Cursor"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "$core_exe=\"$dir\\Cursor.exe\"",
+        "sleep_install $core_exe",
+        "persist -dir @(\"$user_AppData\\Cursor\") @(\"$persist_dir\\Cursor\")",
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\Cursor.lnk\")",
+        "remove_app_lnk @(\"Cursor.lnk\")"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "remove_files @(\"$user_AppData\\Cursor\")",
+        "$ui_exe=\"$dir\\Uninstall Cursor.exe\"",
+        "& $ui_exe /S",
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$user_LocalAppData\\cursor-updater\")"
+    ],
+    "checkver": {
+        "url": "https://changelog.cursor.sh/?",
+        "regex": "h2.+?>([\\d\\.]+) -"
+    },
+    "autoupdate": {
+        "url": "https://download.cursor.sh/windows/nsis/x64#/_installer_.exe"
+    }
+}
