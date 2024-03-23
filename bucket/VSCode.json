@@ -8,51 +8,57 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://update.code.visualstudio.com/1.87.2/win32-x64-archive/stable#/dl.7z",
-            "hash": "564d545cc1099bcb48c7eb5b5efb292d7dea2e02a37d8bd84a907e171f3092ce"
+            "url": "https://update.code.visualstudio.com/1.87.2/win32-x64-user/stable#/_installer_.exe",
+            "hash": "7bda1c7dfc670489155db2f8fc1f48c209b92fb6145a320d677dccf0bce921b6"
         },
         "arm64": {
-            "url": "https://update.code.visualstudio.com/1.87.2/win32-arm64-archive/stable#/dl.7z",
-            "hash": "a63c75550322fca979e672d09cc46385d02d1e7a9d07f12b2b078af4f4005478"
+            "url": "https://update.code.visualstudio.com/1.87.2/win32-arm64-user/stable#/_installer_.exe",
+            "hash": "c91bd092b71c3d948bb8f32fc5f83e454f4ec90eee7b0e9cf58decf880fea54e"
         }
     },
-    "env_add_path": "bin",
     "shortcuts": [
         [
-            "code.exe",
+            "Code.exe",
             "Visual Studio Code"
         ]
     ],
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /VerySilent /Dir=\"$dir\"",
+        "$core_exe=\"$dir\\Code.exe\"",
         "persist -dir @(\"$user_AppData\\Code\",\"$env:UserProfile\\.vscode\") @(\"$persist_dir\\Code\",\"$persist_dir\\.vscode\")",
+        "sleep_install $core_exe",
         "create_app_lnk \"$dir\\Code.exe\" \"$desktop\\VS Code.lnk\"",
-        "clean_redundant_files @(\"$apps_lnk\\Visual Studio Code\")"
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\Visual Studio Code\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process",
-        "remove_files @(\"$desktop\\VS Code.lnk\",\"$user_AppData\\Code\",\"$env:UserProfile\\.vscode\")"
+        "stop_process $false",
+        "remove_files @(\"$desktop\\VS Code.lnk\",\"$user_AppData\\Code\",\"$env:UserProfile\\.vscode\")",
+        "$ui_exe=\"$dir\\unins000.exe\"",
+        "try{ & $ui_exe /VerySilent }catch{}",
+        "sleep_uninstall $ui_exe"
     ],
     "checkver": {
         "url": "https://code.visualstudio.com/sha?build=stable",
-        "jsonpath": "$.products[?(@.platform.os == 'win32-x64-archive')].name"
+        "jsonpath": "$.products[?(@.platform.os == 'win32-x64-user')].name"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://update.code.visualstudio.com/$version/win32-x64-archive/stable#/dl.7z",
+                "url": "https://update.code.visualstudio.com/$version/win32-x64-user/stable#/_installer_.exe",
                 "hash": {
                     "url": "https://code.visualstudio.com/sha?build=stable",
-                    "jsonpath": "$.products[?(@.platform.os == 'win32-x64-archive')].sha256hash"
+                    "jsonpath": "$.products[?(@.platform.os == 'win32-x64-user')].sha256hash"
                 }
             },
             "arm64": {
-                "url": "https://update.code.visualstudio.com/$version/win32-arm64-archive/stable#/dl.7z",
+                "url": "https://update.code.visualstudio.com/$version/win32-arm64-user/stable#/_installer_.exe",
                 "hash": {
                     "url": "https://code.visualstudio.com/sha?build=stable",
-                    "jsonpath": "$.products[?(@.platform.os == 'win32-arm64-archive')].sha256hash"
+                    "jsonpath": "$.products[?(@.platform.os == 'win32-arm64-user')].sha256hash"
                 }
             }
         }
