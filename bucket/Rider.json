@@ -1,0 +1,55 @@
+{
+    "version": "2023.3.4",
+    "description": "由 JetBrains 开发的适用于 .NET 的跨平台集成开发环境。Cross-Platform IDE for .NET by JetBrains.",
+    "homepage": "https://www.jetbrains.com/rider/",
+    "license": {
+        "identifier": "Shareware",
+        "url": "https://www.jetbrains.com/store/license.html"
+    },
+    "url": "https://download.jetbrains.com/rider/JetBrains.Rider-2023.3.4.exe#/_installer_.exe",
+    "hash": "8fd7bb52cdf61d9141690005adc2ef4bcbd117a1a03b480dd925bcff77c7556f",
+    "bin": [
+        [
+            "IDE\\bin\\rider64.exe",
+            "Rider"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "IDE\\bin\\rider64.exe",
+            "Rider"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$verPart = $version -split '\\.'",
+        "$verRes = \"$($verPart[0]).$($verPart[1])\"",
+        "persist -dir @(\"$user_AppData\\JetBrains\\Rider$($verRes)\",\"$user_LocalAppData\\JetBrains\\Rider$($verRes)\") @(\"$persist_dir\\Rider\",\"$persist_dir\\Rider_LocalAppData\")",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=\"$dir\\IDE\"",
+        "sleep_install \"$dir\\IDE\\bin\\idea.properties\"",
+        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\JetBrains\\JetBrains Rider $($version).lnk\")",
+        "create_app_lnk \"$dir\\IDE\\bin\\rider64.exe\" \"$desktop\\Rider.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "$verPart = $version -split '\\.'",
+        "$verRes = \"$($verPart[0]).$($verPart[1])\"",
+        "remove_files @(\"$user_AppData\\JetBrains\\Rider$($verRes)\",\"$user_LocalAppData\\JetBrains\\Rider$($verRes)\")",
+        "$ui_exe=\"$dir\\IDE\\bin\\Uninstall.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe"
+    ],
+    "checkver": {
+        "url": "https://data.services.jetbrains.com/products/releases?code=RD&latest=true",
+        "jsonpath": "$.RD[0].version"
+    },
+    "autoupdate": {
+        "url": "https://download.jetbrains.com/rider/JetBrains.Rider-$version.exe#/_installer_.exe",
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

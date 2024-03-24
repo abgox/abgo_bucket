@@ -226,9 +226,10 @@
 |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |                                 |
 |                      [Quicker](https://getquicker.net)                      |   ✔️    |              |                                 |
 |                     [Recyclarr](https://recyclarr.dev)                      |   ➖    |              |                                 |
+|                  [Rider](https://www.jetbrains.com/rider)                   |   ✔️    |              |                                 |
 |                           [Rime](https://rime.im)                           |   ✔️    |   confirm    |          weasel,小狼毫          |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |              |                                 |
-|                 [RubyMine](https://www.jetbrains.com/rubymine)                  |   ✔️    |              |                                 |
+|               [RubyMine](https://www.jetbrains.com/rubymine)                |   ✔️    |              |                                 |
 |           [RunCat](https://github.com/Kyome22/RunCat_for_windows)           |   ➖    |              |                                 |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |              |                                 |
 |                [Screego](https://github.com/screego/server)                 |   ✔️    |              |                                 |
