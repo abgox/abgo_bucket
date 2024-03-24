@@ -151,6 +151,7 @@
 | [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |                                 |
 |                         [Cursor](https://cursor.sh)                         |   ✔️    |              |                                 |
 |               [DataGrip](https://www.jetbrains.com/datagrip)                |   ✔️    |              |                                 |
+|              [DataSpell](https://www.jetbrains.com/dataspell)               |   ✔️    |              |                                 |
 |                       [DevToys](https://devtoys.app)                        |   ✔️    |     UWP      |                                 |
 |                  [Ditto](https://ditto-cp.sourceforge.io)                   |   ✔️    |              |                                 |
 |               [Dnest](https://github.com/davidkane0526/Dnest)               |   ➖    |              |                                 |

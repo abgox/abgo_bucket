@@ -1,0 +1,55 @@
+{
+    "version": "2023.3.5",
+    "description": "由 JetBrains 提供的一款工具，轻松地将数据转化为见解。A tool to turn data into insights with ease by JetBrains.",
+    "homepage": "https://www.jetbrains.com/dataspell/",
+    "license": {
+        "identifier": "Shareware",
+        "url": "https://www.jetbrains.com/store/license.html"
+    },
+    "url": "https://download.jetbrains.com/python/dataspell-2023.3.5.exe#/_installer_.exe",
+    "hash": "3fa3ee7941535e16cd69686ee5b5332eeb45a1a6977fb01f99e25ec45dc3eefe",
+    "bin": [
+        [
+            "IDE\\bin\\dataspell64.exe",
+            "DataSpell"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "IDE\\bin\\dataspell64.exe",
+            "DataSpell"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$verPart = $version -split '\\.'",
+        "$verRes = \"$($verPart[0]).$($verPart[1])\"",
+        "persist -dir @(\"$user_AppData\\JetBrains\\DataSpell$($verRes)\",\"$user_LocalAppData\\JetBrains\\DataSpell$($verRes)\") @(\"$persist_dir\\DataSpell\",\"$persist_dir\\DataSpell_LocalAppData\")",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=\"$dir\\IDE\"",
+        "sleep_install \"$dir\\IDE\\bin\\idea.properties\"",
+        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\JetBrains\\DataSpell $($version).lnk\")",
+        "create_app_lnk \"$dir\\IDE\\bin\\dataspell64.exe\" \"$desktop\\DataSpell.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "$verPart = $version -split '\\.'",
+        "$verRes = \"$($verPart[0]).$($verPart[1])\"",
+        "remove_files @(\"$user_AppData\\JetBrains\\DataSpell$($verRes)\",\"$user_LocalAppData\\JetBrains\\DataSpell$($verRes)\")",
+        "$ui_exe=\"$dir\\IDE\\bin\\Uninstall.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe"
+    ],
+    "checkver": {
+        "url": "https://data.services.jetbrains.com/products/releases?code=DS&latest=true",
+        "jsonpath": "$.DS[0].version"
+    },
+    "autoupdate": {
+        "url": "https://download.jetbrains.com/python/dataspell-$version.exe#/_installer_.exe",
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
