@@ -211,6 +211,7 @@
 |                         [pot](https://pot-app.com)                          |   ✔️    |              |                        |
 |                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |              |                        |
 |           [PSCompletions](https://github.com/abgox/PSCompletions)           |   ✔️    |              |   PowerShell Module    |
+|                [PyCharm](https://www.jetbrains.com/pycharm)                 |   ✔️    |              |                        |
 |             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |              |                        |
 |                           [QQ](https://im.qq.com)                           |   ✔️    |              |         QQ NT          |
 |                     [QQBrowser](https://browser.qq.com)                     |   ✔️    |              |       QQ 浏览器        |
