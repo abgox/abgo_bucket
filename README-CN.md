@@ -146,6 +146,7 @@
 |                       [Carnac](http://carnackeys.com)                       |   ✔️    |              |                                 |
 |                      [Chatbox](https://chatboxai.app)                       |   ✔️    |              |                                 |
 |                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |                                 |
+|                  [CLion](https://www.jetbrains.com/clion)                   |   ✔️    |              |                                 |
 |                     [CloudMusic](https://music.163.com)                     |   ✔️    |              |           网易云音乐            |
 | [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |                                 |
 |                         [Cursor](https://cursor.sh)                         |   ✔️    |              |                                 |

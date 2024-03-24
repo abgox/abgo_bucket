@@ -1,0 +1,55 @@
+{
+    "version": "2023.3.4",
+    "description": "由 JetBrains 开发的适用于 C 和 C++ 的跨平台集成开发环境。Cross-Platform IDE for C and C++ by JetBrains.",
+    "homepage": "https://www.jetbrains.com/clion/",
+    "license": {
+        "identifier": "Shareware",
+        "url": "https://www.jetbrains.com/store/license.html"
+    },
+    "url": "https://download.jetbrains.com/cpp/CLion-2023.3.4.exe#/_installer_.exe",
+    "hash": "bbe7a93b5fac0cfe02217a232e33ab35c7992b2c13d661168253790aa1b37450",
+    "bin": [
+        [
+            "IDE\\bin\\clion64.exe",
+            "CLion"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "IDE\\bin\\clion64.exe",
+            "CLion"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$verPart = $version -split '\\.'",
+        "$verRes = \"$($verPart[0]).$($verPart[1])\"",
+        "persist -dir @(\"$user_AppData\\JetBrains\\CLion$($verRes)\",\"$user_LocalAppData\\JetBrains\\CLion$($verRes)\") @(\"$persist_dir\\CLion\",\"$persist_dir\\CLion_LocalAppData\")",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=\"$dir\\IDE\"",
+        "sleep_install \"$dir\\IDE\\bin\\idea.properties\"",
+        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\JetBrains\\CLion $($version).lnk\")",
+        "create_app_lnk \"$dir\\IDE\\bin\\clion64.exe\" \"$desktop\\CLion.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "$verPart = $version -split '\\.'",
+        "$verRes = \"$($verPart[0]).$($verPart[1])\"",
+        "remove_files @(\"$user_AppData\\JetBrains\\CLion$($verRes)\",\"$user_LocalAppData\\JetBrains\\CLion$($verRes)\")",
+        "$ui_exe=\"$dir\\IDE\\bin\\Uninstall.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe"
+    ],
+    "checkver": {
+        "url": "https://data.services.jetbrains.com/products/releases?code=cl&latest=true",
+        "jsonpath": "$.CL[0].version"
+    },
+    "autoupdate": {
+        "url": "https://download.jetbrains.com/cpp/CLion-$version.exe#/_installer_.exe",
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
