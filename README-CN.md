@@ -150,6 +150,7 @@
 |                     [CloudMusic](https://music.163.com)                     |   ✔️    |              |           网易云音乐            |
 | [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |                                 |
 |                         [Cursor](https://cursor.sh)                         |   ✔️    |              |                                 |
+|               [DataGrip](https://www.jetbrains.com/datagrip)                |   ✔️    |              |                                 |
 |                       [DevToys](https://devtoys.app)                        |   ✔️    |     UWP      |                                 |
 |                  [Ditto](https://ditto-cp.sourceforge.io)                   |   ✔️    |              |                                 |
 |               [Dnest](https://github.com/davidkane0526/Dnest)               |   ➖    |              |                                 |
