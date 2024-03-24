@@ -171,6 +171,7 @@
 |                           [He3](https://he3.app)                            |   ✔️    |              |                           |
 |                      [Helix](https://helix-editor.com)                      |   ✔️    |              |                           |
 |        [Hydrogen-Music](https://github.com/Kaidesuyo/Hydrogen-Music)        |   ✔️    |              |                           |
+|                   [Idea](https://www.jetbrains.com/idea)                    |   ✔️    |              |       IntelliJ IDEA       |
 |                    [ImageGlass](https://imageglass.org)                     |   ✔️    |              |                           |
 |                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |              |                           |
 |                      [Insomnia](https://insomnia.rest)                      |   ✔️    |              |                           |
