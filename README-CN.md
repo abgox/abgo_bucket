@@ -210,6 +210,7 @@
 |                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |              |                                 |
 |                     [PDFgear](https://www.pdfgear.com)                      |   ✔️    |              |                                 |
 |                     [PeaZip](https://peazip.github.io)                      |   ✔️    |              |                                 |
+|               [PhpStorm](https://www.jetbrains.com/phpstorm)                |   ✔️    |              |                                 |
 |                   [PicGo](https://molunerfinn.com/PicGo)                    |   ✔️    |              |                                 |
 |                       [PixPin](https://pixpinapp.com)                       |   ✔️    |              |                                 |
 |                     [PixPinBeta](https://pixpinapp.com)                     |   ✔️    |              |           PixPin Beta           |
