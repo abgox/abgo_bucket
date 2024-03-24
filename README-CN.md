@@ -168,6 +168,7 @@
 |                       [FeiShu](https://www.feishu.cn)                       |   ✔️    |              |              飞书               |
 |               [GeekUninstaller](https://geekuninstaller.com)                |   ✔️    |              |                                 |
 |              [GitExtensions](https://gitextensions.github.io)               |   ✔️    |              |                                 |
+|                 [GoLand](https://www.jetbrains.com/goland)                  |   ✔️    |              |                                 |
 |                        [Gopeed](https://gopeed.com)                         |   ✔️    |              |                                 |
 |              [HBuilderX](https://www.dcloud.io/hbuilderx.html)              |   ✔️    |              |                                 |
 |                           [He3](https://he3.app)                            |   ✔️    |              |                                 |
