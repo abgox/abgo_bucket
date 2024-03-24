@@ -1,13 +1,13 @@
 {
-    "version": "30.0.2",
+    "version": "30.1.1",
     "description": "用于视频录制和直播的免费开源软件。Free and open source software for video recording and live streaming.",
     "homepage": "https://obsproject.com",
     "license": {
         "identifier": "GNU General Public License v2.0",
         "url": "https://github.com/obsproject/obs-studio/blob/master/COPYING"
     },
-    "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-30.0.2-Full-Installer-x64.exe#/_installer_.exe",
-    "hash": "6d192fbf295a7505ae7fdb872f12465b79931c7284ab21bc493bc3a118ae844b",
+    "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-30.1.1-Full-Installer-x64.exe#/_installer_.exe",
+    "hash": "37c0626f3b192de362223e1a800592e90c826a3936937c93aee69aaea6122be9",
     "shortcuts": [
         [
             "bin\\64bit\\obs64.exe",
