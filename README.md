@@ -226,6 +226,7 @@
 |                     [Recyclarr](https://recyclarr.dev)                      |   ➖    |              |                                 |
 |                           [Rime](https://rime.im)                           |   ✔️    |   confirm    |          weasel,小狼毫          |
 |              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |              |                                 |
+|                 [RubyMine](https://www.jetbrains.com/rubymine)                  |   ✔️    |              |                                 |
 |           [RunCat](https://github.com/Kyome22/RunCat_for_windows)           |   ➖    |              |                                 |
 |              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |              |                                 |
 |                [Screego](https://github.com/screego/server)                 |   ✔️    |              |                                 |
