@@ -1,10 +1,10 @@
 {
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "人工智能助力你的世界 —— 探索、扩展、赋能。Power Your World with AI - Explore, Extend, Empower.",
     "homepage": "https://noi.nofwl.com/",
     "license": "Unknown",
-    "url": "https://github.com/lencx/Noi/releases/download/v0.3.0/Noi-win32-x64-0.3.0-setup.exe#/dl.7z",
-    "hash": "076190fd036ae63b6aea84634430f2f03dbb61a20aec867dcd30252f69af6bc8",
+    "url": "https://github.com/lencx/Noi/releases/download/v0.4.0/Noi-win32-x64-0.4.0-setup.exe#/dl.7z",
+    "hash": "4f453e3c1437a12256f26dc0a14e40a1bc31776cd85f6240f6320ee49e0e65c5",
     "shortcuts": [
         [
             "app\\Noi.exe",
