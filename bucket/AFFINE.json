@@ -1,13 +1,13 @@
 {
-    "version": "0.12.3",
+    "version": "0.13.1",
     "description": "下一代知识库，集规划、分类和创建于一体。隐私第一、开源、可定制、随时可用。A next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use.",
     "homepage": "https://affine.pro",
     "license": {
         "identifier": "Unknown",
         "url": "https://github.com/toeverything/AFFiNE/blob/canary/LICENSE"
     },
-    "url": "https://github.com/toeverything/AFFiNE/releases/download/v0.12.3/affine-stable-windows-x64.exe#/dl.7z",
-    "hash": "600542ff9d5bcbe2717287683a250ef33921c6f9fa5c29a92b19ea0bb6fb7343",
+    "url": "https://github.com/toeverything/AFFiNE/releases/download/v0.13.1/affine-0.13.1-stable-windows-x64.exe#/dl.7z",
+    "hash": "sha512:5df972c5317f435de19b973d9d3b3b5ec5a9d599263c35e77eb2d9db9a2a8d9d7f8f2649c9b58f5c955f2d209ad5e40a930c93065a7beaa29be17c644a76f2ae",
     "shortcuts": [
         [
             "app\\AFFiNE.exe",
@@ -35,6 +35,10 @@
         "github": "https://github.com/toeverything/AFFiNE"
     },
     "autoupdate": {
-        "url": "https://github.com/toeverything/AFFiNE/releases/download/v$version/affine-stable-windows-x64.exe#/dl.7z"
+        "url": "https://github.com/toeverything/AFFiNE/releases/download/v$version/affine-$version-stable-windows-x64.exe#/dl.7z",
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "sha512:\\s+$base64"
+        }
     }
 }
