@@ -246,6 +246,7 @@
 |               [StrokesPlus.net](https://www.strokesplus.net)                |   ✔️    |              |                                 |
 |                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |              |                                 |
 |                [SyncBackFree](https://www.2brightsparks.com)                |   ✔️    |              |                                 |
+|                [Thunderbird-CN](https://www.thunderbird.net)                |   ✔️    |              |                                 |
 |                 [Thunderbird](https://www.thunderbird.net)                  |   ✔️    |              |                                 |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |   confirm    |                                 |
 |       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    |     UWP      |                                 |
