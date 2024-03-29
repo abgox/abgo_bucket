@@ -208,7 +208,7 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
     function _do($_data, $_persist) {
         create_parent_dir $_data
         create_parent_dir $_persist
-        $isLink = (Get-Item $_data).Attributes -match "ReparsePoint"
+        $isLink = if (Test-Path $_data) { (Get-Item $_data).Attributes -match "ReparsePoint" }else { $true }
         if (Test-Path $_persist) {
             if (Test-Path $_data) {
                 remove_file $_data
