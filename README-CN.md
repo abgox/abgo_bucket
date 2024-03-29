@@ -260,6 +260,7 @@
 |                     [Uninstalr](https://uninstalr.com)                      |   ➖    |              |                                 |
 |                [Upscayl](https://github.com/upscayl/upscayl)                |   ✔️    |              |                                 |
 |                          [uTools](https://u.tools)                          |   ✔️    |              |                                 |
+|                       [VLC](https://www.videolan.org/vlc)                       |   ✔️    |              |                                 |
 |       [VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes)       |   ✔️    |              |                                 |
 |                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |              |                                 |
 |                      [WasmEdge](https://wasmedge.org)                       |   ➖    |              |                                 |
