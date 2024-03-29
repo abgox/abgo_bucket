@@ -226,6 +226,7 @@
 |                     [QQBrowser](https://browser.qq.com)                     |   ✔️    |              |            QQ 浏览器            |
 |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |                                 |
 |                      [Quicker](https://getquicker.net)                      |   ✔️    |              |                                 |
+|                 [Raptor](https://github.com/InfpHub/Raptor)                 |   ✔️    |              |                                 |
 |                     [Recyclarr](https://recyclarr.dev)                      |   ➖    |              |                                 |
 |                  [Rider](https://www.jetbrains.com/rider)                   |   ✔️    |              |                                 |
 |                           [Rime](https://rime.im)                           |   ✔️    |   confirm    |          weasel,小狼毫          |
@@ -258,7 +259,7 @@
 |                     [Uninstalr](https://uninstalr.com)                      |   ➖    |              |                                 |
 |                [Upscayl](https://github.com/upscayl/upscayl)                |   ✔️    |              |                                 |
 |                          [uTools](https://u.tools)                          |   ✔️    |              |                                 |
-|                       [VLC](https://www.videolan.org/vlc)                       |   ✔️    |              |                                 |
+|                     [VLC](https://www.videolan.org/vlc)                     |   ✔️    |              |                                 |
 |       [VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes)       |   ✔️    |              |                                 |
 |                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |              |                                 |
 |                      [WasmEdge](https://wasmedge.org)                       |   ➖    |              |                                 |
