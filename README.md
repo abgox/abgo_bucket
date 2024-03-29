@@ -198,6 +198,7 @@
 |      [MediaElch](https://mediaelch.github.io/mediaelch-doc/about.html)      |   ➖    |              |                                 |
 |                      [Monit](https://monit.fzf404.art)                      |   ✔️    |              |                                 |
 |                        [Motrix](https://motrix.app)                         |   ✔️    |              |                                 |
+|                            [mpv](https://mpv.io)                            |   ✔️    |              |                                 |
 |        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |   ✔️    |              |                                 |
 |                         [Neovim](https://neovim.io)                         |   ✔️    |              |                                 |
 |                         [ngrok](https://ngrok.com)                          |   ✔️    |              |                                 |

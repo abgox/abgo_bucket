@@ -1,0 +1,48 @@
+{
+    "version": "0.37.0",
+    "description": "一个免费的、开源的、跨平台的媒体播放器。A free, open source, and cross-platform media player",
+    "homepage": "https://mpv.io",
+    "license": "LGPL-2.1-or-later,GPL-2.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://downloads.sourceforge.net/project/mpv-player-windows/release/mpv-0.37.0-x86_64.7z",
+            "hash": "sha1:e9f733515324ba90ce2efc6cfac905c3af37ab1e"
+        },
+        "32bit": {
+            "url": "https://downloads.sourceforge.net/project/mpv-player-windows/release/mpv-0.37.0-i686.7z",
+            "hash": "sha1:a4e138669b25098b10d27d6aa959361ac49157e8"
+        }
+    },
+    "bin": "mpv.exe",
+    "shortcuts": [
+        [
+            "mpv.exe",
+            "mpv"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -dir @(\"$dir\\portable_config\") @(\"$persist_dir\\portable_config\")",
+        "create_app_lnk \"$dir\\mpv.exe\" \"$desktop\\mpv.lnk\""
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$desktop\\mpv.lnk\")"
+    ],
+    "checkver": {
+        "sourceforge": "mpv-player-windows/release",
+        "regex": "mpv-([\\d.]+)-"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://downloads.sourceforge.net/project/mpv-player-windows/release/mpv-$version-x86_64.7z"
+            },
+            "32bit": {
+                "url": "https://downloads.sourceforge.net/project/mpv-player-windows/release/mpv-$version-i686.7z"
+            }
+        }
+    }
+}
