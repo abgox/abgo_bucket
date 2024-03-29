@@ -228,7 +228,7 @@
 |                     [QQBrowser](https://browser.qq.com)                     |   ✔️    |              |            QQ 浏览器            |
 |              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |                                 |
 |                      [Quicker](https://getquicker.net)                      |   ✔️    |              |                                 |
-|                 [Raptor](https://github.com/InfpHub/Raptor)                 |   ✔️    |              |                                 |
+|                 [Raptor](https://github.com/InfpHub/Raptor)                 |   ✔️    |              |         阿里云盘第三方          |
 |                     [Recyclarr](https://recyclarr.dev)                      |   ➖    |              |                                 |
 |                  [Rider](https://www.jetbrains.com/rider)                   |   ✔️    |              |                                 |
 |                           [Rime](https://rime.im)                           |   ✔️    |   confirm    |          weasel,小狼毫          |
@@ -274,7 +274,7 @@
 |        [WiseCare365](https://www.wisecleaner.com/wise-care-365.html)        |   ✔️    |   confirm    |                                 |
 |               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |              妙笔               |
 |                   [Writeathon](https://www.writeathon.cn)                   |   ✔️    |              |                                 |
-|            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |           小白羊云盘            |
+|            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |   小白羊云盘(阿里云盘第三方)    |
 |               [XYplorer](https://www.xyplorer.com/index.php)                |   ✔️    |              |                                 |
 |              [XYplorerFree](https://www.xyplorer.com/free.php)              |   ✔️    | noAutoUpdate |                                 |
 |        [YouDaoTranslate](https://fanyi.youdao.com/download-Windows)         |   ✔️    |   confirm    |          网易有道翻译           |
