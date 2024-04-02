@@ -313,7 +313,7 @@ function stop_process([bool]$isRemove = $true, [bool]$tip = $true, [string]$app_
     if ($tip) { Write-Host ($json.stop_process) -f Cyan }
     $job = Start-Job -ScriptBlock {
         param($path_sudo, $dirs)
-        & $path_sudo (Get-Process | Where-Object { $_.Modules.FileName -like "$($dirs[0])*" -or $_.Modules.FileName -like "$($dirs[1])*" } | ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue })
+        & $path_sudo (Get-Process | Where-Object { $_.Modules.FileName -like "$($dirs[0])*" -or $_.Modules.FileName -like "$($dirs[1])*" } | ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue; Wait-Process -Id $_.Id -ErrorAction SilentlyContinue -Timeout 30 })
     } -ArgumentList $path_sudo, $dirs
     $null = Wait-Job $job
     if ($isRemove) { remove_file $app_dir }
