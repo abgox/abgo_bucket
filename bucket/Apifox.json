@@ -1,0 +1,47 @@
+{
+    "version": "2.5.15",
+    "description": "API 设计、开发、测试一体化协作平台。All-in-one collaboration platform for API documentation, API debugging, API Mock and API test automation.",
+    "homepage": "https://apifox.com",
+    "license": "Freeware",
+    "url": "https://cdn.apifox.cn/download/2.5.15/Apifox-2.5.15.exe#/_installer_.exe",
+    "hash": "sha512:ddc508a731166d64379efb6846c50c965c5caa5456e0f9998e627094a20186ce9dce8d0dd3e8f98ea0e21ef391b70980f6d4d3d946ce55338623d3759afe10d5",
+    "shortcuts": [
+        [
+            "Apifox.exe",
+            "Apifox"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /S /D=$dir",
+        "$core_exe=\"$dir\\Apifox.exe\"",
+        "sleep_install $core_exe",
+        "persist -dir @(\"$user_AppData\\apifox\") @(\"$persist_dir\\apifox\")",
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\Apifox.lnk\")",
+        "remove_app_lnk @(\"Apifox.lnk\")"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "Stop-Process -Name 'ApifoxAppAgent' -ErrorAction SilentlyContinue",
+        "Wait-Process -Name 'ApifoxAppAgent' -ErrorAction SilentlyContinue -Timeout 30",
+        "remove_files @(\"$user_AppData\\apifox\")",
+        "$ui_exe=\"$dir\\Uninstall Apifox.exe\"",
+        "try{ & $ui_exe /S }catch{}",
+        "sleep_uninstall $ui_exe",
+        "remove_files @(\"$user_LocalAppData\\apifox-updater\")"
+    ],
+    "checkver": {
+        "url": "https://apifox.com/help/app/changelog",
+        "regex": ">([\\d.]+)<"
+    },
+    "autoupdate": {
+        "url": "https://cdn.apifox.cn/download/$version/Apifox-$version.exe#/_installer_.exe",
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "sha512: $base64"
+        }
+    }
+}
