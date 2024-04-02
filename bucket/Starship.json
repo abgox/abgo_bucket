@@ -1,0 +1,59 @@
+{
+    "version": "1.18.2",
+    "description": "适用于任何 shell 的最简洁、快速且可定制的提示符。The minimal, blazing fast, and extremely customizable prompt for any shell!",
+    "homepage": "https://starship.rs",
+    "license": {
+        "identifier": "ISC License",
+        "url": "https://github.com/starship/starship/blob/master/LICENSE"
+    },
+    "notes": [
+        "用法: 将 Invoke-Expression (&starship init powershell) 加入 PowerShell $PROFILE 的末尾。",
+        "前提: 请确保您的终端中安装并启用了 Powerline 字体。",
+        "Usage: Add 'Invoke-Expression (&starship init powershell)' (No quotes) to the end of your PowerShell $PROFILE.",
+        "Prerequisites: A Powerline font installed and enabled in your terminal."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/starship/starship/releases/download/v1.18.2/starship-x86_64-pc-windows-msvc.zip",
+            "hash": "78efef57e4dfce1bb0cf371d8c713336ea653ba4e10f223bef7e436b3aad0596"
+        },
+        "32bit": {
+            "url": "https://github.com/starship/starship/releases/download/v1.18.2/starship-i686-pc-windows-msvc.zip",
+            "hash": "39a99ca8e5d91607676ad1afaa241fbfa875a96798043ddfe3e3f780c39b45d5"
+        },
+        "arm64": {
+            "url": "https://github.com/starship/starship/releases/download/v1.18.2/starship-aarch64-pc-windows-msvc.zip",
+            "hash": "b8640e5cca6dffbb64e14f69a20c96ef95ae15632c42d337eec8f01c76c5ba0e"
+        }
+    },
+    "bin": "starship.exe",
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist -file @(\"$env:userProfile\\.config\\starship.toml\") @(\"$persist_dir\\starship.toml\")"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files @(\"$env:userProfile\\.config\\starship.toml\")"
+    ],
+    "checkver": {
+        "github": "https://github.com/starship/starship"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/starship/starship/releases/download/v$version/starship-x86_64-pc-windows-msvc.zip"
+            },
+            "32bit": {
+                "url": "https://github.com/starship/starship/releases/download/v$version/starship-i686-pc-windows-msvc.zip"
+            },
+            "arm64": {
+                "url": "https://github.com/starship/starship/releases/download/v$version/starship-aarch64-pc-windows-msvc.zip"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

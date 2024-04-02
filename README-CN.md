@@ -244,6 +244,7 @@
 |                    [Snipaste](https://www.snipaste.com)                     |   ✔️    |              |                                 |
 |                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |              |                                 |
 |                  [Spacedrive](https://www.spacedrive.com)                   |   ✔️    |              |                                 |
+|                       [Starship](https://starship.rs)                       |   ✔️    |              |                                 |
 |                       [Steampp](https://steampp.net)                        |   ✔️    |              |          Watt Toolkit           |
 |               [StrokesPlus.net](https://www.strokesplus.net)                |   ✔️    |              |                                 |
 |                 [SublimeText](https://www.sublimetext.com)                  |   ✔️    |              |                                 |
