@@ -249,6 +249,7 @@
 |                       [Steampp](https://steampp.net)                        |   ✔️    |              |          Watt Toolkit           |
 |               [StrokesPlus.net](https://www.strokesplus.net)                |   ✔️    |              |                                 |
 |                 [SublimeText](https://www.sublimetext.com)                  |   ✔️    |              |                                 |
+|             [superProductivity](https://super-productivity.com)             |   ✔️    |              |                                 |
 |                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |              |                                 |
 |                [SyncBackFree](https://www.2brightsparks.com)                |   ✔️    |              |                                 |
 |                [Thunderbird-CN](https://www.thunderbird.net)                |   ✔️    |              |                                 |
