@@ -252,6 +252,7 @@
 |                [SyncBackFree](https://www.2brightsparks.com)                |   ✔️    |              |                                 |
 |                [Thunderbird-CN](https://www.thunderbird.net)                |   ✔️    |              |                                 |
 |                 [Thunderbird](https://www.thunderbird.net)                  |   ✔️    |              |                                 |
+|                    [TinyRDM](https://redis.tinycraft.cc)                    |   ✔️    |              |                                 |
 |      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |   confirm    |                                 |
 |       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    |     UWP      |                                 |
 |                    [TTime](https://ttime.timerecord.cn)                     |   ✔️    |              |                                 |
