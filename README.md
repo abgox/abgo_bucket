@@ -197,6 +197,7 @@
 |                     [MarkLion](https://www.marklion.cn)                     |   ✔️    |              |             标记狮              |
 |                     [MarkText](https://www.marktext.cc)                     |   ✔️    |              |                                 |
 |      [MediaElch](https://mediaelch.github.io/mediaelch-doc/about.html)      |   ➖    |              |                                 |
+|           [mind-map](https://wanglin2.github.io/mind-map/#/index)           |   ✔️    |              |          思绪思维导图           |
 |                      [Monit](https://monit.fzf404.art)                      |   ✔️    |              |                                 |
 |                        [Motrix](https://motrix.app)                         |   ✔️    |              |                                 |
 |                            [mpv](https://mpv.io)                            |   ✔️    |              |                                 |
