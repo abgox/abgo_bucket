@@ -197,7 +197,6 @@
 |                     [MarkLion](https://www.marklion.cn)                     |   ✔️    |              |             标记狮              |
 |                     [MarkText](https://www.marktext.cc)                     |   ✔️    |              |                                 |
 |      [MediaElch](https://mediaelch.github.io/mediaelch-doc/about.html)      |   ➖    |              |                                 |
-|           [mind-map](https://wanglin2.github.io/mind-map/#/index)           |   ✔️    |              |          思绪思维导图           |
 |                      [Monit](https://monit.fzf404.art)                      |   ✔️    |              |                                 |
 |                        [Motrix](https://motrix.app)                         |   ✔️    |              |                                 |
 |                            [mpv](https://mpv.io)                            |   ✔️    |              |                                 |
@@ -239,6 +238,7 @@
 |                [Screego](https://github.com/screego/server)                 |   ✔️    |              |                                 |
 |         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |   ✔️    |              |                                 |
 | [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |   ✔️    |              |                                 |
+|        [SimpleMindMap](https://wanglin2.github.io/mind-map/#/index)         |   ✔️    |              |          思绪思维导图           |
 |              [SimplyListenMusic](https://music.codepublic.top)              |   ✔️    |              |            普听音乐             |
 |                     [SiYuan](https://b3log.org/siyuan)                      |   ✔️    |              |              思源               |
 |                    [Snipaste](https://www.snipaste.com)                     |   ✔️    |              |                                 |
