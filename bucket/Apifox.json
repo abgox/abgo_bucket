@@ -1,10 +1,10 @@
 {
-    "version": "2.5.18",
+    "version": "2.5.19",
     "description": "API 设计、开发、测试一体化协作平台。All-in-one collaboration platform for API documentation, API debugging, API Mock and API test automation.",
     "homepage": "https://apifox.com",
     "license": "Freeware",
-    "url": "https://cdn.apifox.cn/download/2.5.18/Apifox-2.5.18.exe#/_installer_.exe",
-    "hash": "sha512:8a4919ae83a07e9cb9eaa5777515023c41b80a92a233bb875cd1febb2136fb4fc2660e077edba60ad03510090c8920301999b13672e190b2589b4c2a4d733022",
+    "url": "https://cdn.apifox.cn/download/2.5.19/Apifox-2.5.19.exe#/_installer_.exe",
+    "hash": "sha512:c23e687b53551c63fdf0bb328b62fa0ec6f3fd195207ea74dacdda075cec9277deeb861f533851da5b6aaae2939c4d3ce2963e060101a7a9715ead21f901339c",
     "shortcuts": [
         [
             "Apifox.exe",
