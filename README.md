@@ -243,6 +243,7 @@
 |                     [SiYuan](https://b3log.org/siyuan)                      |   ✔️    |              |              思源               |
 |                    [Snipaste](https://www.snipaste.com)                     |   ✔️    |              |                                 |
 |                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |              |                                 |
+|                    [SodaMusic](https://music.douyin.com)                    |   ✔️    |              |         汽水音乐 - 抖音         |
 |                  [Spacedrive](https://www.spacedrive.com)                   |   ✔️    |              |                                 |
 |                       [Starship](https://starship.rs)                       |   ✔️    |              |                                 |
 |                       [Steampp](https://steampp.net)                        |   ✔️    |              |          Watt Toolkit           |
