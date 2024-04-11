@@ -1,5 +1,5 @@
 {
-    "version": "1.88.0",
+    "version": "1.88.1",
     "description": "一个轻量级、功能强大，插件生态丰富的文件编辑器。Lightweight but powerful source code editor.",
     "homepage": "https://code.visualstudio.com/",
     "license": {
@@ -8,12 +8,12 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://update.code.visualstudio.com/1.88.0/win32-x64-user/stable#/_installer_.exe",
-            "hash": "758e0a93d7d2325813de283a7e7bc7c487b864afa93252bf3cae8dce1820d4a6"
+            "url": "https://update.code.visualstudio.com/1.88.1/win32-x64-user/stable#/_installer_.exe",
+            "hash": "487b08f664da5845cfa5fb63adc958b68eb2b58aaf5542d894f0a2a4bf93444c"
         },
         "arm64": {
-            "url": "https://update.code.visualstudio.com/1.88.0/win32-arm64-user/stable#/_installer_.exe",
-            "hash": "92a15f1f607ccb9a49e2e15a1eebbb72111d3db1a3da4e494216487f18a688c7"
+            "url": "https://update.code.visualstudio.com/1.88.1/win32-arm64-user/stable#/_installer_.exe",
+            "hash": "3429de8c54dbfdb695e709e8233b735c7f47800be66d2ff3d594da2147f818af"
         }
     },
     "shortcuts": [
