@@ -158,6 +158,7 @@
 |               [DownKyi](https://leiurayer.github.io/downkyi)                |   ✔️    |              |                                 |
 |                     [draw.io](https://www.diagrams.net)                     |   ✔️    |              |                                 |
 |                   [Dropit](http://www.dropitproject.com)                    |   ✔️    |              |                                 |
+|             [Escrcpy](https://github.com/viarotel-org/escrcpy)              |   ✔️    |              |                                 |
 |                   [Everything](https://www.voidtools.com)                   |   ✔️    |              |                                 |
 |                    [Final2x](https://final2x.tohru.top)                     |   ✔️    |              |                                 |
 |                    [FishingFunds](https://ff.1zilc.top)                     |   ✔️    |              |          基金股票相关           |
