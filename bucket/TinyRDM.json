@@ -1,5 +1,5 @@
 {
-    "version": "1.1.10",
+    "version": "1.1.11",
     "description": "一款现代轻量级跨平台 Redis 桌面管理器。A modern lightweight cross-platform Redis Desktop Manager.",
     "homepage": "https://redis.tinycraft.cc/",
     "license": {
@@ -8,12 +8,12 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/tiny-craft/tiny-rdm/releases/download/v1.1.10/TinyRDM_Setup_1.1.10_windows_x64.exe#/_installer_.exe",
-            "hash": "09f23ebd604be7ca3400328a1acb0a63b2f55ff957abe52628feb8899d5bf6d9"
+            "url": "https://github.com/tiny-craft/tiny-rdm/releases/download/v1.1.11/TinyRDM_Setup_1.1.11_windows_x64.exe#/_installer_.exe",
+            "hash": "c9130e0f828459867f029d4a6ed54d5b02532169b3b8b86094be13027e76325b"
         },
         "arm64": {
-            "url": "https://github.com/tiny-craft/tiny-rdm/releases/download/v1.1.10/TinyRDM_Setup_1.1.10_windows_arm64.exe#/_installer_.exe",
-            "hash": "b371b5d432e3a564465be735b6d765193ef257e151edd9bffb5d8d06189ea331"
+            "url": "https://github.com/tiny-craft/tiny-rdm/releases/download/v1.1.11/TinyRDM_Setup_1.1.11_windows_arm64.exe#/_installer_.exe",
+            "hash": "c2b3f1fa32e58c139d6f9380c6f26fb4cdd5c06e6f11ab6de5afd542a1f961b8"
         }
     },
     "shortcuts": [
