@@ -138,6 +138,7 @@
 |                        [AFFINE](https://affine.pro)                         |   ✔️    |              |                                 |
 |                    [aliyunDrive](https://www.alipan.com)                    |   ✔️    |              |            阿里云盘             |
 |                        [Apifox](https://apifox.com)                         |   ✔️    |              |                                 |
+|                     [AppFlowy](https://www.appflowy.io)                     |   ✔️    |              |                                 |
 |                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |              |                                 |
 |               [BaiduNetdisk](https://pan.baidu.com/download)                |   ✔️    |              |            百度网盘             |
 |                  [BaiduTranslate](https://fanyi.baidu.com)                  |   ✔️    |              |            百度翻译             |

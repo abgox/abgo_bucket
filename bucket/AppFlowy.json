@@ -1,0 +1,42 @@
+{
+    "version": "0.5.4",
+    "description": "一个开源的 Notion 替代品。An open-source alternative to Notion.",
+    "homepage": "https://www.appflowy.io/",
+    "license": {
+        "identifier": "GNU Affero General Public License v3.0",
+        "url": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/LICENSE"
+    },
+    "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.5.4/AppFlowy-0.5.4-windows-x86_64.exe#/_installer_.exe",
+    "hash": "a3fae60a1a9fc7646191bd70e3fa886dbb0648dff1c5a15436c38a8fac89187b",
+    "shortcuts": [
+        [
+            "AppFlowy.exe",
+            "AppFlowy"
+        ]
+    ],
+    "pre_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "$path_exe=\"$dir\\_installer_.exe\"",
+        "& $path_exe /VerySilent /Dir=$dir",
+        "$core_exe=\"$dir\\AppFlowy.exe\"",
+        "sleep_install $core_exe",
+        "persist -dir @(\"$user_AppData\\io.appflowy\") @(\"$persist_dir\\io.appflowy\")",
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\AppFlowy.lnk\",\"$admin_apps_lnk\\AppFlowy\")",
+        "remove_app_lnk @(\"AppFlowy.lnk\")"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process $false",
+        "remove_files @(\"$user_AppData\\io.appflowy\")",
+        "$ui_exe=\"$dir\\unins000.exe\"",
+        "try{ & $ui_exe /VerySilent }catch{}",
+        "sleep_uninstall $ui_exe"
+    ],
+    "checkver": {
+        "github": "https://github.com/AppFlowy-IO/AppFlowy"
+    },
+    "autoupdate": {
+        "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/$version/AppFlowy-$version-windows-x86_64.exe#/_installer_.exe"
+    }
+}
