@@ -179,6 +179,7 @@
 |              [HBuilderX](https://www.dcloud.io/hbuilderx.html)              |   ✔️    |              |                                 |
 |                           [He3](https://he3.app)                            |   ✔️    |              |                                 |
 |                      [Helix](https://helix-editor.com)                      |   ✔️    |              |                                 |
+|                       [Heynote](https://heynote.com)                        |   ✔️    |              |                                 |
 |            [hummingbird](https://arayofsunshine.dev/hummingbird)            |   ✔️    |              |                                 |
 |        [Hydrogen-Music](https://github.com/Kaidesuyo/Hydrogen-Music)        |   ✔️    |              |                                 |
 |                   [Idea](https://www.jetbrains.com/idea)                    |   ✔️    |              |          IntelliJ IDEA          |
