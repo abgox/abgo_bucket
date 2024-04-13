@@ -36,12 +36,12 @@
 
     -   `scoop install [abgo_bucket/]<app_name>`
 
-    -   使用外部浏览器下载应用：
+    -   使用外部方式下载(更新)应用：
 
-        -   当国内使用命令行下载慢，且你有其他更好的方式可以通过安装包链接下载时，它是一个很好的选择。
+        -   当使用命令行下载速度慢，并且有更好的方式可以通过安装包链接下载时，它是一个很好的选择。
 
         ```powershell
-            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name> [-isUpdate]
+            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name>
         ```
 
 -   列出 `abgo_bucket` 中所有可安装的应用：
@@ -86,6 +86,8 @@
 -   持久化策略**比较激进**，如果存在数据目录，`abgo_bucket` 中的应用就会将整个数据目录持久化，而非一些重要的配置文件。
     -   以 `Neovim` 为例，它会在 `$env:LocalAppData` 下形成两个目录，`nvim` 和 `nvim-data` ，而这两个目录都会被持久化。
     -   这样做的好处是应用在拥有 `persist` 时，安装后的使用体验是流畅无感的，但可能导致占用的存储空间会更多。
+-   这种**激进**的持久化策略会导致 `abgo_bucket` 的持久化目录文件和其他 `bucket` 不同
+-   因此，如果从其他 `bucket` 迁移至 `abgo_bucket` 或者从 `abgo_bucket` 迁移至其他仓库，请重视数据持久化 `persist` 的变动
 
 #### ⚠︎ 关于 persist 目录变动 ⚠︎
 

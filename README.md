@@ -36,10 +36,10 @@
 
     -   `scoop install [abgo_bucket/]<app_name>`
 
-    -   Use an external browser to download app:
-        -   It's good choice to use it When downloads the app in the command line are slow and you have other, better ways to download the app by the install link.
+    -   Use an external way to download/update app:
+        -   It's good choice to use it when downloads the app in the command line are slow and you have better ways to download the app by the download link.
         ```powershell
-            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name> [-isUpdate]
+            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name>
         ```
 
 -   List all installable apps in `abgo_bucket`:
@@ -85,7 +85,11 @@
 -   The apps in `abgo_bucket` will uses soft link to persist data, which is not limited to data in app directories.
 -   The strategy is **radical**. If there is a data directory, the app will `persist` the entire data directory instead of some important configuration files.
 -   Take `Neovim` as an example. It will form two directories under `$env:LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
+
     -   The advantage of it is that the software has a smooth and seamless user experience after reinstalling, but it may take up more storage space.
+
+-   This **radical** `persist` strategy will result in `abgo_bucket` having a different persist file (directory) than other `buckets`.
+-   So, if you are migrating from another `bucket` to `abgo_bucket` or from `abgo_bucket` to another repository, please pay attention to the changes in the `persist`.
 
 #### ⚠︎ About `persist` directory changes ⚠︎
 
