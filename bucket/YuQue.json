@@ -1,13 +1,13 @@
 {
-    "version": "3.4.1.1206",
+    "version": "3.4.2.1207",
     "description": "为每一个人，为每一个团队，提供优秀的文档与知识库工具。Provide excellent documentation and knowledge base tools for everyone and every team.",
     "homepage": "https://www.yuque.com/",
     "license": {
         "identifier": "Unknown",
         "url": "https://www.yuque.com/terms"
     },
-    "url": "https://app.nlark.com/yuque-desktop/3.4.1.1206/BJ47de5b16b20b47b59f26ebe159d5a092/Yuque-3.4.1.1206.exe",
-    "hash": "0de9d0d38339d69682ba24626dea57f8af975058f4d3469dd8a5441e5a79c3e8",
+    "url": "https://app.nlark.com/yuque-desktop/3.4.2.1207/BJ6ec3e5850a314aa59a3d43a6f78ef69e/Yuque-3.4.2.1207.exe",
+    "hash": "d811467729945f76cf105621e68f8b936de0ec10650ba400252c55b74aeccff9",
     "shortcuts": [
         [
             "语雀.exe",
