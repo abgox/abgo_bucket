@@ -12,7 +12,7 @@ if ($existingTask -ne $null) {
     Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
 }
 
-$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$scriptPath`" -WindowStyle Hidden"
+$action = New-ScheduledTaskAction -Execute "$PSScriptRoot\runSchedule.exe" -Argument $scriptPath
 
 $trigger = New-ScheduledTaskTrigger -AtLogOn
 
