@@ -8,6 +8,12 @@
     },
     "url": "https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.13/AutoHotkey_2.0.13_setup.exe",
     "hash": "d7646ca3a26760fe5633288d79d7b6a44cfc19a85c5315f94e0861963f1c601e",
+    "bin": [
+        [
+            "v2\\AutoHotkey64.exe",
+            "AutoHotkey"
+        ]
+    ],
     "shortcuts": [
         [
             "UX\\ui-dash.ahk",
