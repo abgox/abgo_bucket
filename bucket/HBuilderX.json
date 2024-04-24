@@ -1,10 +1,10 @@
 {
-    "version": "3.99.2023122611",
+    "version": "4.08.2024040127",
     "description": "DCloud 旗下的代码编辑器。A code editor by DCloud.",
     "homepage": "https://www.dcloud.io/hbuilderx.html",
     "license": "Unknown",
-    "url": "https://qiniu-ecdn.dcloud.net.cn/download/HBuilderX.3.99.2023122611.zip",
-    "hash": "55850b74833b27996105c6e2929661ce160fc8d05b87d5a5177a07222b2a1832",
+    "url": "https://qiniu-ecdn.dcloud.net.cn/download/HBuilderX.4.08.2024040127.zip",
+    "hash": "b4d789cffb0edb6dd685df68665c0e59df77bd5828f1cce64f565b15e0aafbf4",
     "extract_dir": "HBuilderX",
     "bin": "HBuilderX.exe",
     "shortcuts": [
