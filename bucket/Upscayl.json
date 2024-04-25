@@ -1,13 +1,13 @@
 {
-    "version": "2.10.0",
+    "version": "2.11.0",
     "description": "适用于 Linux、MacOS 和 Windows 的免费开源 AI 图像升级程序，秉承 Linux 优先的理念。Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.",
     "homepage": "https://github.com/upscayl/upscayl",
     "license": {
         "identifier": "GNU Affero General Public License v3.0",
         "url": "https://github.com/upscayl/upscayl/blob/main/LICENSE"
     },
-    "url": "https://github.com/upscayl/upscayl/releases/download/v2.10.0/upscayl-2.10.0-win.exe",
-    "hash": "c4a0b2d4829bf425d24a514d3edfc291a9bca3a06daa27a7e6b99e2cb107b9b6",
+    "url": "https://github.com/upscayl/upscayl/releases/download/v2.11.0/upscayl-2.11.0-win.exe",
+    "hash": "f526239d7121a41bec97e8fd7da89362b8f33d09f4e087afe63cc4164da94af1",
     "shortcuts": [
         [
             "Upscayl.exe",
