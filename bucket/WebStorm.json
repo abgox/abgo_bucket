@@ -1,13 +1,13 @@
 {
-    "version": "2024.1.1",
+    "version": "2024.1.2",
     "description": "由 JetBrains 开发的 JavaScript 和 TypeScript 的跨平台集成开发环境。Cross-Platform IDE for JavaScript and TypeScript by JetBrains.",
     "homepage": "https://www.jetbrains.com/webstorm/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "url": "https://download.jetbrains.com/webstorm/WebStorm-2024.1.1.exe#/_installer_.exe",
-    "hash": "e2cff5c8993d95f819c08c4216c18bfeba935aaeca01bf1b2d1c43b28cf3a9d5",
+    "url": "https://download.jetbrains.com/webstorm/WebStorm-2024.1.2.exe#/_installer_.exe",
+    "hash": "e7608024cd5d071e637ff7c991c2b43d889ec34bd1797b59dbad6d354621a280",
     "bin": [
         [
             "IDE\\bin\\webstorm64.exe",
