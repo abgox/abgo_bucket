@@ -1,10 +1,10 @@
 {
-    "version": "6.6.6.636",
+    "version": "6.7.1.643",
     "description": "Windows 系统清理和加速工具。Free Windows PC Cleaner and Speed up Tool",
     "homepage": "https://www.wisecleaner.com/wise-care-365.html",
     "license": "Freeware",
-    "url": "https://downloads.wisecleaner.com/soft/WiseCare365_6.6.6.636.exe#/_installer_.exe",
-    "hash": "42e35e59355e78dc581115d24babd4424422efacfdb6710395c27e84243959df",
+    "url": "https://downloads.wisecleaner.com/soft/WiseCare365_6.7.1.643.exe#/_installer_.exe",
+    "hash": "e4fa9544278e00dc9b7b7a2be2504d4befd5da3fd70b009c21db4f5bcba19a5e",
     "shortcuts": [
         [
             "WiseCare365.exe",
