@@ -1,10 +1,10 @@
 {
-    "version": "35.106.0",
+    "version": "35.106.2",
     "description": "灵活而强大的动态语言。A flexible and powerful dynamic language.",
     "homepage": "https://www.aardio.com/",
     "license": "Freeware",
     "url": "https://d.aardio.com/ide/aardio.7z",
-    "hash": "c6cc4193294fc1fbae714b67807e21d6614c03fa73d84eb67fbdc7cbd1232856",
+    "hash": "2d71a5d97269a0cc175b37a7d04ab5589ffe01b99a708c441d7a1b80aeb87485",
     "shortcuts": [
         [
             "aardio.exe",
