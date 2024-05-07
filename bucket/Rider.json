@@ -1,13 +1,13 @@
 {
-    "version": "2024.1.1",
+    "version": "2024.1.2",
     "description": "由 JetBrains 开发的适用于 .NET 的跨平台集成开发环境。Cross-Platform IDE for .NET by JetBrains.",
     "homepage": "https://www.jetbrains.com/rider/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "url": "https://download.jetbrains.com/rider/JetBrains.Rider-2024.1.1.exe#/_installer_.exe",
-    "hash": "8267cdf8eec40a5196aeef7c99814f661e5d13ba026e95c2076a045c44b0880d",
+    "url": "https://download.jetbrains.com/rider/JetBrains.Rider-2024.1.2.exe#/_installer_.exe",
+    "hash": "1337e1bbf891b4608a47be930c5034c0edac82134743df21af8e0fa7f1c5a02f",
     "bin": [
         [
             "IDE\\bin\\rider64.exe",
