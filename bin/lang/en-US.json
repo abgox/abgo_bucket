@@ -1,5 +1,5 @@
 {
-    "less": "Press Enter to view more, or any other key to exit!({{$lines}} lines remaining)",
+    "less": "Press Enter to view more, or any other key to exit!({{ $lines }} lines remaining)",
     "persist_data": [
         "Persisting Data",
         "Original Directory",
@@ -12,22 +12,15 @@
         "The function (persist) must specify the parameter -dir or -file.\n",
         "The function (persist) has been terminated, and the built-in option(persist) in Scoop is not affected (if it's configured)"
     ],
-    "shortcut": "Creating shortcut for {{$app}}\nPath: {{$lnk_path}}\nIf you don't need the desktop shortcut, run the following command:\nscoop config abgo_bucket_no_shortcut true\n",
+    "shortcut": "Creating shortcut for {{ $app[1] }}\nPath: {{ $lnk_path }}\nIf you don't need the desktop shortcut, run the following command:\nscoop config abgo_bucket_no_shortcut true\n",
     "no_shortcut":"The current Scoop config 'abgo_bucket_no_shortcut' has a value of true.\nDesktop shortcuts are not created.\nIf you need the desktop shortcut, run the following command:\nscoop config abgo_bucket_no_shortcut false\n",
     "stop_process": "Try to stop possible Process...",
     "download": {
-        "exist": "The latest version({{$installed_version}}) of {{$app}} is already installed.",
-        "no_aria2": "aria2 is not installed",
-        "installing_aria2": "Installing aria2",
-        "install_aria2_failed": "It's failed to install aria2. Please try again",
-        "enable_aria2": "Enabling it --- aria2-enabled",
-        "check_cache": [
-            "Checking for the latest version of the installation package cache...",
-            "Cache found, installing...",
-            "Cache not found, continue with manual download:"
-        ],
+        "exist": "The latest version({{ $installed_version }}) of {{ $app[1] }} is already installed.",
         "url": "Url: ",
-        "download": "Please download manually.\nPlease enter the downloaded file path: "
+        "download": "Please download manually.\nPlease input the downloaded file path: ",
+        "no_found": "This file is not found, please input again!",
+        "no_found_app": "{{ $app[1] }} was not found, it may not exist or may have spelling errors."
     },
     "clean_redundant_files": "Run a background job: Delete redundant files generated during the installation process.\n",
     "remove_app_lnk":"The current Scoop config 'abgo_bucket_no_shortcut' has a value of true.\nIt will run a background task to monitor if the installer create a desktop shortcut, and if it does, will delete it immediately.\nIf you need the desktop shortcut, run the following command:\nscoop config abgo_bucket_no_shortcut false\n",

@@ -1,6 +1,6 @@
 # $ErrorActionPreference='SilentlyContinue'
 try {
-    $lang = (Get-WinSystemLocale).name
+    $lang = $PSUICulture
     if ($lang -ne 'zh-CN') {
         $lang = 'en-US'
     }
@@ -69,9 +69,7 @@ $admin_apps_lnk = $public_Programs
 $scoop_apps_lnk = "$apps_lnk\Scoop Apps"
 $desktop = $user_Desktop
 
-$show_info = @{
-    no_shortcut = 1
-}
+$is_first_show_info = $true
 
 function data_replace($data) {
     $data = $data -join ''
@@ -147,7 +145,7 @@ function create_parent_dir([string]$path) {
 }
 function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
     if (scoop config abgo_bucket_no_shortcut) {
-        if ($show_info.no_shortcut -eq 1) {
+        if ($is_first_show_info) {
             Write-Host $json.no_shortcut -f Yellow
         }
     }
@@ -159,11 +157,11 @@ function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path
         $Shortcut.IconLocation = $icon_path
         $Shortcut.Save()
         $app = Split-Path $app_path -Leaf
-        if ($show_info.no_shortcut -eq 1) {
+        if ($is_first_show_info) {
             Write-Host (data_replace $json.shortcut) -f Green
         }
     }
-    $show_info.no_shortcut++
+    $is_first_show_info = $false
 }
 function remove_app_lnk([array]$lnk_name, $delay = 60, $duration = 0.3) {
     if (scoop config abgo_bucket_no_shortcut) {
@@ -326,7 +324,6 @@ function stop_exe($exeName, [switch]$tip) {
     } -ArgumentList $path_sudo, $exeName
     $null = Wait-Job $job
 }
-
 function confirm([string]$tip_info) {
     Write-Host $tip_info -f Yellow
     while ($true) {

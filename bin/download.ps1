@@ -1,133 +1,124 @@
-param(
-    [string]$app,
-    [switch]$isUpdate
-)
-. $PSScriptRoot\utils.ps1
+param([string]$app_name)
 
-if ($app -like "*/*") {
-    $part = $app -split '/'
-    $bucketApp = $app
-    $app = $part[1]
+function replace_content {
+    param ($data, $separator = '')
+    $data = ($data -join $separator)
+    $pattern = '\{\{(.*?(\})*)(?=\}\})\}\}'
+    $matches = [regex]::Matches($data, $pattern)
+    foreach ($match in $matches) {
+        $data = $data.Replace($match.Value, (Invoke-Expression $match.Groups[1].Value) -join $separator )
+    }
+    if ($data -match $pattern) { replace_content $data }else { return $data }
+}
+
+$lang = $PSUICulture
+if ($lang -ne 'zh-CN') { $lang = 'en-US' }
+
+$app = @()
+if ($app_name -match ".*[\\/].*") {
+    $app_name -split "[\\/]" | ForEach-Object {
+        $app += $_
+    }
 }
 else {
-    $bucketApp = $app
+    $app = @($null, $app_name)
 }
 
-$json_d = $json.download
+$json = Get-Content -Path "$PSScriptRoot\lang\$lang.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 
-$info = scoop info $bucketApp
-$latest_version = $info.Version
-$installed_version = ($info.Installed -split "`n")[-1]
+$scoop_dir = (Split-Path (Split-Path (Split-Path  (scoop prefix scoop) -Parent)))
+$buckets_dir = "$($scoop_dir)/buckets"
+$app_dir = "$($scoop_dir)/apps"
+$cache_dir = "$($scoop_dir)/cache"
 
-if ($installed_version) {
-    if ($latest_version -eq $installed_version) {
-        Write-Host (data_replace $json_d.exist) -f Yellow
-        return
+$bucket_list = @()
+if ($app[0]) {
+    $bucket_list += $app[0]
+}
+else {
+    $abgo_bucket = "abgo_bucket"
+    scoop bucket list | ForEach-Object {
+        if ($_.Source -match '(gitee|github).com/abgox/abgo_bucket') {
+            $abgo_bucket = $_.Name
+        }
+        $bucket_list += $_.Name
     }
-    else {
-        $isUpdate = $true
+    $bucket_list = [array]$abgo_bucket + $bucket_list | Sort-Object -Unique
+}
+$app_list = @()
+$bucket_list | ForEach-Object {
+    Get-ChildItem "$($buckets_dir)/$($_)/bucket" | ForEach-Object {
+        if ($_.BaseName -eq $app[1]) {
+            $app_list += $_.FullName
+        }
     }
 }
-
-Write-Host (data_replace $json_d.check_cache[0]) -f Yellow
-$has_cache = scoop cache | Where-Object { $_.Name -eq $app -and $_.Version -eq $latest_version }
-if ($has_cache) {
-    Write-Host (data_replace $json_d.check_cache[1]) -f Green
-    scoop install $bucketApp -u
+if (!$app_list) {
+    Write-Host (replace_content $json.download.no_found_app) -f Red
     return
 }
-Write-Host (data_replace $json_d.check_cache[2]) -f Yellow
 
-Write-Host "---------------" -f Cyan
+try {
+    $installed_version = Get-ChildItem "$($app_dir)/$($app[1])" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match "\d+\..*" } | Sort-Object { [version]$_.Name } -Descending
+    $installed_version = [array]$installed_version[0].Name
+}
+catch {
+    $installed_version = $null
+}
 
-$scoop_dir = (Split-Path (Split-Path (Split-Path  (scoop prefix scoop) -Parent) -Parent) -Parent)
-$shims_dir = $scoop_dir + '\shims'
-$isExist_aria2 = Get-ChildItem $shims_dir | Where-Object { $_.Name -eq "aria2c.exe" }
-$is_enable_aria = scoop config aria2-enabled
-if (!$isExist_aria2) {
-    Write-Host $json_d.no_aria2 -f Yellow
-    Write-Host $json_d.installing_aria2 -f Cyan
-    try {
-        scoop install aria2 -u
-    }
-    catch {
-        Write-Host $json_d.install_aria2_failed -f Red
+$content_manifest = Get-Content $app_list[0] -Raw | ConvertFrom-Json
+
+#
+$info = @{}
+if ($installed_version) {
+    if ($content_manifest.version -eq $installed_version) {
+        Write-Host (replace_content $json.download.exist) -f Green
         return
     }
-}
-if (!$is_enable_aria) {
-    Write-Host $json_d.enable_aria2 -f Cyan
-    scoop config aria2-enabled true
-}
-$cache_dir = $scoop_dir + '\cache'
-$app_txt = "$cache_dir\$app.txt"
-
-$job = Start-Job -ScriptBlock {
-    param($bucketApp, $isUpdate)
-    if ($isUpdate) {
-        scoop update $bucketApp
-    }
     else {
-        scoop install $bucketApp -u
+        $is_update = $true
     }
-} -ArgumentList $bucketApp, $isUpdate
-
-while ($true) {
-    if (Test-Path($app_txt)) {
-        Stop-Job -Job $job
-        break
-    }
-    Start-Sleep -Milliseconds 50
-}
-$app_content = Get-Content $app_txt | ForEach-Object { $_.Trim() }
-
-$result = @{
-    url = @()
-    out = @()
-}
-foreach ($i in $app_content) {
-    $i = $i.Trim()
-    if ($i -like "http*") {
-        $result.url += $i
-    }
-    elseif ($i -like "out=*") {
-        $result.out += $i -replace 'out=', ''
-    }
-}
-if (Test-Path($app_txt)) {
-    remove_file $app_txt
-}
-Get-ChildItem $cache_dir | Where-Object {
-    $_.Name -match "^$app.*\.aria2"
-} | ForEach-Object {
-    remove_file $_.FullName
 }
 
-for ($i = 0; $i -lt $result.url.Count; $i++) {
-    $url = $result.url[$i]
-    $out = $result.out[$i]
-    Write-Host ($json_d.url + $url) -f Green
-    Write-Host "---------------" -f Cyan
-    Write-Host $json_d.download -f Yellow -NoNewline
-    $dl_path = $(Read-Host) -replace '"', ''
-    while (!(Test-Path $dl_path)) {
-        handle_lang -CN {
-            @(36825, 20010, 25991, 20214, 19981, 23384, 22312, 65292, 35831, 37325, 26032, 36755, 20837, 58, 32) | ForEach-Object {
-                $err_info += [char]::ConvertFromUtf32($_)
-            }
-            Write-Host $err_info -f Yellow -NoNewline
-        } -EN {
-            Write-Host "File not found, please input again: " -f Yellow -NoNewline
-        }
-        $dl_path = $(Read-Host)
-    }
-    move_file $dl_path "$cache_dir\$out"
+function get_arch {
+    $system = if (${env:ProgramFiles(Arm)}) { 'arm64' }
+    elseif ([System.Environment]::Is64BitOperatingSystem) { '64bit' }
+    else { '32bit' }
+    return $system
 }
+$arch = get_arch
 
-Write-Host ''
-if ($isUpdate) {
-    scoop update $bucketApp
+
+if ($content_manifest.url) {
+    $info.url = $content_manifest.url
 }
 else {
-    scoop install $bucketApp -u
+    $info.url = $content_manifest.architecture.$arch.url
+}
+
+function ensure_cache($url) {
+    $replace_url = $url -replace ":?[/#]?/", '_'
+    $out = "$($app[1])#$($content_manifest.version)#$($replace_url)"
+    $has_cache = Get-ChildItem $cache_dir | Where-Object { $_.Name -in $out }
+    if (!$has_cache) {
+        Write-Host  (replace_content "$($json.download.url)$($url)") -f Green
+        Write-Host "---------------" -f Cyan
+        Write-Host (replace_content "$($json.download.download)") -f Yellow -NoNewline
+        $dl_path = $(Read-Host) -replace '"', ''
+        while (!(Test-Path $dl_path)) {
+            Write-Host (replace_content $json.download.no_found) -f Yellow -NoNewline
+            $dl_path = $(Read-Host) -replace '"', ''
+        }
+        Write-Host ''
+        Move-Item $dl_path "$cache_dir/$out" -Force
+    }
+}
+
+[array]$info.url | ForEach-Object { ensure_cache $_ }
+
+if ($is_update) {
+    scoop update "$($bucket_list[0])/$($app[1])"
+}
+else {
+    scoop install "$($bucket_list[0])/$($app[1])" --no-update-scoop
 }
