@@ -23,12 +23,8 @@
         "name": "PSCompletions"
     },
     "checkver": {
-        "script": [
-            "Install-Module PSCompletions -Force",
-            "Import-Module PSCompletions",
-            "(Get-Module | Where-Object { $_.Name -eq 'PSCompletions' }).Version"
-        ],
-        "regex": "(.+)"
+        "url": "https://www.powershellgallery.com/packages/PSCompletions",
+        "regex": "<h2>([\\d\\.]+)</h2>"
     },
     "autoupdate": {
         "url": "https://psg-prod-eastus.azureedge.net/packages/pscompletions.$version.nupkg"
