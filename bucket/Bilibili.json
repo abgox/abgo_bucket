@@ -1,10 +1,10 @@
 {
-    "version": "1.13.2",
+    "version": "1.13.4",
     "description": "哔哩哔哩 Windows 客户端",
     "homepage": "https://app.bilibili.com/",
     "license": "Unknown",
-    "url": "https://dl.hdslb.com/mobile/pack/bili_win/14493083/public/bilibili-setup-v1.13.2.exe#/_installer_.exe",
-    "hash": "12e8766dbbfea5dc28320f5ccaeb68f792d10782559d945a9b6d857d19ddf5cc",
+    "url": "https://dl.hdslb.com/mobile/pack/bili_win/14841669/public/bilibili-setup-v1.13.4.exe#/_installer_.exe",
+    "hash": "7d6a328d87e912e8c10d49eb543c0585d30035cc7e1ab4a3b5cfb20bb4064c2d",
     "shortcuts": [
         [
             "bilibili\\哔哩哔哩.exe",
