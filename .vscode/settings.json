@@ -1,7 +1,7 @@
 {
     "json.schemas": [
         {
-            "url": "https://abgox.github.io/ScoopType/schema/zh-CN-min.json",
+            "url": "https://abgox.github.io/schema/Scoop/zh-CN/manifest.json",
             "fileMatch": [
                 "bucket/**/*.json",
                 "deprecated/**/*.json"
