@@ -184,6 +184,7 @@
 |                       [Heynote](https://heynote.com)                        |   ✔️    |              |                                 |
 |            [hummingbird](https://arayofsunshine.dev/hummingbird)            |   ✔️    |              |                                 |
 |        [Hydrogen-Music](https://github.com/Kaidesuyo/Hydrogen-Music)        |   ✔️    |              |                                 |
+|                          [Hyper](https://hyper.is)                          |   ✔️    |              |                                 |
 |                   [Idea](https://www.jetbrains.com/idea)                    |   ✔️    |              |          IntelliJ IDEA          |
 |                  [IdeaCE](https://www.jetbrains.com/idea)                   |   ✔️    |              | IntelliJ IDEA Community Edition |
 |                    [ImageGlass](https://imageglass.org)                     |   ✔️    |              |                                 |
