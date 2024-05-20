@@ -1,8 +1,8 @@
 {
     "less": [
-        "<@Yellow>--------------------------------------------------\n",
-        "<@Cyan>Press <@Magenta>Enter<@Cyan> key to view more, or any other key to exit! (<@Magenta>{{ $lines }}<@Cyan> lines remaining)\n",
-        "<@Yellow>--------------------------------------------------<@Cyan>"
+        "<@Yellow>┌─────────────────────────────────────────────────────────────────────────────┐\n",
+        "<@Yellow>│<@Cyan>Press <@Magenta>Enter<@Cyan> key to view more, or any other key to exit! (<@Magenta>{{ $lines }}<@Cyan> lines remaining)<@Yellow>│\n",
+        "<@Yellow>└─────────────────────────────────────────────────────────────────────────────┘<@Cyan>"
     ],
     "persist_data": [
         "Persisting Data",
