@@ -1,13 +1,7 @@
 # $ErrorActionPreference='SilentlyContinue'
-try {
-    $lang = $PSUICulture
-    if ($lang -ne 'zh-CN') {
-        $lang = 'en-US'
-    }
-}
-catch {
-    $lang = 'en-US'
-}
+$lang = $PSUICulture
+if ($lang -ne 'zh-CN') { $lang = 'en-US' }
+
 function get_user_path_by_registry([string]$key) {
     $folders_registry = 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
     return Get-ItemProperty -Path $folders_registry -Name $key | Select-Object -ExpandProperty $key
@@ -71,39 +65,59 @@ $desktop = $user_Desktop
 
 $is_first_show_info = $true
 
-function data_replace($data) {
-    $data = $data -join ''
+function data_replace {
+    param ($data, $separator = '')
+    $data = ($data -join $separator)
     $pattern = '\{\{(.*?(\})*)(?=\}\})\}\}'
     $matches = [regex]::Matches($data, $pattern)
     foreach ($match in $matches) {
-        $data = $data.Replace($match.Value, (Invoke-Expression $match.Groups[1].Value))
+        $data = $data.Replace($match.Value, (Invoke-Expression $match.Groups[1].Value) -join $separator )
     }
-    if ($data -match $pattern) {
-        data_replace $data
-    }
-    else { return $data }
+    if ($data -match $pattern) { $this.replace_content($data) }else { return $data }
 }
-function less([array]$str_list, [scriptblock]$do = {}, [string]$color = 'Green', [int]$show_line) {
+function show_with_less {
+    param (
+        $str_list,
+        [scriptblock]$do = {},
+        [string]$color = 'Green',
+        [int]$show_line = [System.Console]::WindowHeight - 10
+    )
+    if ($str_list -is [string]) {
+        $str_list = $str_list -split "`n"
+    }
     $i = 0
-    $cmd_line = if ($show_line) { $show_line }else { [System.Console]::WindowHeight - 10 }
-    $lines = $str_list.Count - $cmd_line
-    if ($cmd_line -lt $str_list.Count) {
-        Write-Host "--------------------------------------------------" -f Yellow
-        Write-Host (data_replace $json.less) -f Cyan
-        Write-Host "--------------------------------------------------" -f Yellow
-    }
-    & $do
-    while ($i -lt $cmd_line -and $i -lt $str_list.Count) {
-        Write-Host $str_list[$i] -f $color
-        $i++
-    }
-    while ($i -lt $str_list.Count) {
-        $keyCode = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown").VirtualKeyCode
-        if ($keyCode -eq 13) {
+    $need_less = [System.Console]::WindowHeight -lt ($str_list.Count + 2)
+    if ($need_less) {
+        $lines = $str_list.Count - $show_line
+        write_with_color (data_replace $json.less)
+        & $do
+        while ($i -lt $str_list.Count -and $i -lt $show_line) {
             Write-Host $str_list[$i] -f $color
             $i++
         }
-        else { break }
+        while ($i -lt $str_list.Count) {
+            $keyCode = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown').VirtualKeyCode
+            if ($keyCode -ne 13) {
+                break
+            }
+            Write-Host $str_list[$i] -f $color
+            $i++
+        }
+        $end = if ($i -lt $str_list.Count) { $false }else { $true }
+        if ($end) {
+            Write-Host ' '
+            Write-Host '(End)' -f Black -b White -NoNewline
+            while ($end) {
+                $keyCode = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown').VirtualKeyCode
+                if ($keyCode -ne 13) {
+                    Write-Host ' '
+                    break
+                }
+            }
+        }
+    }
+    else {
+        $str_list | ForEach-Object { Write-Host $_ -f $color }
     }
 }
 function create_file([string]$path, [switch]$isDir) {
@@ -146,7 +160,7 @@ function create_parent_dir([string]$path) {
 function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
     if (scoop config abgo_bucket_no_shortcut) {
         if ($is_first_show_info) {
-            Write-Host $json.no_shortcut -f Yellow
+            write_with_color (data_replace $json.no_shortcut)
         }
     }
     else {
@@ -158,14 +172,14 @@ function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path
         $Shortcut.Save()
         $app = Split-Path $app_path -Leaf
         if ($is_first_show_info) {
-            Write-Host (data_replace $json.shortcut) -f Green
+            write_with_color (data_replace $json.shortcut)
         }
     }
     $is_first_show_info = $false
 }
 function remove_app_lnk([array]$lnk_name, $delay = 60, $duration = 0.3) {
     if (scoop config abgo_bucket_no_shortcut) {
-        Write-Host $json.remove_app_lnk -f Yellow
+        write_with_color (data_replace $json.remove_app_lnk)
         $lnk = $lnk_name | ForEach-Object {
             Join-Path $user_Desktop $_
             Join-Path $public_Desktop $_
@@ -195,7 +209,7 @@ function remove_app_lnk([array]$lnk_name, $delay = 60, $duration = 0.3) {
         }
     }
     else {
-        Write-Host $json.no_remove_app_lnk -f Yellow
+        write_with_color (data_replace $json.no_remove_app_lnk)
     }
 }
 function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file, [switch]$HardLink) {
@@ -297,7 +311,7 @@ function sleep_uninstall([string]$path, $delay = 60, $duration = 0.3) {
     $flag = 0
     $num = $delay / $duration
     if ($path) {
-        Write-Host $json.uninstalling -f Cyan
+        write_with_color (data_replace $json.uninstalling)
         while ((Test-Path $path) -and $flag -le $num) {
             Start-Sleep -Seconds $duration
             $flag++
@@ -308,7 +322,7 @@ function sleep_uninstall([string]$path, $delay = 60, $duration = 0.3) {
 function stop_process([bool]$isRemove = $true, [bool]$tip = $true, [string]$app_dir = $dir) {
     $app_dir2 = (Split-Path $dir -Parent) + '\current'
     $dirs = @($app_dir, $app_dir2)
-    if ($tip) { Write-Host ($json.stop_process) -f Cyan }
+    if ($tip) { write_with_color (data_replace $json.stop_process) }
     $job = Start-Job -ScriptBlock {
         param($path_sudo, $dirs)
         & $path_sudo (Get-Process | Where-Object { $_.Modules.FileName -like "$($dirs[0])*" -or $_.Modules.FileName -like "$($dirs[1])*" } | ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue; Wait-Process -Id $_.Id -ErrorAction SilentlyContinue -Timeout 30 })
@@ -317,7 +331,7 @@ function stop_process([bool]$isRemove = $true, [bool]$tip = $true, [string]$app_
     if ($isRemove) { remove_file $app_dir }
 }
 function stop_exe($exeName, [switch]$tip) {
-    if ($tip) { Write-Host ($json.stop_process) -f Cyan }
+    if ($tip) { write_with_color (data_replace $json.stop_process) }
     $job = Start-Job -ScriptBlock {
         param($path_sudo, $exeName)
         & $path_sudo (Get-Process | Where-Object { $_.ProcessName -eq $exeName } |  ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue })
@@ -336,9 +350,9 @@ function confirm([string]$tip_info) {
                 @(21368, 36733, 25805, 20316, 21462, 28040) | ForEach-Object {
                     $cancel_info += [char]::ConvertFromUtf32($_)
                 }
-                Write-Host $cancel_info -f Red
+                Write-Host $cancel_info -f Yellow
             } -EN {
-                Write-Host 'Uninstall canceled.' -f Red
+                Write-Host 'Uninstall canceled.' -f Yellow
             }
             Exit
         }
@@ -346,7 +360,7 @@ function confirm([string]$tip_info) {
 }
 function clean_redundant_files([array]$files, $delay = 60, $duration = 0.3, [switch]$tip) {
     if ($tip) {
-        Write-Host (data_replace $json.clean_redundant_files) -f Yellow
+        write_with_color (data_replace $json.clean_redundant_files)
     }
     $files | ForEach-Object {
         $null = Start-Job -ScriptBlock {
@@ -401,4 +415,40 @@ function get_installer_info([string]$app) {
 }
 function handle_lang([scriptblock]$CN = {}, [scriptblock]$EN = {}) {
     if ($lang -eq 'zh-CN') { & $CN }else { & $EN }
+}
+
+function write_with_color([string]$str) {
+    $color_list = @()
+    $str = $str -replace "`n", 'n&&_n_n&&'
+    $str_list = $str -split '(<\@[^>]+>.*?(?=<\@|$))' | Where-Object { $_ -ne '' } | ForEach-Object {
+        if ($_ -match '<\@([\s\w]+)>(.*)') {
+            ($matches[2] -replace 'n&&_n_n&&', "`n") -replace '^<\@>', ''
+            $color = $matches[1] -split ' '
+            $color_list += @{
+                color   = $color[0]
+                bgcolor = $color[1]
+            }
+        }
+        else {
+            ($_ -replace 'n&&_n_n&&', "`n") -replace '^<\@>', ''
+            $color_list += @{}
+        }
+    }
+    $str_list = [array]$str_list
+    for ($i = 0; $i -lt $str_list.Count; $i++) {
+        $color = $color_list[$i].color
+        $bgcolor = $color_list[$i].bgcolor
+        if ($color) {
+            if ($bgcolor) {
+                Write-Host $str_list[$i] -f $color -b $bgcolor -NoNewline
+            }
+            else {
+                Write-Host $str_list[$i] -f $color -NoNewline
+            }
+        }
+        else {
+            Write-Host $str_list[$i] -NoNewline
+        }
+    }
+    Write-Host ''
 }

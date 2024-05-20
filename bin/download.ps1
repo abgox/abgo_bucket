@@ -1,18 +1,5 @@
 param([string]$app_name)
-
-function replace_content {
-    param ($data, $separator = '')
-    $data = ($data -join $separator)
-    $pattern = '\{\{(.*?(\})*)(?=\}\})\}\}'
-    $matches = [regex]::Matches($data, $pattern)
-    foreach ($match in $matches) {
-        $data = $data.Replace($match.Value, (Invoke-Expression $match.Groups[1].Value) -join $separator )
-    }
-    if ($data -match $pattern) { replace_content $data }else { return $data }
-}
-
-$lang = $PSUICulture
-if ($lang -ne 'zh-CN') { $lang = 'en-US' }
+. $PSScriptRoot\utils.ps1
 
 $app = @()
 if ($app_name -match ".*[\\/].*") {
@@ -54,7 +41,7 @@ $bucket_list | ForEach-Object {
     }
 }
 if (!$app_list) {
-    Write-Host (replace_content $json.download.no_found_app) -f Red
+    write_with_color (data_replace $json.download.no_found_app)
     return
 }
 
@@ -72,7 +59,7 @@ $content_manifest = Get-Content $app_list[0] -Raw | ConvertFrom-Json
 $info = @{}
 if ($installed_version) {
     if ($content_manifest.version -eq $installed_version) {
-        Write-Host (replace_content $json.download.exist) -f Green
+        write_with_color (data_replace $json.download.exist)
         return
     }
     else {
@@ -101,12 +88,12 @@ function ensure_cache($url) {
     $out = "$($app[1])#$($content_manifest.version)#$($replace_url)"
     $has_cache = Get-ChildItem $cache_dir | Where-Object { $_.Name -in $out }
     if (!$has_cache) {
-        Write-Host  (replace_content "$($json.download.url)$($url)") -f Green
+        write_with_color (data_replace $json.download.url)
         Write-Host "---------------" -f Cyan
-        Write-Host (replace_content "$($json.download.download)") -f Yellow -NoNewline
+        Write-Host (data_replace "$($json.download.download)") -f Yellow -NoNewline
         $dl_path = $(Read-Host) -replace '"', ''
         while (!(Test-Path $dl_path)) {
-            Write-Host (replace_content $json.download.no_found) -f Yellow -NoNewline
+            Write-Host (data_replace $json.download.no_found) -f Yellow -NoNewline
             $dl_path = $(Read-Host) -replace '"', ''
         }
         Write-Host ''

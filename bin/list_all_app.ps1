@@ -19,7 +19,7 @@ $files| ForEach-Object{
     $result += "{0,-$($max_len + 3)} {1}" -f $app_name, $version
 }
 
-less ($result | Where-Object {$_ -ne ''}) {
+show_with_less ($result | Where-Object {$_ -ne ''}) {
     Write-Host ' '
     Write-Host ("{0,-$($max_len + 3)} {1}" -f 'App', 'Version') -f Cyan
     Write-Host ' '
