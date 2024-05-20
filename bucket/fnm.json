@@ -6,13 +6,17 @@
         "identifier": "GNU General Public License v3.0",
         "url": "https://github.com/Schniz/fnm/blob/master/LICENSE"
     },
-    "notes": [
-        "不要忘记将 \"fnm env --use-on-cd | Out-String | Invoke-Expression\" 添加到你的 powershell 配置文件中。",
-        "Don't forget to add \"fnm env --use-on-cd | Out-String | Invoke-Expression\" to your powershell profile."
-    ],
     "url": "https://github.com/Schniz/fnm/releases/download/v1.35.1/fnm-windows.zip",
     "hash": "f083e7256c24f359d2101934426c87e3066831a40303ebe6e538cea917a0f184",
     "bin": "fnm.exe",
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "handle_lang -CN {",
+        "   write_with_color \"`n<@Yellow>不要忘记将 <@Magenta>fnm env --use-on-cd | Out-String | Invoke-Expression<@Yellow> 添加到你的 powershell 配置文件中`n\"",
+        "} -EN {",
+        "   write_with_color \"`n<@Yellow>Don't forget to add <@Magenta>fnm env --use-on-cd | Out-String | Invoke-Expression<@Yellow> to your powershell profile.`n\"",
+        "}"
+    ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",

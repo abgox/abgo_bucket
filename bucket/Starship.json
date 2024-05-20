@@ -6,12 +6,6 @@
         "identifier": "ISC License",
         "url": "https://github.com/starship/starship/blob/master/LICENSE"
     },
-    "notes": [
-        "用法: 将 Invoke-Expression (&starship init powershell) 加入 PowerShell $PROFILE 的末尾。",
-        "前提: 请确保您的终端中安装并启用了 Powerline 字体。",
-        "Usage: Add 'Invoke-Expression (&starship init powershell)' (No quotes) to the end of your PowerShell $PROFILE.",
-        "Prerequisites: A Powerline font installed and enabled in your terminal."
-    ],
     "architecture": {
         "64bit": {
             "url": "https://github.com/starship/starship/releases/download/v1.19.0/starship-x86_64-pc-windows-msvc.zip",
@@ -30,6 +24,14 @@
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -file @(\"$env:userProfile\\.config\\starship.toml\") @(\"$persist_dir\\starship.toml\")"
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "handle_lang -CN {",
+        "   write_with_color \"`n<@Yellow>用法: 将 <@Magenta>Invoke-Expression (&starship init powershell)<@Yellow> 加入 PowerShell <@Magenta>`$Profile<@Yellow> 文件中`n前提: 请确保您的终端中安装并启用了 Powerline 字体`n\"",
+        "} -EN {",
+        "   write_with_color \"`n<@Yellow>Usage: Add <@Magenta>Invoke-Expression (&starship init powershell)<@Yellow> to the <@Magenta>`$Profile<@Yellow> file of PowerShell.`nPrerequisites: A Powerline font installed and enabled in your terminal.`n\"",
+        "}"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

@@ -6,10 +6,6 @@
         "identifier": "Proprietary",
         "url": "https://support.typora.io/License-Agreement/"
     },
-    "notes": [
-        "需要旧的 beta 免费版本，请安装 TyporaFree",
-        "For old beta free version, please install: TyporaFree"
-    ],
     "architecture": {
         "64bit": {
             "url": "https://download.typora.io/windows/typora-setup-x64-1.8.10.exe",
@@ -32,6 +28,14 @@
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$user_AppData\\Typora\") @(\"$persist_dir\\Typora\")",
         "create_app_lnk \"$dir\\Typora.exe\" \"$desktop\\Typora.lnk\""
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "handle_lang -CN {",
+        "   write_with_color \"`n<@Yellow>如果需要旧的 beta 免费版本，请安装 <@Magenta>TyporaFree`n\"",
+        "} -EN {",
+        "   write_with_color \"`n<@Yellow>For old beta free version, please install <@Magenta>TyporaFree<@Yellow>.`n\"",
+        "}"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

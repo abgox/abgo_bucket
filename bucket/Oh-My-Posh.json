@@ -6,10 +6,6 @@
         "identifier": "MIT",
         "url": "https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/COPYING"
     },
-    "notes": [
-        "参考 \"https://ohmyposh.dev/docs/installation/prompt\" 为 shell 配置主题",
-        "Refer to \"https://ohmyposh.dev/docs/installation/prompt\" for shell specific configurations."
-    ],
     "architecture": {
         "64bit": {
             "url": [
@@ -50,6 +46,14 @@
     "pre_install": [
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$user_LocalAppData\\oh-my-posh\") @(\"$persist_dir\\oh-my-posh\")"
+    ],
+    "post_install": [
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "handle_lang -CN {",
+        "   write_with_color \"`n<@Yellow>参考 <@Blue>https://ohmyposh.dev/docs/installation/prompt<@Yellow> 为 shell 配置主题`n\"",
+        "} -EN {",
+        "   write_with_color \"`n<@Yellow>Refer to <@Blue>https://ohmyposh.dev/docs/installation/prompt<@Yellow> for shell specific configurations.`n\"",
+        "}"
     ],
     "pre_uninstall": [
         "$_bucket=(scoop bucket list | where-Object {$_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
