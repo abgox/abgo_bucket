@@ -12,6 +12,7 @@
         ]
     ],
     "pre_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$user_Documents\\WeChat Files\",\"$user_AppData\\Tencent\\WeChat\\All Users\") @(\"$persist_dir\\WeChat Files\",\"$persist_dir\\Tencent\\WeChat\\All Users\")",
         "create_app_lnk \"$dir\\WeChat.exe\" \"$desktop\\微信.lnk\""

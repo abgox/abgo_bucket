@@ -9,6 +9,7 @@
     "url": "https://github.com/TranslucentTB/TranslucentTB/releases/download/2024.1/bundle.msixbundle",
     "hash": "48bb52116c78164a2f49b306f4781b5885a4f98e149bbc48acf103b262560563",
     "pre_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         "$path_msi=\"$dir\\bundle.msixbundle\"",
         "Add-AppPackage -Path $path_msi",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
@@ -16,6 +17,7 @@
         "clean_redundant_files @($path_msi)"
     ],
     "post_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "handle_lang -CN {",
         "   write_with_color \"`n<@Yellow>此应用的程序文件不在 Scoop 中。Scoop 只管理数据的持久化(persist)、安装、更新以及卸载操作`n\"",

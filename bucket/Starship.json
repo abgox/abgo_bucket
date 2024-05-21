@@ -22,10 +22,12 @@
     },
     "bin": "starship.exe",
     "pre_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -file @(\"$env:userProfile\\.config\\starship.toml\") @(\"$persist_dir\\starship.toml\")"
     ],
     "post_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "handle_lang -CN {",
         "   write_with_color \"`n<@Yellow>用法: 将 <@Magenta>Invoke-Expression (&starship init powershell)<@Yellow> 加入 PowerShell <@Magenta>`$Profile<@Yellow> 文件中`n前提: 请确保您的终端中安装并启用了 Powerline 字体`n\"",

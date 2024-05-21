@@ -44,10 +44,12 @@
     },
     "bin": "oh-my-posh.exe",
     "pre_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$user_LocalAppData\\oh-my-posh\") @(\"$persist_dir\\oh-my-posh\")"
     ],
     "post_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "handle_lang -CN {",
         "   write_with_color \"`n<@Yellow>参考 <@Blue>https://ohmyposh.dev/docs/installation/prompt<@Yellow> 为 shell 配置主题`n\"",

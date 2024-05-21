@@ -15,6 +15,7 @@
         ]
     ],
     "pre_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$user_AppData\\ContextMenuManager\") @(\"$persist_dir\\ContextMenuManager\")",
         "create_app_lnk \"$dir\\ContextMenuManager.NET.4.0.exe\" \"$desktop\\ContextMenuManager.lnk\""

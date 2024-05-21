@@ -13,6 +13,7 @@
         ]
     ],
     "pre_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -dir @(\"$user_AppData\\LarkShell\") @(\"$persist_dir\\LarkShell\")",
         "create_app_lnk \"$dir\\app\\Feishu.exe\" \"$desktop\\飞书.lnk\""

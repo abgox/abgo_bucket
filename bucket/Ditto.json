@@ -24,6 +24,7 @@
         ]
     ],
     "pre_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "persist -file @(\"$dir\\Ditto.db\",\"$dir\\Ditto.Settings\") @(\"$persist_dir\\Ditto.db\",\"$persist_dir\\Ditto.Settings\")",
         "create_app_lnk \"$dir\\Ditto.exe\" \"$desktop\\Ditto.lnk\""

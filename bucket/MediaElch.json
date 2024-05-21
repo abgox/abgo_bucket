@@ -25,6 +25,7 @@
         ]
     ],
     "pre_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "$xml_path=\"$persist_dir\\advancedsettings.xml\"",
         "if (!(Test-Path $xml_path)){",
