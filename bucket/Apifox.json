@@ -18,7 +18,7 @@
         "$core_exe=\"$dir\\Apifox.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\apifox\") @(\"$persist_dir\\apifox\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\Apifox.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"Apifox.lnk\")"
     ],
     "pre_uninstall": [

@@ -29,8 +29,9 @@
         "$core_exe=\"$dir\\Code.exe\"",
         "persist -dir @(\"$user_AppData\\Code\",\"$env:UserProfile\\.vscode\") @(\"$persist_dir\\Code\",\"$persist_dir\\.vscode\")",
         "sleep_install $core_exe",
-        "create_app_lnk \"$dir\\Code.exe\" \"$desktop\\VS Code.lnk\"",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\Visual Studio Code\")"
+        "clean_redundant_files @($path_exe,\"$apps_lnk\\Visual Studio Code\")",
+        "remove_app_lnk @() @(\"Visual Studio Code\")",
+        "create_app_lnk \"$dir\\Code.exe\" \"$desktop\\VS Code.lnk\""
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

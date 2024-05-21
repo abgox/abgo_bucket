@@ -21,7 +21,7 @@
         "$core_exe=\"$dir\\Escrcpy.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\escrcpy\") @(\"$persist_dir\\escrcpy\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\Escrcpy.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"Escrcpy.lnk\")"
     ],
     "pre_uninstall": [

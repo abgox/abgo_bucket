@@ -21,7 +21,7 @@
         "$core_exe=\"$dir\\Bruno.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\bruno\") @(\"$persist_dir\\bruno\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\Bruno.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"Bruno.lnk\")"
     ],
     "pre_uninstall": [

@@ -22,7 +22,7 @@
         "$core_exe=\"$dir\\jan.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\jan\",\"$env:UserProfile\\jan\") @(\"$persist_dir\\jan\",\"$persist_dir\\jan_user\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\jan.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"Jan.lnk\")"
     ],
     "pre_uninstall": [

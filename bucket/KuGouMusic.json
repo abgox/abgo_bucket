@@ -18,8 +18,8 @@
         "$core_exe=\"$dir\\KuGou.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\KuGou8\") @(\"$persist_dir\\KuGou8\")",
-        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\酷狗音乐\",\"$admin_apps_lnk\\酷狗音乐.lnk\")",
-        "remove_app_lnk @(\"酷狗音乐.lnk\")"
+        "clean_redundant_files @($path_exe)",
+        "remove_app_lnk @(\"酷狗音乐.lnk\") @(\"酷狗音乐\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

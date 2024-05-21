@@ -29,7 +29,7 @@
         "$core_exe=\"$dir\\SwitchHosts.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\SwitchHosts\",\"$env:UserProfile\\.SwitchHosts\") @(\"$persist_dir\\SwitchHosts\",\"$persist_dir\\.SwitchHosts\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\SwitchHosts.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"SwitchHosts.lnk\")"
     ],
     "pre_uninstall": [

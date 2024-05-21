@@ -21,7 +21,7 @@
         "$core_exe=\"$dir\\SiYuan.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\SiYuan\",\"$user_AppData\\SiYuan-Electron\") @(\"$persist_dir\\SiYuan\",\"$persist_dir\\SiYuan-Electron\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\SiYuan.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"SiYuan.lnk\")"
     ],
     "pre_uninstall": [

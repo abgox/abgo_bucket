@@ -21,7 +21,7 @@
         "$core_exe=\"$dir\\hummingbird.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\hummingbird\") @(\"$persist_dir\\hummingbird\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\hummingbird.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"hummingbird.lnk\")"
     ],
     "pre_uninstall": [

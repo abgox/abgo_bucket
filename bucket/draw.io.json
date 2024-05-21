@@ -29,7 +29,7 @@
         "$core_exe=\"$dir\\draw.io.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\draw.io\") @(\"$persist_dir\\draw.io\")",
-        "clean_redundant_files @($path_exe,\"$public_Programs\\draw.io.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"draw.io.lnk\")"
     ],
     "pre_uninstall": [

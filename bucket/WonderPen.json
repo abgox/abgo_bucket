@@ -26,7 +26,7 @@
         "$core_exe=\"$dir\\WonderPen.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\WonderPen\") @(\"$persist_dir\\WonderPen\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\WonderPen.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"WonderPen.lnk\")"
     ],
     "pre_uninstall": [

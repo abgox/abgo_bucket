@@ -22,7 +22,7 @@
         "$core_exe=\"$dir\\Hyper.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$env:AppData\\Hyper\") @(\"$persist_dir\\Hyper\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\Hyper.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"Hyper.lnk\")"
     ],
     "pre_uninstall": [

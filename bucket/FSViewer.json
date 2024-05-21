@@ -20,8 +20,8 @@
         "sleep_install $core_exe",
         "persist -file @(\"$user_LocalAppData\\FastStone\\FSIV\\FSSettings.db\") @(\"$persist_dir\\FSSettings.db\")",
         "persist -file @(\"$user_LocalAppData\\FastStone\\FSIV\\HisFolderList.db\") @(\"$persist_dir\\HisFolderList.db\")",
-        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\FastStone Image Viewer\")",
-        "remove_app_lnk @(\"FastStone Image Viewer.lnk\")"
+        "clean_redundant_files @($path_exe)",
+        "remove_app_lnk @(\"FastStone Image Viewer.lnk\") @(\"FastStone Image Viewer\")"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

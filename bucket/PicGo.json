@@ -21,7 +21,7 @@
         "$core_exe=\"$dir\\PicGo.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\picgo\") @(\"$persist_dir\\picgo\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\PicGo.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"PicGo.lnk\")"
     ],
     "pre_uninstall": [

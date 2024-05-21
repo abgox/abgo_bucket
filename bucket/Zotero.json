@@ -18,7 +18,7 @@
         "$core_exe=\"$dir\\Zotero.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\Zotero\") @(\"$persist_dir\\Zotero\")",
-        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\Zotero.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"Zotero.lnk\")"
     ],
     "pre_uninstall": [

@@ -26,7 +26,7 @@
         "$core_exe=\"$dir\\He3.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\he3\") @(\"$persist_dir\\he3\")",
-        "clean_redundant_files @($path_exe,\"$admin_apps_lnk\\He3.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"He3.lnk\")"
     ],
     "pre_uninstall": [

@@ -21,7 +21,7 @@
         "$core_exe=\"$dir\\AppFlowy.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\io.appflowy\") @(\"$persist_dir\\io.appflowy\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\AppFlowy.lnk\",\"$admin_apps_lnk\\AppFlowy\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"AppFlowy.lnk\")"
     ],
     "pre_uninstall": [

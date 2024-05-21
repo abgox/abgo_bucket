@@ -30,7 +30,7 @@
         "$core_exe=\"$dir\\final2x.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\Final2x\") @(\"$persist_dir\\Final2x\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\Final2x.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"Final2x.lnk\")"
     ],
     "pre_uninstall": [

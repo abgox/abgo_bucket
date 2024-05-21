@@ -21,7 +21,7 @@
         "$core_exe=\"$dir\\Upscayl.exe\"",
         "sleep_install $core_exe",
         "persist -dir @(\"$user_AppData\\Upscayl\") @(\"$persist_dir\\Upscayl\")",
-        "clean_redundant_files @($path_exe,\"$apps_lnk\\Upscayl.lnk\")",
+        "clean_redundant_files @($path_exe)",
         "remove_app_lnk @(\"Upscayl.lnk\")"
     ],
     "pre_uninstall": [
