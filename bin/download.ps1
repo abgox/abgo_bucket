@@ -85,7 +85,7 @@ else {
 }
 
 function ensure_cache($url) {
-    $replace_url = $url -replace ":?[/#]?/", '_'
+    $replace_url = $url -replace "(/?%/?)|(#/?)|(:?//?)", '_'
     $out = "$($app[1])#$($content_manifest.version)#$($replace_url)"
     $has_cache = Get-ChildItem $cache_dir | Where-Object { $_.Name -in $out }
     if (!$has_cache) {
