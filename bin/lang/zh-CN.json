@@ -18,14 +18,16 @@
     ],
     "shortcut": [
         "<@Green>为程序 <@Magenta>{{ $app }}<@Green> 创建快捷方式\n",
-        "路径: <@Blue>{{ $lnk_path }}<@Green>\n",
-        "如果你不需要桌面快捷方式，请运行以下命令:\n",
+        "路径: <@Blue>{{ $lnk_path }}<@Green>\n"
+    ],
+    "has_shortcut": [
+        "<@Yellow>如果你不需要桌面快捷方式，请运行以下命令:\n",
         "<@Magenta>scoop config abgo_bucket_no_shortcut true\n"
     ],
     "no_shortcut": [
         "<@Yellow>当前 Scoop 配置项 <@Magenta>abgo_bucket_no_shortcut<@Yellow> 的值为 <@Magenta>true<@Yellow>\n",
-        "不会创建桌面快捷方式\n",
-        "如果需要它，请运行以下命令:\n",
+        "不会创建桌面快捷方式。如果创建了，则立即删除它\n",
+        "如果需要桌面快捷方式，请运行以下命令:\n",
         "<@Magenta>scoop config abgo_bucket_no_shortcut false\n"
     ],
     "stop_process": "<@Cyan>尝试终止可能仍在运行的进程...",
@@ -37,16 +39,6 @@
         "no_found_app": "<@Red>没有找到 <@Magenta>{{ $app[1] }}<@Red>，这个应用可能不存在，也可能是拼写错误"
     },
     "clean_redundant_files": "运行一个后台作业：删除安装过程中产生的冗余文件\n",
-    "remove_app_lnk": [
-        "<@Yellow>当前 Scoop 配置项 <@Magenta>abgo_bucket_no_shortcut<@Yellow> 的值为 <@Magenta>true<@Yellow>\n",
-        "将运行一个后台任务监控安装程序是否创建桌面快捷方式，如果创建了将立即删除它\n",
-        "如果需要桌面快捷方式，请运行以下命令:\n",
-        "<@Magenta>scoop config abgo_bucket_no_shortcut false\n"
-    ],
-    "no_remove_app_lnk": [
-        "<@Yellow>如果你不需要桌面快捷方式，请运行以下命令:\n",
-        "<@Magenta>scoop config abgo_bucket_no_shortcut true\n"
-    ],
     "remove": "移除 ",
     "uninstalling": "<@Cyan>正在运行软件自带的卸载程序..."
 }

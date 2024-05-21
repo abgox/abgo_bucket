@@ -63,8 +63,9 @@ $admin_apps_lnk = $public_Programs
 $scoop_apps_lnk = "$apps_lnk\Scoop Apps"
 $desktop = $user_Desktop
 
-$is_first_show_info = $true
-
+$info = @{
+    need_show_tip = $true
+}
 function data_replace {
     param ($data, $separator = '')
     $data = ($data -join $separator)
@@ -159,8 +160,9 @@ function create_parent_dir([string]$path) {
 }
 function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
     if (scoop config abgo_bucket_no_shortcut) {
-        if ($is_first_show_info) {
+        if ($info.need_show_tip) {
             write_with_color (data_replace $json.no_shortcut)
+            $info.need_show_tip = $false
         }
     }
     else {
@@ -171,19 +173,15 @@ function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path
         $Shortcut.IconLocation = $icon_path
         $Shortcut.Save()
         $app = Split-Path $app_path -Leaf
-        if ($is_first_show_info) {
-            write_with_color (data_replace $json.shortcut)
+        write_with_color (data_replace $json.shortcut)
+        if ($info.need_show_tip) {
+            write_with_color (data_replace $json.has_shortcut)
+            $info.need_show_tip = $false
         }
     }
-    $is_first_show_info = $false
 }
-function remove_app_lnk([array]$lnk_name, $delay = 60, $duration = 0.3) {
-    if (scoop config abgo_bucket_no_shortcut) {
-        write_with_color (data_replace $json.remove_app_lnk)
-        $lnk = $lnk_name | ForEach-Object {
-            Join-Path $user_Desktop $_
-            Join-Path $public_Desktop $_
-        }
+function remove_app_lnk([array]$lnk_name, [array]$menu_lnk_name = $lnk_name, $delay = 60, $duration = 0.3) {
+    function _do([array]$lnk_list) {
         $lnk | ForEach-Object {
             $null = Start-Job -ScriptBlock {
                 param($path_sudo, $file, $delay, $duration)
@@ -208,8 +206,27 @@ function remove_app_lnk([array]$lnk_name, $delay = 60, $duration = 0.3) {
             } -ArgumentList $path_sudo, $_, $delay, $duration
         }
     }
+    $lnk = $menu_lnk_name | ForEach-Object {
+        Join-Path $apps_lnk $_
+        Join-Path $admin_apps_lnk $_
+    }
+    _do $lnk
+    if (scoop config abgo_bucket_no_shortcut) {
+        if ($info.need_show_tip) {
+            write_with_color (data_replace $json.no_shortcut)
+            $info.need_show_tip = $false
+        }
+        $lnk = $lnk_name | ForEach-Object {
+            Join-Path $user_Desktop $_
+            Join-Path $public_Desktop $_
+        }
+        _do $lnk
+    }
     else {
-        write_with_color (data_replace $json.no_remove_app_lnk)
+        if ($info.need_show_tip) {
+            write_with_color (data_replace $json.has_shortcut)
+            $info.need_show_tip = $false
+        }
     }
 }
 function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file, [switch]$HardLink) {
