@@ -33,10 +33,12 @@ else {
     $bucket_list = [array]$abgo_bucket + $bucket_list | Sort-Object -Unique
 }
 $app_list = @()
-$bucket_list | ForEach-Object {
-    Get-ChildItem "$($buckets_dir)/$($_)/bucket" | ForEach-Object {
+$usable_bucket = @()
+foreach ($bucket in $bucket_list) {
+    Get-ChildItem "$($buckets_dir)/$($bucket)/bucket" | ForEach-Object {
         if ($_.BaseName -eq $app[1]) {
             $app_list += $_.FullName
+            $usable_bucket += $bucket
         }
     }
 }
@@ -44,7 +46,6 @@ if (!$app_list) {
     write_with_color (data_replace $json.download.no_found_app)
     return
 }
-
 try {
     $installed_version = Get-ChildItem "$($app_dir)/$($app[1])" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match "\d+\..*" } | Sort-Object { [version]$_.Name } -Descending
     $installed_version = [array]$installed_version[0].Name
@@ -104,8 +105,8 @@ function ensure_cache($url) {
 [array]$info.url | ForEach-Object { ensure_cache $_ }
 
 if ($is_update) {
-    scoop update "$($bucket_list[0])/$($app[1])"
+    scoop update "$($usable_bucket[0])/$($app[1])"
 }
 else {
-    scoop install "$($bucket_list[0])/$($app[1])" --no-update-scoop
+    scoop install "$($usable_bucket[0])/$($app[1])" --no-update-scoop
 }
