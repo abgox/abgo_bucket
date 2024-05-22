@@ -1,5 +1,5 @@
 {
-    "version": "24.4.0",
+    "version": "24.4.6",
     "description": "一款专业的绘图工具。Professional diagramming.",
     "homepage": "https://www.diagrams.net",
     "license": {
@@ -8,12 +8,12 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v24.4.0/draw.io-24.4.0-windows-installer.exe#/_installer_.exe",
-            "hash": "a8c6535683bccc8cee052d364c51373700de456c49afa3d52bf31cbaa36594df"
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v24.4.6/draw.io-24.4.6-windows-installer.exe#/_installer_.exe",
+            "hash": "c269f850138c62b7192448204e43ea879788d4f8b9ab3d57d9fa7917b5c74c05"
         },
         "32bit": {
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v24.4.0/draw.io-ia32-24.4.0-windows-32bit-installer.exe#/_installer_.exe",
-            "hash": "bf0ab80877bc81654a34095e90db1d69a52eda489350d3f032ccfbab0a085b5e"
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v24.4.6/draw.io-ia32-24.4.6-windows-32bit-installer.exe#/_installer_.exe",
+            "hash": "798f157482407184fe7a7a6bf530cc62d16e80950d19698e46db82aca5096b2a"
         }
     },
     "shortcuts": [
