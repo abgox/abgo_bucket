@@ -1,10 +1,10 @@
 {
-    "version": "1.20.2",
+    "version": "1.21.0",
     "description": "「类脑式」知识管理笔记与写作。\"Brain-like\" Knowledge Management Notes.",
     "homepage": "https://lattics.zineapi.com/",
     "license": "Unknown",
-    "url": "https://media.zine.la/Lattics/1.20/Lattics_win_installer_x64_1.20.2.exe.zip",
-    "hash": "8e4b146599ff056b3e91aa3cd049610f3a3f6e0816dcca2770fe4ec8fdf94613",
+    "url": "https://media.zine.la/Lattics/1.21/Lattics_win_installer_x64_1.21.0.exe.zip",
+    "hash": "cadddcdb27939f0753c84bbeb62f3b564ec8c32b32bc2c6f772be0655125b9c0",
     "shortcuts": [
         [
             "Lattics.exe",
