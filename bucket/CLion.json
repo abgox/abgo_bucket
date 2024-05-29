@@ -1,13 +1,13 @@
 {
-    "version": "2024.1.1",
+    "version": "2024.1.2",
     "description": "由 JetBrains 开发的适用于 C 和 C++ 的跨平台集成开发环境。Cross-Platform IDE for C and C++ by JetBrains.",
     "homepage": "https://www.jetbrains.com/clion/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "url": "https://download.jetbrains.com/cpp/CLion-2024.1.1.exe#/_installer_.exe",
-    "hash": "673b3f50f6eaf0da310f4f997ad50443a6851cec1b2d094a4189ced00f5786bc",
+    "url": "https://download.jetbrains.com/cpp/CLion-2024.1.2.exe#/_installer_.exe",
+    "hash": "a0fa6258919af9340d1cf7e5a770cd796e3291ce88556c2986569b4222b4e237",
     "bin": [
         [
             "IDE\\bin\\clion64.exe",
