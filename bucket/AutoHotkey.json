@@ -1,13 +1,13 @@
 {
-    "version": "2.0.15",
+    "version": "2.0.16",
     "description": "适用于 Windows 的终极自动化脚本语言。The ultimate automation scripting language for Windows.",
     "homepage": "https://www.autohotkey.com",
     "license": {
         "identifier": "GNU General Public License v2.0",
         "url": "https://github.com/AutoHotkey/AutoHotkey/blob/v2.0/license.txt"
     },
-    "url": "https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.15/AutoHotkey_2.0.15_setup.exe",
-    "hash": "207fea03708f1ba8c8e61f30170d799495736726d1853d7d4150a5ffffa14013",
+    "url": "https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.16/AutoHotkey_2.0.16_setup.exe",
+    "hash": "f5d2887adeaa87f28d30174552b1ec976d302e7c804faa3e8ce74ddb0dda6c78",
     "bin": [
         [
             "v2\\AutoHotkey64.exe",
