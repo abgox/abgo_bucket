@@ -46,17 +46,10 @@ if (!$app_list) {
     write_with_color (data_replace $json.download.no_found_app)
     return
 }
-try {
-    $installed_version = Get-ChildItem "$($app_dir)/$($app[1])" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match "\d+\..*" } | Sort-Object { [version]$_.Name } -Descending
-    $installed_version = [array]$installed_version[0].Name
-}
-catch {
-    $installed_version = $null
-}
+try { $installed_version = ((scoop info $app[1]).Installed -split "`n")[-1] }catch { $installed_version = $null }
 
 $content_manifest = Get-Content $app_list[0] -Raw | ConvertFrom-Json
 
-#
 $info = @{}
 if ($installed_version) {
     if ($content_manifest.version -eq $installed_version) {
