@@ -60,6 +60,9 @@ if ($installed_version) {
         $is_update = $true
     }
 }
+else {
+    $is_update = Get-ChildItem $app_dir | Where-Object { $_.Name -eq $app[1] }
+}
 
 function get_arch {
     $system = if (${env:ProgramFiles(Arm)}) { 'arm64' }
