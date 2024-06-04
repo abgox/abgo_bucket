@@ -102,6 +102,15 @@
 -   `abgo_bucket` 中的应用默认会在安装和更新时，自动创建桌面快捷方式。
 -   你可以运行命令添加 `Scoop` 配置项来禁止创建桌面快捷方式。`scoop config abgo_bucket_no_shortcut true`
 
+## 关于 `UAC`
+
+-   为了保证脚本正常的运行，`bin` 目录下的脚本在某些情况下会提升到管理员权限运行
+-   这会出现 `UAC` 授权窗口需要用户确认
+-   如果你不希望受到 `UAC` 授权窗口的干扰，你应该寻找方法去避免它出现
+    1. 使用管理员权限启动命令行
+    2. 在系统设置里修改 `用户账户控制设置`
+    3. ...
+
 ---
 
 ### 应用清单
@@ -122,6 +131,9 @@
 
         -   `run` ：安装后会立即运行一次。
         -   `UWP` ：一个 `UWP` 应用，此应用的程序文件不在 `Scoop` 中。`Scoop` 只管理数据的持久化(`persist`)、安装、更新以及卸载操作。
+        -   `Font`: 一种字体
+            -   在字体的安装过程中，会频繁使用到管理员权限，请查看 [关于 UAC](#关于-uac)
+        -   `PSModule`: 一个 PowerShell 模块
         -   `confirm` : 应用在卸载时有一个命令行(或卸载程序)交互确认
         -   `noAutoUpdate` : `json.autoupdate` 未配置，Scoop 无法自动检测更新
         -   `invalid` ：无效应用，已放入 deprecated(废弃) 文件夹中，未来可能从清单中移除。
@@ -130,167 +142,168 @@
 
 ---
 
-|                                     App                                     | persist |     Tag      |              Note               |
-| :-------------------------------------------------------------------------: | :-----: | :----------: | :-----------------------------: |
-|              [1History](https://github.com/1History/1History)               |   ➖    |              |                                 |
-|                          [7zip](https://7-zip.org)                          |   ➖    |   confirm    |                                 |
-|                      [123pan](https://www.123pan.com)                       |   ✔️    |              |            123 云盘             |
-|                        [aardio](https://aardio.com)                         |   ✔️    |              |                                 |
-|                    [AdsPower](https://www.adspower.net)                     |   ✔️    |              |           指纹浏览器            |
-|                        [AFFINE](https://affine.pro)                         |   ✔️    |              |                                 |
-|                    [aliyunDrive](https://www.alipan.com)                    |   ✔️    |              |            阿里云盘             |
-|                        [Apifox](https://apifox.com)                         |   ✔️    |              |                                 |
-|                     [AppFlowy](https://www.appflowy.io)                     |   ✔️    |              |                                 |
-|                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |              |                                 |
-|               [BaiduNetdisk](https://pan.baidu.com/download)                |   ✔️    |              |            百度网盘             |
-|                  [BaiduTranslate](https://fanyi.baidu.com)                  |   ✔️    |              |            百度翻译             |
-|                    [Bilibili](https://app.bilibili.com)                     |   ✔️    |              |            哔哩哔哩             |
-|        [BitMeterOS](https://codebox.net/pages/bitmeteros-downloads)         |   ➖    |              |                                 |
-|                      [Bruno](https://www.usebruno.com)                      |   ✔️    |              |                                 |
-|                       [Carnac](http://carnackeys.com)                       |   ✔️    |              |                                 |
-|                      [Chatbox](https://chatboxai.app)                       |   ✔️    |              |                                 |
-|                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |              |                                 |
-|                  [CLion](https://www.jetbrains.com/clion)                   |   ✔️    |              |                                 |
-|                     [CloudMusic](https://music.163.com)                     |   ✔️    |              |           网易云音乐            |
-| [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |              |                                 |
-|                         [Cursor](https://cursor.sh)                         |   ✔️    |              |                                 |
-|               [DataGrip](https://www.jetbrains.com/datagrip)                |   ✔️    |              |                                 |
-|              [DataSpell](https://www.jetbrains.com/dataspell)               |   ✔️    |              |                                 |
-|                       [DevToys](https://devtoys.app)                        |   ✔️    |     UWP      |                                 |
-|                  [Ditto](https://ditto-cp.sourceforge.io)                   |   ✔️    |              |                                 |
-|               [Dnest](https://github.com/davidkane0526/Dnest)               |   ➖    |              |                                 |
-|                      [DouYin](https://www.douyin.com)                       |   ✔️    |              |              抖音               |
-|               [DownKyi](https://leiurayer.github.io/downkyi)                |   ✔️    |              |                                 |
-|                     [draw.io](https://www.diagrams.net)                     |   ✔️    |              |                                 |
-|                   [Dropit](http://www.dropitproject.com)                    |   ✔️    |              |                                 |
-|             [Escrcpy](https://github.com/viarotel-org/escrcpy)              |   ✔️    |              |                                 |
-|                   [Everything](https://www.voidtools.com)                   |   ✔️    |              |                                 |
-|                    [Final2x](https://final2x.tohru.top)                     |   ✔️    |              |                                 |
-|                    [FishingFunds](https://ff.1zilc.top)                     |   ✔️    |              |          基金股票相关           |
-|                [Flow-Launcher](https://www.flowlauncher.com)                |   ✔️    |              |                                 |
-|                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    |              |                                 |
-|                    [fnm](https://github.com/Schniz/fnm)                     |   ➖    |              |                                 |
-|                         [Fonger](http://morin.vin)                          |   ✔️    |              |            方格音乐             |
-|          [FSViewer](https://www.faststone.org/FSViewerDetail.htm)           |   ✔️    |              |     FastStone Image Viewer      |
-|           [FastGithub](https://github.com/dotnetcore/FastGithub)            |   ➖    | noAutoUpdate |                                 |
-|                       [FeiShu](https://www.feishu.cn)                       |   ✔️    |              |              飞书               |
-|               [GeekUninstaller](https://geekuninstaller.com)                |   ✔️    |              |                                 |
-|              [GitExtensions](https://gitextensions.github.io)               |   ✔️    |              |                                 |
-|                 [GoLand](https://www.jetbrains.com/goland)                  |   ✔️    |              |                                 |
-|                        [Gopeed](https://gopeed.com)                         |   ✔️    |              |                                 |
-|              [HBuilderX](https://www.dcloud.io/hbuilderx.html)              |   ✔️    |              |                                 |
-|                           [He3](https://he3.app)                            |   ✔️    |              |                                 |
-|                      [Helix](https://helix-editor.com)                      |   ✔️    |              |                                 |
-|                       [Heynote](https://heynote.com)                        |   ✔️    |              |                                 |
-|            [hummingbird](https://arayofsunshine.dev/hummingbird)            |   ✔️    |              |                                 |
-|        [Hydrogen-Music](https://github.com/Kaidesuyo/Hydrogen-Music)        |   ✔️    |              |                                 |
-|                          [Hyper](https://hyper.is)                          |   ✔️    |              |                                 |
-|                   [Idea](https://www.jetbrains.com/idea)                    |   ✔️    |              |          IntelliJ IDEA          |
-|                  [IdeaCE](https://www.jetbrains.com/idea)                   |   ✔️    |              | IntelliJ IDEA Community Edition |
-|                    [ImageGlass](https://imageglass.org)                     |   ✔️    |              |                                 |
-|                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |              |                                 |
-|                      [Insomnia](https://insomnia.rest)                      |   ✔️    |              |                                 |
-|                            [jan](https://jan.ai)                            |   ✔️    |              |                                 |
-|                       [Joplin](https://joplinapp.org)                       |   ✔️    |              |                                 |
-|                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |              |                                 |
-|                       [Knotes](https://knotesapp.cn)                        |   ✔️    |              |            糯词笔记             |
-|                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |              |                                 |
-|                     [KuGouMusic](https://www.kugou.com)                     |   ✔️    |              |            酷狗音乐             |
-|                      [Lark](https://www.larksuite.com)                      |   ✔️    |              |           飞书国际版            |
-|                   [Lattics](https://lattics.zineapi.com)                    |   ✔️    |              |                                 |
-|                     [Listary](https://www.listary.com)                      |   ✔️    |              |                                 |
-|                     [LocalSend](https://localsend.org)                      |   ✔️    |              |                                 |
-|                    [LX-Music](https://docs.lxmusic.top)                     |   ✔️    |              |          洛雪音乐助手           |
-|                   [Mailpit](https://mailpit.axllent.org)                    |   ➖    |              |                                 |
-|           [Manuskript](https://github.com/olivierkes/manuskript)            |   ➖    |              |                                 |
-|                     [MarkLion](https://www.marklion.cn)                     |   ✔️    |              |             标记狮              |
-|                     [MarkText](https://www.marktext.cc)                     |   ✔️    |              |                                 |
-|      [MediaElch](https://mediaelch.github.io/mediaelch-doc/about.html)      |   ➖    |              |                                 |
-|                      [Monit](https://monit.fzf404.art)                      |   ✔️    |              |                                 |
-|                        [Motrix](https://motrix.app)                         |   ✔️    |              |                                 |
-|                            [mpv](https://mpv.io)                            |   ✔️    |              |                                 |
-|        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |   ✔️    |              |                                 |
-|                         [Neovim](https://neovim.io)                         |   ✔️    |              |                                 |
-|                         [ngrok](https://ngrok.com)                          |   ✔️    |              |                                 |
-|                        [Noi](https://noi.nofwl.com)                         |   ✔️    |              |             AI 助手             |
-|           [NotepadNext](https://github.com/dail8859/NotepadNext)            |   ✔️    |              |                                 |
-|                   [Notepads](https://www.notepadsapp.com)                   |   ✔️    |     UWP      |                                 |
-|            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |   ✔️    |              |                                 |
-|                    [OBS-Studio](https://obsproject.com)                     |   ✔️    |              |          直播录屏相关           |
-|                       [Obsidian](https://obsidian.md)                       |   ✔️    |              |                                 |
-|                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |              |                                 |
-|                     [PDFgear](https://www.pdfgear.com)                      |   ✔️    |              |                                 |
-|                     [PeaZip](https://peazip.github.io)                      |   ✔️    |              |                                 |
-|               [PhpStorm](https://www.jetbrains.com/phpstorm)                |   ✔️    |              |                                 |
-|                   [PicGo](https://molunerfinn.com/PicGo)                    |   ✔️    |              |                                 |
-|                       [PixPin](https://pixpinapp.com)                       |   ✔️    |              |                                 |
-|                     [PixPinBeta](https://pixpinapp.com)                     |   ✔️    |              |           PixPin Beta           |
-|                    [Postman](https://www.getpostman.com)                    |   ✔️    |              |                                 |
-|                         [pot](https://pot-app.com)                          |   ✔️    |              |                                 |
-|                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |              |                                 |
-|           [PSCompletions](https://github.com/abgox/PSCompletions)           |   ✔️    |              |        PowerShell Module        |
-|                [PyCharm](https://www.jetbrains.com/pycharm)                 |   ✔️    |              |                                 |
-|               [PyCharmCE](https://www.jetbrains.com/pycharm)                |   ✔️    |              |    PyCharm Community Edition    |
-|             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |              |                                 |
-|                           [QQ](https://im.qq.com)                           |   ✔️    |              |              QQ NT              |
-|                     [QQBrowser](https://browser.qq.com)                     |   ✔️    |              |            QQ 浏览器            |
-|              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |              |                                 |
-|                      [Quicker](https://getquicker.net)                      |   ✔️    |              |                                 |
-|                 [Raptor](https://github.com/InfpHub/Raptor)                 |   ✔️    |              |         阿里云盘第三方          |
-|                     [Recyclarr](https://recyclarr.dev)                      |   ➖    |              |                                 |
-|                  [Rider](https://www.jetbrains.com/rider)                   |   ✔️    |              |                                 |
-|                           [Rime](https://rime.im)                           |   ✔️    |   confirm    |          weasel,小狼毫          |
-|              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |              |                                 |
-|               [RubyMine](https://www.jetbrains.com/rubymine)                |   ✔️    |              |                                 |
-|           [RunCat](https://github.com/Kyome22/RunCat_for_windows)           |   ➖    |              |                                 |
-|              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |              |                                 |
-|                [Screego](https://github.com/screego/server)                 |   ✔️    |              |                                 |
-|         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |   ✔️    |              |                                 |
-| [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |   ✔️    |              |                                 |
-|        [SimpleMindMap](https://wanglin2.github.io/mind-map/#/index)         |   ✔️    |              |          思绪思维导图           |
-|              [SimplyListenMusic](https://music.codepublic.top)              |   ✔️    |              |            普听音乐             |
-|                     [SiYuan](https://b3log.org/siyuan)                      |   ✔️    |              |              思源               |
-|                    [Snipaste](https://www.snipaste.com)                     |   ✔️    |              |                                 |
-|                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |              |                                 |
-|                    [SodaMusic](https://music.douyin.com)                    |   ✔️    |              |         汽水音乐 - 抖音         |
-|                  [Spacedrive](https://www.spacedrive.com)                   |   ✔️    |              |                                 |
-|                       [Starship](https://starship.rs)                       |   ✔️    |              |                                 |
-|                       [Steampp](https://steampp.net)                        |   ✔️    |              |          Watt Toolkit           |
-|               [StrokesPlus.net](https://www.strokesplus.net)                |   ✔️    |              |                                 |
-|                 [SublimeText](https://www.sublimetext.com)                  |   ✔️    |              |                                 |
-|             [superProductivity](https://super-productivity.com)             |   ✔️    |              |                                 |
-|                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |              |                                 |
-|                [SyncBackFree](https://www.2brightsparks.com)                |   ✔️    |              |                                 |
-|                [Thunderbird-CN](https://www.thunderbird.net)                |   ✔️    |              |                                 |
-|                 [Thunderbird](https://www.thunderbird.net)                  |   ✔️    |              |                                 |
-|                    [TinyRDM](https://redis.tinycraft.cc)                    |   ✔️    |              |                                 |
-|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |   confirm    |                                 |
-|       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    |     UWP      |                                 |
-|                    [TTime](https://ttime.timerecord.cn)                     |   ✔️    |              |                                 |
-|                [tts-vue](https://github.com/LokerL/tts-vue)                 |   ✔️    |              |                                 |
-|                         [Typora](https://typora.io)                         |   ✔️    |              |                                 |
-|                       [TyporaFree](https://typora.io)                       |   ✔️    | noAutoUpdate |                                 |
-|   [uncle-novel](https://uncle-novel.github.io/uncle-novel-official-site)    |   ✔️    |              |           Uncle 小说            |
-|                     [Uninstalr](https://uninstalr.com)                      |   ➖    |              |                                 |
-|                [Upscayl](https://github.com/upscayl/upscayl)                |   ✔️    |              |                                 |
-|                          [uTools](https://u.tools)                          |   ✔️    |              |                                 |
-|                     [VLC](https://www.videolan.org/vlc)                     |   ✔️    |              |                                 |
-|       [VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes)       |   ✔️    |              |                                 |
-|                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |              |                                 |
-|                      [WasmEdge](https://wasmedge.org)                       |   ➖    |              |                                 |
-|               [WebStorm](https://www.jetbrains.com/webstorm)                |   ✔️    |              |                                 |
-|                     [WeChat](https://pc.weixin.qq.com)                      |   ✔️    |              |              微信               |
-|                       [WeekToDo](https://weektodo.me)                       |   ✔️    |              |                                 |
-|               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    |              |            桌面组件             |
-|                       [WinRAR-CN](https://rarlab.com)                       |   ✔️    |              |          WinRAR 中文版          |
-|                        [WinRAR](https://rarlab.com)                         |   ✔️    |              |                                 |
-|        [WiseCare365](https://www.wisecleaner.com/wise-care-365.html)        |   ✔️    |   confirm    |                                 |
-|               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |              |              妙笔               |
-|                   [Writeathon](https://www.writeathon.cn)                   |   ✔️    |              |                                 |
-|            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |              |   小白羊云盘(阿里云盘第三方)    |
-|               [XYplorer](https://www.xyplorer.com/index.php)                |   ✔️    |              |                                 |
-|              [XYplorerFree](https://www.xyplorer.com/free.php)              |   ✔️    | noAutoUpdate |                                 |
-|        [YouDaoTranslate](https://fanyi.youdao.com/download-Windows)         |   ✔️    |   confirm    |          网易有道翻译           |
-|                       [YuQue](https://www.yuque.com)                        |   ✔️    |              |              语雀               |
-|                      [Z-Library](https://z-library.se)                      |   ✔️    |              |                                 |
-|                      [Zotero](https://www.zotero.org)                       |   ✔️    |              |                                 |
+|                                     App                                     | persist |      Tag       |              Note               |
+| :-------------------------------------------------------------------------: | :-----: | :------------: | :-----------------------------: |
+|              [1History](https://github.com/1History/1History)               |   ➖    |                |                                 |
+|                          [7zip](https://7-zip.org)                          |   ➖    |   `confirm`    |                                 |
+|                      [123pan](https://www.123pan.com)                       |   ✔️    |                |            123 云盘             |
+|                        [aardio](https://aardio.com)                         |   ✔️    |                |                                 |
+|                    [AdsPower](https://www.adspower.net)                     |   ✔️    |                |           指纹浏览器            |
+|                        [AFFINE](https://affine.pro)                         |   ✔️    |                |                                 |
+|                    [aliyunDrive](https://www.alipan.com)                    |   ✔️    |                |            阿里云盘             |
+|                        [Apifox](https://apifox.com)                         |   ✔️    |                |                                 |
+|                     [AppFlowy](https://www.appflowy.io)                     |   ✔️    |                |                                 |
+|                    [AutoHotkey](https://autohotkey.com)                     |   ✔️    |                |                                 |
+|               [BaiduNetdisk](https://pan.baidu.com/download)                |   ✔️    |                |            百度网盘             |
+|                  [BaiduTranslate](https://fanyi.baidu.com)                  |   ✔️    |                |            百度翻译             |
+|                    [Bilibili](https://app.bilibili.com)                     |   ✔️    |                |            哔哩哔哩             |
+|        [BitMeterOS](https://codebox.net/pages/bitmeteros-downloads)         |   ➖    |                |                                 |
+|                      [Bruno](https://www.usebruno.com)                      |   ✔️    |                |                                 |
+|                       [Carnac](http://carnackeys.com)                       |   ✔️    |                |                                 |
+|                      [Chatbox](https://chatboxai.app)                       |   ✔️    |                |                                 |
+|                        [chfs](http://iscute.cn/chfs)                        |   ✔️    |                |                                 |
+|                  [CLion](https://www.jetbrains.com/clion)                   |   ✔️    |                |                                 |
+|                     [CloudMusic](https://music.163.com)                     |   ✔️    |                |           网易云音乐            |
+| [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)  |   ✔️    |                |                                 |
+|                         [Cursor](https://cursor.sh)                         |   ✔️    |                |                                 |
+|               [DataGrip](https://www.jetbrains.com/datagrip)                |   ✔️    |                |                                 |
+|              [DataSpell](https://www.jetbrains.com/dataspell)               |   ✔️    |                |                                 |
+|                       [DevToys](https://devtoys.app)                        |   ✔️    |     `UWP`      |                                 |
+|                  [Ditto](https://ditto-cp.sourceforge.io)                   |   ✔️    |                |                                 |
+|               [Dnest](https://github.com/davidkane0526/Dnest)               |   ➖    |                |                                 |
+|                      [DouYin](https://www.douyin.com)                       |   ✔️    |                |              抖音               |
+|               [DownKyi](https://leiurayer.github.io/downkyi)                |   ✔️    |                |                                 |
+|                     [draw.io](https://www.diagrams.net)                     |   ✔️    |                |                                 |
+|                   [Dropit](http://www.dropitproject.com)                    |   ✔️    |                |                                 |
+|             [Escrcpy](https://github.com/viarotel-org/escrcpy)              |   ✔️    |                |                                 |
+|                   [Everything](https://www.voidtools.com)                   |   ✔️    |                |                                 |
+|                    [Final2x](https://final2x.tohru.top)                     |   ✔️    |                |                                 |
+|                    [FishingFunds](https://ff.1zilc.top)                     |   ✔️    |                |          基金股票相关           |
+|                [Flow-Launcher](https://www.flowlauncher.com)                |   ✔️    |                |                                 |
+|                  [Fluent-Search](https://fluentsearch.net)                  |   ✔️    |                |                                 |
+|                    [fnm](https://github.com/Schniz/fnm)                     |   ➖    |                |                                 |
+|                         [Fonger](http://morin.vin)                          |   ✔️    |                |            方格音乐             |
+|            [Font-Hack](https://github.com/ryanoasis/nerd-fonts)             |   ➖    |     `Font`     |                                 |
+|          [FSViewer](https://www.faststone.org/FSViewerDetail.htm)           |   ✔️    |                |     FastStone Image Viewer      |
+|           [FastGithub](https://github.com/dotnetcore/FastGithub)            |   ➖    | `noAutoUpdate` |                                 |
+|                       [FeiShu](https://www.feishu.cn)                       |   ✔️    |                |              飞书               |
+|               [GeekUninstaller](https://geekuninstaller.com)                |   ✔️    |                |                                 |
+|              [GitExtensions](https://gitextensions.github.io)               |   ✔️    |                |                                 |
+|                 [GoLand](https://www.jetbrains.com/goland)                  |   ✔️    |                |                                 |
+|                        [Gopeed](https://gopeed.com)                         |   ✔️    |                |                                 |
+|              [HBuilderX](https://www.dcloud.io/hbuilderx.html)              |   ✔️    |                |                                 |
+|                           [He3](https://he3.app)                            |   ✔️    |                |                                 |
+|                      [Helix](https://helix-editor.com)                      |   ✔️    |                |                                 |
+|                       [Heynote](https://heynote.com)                        |   ✔️    |                |                                 |
+|            [hummingbird](https://arayofsunshine.dev/hummingbird)            |   ✔️    |                |                                 |
+|        [Hydrogen-Music](https://github.com/Kaidesuyo/Hydrogen-Music)        |   ✔️    |                |                                 |
+|                          [Hyper](https://hyper.is)                          |   ✔️    |                |                                 |
+|                   [Idea](https://www.jetbrains.com/idea)                    |   ✔️    |                |          IntelliJ IDEA          |
+|                  [IdeaCE](https://www.jetbrains.com/idea)                   |   ✔️    |                | IntelliJ IDEA Community Edition |
+|                    [ImageGlass](https://imageglass.org)                     |   ✔️    |                |                                 |
+|                [InputTip](https://github.com/abgox/InputTip)                |   ✔️    |                |                                 |
+|                      [Insomnia](https://insomnia.rest)                      |   ✔️    |                |                                 |
+|                            [jan](https://jan.ai)                            |   ✔️    |                |                                 |
+|                       [Joplin](https://joplinapp.org)                       |   ✔️    |                |                                 |
+|                [Keyviz](https://mularahul.github.io/keyviz)                 |   ✔️    |                |                                 |
+|                       [Knotes](https://knotesapp.cn)                        |   ✔️    |                |            糯词笔记             |
+|                  [Koodo-Reader](https://koodo.960960.xyz)                   |   ✔️    |                |                                 |
+|                     [KuGouMusic](https://www.kugou.com)                     |   ✔️    |                |            酷狗音乐             |
+|                      [Lark](https://www.larksuite.com)                      |   ✔️    |                |           飞书国际版            |
+|                   [Lattics](https://lattics.zineapi.com)                    |   ✔️    |                |                                 |
+|                     [Listary](https://www.listary.com)                      |   ✔️    |                |                                 |
+|                     [LocalSend](https://localsend.org)                      |   ✔️    |                |                                 |
+|                    [LX-Music](https://docs.lxmusic.top)                     |   ✔️    |                |          洛雪音乐助手           |
+|                   [Mailpit](https://mailpit.axllent.org)                    |   ➖    |                |                                 |
+|           [Manuskript](https://github.com/olivierkes/manuskript)            |   ➖    |                |                                 |
+|                     [MarkLion](https://www.marklion.cn)                     |   ✔️    |                |             标记狮              |
+|                     [MarkText](https://www.marktext.cc)                     |   ✔️    |                |                                 |
+|      [MediaElch](https://mediaelch.github.io/mediaelch-doc/about.html)      |   ➖    |                |                                 |
+|                      [Monit](https://monit.fzf404.art)                      |   ✔️    |                |                                 |
+|                        [Motrix](https://motrix.app)                         |   ✔️    |                |                                 |
+|                            [mpv](https://mpv.io)                            |   ✔️    |                |                                 |
+|        [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2)         |   ✔️    |                |                                 |
+|                         [Neovim](https://neovim.io)                         |   ✔️    |                |                                 |
+|                         [ngrok](https://ngrok.com)                          |   ✔️    |                |                                 |
+|                        [Noi](https://noi.nofwl.com)                         |   ✔️    |                |             AI 助手             |
+|           [NotepadNext](https://github.com/dail8859/NotepadNext)            |   ✔️    |                |                                 |
+|                   [Notepads](https://www.notepadsapp.com)                   |   ✔️    |     `UWP`      |                                 |
+|            [nvm-desktop](https://github.com/1111mp/nvm-desktop)             |   ✔️    |                |                                 |
+|                    [OBS-Studio](https://obsproject.com)                     |   ✔️    |                |          直播录屏相关           |
+|                       [Obsidian](https://obsidian.md)                       |   ✔️    |                |                                 |
+|                     [Oh-My-Posh](https://ohmyposh.dev)                      |   ✔️    |                |                                 |
+|                     [PDFgear](https://www.pdfgear.com)                      |   ✔️    |                |                                 |
+|                     [PeaZip](https://peazip.github.io)                      |   ✔️    |                |                                 |
+|               [PhpStorm](https://www.jetbrains.com/phpstorm)                |   ✔️    |                |                                 |
+|                   [PicGo](https://molunerfinn.com/PicGo)                    |   ✔️    |                |                                 |
+|                       [PixPin](https://pixpinapp.com)                       |   ✔️    |                |                                 |
+|                     [PixPinBeta](https://pixpinapp.com)                     |   ✔️    |                |           PixPin Beta           |
+|                    [Postman](https://www.getpostman.com)                    |   ✔️    |                |                                 |
+|                         [pot](https://pot-app.com)                          |   ✔️    |                |                                 |
+|                   [PotPlayer](https://potplayer.daum.net)                   |   ✔️    |                |                                 |
+|           [PSCompletions](https://github.com/abgox/PSCompletions)           |   ✔️    |   `PSModule`   |                                 |
+|                [PyCharm](https://www.jetbrains.com/pycharm)                 |   ✔️    |                |                                 |
+|               [PyCharmCE](https://www.jetbrains.com/pycharm)                |   ✔️    |                |    PyCharm Community Edition    |
+|             [pyenv-win](https://github.com/pyenv-win/pyenv-win)             |   ✔️    |                |                                 |
+|                           [QQ](https://im.qq.com)                           |   ✔️    |                |              QQ NT              |
+|                     [QQBrowser](https://browser.qq.com)                     |   ✔️    |                |            QQ 浏览器            |
+|              [QtScrcpy](https://github.com/barry-ran/QtScrcpy)              |   ✔️    |                |                                 |
+|                      [Quicker](https://getquicker.net)                      |   ✔️    |                |                                 |
+|                 [Raptor](https://github.com/InfpHub/Raptor)                 |   ✔️    |                |         阿里云盘第三方          |
+|                     [Recyclarr](https://recyclarr.dev)                      |   ➖    |                |                                 |
+|                  [Rider](https://www.jetbrains.com/rider)                   |   ✔️    |                |                                 |
+|                           [Rime](https://rime.im)                           |   ✔️    |   `confirm`    |          weasel,小狼毫          |
+|              [Rubick](https://github.com/rubickCenter/rubick)               |   ✔️    |                |                                 |
+|               [RubyMine](https://www.jetbrains.com/rubymine)                |   ✔️    |                |                                 |
+|           [RunCat](https://github.com/Kyome22/RunCat_for_windows)           |   ➖    |                |                                 |
+|              [RustDesk](https://github.com/rustdesk/rustdesk)               |   ✔️    |                |                                 |
+|                [Screego](https://github.com/screego/server)                 |   ✔️    |                |                                 |
+|         [ScreenToGif](https://github.com/NickeManarin/ScreenToGif)          |   ✔️    |                |                                 |
+| [Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager) |   ✔️    |                |                                 |
+|        [SimpleMindMap](https://wanglin2.github.io/mind-map/#/index)         |   ✔️    |                |          思绪思维导图           |
+|              [SimplyListenMusic](https://music.codepublic.top)              |   ✔️    |                |            普听音乐             |
+|                     [SiYuan](https://b3log.org/siyuan)                      |   ✔️    |                |              思源               |
+|                    [Snipaste](https://www.snipaste.com)                     |   ✔️    |                |                                 |
+|                    [Snipaste2](https://www.snipaste.com)                    |   ✔️    |                |                                 |
+|                    [SodaMusic](https://music.douyin.com)                    |   ✔️    |                |         汽水音乐 - 抖音         |
+|                  [Spacedrive](https://www.spacedrive.com)                   |   ✔️    |                |                                 |
+|                       [Starship](https://starship.rs)                       |   ✔️    |                |                                 |
+|                       [Steampp](https://steampp.net)                        |   ✔️    |                |          Watt Toolkit           |
+|               [StrokesPlus.net](https://www.strokesplus.net)                |   ✔️    |                |                                 |
+|                 [SublimeText](https://www.sublimetext.com)                  |   ✔️    |                |                                 |
+|             [superProductivity](https://super-productivity.com)             |   ✔️    |                |                                 |
+|                [SwitchHosts](https://switchhosts.vercel.app)                |   ✔️    |                |                                 |
+|                [SyncBackFree](https://www.2brightsparks.com)                |   ✔️    |                |                                 |
+|                [Thunderbird-CN](https://www.thunderbird.net)                |   ✔️    |                |                                 |
+|                 [Thunderbird](https://www.thunderbird.net)                  |   ✔️    |                |                                 |
+|                    [TinyRDM](https://redis.tinycraft.cc)                    |   ✔️    |                |                                 |
+|      [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)       |   ✔️    |   `confirm`    |                                 |
+|       [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)       |   ✔️    |     `UWP`      |                                 |
+|                    [TTime](https://ttime.timerecord.cn)                     |   ✔️    |                |                                 |
+|                [tts-vue](https://github.com/LokerL/tts-vue)                 |   ✔️    |                |                                 |
+|                         [Typora](https://typora.io)                         |   ✔️    |                |                                 |
+|                       [TyporaFree](https://typora.io)                       |   ✔️    | `noAutoUpdate` |                                 |
+|   [uncle-novel](https://uncle-novel.github.io/uncle-novel-official-site)    |   ✔️    |                |           Uncle 小说            |
+|                     [Uninstalr](https://uninstalr.com)                      |   ➖    |                |                                 |
+|                [Upscayl](https://github.com/upscayl/upscayl)                |   ✔️    |                |                                 |
+|                          [uTools](https://u.tools)                          |   ✔️    |                |                                 |
+|                     [VLC](https://www.videolan.org/vlc)                     |   ✔️    |                |                                 |
+|       [VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes)       |   ✔️    |                |                                 |
+|                   [VSCode](https://code.visualstudio.com)                   |   ✔️    |                |                                 |
+|                      [WasmEdge](https://wasmedge.org)                       |   ➖    |                |                                 |
+|               [WebStorm](https://www.jetbrains.com/webstorm)                |   ✔️    |                |                                 |
+|                     [WeChat](https://pc.weixin.qq.com)                      |   ✔️    |                |              微信               |
+|                       [WeekToDo](https://weektodo.me)                       |   ✔️    |                |                                 |
+|               [Widgets](https://github.com/widget-js/widgets)               |   ✔️    |                |            桌面组件             |
+|                       [WinRAR-CN](https://rarlab.com)                       |   ✔️    |                |          WinRAR 中文版          |
+|                        [WinRAR](https://rarlab.com)                         |   ✔️    |                |                                 |
+|        [WiseCare365](https://www.wisecleaner.com/wise-care-365.html)        |   ✔️    |   `confirm`    |                                 |
+|               [WonderPen](https://www.tominlab.com/wonderpen)               |   ✔️    |                |              妙笔               |
+|                   [Writeathon](https://www.writeathon.cn)                   |   ✔️    |                |                                 |
+|            [XBYDriver](https://github.com/gaozhangmin/aliyunpan)            |   ✔️    |                |   小白羊云盘(阿里云盘第三方)    |
+|               [XYplorer](https://www.xyplorer.com/index.php)                |   ✔️    |                |                                 |
+|              [XYplorerFree](https://www.xyplorer.com/free.php)              |   ✔️    | `noAutoUpdate` |                                 |
+|        [YouDaoTranslate](https://fanyi.youdao.com/download-Windows)         |   ✔️    |   `confirm`    |          网易有道翻译           |
+|                       [YuQue](https://www.yuque.com)                        |   ✔️    |                |              语雀               |
+|                      [Z-Library](https://z-library.se)                      |   ✔️    |                |                                 |
+|                      [Zotero](https://www.zotero.org)                       |   ✔️    |                |                                 |
