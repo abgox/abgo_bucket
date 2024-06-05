@@ -3,8 +3,12 @@ param($path)
 $content = @()
 
 Get-ChildItem "$PSScriptRoot\..\bucket" | ForEach-Object {
-    $info = @($_.BaseName -replace '\.', '\.')
     $json = Get-Content $_.FullName -Raw -Encoding UTF8 | ConvertFrom-Json -AsHashtable
+    $info = @()
+
+    # homepage
+    $app = $_.BaseName -replace '\.', '\.'
+    $info += "[$($app)]($($json.homepage))"
 
     # persist
     $isPersist = $false
