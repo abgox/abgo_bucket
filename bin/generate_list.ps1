@@ -86,7 +86,7 @@ Get-ChildItem "$PSScriptRoot\..\bucket" | ForEach-Object {
 function get_static_content($path) {
     $content = Get-Content -Path $path -Encoding UTF8
 
-    $match = $content | Select-String -Pattern "\|\s*:.*\|"
+    $match = $content | Select-String -Pattern "\|:-:\|:-:\|:-:\|-\|"
 
     if ($match) {
         $matchLineNumber = ([array]$match.LineNumber)[0]
