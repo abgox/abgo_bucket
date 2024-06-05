@@ -11,17 +11,35 @@ Get-ChildItem "$PSScriptRoot\..\bucket" | ForEach-Object {
     $info += "[$($app)]($($json.homepage))"
 
     # persist
-    $isPersist = $false
-    @('pre_install', 'post_install', 'pre_uninstall', 'post_uninstall') | ForEach-Object {
-        if (!$isPersist) {
-            $isPersist = ($json.$_ -join "`n") -match '\npersist\s+[-\w]*\s+\@\('
+    $isPersist = $json.persist
+    function Handle-Persist($obj, $isPersist = $isPersist) {
+        @('pre_install', 'post_install', 'pre_uninstall', 'post_uninstall') | ForEach-Object {
+            if (!$isPersist -and $obj.$_) {
+                $isPersist = ($obj.$_ -join "`n") -match '(\npersist\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+            }
+            if (!$isPersist -and $obj.$_.script) {
+                $isPersist = ($obj.$_.script -join "`n") -match '(\npersist\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+            }
+        }
+        @('installer', 'uninstaller') | ForEach-Object {
+            if (!$isPersist -and $obj.$_.script) {
+                $isPersist = ($obj.$_.script -join "`n") -match '(\npersist\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+            }
+        }
+        return $isPersist
+    }
+    if ($json.architecture) {
+        if ($json.architecture.'64bit') {
+            $isPersist = Handle-Persist $json.architecture.'64bit'
+        }
+        if ($json.architecture.'32bit') {
+            $isPersist = Handle-Persist $json.architecture.'32bit'
+        }
+        if ($json.architecture.arm64) {
+            $isPersist = Handle-Persist $json.architecture.arm64
         }
     }
-    @('installer', 'uninstaller') | ForEach-Object {
-        if (!$isPersist) {
-            $isPersist = ($json.$_.script -join "`n") -match '\npersist\s+[-\w]*\s+\@\('
-        }
-    }
+    $isPersist = Handle-Persist $json
     $info += if ($isPersist) { '✔️' }else { '➖' }
     # Tag
     ## font
