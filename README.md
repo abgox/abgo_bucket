@@ -141,7 +141,7 @@
 ---
 
 |App|Persist|Tag|Description|
-|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|-|
 |[123pan](https://www.123pan.com/)|✔️||123 云盘，一款云存储服务产品。<br>A cloud storage service product.|
 |[1History](https://github.com/1History/1History)|➖||一款命令行工具，可将不同的浏览器历史记录备份到一个文件中，并将其可视化。<br>A command line tool to backup your different browser histories into one file, and visualize them.|
 |[7zip](https://www.7-zip.org/)|➖|`Confirm`|具有高压缩比的多格式文件归档器。<br>A multi-format file archiver with high compression ratios.|
