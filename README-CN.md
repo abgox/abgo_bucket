@@ -163,6 +163,7 @@
 |[CLion](https://www.jetbrains.com/clion/)|✔️||由 JetBrains 开发的适用于 C 和 C++ 的跨平台集成开发环境。<br>Cross-Platform IDE for C and C++ by JetBrains.|
 |[CloudMusic](https://music.163.com/)|✔️||网易旗下的音乐平台，同时也是业内领先的音乐社区。<br>It's NetEase's music platform, and it's also the industry's leading music community.|
 |[ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager)|✔️||🖱️ 纯粹的 Windows 右键菜单管理程序。<br>A pure Windows context menu manager.|
+|[coriander_player](https://ferry-200.github.io/coriander_player_website/)|✔️||Windows 端本地音乐播放器。<br>Local music player for Windows.|
 |[Cursor](https://cursor.sh/)|✔️||人工智能优先的代码编辑器。<br>The AI-first Code Editor.|
 |[DataGrip](https://www.jetbrains.com/datagrip/)|✔️||由 JetBrains 提供的一款处理多种数据库的工具。<br>A tool to handle with many databases by JetBrains.|
 |[DataSpell](https://www.jetbrains.com/dataspell/)|✔️||由 JetBrains 提供的一款工具，轻松地将数据转化为见解。<br>A tool to turn data into insights with ease by JetBrains.|
