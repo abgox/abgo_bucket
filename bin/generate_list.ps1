@@ -68,7 +68,7 @@ function get_static_content($path) {
 
     if ($match) {
         $matchLineNumber = ([array]$match.LineNumber)[0]
-        $result = $content | Select-Object -First ($matchLineNumber - 1)
+        $result = $content | Select-Object -First $matchLineNumber
         $result
     }
 }
