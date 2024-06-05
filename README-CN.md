@@ -175,7 +175,7 @@
 |[draw\.io](https://www.diagrams.net)|✔️||一款专业的绘图工具。<br>Professional diagramming.|
 |[Dropit](http://www.dropitproject.com)|✔️||一个可以自动管理文件的工具。<br>Personal assistant to automatically manage your files.|
 |[Escrcpy](https://github.com/viarotel-org/escrcpy)|✔️||使用图形化的 Scrcpy 显示和控制您的 Android 设备，由 Electron 驱动。<br>Graphical Scrcpy to display and control Android, devices powered by Electron.|
-|[Everything](https://www.voidtools.com)|➖||文件搜索工具，基于名称快速定位文件和文件夹。<br>Locate files and folders by name instantly.|
+|[Everything](https://www.voidtools.com)|✔️||文件搜索工具，基于名称快速定位文件和文件夹。<br>Locate files and folders by name instantly.|
 |[FastGithub](https://github.com/dotnetcore/FastGithub)|➖|`NoAutoUpdate`|github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题|
 |[FeiShu](https://github.com/microsoft/winget-pkgs/tree/master/manifests/b/ByteDance/Feishu)|✔️||字节跳动旗下先进企业写协作与管理平台，一站式无缝办公协作。<br>Empowering teams by messenger, meetings, calendar, docs, and emails. It's all in one place.|
 |[Final2x](https://github.com/Tohrusky/Final2x)|✔️||2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具。<br>2^x Image Super-Resolution.|
@@ -239,12 +239,12 @@
 |[PixPinBeta](https://pixpinapp.com/)|✔️||(Beta 版本) 功能强大使用简单的截图/贴图工具，帮助你提高效率。<br>(Beta version) A powerful screenshot tool.|
 |[Postman](https://www.getpostman.com/)|✔️||一个完整的API开发环境。<br>Complete API development environment.|
 |[Pot](https://pot-app.com/)|✔️||一个跨平台的划词翻译和OCR软件。<br>A cross-platform software for text translation and recognition.|
-|[PotPlayer](https://potplayer.daum.net)|➖||高度可定制的媒体播放器。<br>Highly customizable media player.|
+|[PotPlayer](https://potplayer.daum.net)|✔️||高度可定制的媒体播放器。<br>Highly customizable media player.|
 |[PSCompletions](https://github.com/abgox/PSCompletions)|✔️|`PSModule`|一个补全管理模块，更简单、更方便的使用 PowerShell 命令补全。<br>A completion manager for better and simpler use PowerShell completions.|
 |[PyCharm](https://www.jetbrains.com/pycharm/)|✔️||由 JetBrains 开发的适用于纯 Python 开发的 IDE。<br>Cross-Platform IDE for Python by JetBrains.|
 |[PyCharmCE](https://www.jetbrains.com/pycharm/)|✔️||社区版 - 由 JetBrains 开发的适用于纯 Python 开发的 IDE。<br>Community Edition - Cross-Platform IDE for Python by JetBrains.|
 |[pyenv-win](https://github.com/pyenv-win/pyenv-win)|✔️||windows 下的 pyenv，一个简单的 python 版本管理工具。<br>pyenv for Windows. pyenv is a simple python version management tool. |
-|[QQ](https://im.qq.com/)|➖||(NT版本) 一款能让你与你的朋友和家人保持联系的即时通讯工具。<br>(NT version) An instant messaging tool that gives you the best way to keep in touch with your friends and family.|
+|[QQ](https://im.qq.com/)|✔️||(NT版本) 一款能让你与你的朋友和家人保持联系的即时通讯工具。<br>(NT version) An instant messaging tool that gives you the best way to keep in touch with your friends and family.|
 |[QQBrowser](https://browser.qq.com/)|✔️||腾讯官方出品，基于 Chromium 内核开发，启动速度、打开网页速度更快的浏览器。<br>Tencent's official Chromium-based browser with faster startup and web page opening speed.|
 |[QtScrcpy](https://github.com/barry-ran/QtScrcpy)|✔️||通过TCP/IP或USB显示和控制Android设备。<br>Display and control Android device via TCP/IP or USB.|
 |[Quicker](https://getquicker.net)|✔️||指尖工具箱, Windows 效率工具|
@@ -255,15 +255,15 @@
 |[Rubick](https://github.com/rubickCenter/rubick)|✔️||基于 electron 的开源工具箱，自由集成丰富插件。<br>Electron based open source toolbox, free integration of rich plug-ins.|
 |[RubyMine](https://www.jetbrains.com/rubymine/)|✔️||由 JetBrains 开发的适用于 Ruby 和 Rails 的跨平台集成开发环境。<br>Cross-Platform IDE for Ruby and Rails by JetBrains.|
 |[RunCat](https://github.com/Kyome22/RunCat_for_windows)|➖||一个 windows 任务栏上的可爱的奔跑猫动画。<br>A cute running cat animation on your windows taskbar.|
-|[RustDesk](https://github.com/rustdesk/rustdesk)|➖||一个安全的远程桌面访问工具，用 Rust 语言编写。<br>An open-source remote desktop software, written in Rust.|
+|[RustDesk](https://github.com/rustdesk/rustdesk)|✔️||一个安全的远程桌面访问工具，用 Rust 语言编写。<br>An open-source remote desktop software, written in Rust.|
 |[Screego](https://github.com/screego/server)|✔️||开发人员屏幕共享。<br>Screen sharing for developers.|
 |[ScreenToGif](https://github.com/NickeManarin/ScreenToGif)|✔️||该工具可让您录制屏幕的选定区域、网络摄像头的实时画面或草图板上的实时绘图。之后，您可以编辑动画并将其保存为 gif、apng、视频、psd 或 png 图像。<br>This tool allows you to record a selected area of your screen, live feed from your webcam or live drawings from a sketchboard. Afterward, you can edit and save the animation as a gif, apng, video, psd or png image.|
 |[Sigma-File-Manager](https://github.com/aleksey-hoffman/sigma-file-manager)|✔️||一款免费、开源、快速发展的现代文件管理器。<br>A free, open-source, quickly evolving, modern file manager (explorer / browser) app.|
 |[SimpleMindMap](https://wanglin2.github.io/mind-map/#/index)|✔️||一个相对强大的Web思维导图。<br>A relatively powerful web mind map.|
 |[SimplyListenMusic](https://music.codepublic.top/)|✔️||一个阿里云盘音乐播放器，它可以读取阿里云盘内的音乐来进行播放。 用户可以创建并同步歌单，播放时可以读取歌曲标签信息，还支持读取内嵌歌词/外置歌词。<br>|
 |[SiYuan](https://b3log.org/siyuan/)|✔️||一款隐私优先的个人知识管理系统，支持完全离线使用，同时也支持端到端加密同步。融合块、大纲和双向链接，重构你的思维。<br>A privacy-first personal knowledge management system that supports complete offline usage, as well as end-to-end encrypted data sync. Fuse blocks, outlines, and bidirectional links to refactor your thinking.|
-|[Snipaste](https://www.snipaste.com/)|➖||一个剪切工具，可以让你把截图固定在屏幕上。<br>A snipping tool, which allows you to pin the screenshot back onto the screen. |
-|[Snipaste2](https://www.snipaste.com/)|➖||一个剪切工具，可以让你把截图固定在屏幕上。<br>A snipping tool, which allows you to pin the screenshot back onto the screen.|
+|[Snipaste](https://www.snipaste.com/)|✔️||一个剪切工具，可以让你把截图固定在屏幕上。<br>A snipping tool, which allows you to pin the screenshot back onto the screen. |
+|[Snipaste2](https://www.snipaste.com/)|✔️||一个剪切工具，可以让你把截图固定在屏幕上。<br>A snipping tool, which allows you to pin the screenshot back onto the screen.|
 |[SodaMusic](https://music.douyin.com/)|✔️||抖音官方出品音乐 App。<br>DouYin's official music App.|
 |[Spacedrive](https://www.spacedrive.com)|✔️||一个开源的跨平台文件浏览器，由一个用 Rust 编写的虚拟分布式文件系统提供支持。<br>An open source cross-platform file explorer, powered by a virtual distributed filesystem written in Rust.|
 |[Starship](https://starship.rs)|✔️||适用于任何 shell 的最简洁、快速且可定制的提示符。<br>The minimal, blazing fast, and extremely customizable prompt for any shell!|
