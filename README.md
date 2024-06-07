@@ -205,7 +205,7 @@
 |[Helix](https://helix-editor.com)|✔️||后现代文本编辑器。<br>A post-modern modal text editor.|
 |[Heynote](https://heynote.com/)|✔️||为开发人员提供的专用便签本。<br>A dedicated scratchpad for developers.|
 |[hummingbird](https://arayofsunshine.dev/hummingbird)|✔️||一个图片压缩程序 (jpg/png/webp/svg/gif/css/js/html/mp4/mov)，它可以转换不同格式的图片。<br>A compression (jpg/png/webp/svg/gif/css/js/html/mp4/mov) App, it can convert different format pictures.|
-|[Hydrogen-Music](https://github.com/Kaidesuyo/Hydrogen-Music)|✔️||仿明日方舟工业风音乐播放器，支持添加曲绘|
+|[Hydrogen-Music](https://gitee.com/sunshineluo/Hydrogen-Music)|✔️||仿明日方舟工业风音乐播放器，支持添加曲绘|
 |[Hyper](https://hyper.is)|✔️||一个基于 Web 技术构建的终端。<br>A terminal built on web technologies.|
 |[Idea](https://www.jetbrains.com/idea/)|✔️||由 JetBrains 开发的适用于 Java 和 Kotlin 开发的 IDE。<br>Cross-Platform IDE for Java and Kotlin by JetBrains.|
 |[IdeaCE](https://www.jetbrains.com/idea/)|✔️||社区版 - 由 JetBrains 开发的适用于 Java 和 Kotlin 开发的 IDE。<br>Community Edition - Cross-Platform IDE for Java and Kotlin by JetBrains.|
