@@ -102,13 +102,23 @@
 ### About Shortcut
 
 -   By default, apps in `abgo_bucket` automatically create desktop shortcuts when installing and updating.
--   You can disable the creation of desktop shortcuts by running the command to add the `Scoop` configuration. `scoop config abgo_bucket_no_shortcut true`
+-   You can disable the creation of desktop shortcuts by running the following command to add the `Scoop` configuration.
+    -   `scoop config abgo_bucket_no_shortcut true`
+
+### About Confirm
+
+-   The app with a `Confirm` tag in [App Manifests](#app-manifests) requires user confirmation in one or more of the following situations to avoid some problems.
+    1. When uninstalling an app, the uninstaller cannot completely stop the app process due to some special situations.
+    2. After uninstalling the app, the `explorer.exe` will be restarted.
+-   So, the installation and uninstallation of app cannot be completely silent and automatic.
+-   But, You can avoid user confirmation by running the following command to add the `Scoop` configuration.
+    -   `scoop config abgo_bucket_no_confirm true`
 
 ## About `UAC`
 
 -   The scripts in the `bin` directory will be elevated to administrator permission under some cases to ensure that they run properly.
 -   A `UAC` authorization window will appear requiring user confirmation.
--   If you don't want to be bothered by the `UAC` authorization window, you should find ways to avoid it.
+-   If you don't want to be bothered by the `UAC` authorization window to achieve complete silent automation, you should find ways to avoid it.
     1. Start the command line with administrator permission.
     2. Modify `User Account Control` in system Settings.
     3. ...
