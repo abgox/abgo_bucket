@@ -23,14 +23,15 @@
         "Copy-Item \"$dir\\temp\\lib\\net45\" \"$dir\\app\" -Recurse -Force",
         "remove_file \"$dir\\temp\"",
         "remove_file \"$dir\\affine_installer.zip\"",
-        "persist -dir @(\"$user_AppData\\AFFiNE\") @(\"$persist_dir\\AFFiNE\")",
-        "create_app_lnk \"$dir\\app\\AFFiNE.exe\" \"$desktop\\AFFiNE.lnk\""
+        "persist_file -dir @(\"$user_AppData\\AFFiNE\") @(\"$persist_dir\\AFFiNE\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\AFFiNE.lnk\",\"$user_AppData\\AFFiNE\")"
+        "remove_files @(\"$user_AppData\\AFFiNE\")"
     ],
     "checkver": {
         "github": "https://github.com/toeverything/AFFiNE"

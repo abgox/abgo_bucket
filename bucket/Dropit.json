@@ -18,15 +18,16 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$dir\\Profiles\") @(\"$persist_dir\\Profiles\")",
-        "persist -file @(\"$dir\\settings.ini\") @(\"$persist_dir\\settings.ini\")",
-        "create_app_lnk \"$dir\\DropIt.exe\" \"$desktop\\DropIt.lnk\""
+        "persist_file -dir @(\"$dir\\Profiles\") @(\"$persist_dir\\Profiles\")",
+        "persist_file -file @(\"$dir\\settings.ini\") @(\"$persist_dir\\settings.ini\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\DropIt.lnk\")"
+        "remove_files"
     ],
     "checkver": "Latest Version: v([\\d\\.]+)",
     "autoupdate": {

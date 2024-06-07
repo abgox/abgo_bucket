@@ -37,7 +37,8 @@
         "   New-Item $persist_file > $null",
         "   if(!(Test-Path $data_file)){New-Item $data_file > $null}",
         "}",
-        "create_app_lnk \"$dir\\Snipaste.exe\" \"$desktop\\Snipaste2.lnk\"",
+        "handle_app_lnk",
+        "do_some_things",
         "$path_schedule=\"$scoopdir\\shims\\Snipaste2_abgo_bucket_schedule_persist.cmd\"",
         "\"@echo off`necho $data_file`necho $persist_file\" | Out-File $path_schedule",
         "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Snipaste2_abgo_bucket_schedule_persist\" \"$bucketsdir\\$bucket\\schedule\\Snipaste2.ps1\""
@@ -48,7 +49,7 @@
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
         "remove_file \"$scoopdir\\shims\\Snipaste2_abgo_bucket_schedule_persist.cmd\"",
-        "remove_files @(\"$desktop\\Snipaste2.lnk\")",
+        "remove_files",
         "& \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Snipaste2_abgo_bucket_schedule_persist\""
     ],
     "checkver": {

@@ -1,6 +1,6 @@
 {
     "version": "2.3.13",
-    "description": "可帮助您了解键盘使用方式的实用程序。A utility to give some insight into how you use your keyboard.",
+    "description": "一个可以帮助您了解键盘使用方式的实用程序。A utility to give some insight into how you use your keyboard.",
     "homepage": "http://carnackeys.com/",
     "license": {
         "identifier": "Microsoft Public License",
@@ -18,14 +18,15 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$dir\\Keymaps\") @(\"$persist_dir\\Keymaps\")",
-        "create_app_lnk \"$dir\\Carnac.exe\" \"$desktop\\Carnac.lnk\""
+        "persist_file -dir @(\"$dir\\Keymaps\") @(\"$persist_dir\\Keymaps\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Carnac.lnk\")"
+        "remove_files"
     ],
     "checkver": {
         "github": "https://github.com/Code52/carnac/"

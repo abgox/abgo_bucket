@@ -54,7 +54,7 @@
         "   New-Item $persist_file > $null",
         "   if(!(Test-Path $data_file)){New-Item $data_file > $null}",
         "}",
-        "create_app_lnk \"$dir\\Everything.exe\" \"$desktop\\Everything.lnk\"",
+        "handle_app_lnk",
         "$path_schedule=\"$scoopdir\\shims\\Everything_abgo_bucket_schedule_persist.cmd\"",
         "\"@echo off`necho $data_file`necho $persist_file\" | Out-File $path_schedule",
         "& \"$bucketsdir\\$bucket\\bin\\sudo.ps1\" \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Everything_abgo_bucket_schedule_persist\" \"$bucketsdir\\$bucket\\schedule\\Everything.ps1\""
@@ -65,7 +65,7 @@
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
         "remove_file \"$scoopdir\\shims\\Everything_abgo_bucket_schedule_persist.cmd\"",
-        "remove_files @(\"$desktop\\Everything.lnk\")",
+        "remove_files",
         "& \"$bucketsdir\\$bucket\\bin\\schedule.exe\" \"Everything_abgo_bucket_schedule_persist\""
     ],
     "checkver": "Download Everything ([\\d\\.]+)",

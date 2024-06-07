@@ -31,15 +31,16 @@
         "if (!(Test-Path $xml_path)){",
         "   \"<advancedsettings>`n  <portableMode>true</portableMode>`n</advancedsettings>\" | Out-File $xml_path",
         "}",
-        "persist -dir @(\"$dir\\export_themes\") @(\"$persist_dir\\export_themes\")",
-        "persist -file @(\"$dir\\advancedsettings.xml\",\"$dir\\MediaElch.ini\") @($xml_path,\"$persist_dir\\MediaElch.ini\")",
-        "create_app_lnk \"$dir\\MediaElch.exe\" \"$desktop\\MediaElch.lnk\""
+        "persist_file -dir @(\"$dir\\export_themes\") @(\"$persist_dir\\export_themes\")",
+        "persist_file -file @(\"$dir\\advancedsettings.xml\",\"$dir\\MediaElch.ini\") @($xml_path,\"$persist_dir\\MediaElch.ini\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\MediaElch.lnk\")"
+        "remove_files"
     ],
     "checkver": {
         "url": "https://api.github.com/repositories/3618825/releases/latest",

@@ -8,11 +8,11 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://archive.mozilla.org/pub/thunderbird/releases/115.11.1/win64/en-US/Thunderbird%20Setup%20115.11.1.exe#/_installer_.exe",
+            "url": "https://archive.mozilla.org/pub/thunderbird/releases/115.11.1/win64/en-US/Thunderbird%20Setup%20115.11.1.exe#/abgo_bucket_installer.exe",
             "hash": "sha512:8c5d7786e4cee3e9d5a9ee3ea13e1708f52d0f67673c749f5f738f668aac4ddd52b3d22bfb92fe78213c7ec35290ae584f5fcc789d783d3c4e6f38688f0ee455"
         },
         "32bit": {
-            "url": "https://archive.mozilla.org/pub/thunderbird/releases/115.11.1/win32/en-US/Thunderbird%20Setup%20115.11.1.exe#/_installer_.exe",
+            "url": "https://archive.mozilla.org/pub/thunderbird/releases/115.11.1/win32/en-US/Thunderbird%20Setup%20115.11.1.exe#/abgo_bucket_installer.exe",
             "hash": "sha512:1c8f68f1ad859852e65c892ead6079dbc12aac0c7922f6a996d311c8e456fef0556476cf4485badd3a40aeaa2da62b68dcf95b713d65387a25d270751d9b0798"
         }
     },
@@ -31,13 +31,13 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$path_exe=\"$dir\\_installer_.exe\"",
-        "& $path_exe /S /D=$dir",
+        "$path_installer=\"$dir\\abgo_bucket_installer.exe\"",
+        "& $path_installer /S /D=$dir",
         "$core_exe=\"$dir\\thunderbird.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$user_AppData\\Thunderbird\",\"$user_LocalAppData\\Thunderbird\") @(\"$persist_dir\\Thunderbird\",\"$persist_dir\\Thunderbird_LocalAppData\")",
-        "clean_redundant_files @($path_exe)",
-        "remove_app_lnk @(\"Thunderbird.lnk\")"
+        "persist_file -dir @(\"$user_AppData\\Thunderbird\",\"$user_LocalAppData\\Thunderbird\") @(\"$persist_dir\\Thunderbird\",\"$persist_dir\\Thunderbird_LocalAppData\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
@@ -55,14 +55,14 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/win64/en-US/Thunderbird%20Setup%20$version.exe#/_installer_.exe",
+                "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/win64/en-US/Thunderbird%20Setup%20$version.exe#/abgo_bucket_installer.exe",
                 "hash": {
                     "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/SHA512SUMS",
                     "regex": "$sha512\\s+win64/en-US/$basename"
                 }
             },
             "32bit": {
-                "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/win32/en-US/Thunderbird%20Setup%20$version.exe#/_installer_.exe",
+                "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/win32/en-US/Thunderbird%20Setup%20$version.exe#/abgo_bucket_installer.exe",
                 "hash": {
                     "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/SHA512SUMS",
                     "regex": "$sha512\\s+win32/en-US/$basename"

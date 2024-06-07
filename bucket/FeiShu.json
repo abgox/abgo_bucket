@@ -15,14 +15,15 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$user_AppData\\LarkShell\") @(\"$persist_dir\\LarkShell\")",
-        "create_app_lnk \"$dir\\app\\Feishu.exe\" \"$desktop\\飞书.lnk\""
+        "persist_file -dir @(\"$user_AppData\\LarkShell\") @(\"$persist_dir\\LarkShell\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\飞书.lnk\",\"$user_AppData\\LarkShell\",\"$user_LocalAppData\\Feishu\")"
+        "remove_files @(\"$user_AppData\\LarkShell\",\"$user_LocalAppData\\Feishu\")"
     ],
     "checkver": {
         "script": [

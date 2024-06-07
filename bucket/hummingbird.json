@@ -6,7 +6,7 @@
         "identifier": "MIT",
         "url": "https://github.com/leibnizli/hummingbird/blob/master/LICENSE"
     },
-    "url": "https://github.com/leibnizli/hummingbird/releases/download/v5.2.0/hummingbird-Setup-5.2.0.exe#/_installer_.exe",
+    "url": "https://github.com/leibnizli/hummingbird/releases/download/v5.2.0/hummingbird-Setup-5.2.0.exe#/abgo_bucket_installer.exe",
     "hash": "sha512:98e96b90d5430f24b7fae081d4db5e03a47171efa008a206466595f0fa2ba2444be1b384adcfd7f2325e3128075e15bcfd8cd0cd8ba9fb317ddbd35eee207ab7",
     "shortcuts": [
         [
@@ -17,13 +17,13 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$path_exe=\"$dir\\_installer_.exe\"",
-        "& $path_exe /S /D=$dir",
+        "$path_installer=\"$dir\\abgo_bucket_installer.exe\"",
+        "& $path_installer /S /D=$dir",
         "$core_exe=\"$dir\\hummingbird.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$user_AppData\\hummingbird\") @(\"$persist_dir\\hummingbird\")",
-        "clean_redundant_files @($path_exe)",
-        "remove_app_lnk @(\"hummingbird.lnk\")"
+        "persist_file -dir @(\"$user_AppData\\hummingbird\") @(\"$persist_dir\\hummingbird\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
@@ -39,7 +39,7 @@
         "github": "https://github.com/leibnizli/hummingbird"
     },
     "autoupdate": {
-        "url": "https://github.com/leibnizli/hummingbird/releases/download/v$version/hummingbird-Setup-$version.exe#/_installer_.exe",
+        "url": "https://github.com/leibnizli/hummingbird/releases/download/v$version/hummingbird-Setup-$version.exe#/abgo_bucket_installer.exe",
         "hash": {
             "url": "$baseurl/latest.yml",
             "regex": "sha512:\\s+$base64"

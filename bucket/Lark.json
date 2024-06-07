@@ -15,14 +15,15 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$user_AppData\\LarkInternational\") @(\"$persist_dir\\LarkInternational\")",
-        "create_app_lnk \"$dir\\app\\Lark.exe\" \"$desktop\\Lark.lnk\""
+        "persist_file -dir @(\"$user_AppData\\LarkInternational\") @(\"$persist_dir\\LarkInternational\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Lark.lnk\",\"$user_AppData\\LarkInternational\",\"$user_LocalAppData\\Lark\")"
+        "remove_files @(\"$user_AppData\\LarkInternational\",\"$user_LocalAppData\\Lark\")"
     ],
     "checkver": {
         "script": [

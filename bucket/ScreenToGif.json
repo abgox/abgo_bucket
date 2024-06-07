@@ -32,14 +32,15 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$user_AppData\\ScreenToGif\") @(\"$persist_dir\\ScreenToGif\")",
-        "create_app_lnk \"$dir\\ScreenToGif.exe\" \"$desktop\\ScreenToGif.lnk\""
+        "persist_file -dir @(\"$user_AppData\\ScreenToGif\") @(\"$persist_dir\\ScreenToGif\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\ScreenToGif.lnk\",\"$user_AppData\\ScreenToGif\")"
+        "remove_files @(\"$user_AppData\\ScreenToGif\")"
     ],
     "checkver": "github",
     "autoupdate": {

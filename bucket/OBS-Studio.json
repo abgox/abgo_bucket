@@ -6,7 +6,7 @@
         "identifier": "GNU General Public License v2.0",
         "url": "https://github.com/obsproject/obs-studio/blob/master/COPYING"
     },
-    "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-30.1.2-Full-Installer-x64.exe#/_installer_.exe",
+    "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-30.1.2-Full-Installer-x64.exe#/abgo_bucket_installer.exe",
     "hash": "0626384e8aa11211e77f11cc068cfedd0af043ebc71304ad7f8092173632121d",
     "shortcuts": [
         [
@@ -17,13 +17,13 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$path_exe= \"$dir\\_installer_.exe\"",
-        "& $path_exe /S /D=$dir",
+        "$path_installer= \"$dir\\abgo_bucket_installer.exe\"",
+        "& $path_installer /S /D=$dir",
         "$core_exe=\"$dir\\uninstall.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$user_AppData\\obs-studio\") @(\"$persist_dir\\obs-studio\")",
-        "clean_redundant_files @($path_exe)",
-        "remove_app_lnk @(\"OBS Studio.lnk\") @(\"OBS Studio\")"
+        "persist_file -dir @(\"$user_AppData\\obs-studio\") @(\"$persist_dir\\obs-studio\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
@@ -39,6 +39,6 @@
         "github": "https://github.com/obsproject/obs-studio"
     },
     "autoupdate": {
-        "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-$version-Full-Installer-x64.exe#/_installer_.exe"
+        "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-$version-Full-Installer-x64.exe#/abgo_bucket_installer.exe"
     }
 }

@@ -10,11 +10,11 @@
     "hash": "48bb52116c78164a2f49b306f4781b5885a4f98e149bbc48acf103b262560563",
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        "$path_msi=\"$dir\\bundle.msixbundle\"",
-        "Add-AppPackage -Path $path_msi",
+        "$path_installer=\"$dir\\bundle.msixbundle\"",
+        "Add-AppPackage -Path $path_installer",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$user_LocalAppData\\Packages\\28017CharlesMilette.TranslucentTB_v826wp6bftszj\") @(\"$persist_dir\\28017CharlesMilette.TranslucentTB_v826wp6bftszj\")",
-        "clean_redundant_files @($path_msi)"
+        "persist_file -dir @(\"$user_LocalAppData\\Packages\\28017CharlesMilette.TranslucentTB_v826wp6bftszj\") @(\"$persist_dir\\28017CharlesMilette.TranslucentTB_v826wp6bftszj\")",
+        "do_some_things"
     ],
     "post_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

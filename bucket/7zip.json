@@ -53,7 +53,8 @@
         "Write-Host (handle_lang {'正在添加 7zip 右键菜单...'} {'Adding 7zip context menu...'}) -f Yellow",
         "reg import \"$dir\\install-context.reg\"",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "create_app_lnk \"$dir\\7zFM.exe\" \"$desktop\\7zip.lnk\""
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
@@ -65,7 +66,7 @@
         "reg import \"$dir\\uninstall-context.reg\"",
         "Stop-Process -Name \"explorer\" -Force",
         "Start-Process explorer.exe",
-        "remove_files @(\"$desktop\\7zip.lnk\")"
+        "remove_files"
     ],
     "checkver": {
         "url": "https://www.7-zip.org/download.html",

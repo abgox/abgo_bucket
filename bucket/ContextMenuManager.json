@@ -17,14 +17,15 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$user_AppData\\ContextMenuManager\") @(\"$persist_dir\\ContextMenuManager\")",
-        "create_app_lnk \"$dir\\ContextMenuManager.NET.4.0.exe\" \"$desktop\\ContextMenuManager.lnk\""
+        "persist_file -dir @(\"$user_AppData\\ContextMenuManager\") @(\"$persist_dir\\ContextMenuManager\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\ContextMenuManager.lnk\",\"$user_AppData\\ContextMenuManager\")"
+        "remove_files @(\"$user_AppData\\ContextMenuManager\")"
     ],
     "checkver": "github",
     "autoupdate": {

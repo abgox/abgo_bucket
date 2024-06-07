@@ -15,14 +15,15 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -dir @(\"$user_AppData\\Geek Uninstaller\") @(\"$persist_dir\\Geek Uninstaller\")",
-        "create_app_lnk \"$dir\\geek.exe\" \"$desktop\\Geek Uninstaller.lnk\""
+        "persist_file -dir @(\"$user_AppData\\Geek Uninstaller\") @(\"$persist_dir\\Geek Uninstaller\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "stop_process",
-        "remove_files @(\"$desktop\\Geek Uninstaller.lnk\",\"$user_AppData\\Geek Uninstaller\")"
+        "remove_files @(\"$user_AppData\\Geek Uninstaller\")"
     ],
     "checkver": {
         "url": "https://geekuninstaller.com/download",

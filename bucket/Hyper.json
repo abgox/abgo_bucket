@@ -18,13 +18,13 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$path_exe=\"$dir\\Hyper-Setup-$($version).exe\"",
-        "& $path_exe /S /D=$dir",
+        "$path_installer=\"$dir\\Hyper-Setup-$($version).exe\"",
+        "& $path_installer /S /D=$dir",
         "$core_exe=\"$dir\\Hyper.exe\"",
         "sleep_install $core_exe",
-        "persist -dir @(\"$env:AppData\\Hyper\") @(\"$persist_dir\\Hyper\")",
-        "clean_redundant_files @($path_exe)",
-        "remove_app_lnk @(\"Hyper.lnk\")"
+        "persist_file -dir @(\"$env:AppData\\Hyper\") @(\"$persist_dir\\Hyper\")",
+        "handle_app_lnk",
+        "do_some_things"
     ],
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",

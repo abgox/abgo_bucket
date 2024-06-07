@@ -24,7 +24,8 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist -file @(\"$env:userProfile\\.config\\starship.toml\") @(\"$persist_dir\\starship.toml\")"
+        "persist_file -file @(\"$env:userProfile\\.config\\starship.toml\") @(\"$persist_dir\\starship.toml\")",
+        "do_some_things"
     ],
     "post_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
