@@ -15,15 +15,15 @@ Get-ChildItem "$PSScriptRoot\..\bucket" | ForEach-Object {
     function Handle-Persist($obj, $isPersist = $isPersist) {
         @('pre_install', 'post_install', 'pre_uninstall', 'post_uninstall') | ForEach-Object {
             if (!$isPersist -and $obj.$_) {
-                $isPersist = ($obj.$_ -join "`n") -match '(\npersist\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+                $isPersist = ($obj.$_ -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
             }
             if (!$isPersist -and $obj.$_.script) {
-                $isPersist = ($obj.$_.script -join "`n") -match '(\npersist\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+                $isPersist = ($obj.$_.script -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
             }
         }
         @('installer', 'uninstaller') | ForEach-Object {
             if (!$isPersist -and $obj.$_.script) {
-                $isPersist = ($obj.$_.script -join "`n") -match '(\npersist\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+                $isPersist = ($obj.$_.script -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
             }
         }
         return $isPersist
