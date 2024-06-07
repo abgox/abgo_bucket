@@ -14,9 +14,9 @@ else {
 $json = Get-Content -Path "$PSScriptRoot\lang\$lang.json" -Raw -Encoding UTF8 | ConvertFrom-Json
 
 $scoop_dir = (Split-Path (Split-Path (Split-Path  (scoop prefix scoop) -Parent)))
-$buckets_dir = "$($scoop_dir)/buckets"
-$app_dir = "$($scoop_dir)/apps"
-$cache_dir = "$($scoop_dir)/cache"
+$buckets_dir = Join-Path $scoop_dir 'buckets'
+$app_dir = Join-Path $scoop_dir 'apps'
+$cache_dir = Join-Path $scoop_dir 'cache'
 
 $bucket_list = @()
 if ($app[0]) {
@@ -81,7 +81,7 @@ else {
 }
 
 function ensure_cache($url) {
-    $replace_url = $url -replace "(/?%/?)|(#/?)|(:?//?)", '_'
+    $replace_url = $url -replace "(/?%/?)|(#/?)|(:?//?)|(\?)|(=)", '_'
     $out = "$($app[1])#$($content_manifest.version)#$($replace_url)"
     $has_cache = Get-ChildItem $cache_dir | Where-Object { $_.Name -in $out }
     if (!$has_cache) {
@@ -94,7 +94,7 @@ function ensure_cache($url) {
             $dl_path = $(Read-Host) -replace '"', ''
         }
         Write-Host ''
-        Move-Item $dl_path "$cache_dir/$out" -Force
+        Move-Item $dl_path (Join-Path $cache_dir $out) -Force
     }
 }
 

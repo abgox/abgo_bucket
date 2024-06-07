@@ -159,12 +159,13 @@ function create_parent_dir([string]$path) {
     }
 }
 
-function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
+function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$arguments = '', [string]$icon_path = $app_path) {
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($lnk_path)
-    $Shortcut.TargetPath = $app_path
+    $Shortcut.TargetPath = $app_path -replace '"', ''
     $Shortcut.WorkingDirectory = Split-Path $app_path -Parent
     $Shortcut.IconLocation = $icon_path
+    $Shortcut.Arguments = $arguments
     $Shortcut.Save()
     $app = Split-Path $app_path -Leaf
 }
@@ -211,19 +212,16 @@ function handle_app_lnk {
     }
     else {
         # 创建桌面快捷方式
-        function _do($obj) {
-            $obj | ForEach-Object {
+        function _do($shortcuts = @()) {
+            $shortcuts | ForEach-Object {
                 $lnk_path = Join-Path $user_Desktop "$($_[1]).lnk"
                 $app_path = Join-Path $dir $_[0]
-                if ($_[2]) {
-                    $app_path += ' ' + $_[2]
-                }
                 if (Test-Path "$($public_Desktop)/$($_[1]).lnk") {
-                    Move-Item "$($public_Desktop)/$($_[1]).lnk" $lnk_path
+                    Move-Item "$($public_Desktop)/$($_[1]).lnk" $lnk_path -Force
                 }
                 else {
                     $icon_path = if ($_[3]) { Join-Path $dir $_[3] }else { $app_path }
-                    create_app_lnk $app_path $lnk_path $icon_path
+                    create_app_lnk $app_path $lnk_path $_[2] $icon_path
                 }
                 write_with_color (data_replace $json.shortcut)
             }
