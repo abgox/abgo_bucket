@@ -1,12 +1,12 @@
 {
     "version": "0.5.0",
     "description": "仿明日方舟工业风音乐播放器，支持添加曲绘",
-    "homepage": "https://github.com/Kaidesuyo/Hydrogen-Music",
+    "homepage": "https://gitee.com/sunshineluo/Hydrogen-Music",
     "license": {
         "identifier": "MIT",
-        "url": "https://github.com/Kaidesuyo/Hydrogen-Music/blob/main/LICENSE"
+        "url": "https://gitee.com/sunshineluo/Hydrogen-Music/blob/main/LICENSE"
     },
-    "url": "https://github.com/Kaidesuyo/Hydrogen-Music/releases/download/v0.5.0/Hydrogen-Music-Setup-0.5.0.exe#/abgo_bucket_installer.exe",
+    "url": "https://bucket-apps.netlify.app/Hydrogen-Music.exe#/_installer_.exe",
     "hash": "1d315caab1a63eb7e982e8c7c25b003fc03a518b82fd03bfb2cf38bdd532f160",
     "shortcuts": [
         [
@@ -34,8 +34,11 @@
         "try{ & $ui_exe /S }catch{}",
         "sleep_uninstall $ui_exe"
     ],
-    "checkver": "github",
+    "checkver": {
+        "url": "https://bucket-apps.netlify.app/Hydrogen-Music.json",
+        "jsonpath": "$.version"
+    },
     "autoupdate": {
-        "url": "https://github.com/Kaidesuyo/Hydrogen-Music/releases/download/v$version/Hydrogen-Music-Setup-$version.exe#/abgo_bucket_installer.exe"
+        "url": "https://bucket-apps.netlify.app/Hydrogen-Music.exe#/_installer_.exe"
     }
 }
