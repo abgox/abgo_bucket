@@ -356,22 +356,24 @@ function stop_exe($exeName, [switch]$tip) {
     $null = Wait-Job $job
 }
 function confirm([string]$tip_info) {
-    Write-Host $tip_info -f Yellow
-    while ($true) {
-        $keyCode = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown").VirtualKeyCode
-        if ($keyCode -eq 13) {
-            break
-        }
-        else {
-            handle_lang -CN {
-                @(21368, 36733, 25805, 20316, 21462, 28040) | ForEach-Object {
-                    $cancel_info += [char]::ConvertFromUtf32($_)
-                }
-                Write-Host $cancel_info -f Yellow
-            } -EN {
-                Write-Host 'Uninstall canceled.' -f Yellow
+    if (!(scoop config abgo_bucket_no_confirm)) {
+        Write-Host $tip_info -f Yellow
+        while ($true) {
+            $keyCode = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown").VirtualKeyCode
+            if ($keyCode -eq 13) {
+                break
             }
-            Exit
+            else {
+                handle_lang -CN {
+                    @(21368, 36733, 25805, 20316, 21462, 28040) | ForEach-Object {
+                        $cancel_info += [char]::ConvertFromUtf32($_)
+                    }
+                    Write-Host $cancel_info -f Yellow
+                } -EN {
+                    Write-Host 'Uninstall canceled.' -f Yellow
+                }
+                Exit
+            }
         }
     }
 }
