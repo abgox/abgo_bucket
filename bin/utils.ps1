@@ -158,78 +158,88 @@ function create_parent_dir([string]$path) {
         create_file $parent_path -isDir
     }
 }
+
 function create_app_lnk([string]$app_path, [string]$lnk_path, [string]$icon_path = $app_path) {
-    if (scoop config abgo_bucket_no_shortcut) {
-        if ($info.need_show_tip) {
-            write_with_color (data_replace $json.no_shortcut)
-            $info.need_show_tip = $false
-        }
-    }
-    else {
-        $WshShell = New-Object -comObject WScript.Shell
-        $Shortcut = $WshShell.CreateShortcut($lnk_path)
-        $Shortcut.TargetPath = $app_path
-        $Shortcut.WorkingDirectory = Split-Path $app_path -Parent
-        $Shortcut.IconLocation = $icon_path
-        $Shortcut.Save()
-        $app = Split-Path $app_path -Leaf
-        write_with_color (data_replace $json.shortcut)
-        if ($info.need_show_tip) {
-            write_with_color (data_replace $json.has_shortcut)
-            $info.need_show_tip = $false
-        }
-    }
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut($lnk_path)
+    $Shortcut.TargetPath = $app_path
+    $Shortcut.WorkingDirectory = Split-Path $app_path -Parent
+    $Shortcut.IconLocation = $icon_path
+    $Shortcut.Save()
+    $app = Split-Path $app_path -Leaf
 }
-function remove_app_lnk([array]$lnk_name, [array]$menu_lnk_name = $lnk_name, $delay = 60, $duration = 0.3) {
-    function _do([array]$lnk_list) {
-        $lnk | ForEach-Object {
-            $null = Start-Job -ScriptBlock {
-                param($path_sudo, $file, $delay, $duration)
-                $flag = 0
-                $num = $delay / $duration
-                while ($true) {
-                    if (Test-Path($file)) {
-                        & $path_sudo Remove-Item -Force -Recurse $file
-                        $directory = Split-Path $file -Parent
-                        $items = Get-ChildItem -Path $directory -Force
-                        if ($items.Count -eq 0) {
-                            & $path_sudo Remove-Item -Force -Recurse $directory
-                        }
-                        break
-                    }
-                    if ($flag -ge $num) {
-                        break
-                    }
-                    $flag++
-                    Start-Sleep -Seconds $duration
-                }
-            } -ArgumentList $path_sudo, $_, $delay, $duration
-        }
-    }
-    $lnk = $menu_lnk_name | ForEach-Object {
-        Join-Path $apps_lnk $_
-        Join-Path $admin_apps_lnk $_
-    }
-    _do $lnk
+function handle_app_lnk {
+    param(
+        # 其他特殊的快捷方式，如 xxx.url
+        [array]$ohter_lnk
+    )
+    # 根据配置判断是否需要创建桌面快捷方式
     if (scoop config abgo_bucket_no_shortcut) {
-        if ($info.need_show_tip) {
-            write_with_color (data_replace $json.no_shortcut)
-            $info.need_show_tip = $false
+        $lnk_list = @()
+        if ($manifest.shortcuts) {
+            $manifest.shortcuts | ForEach-Object {
+                $lnk_list += "$($_[1]).lnk"
+            }
         }
-        $lnk = $lnk_name | ForEach-Object {
-            Join-Path $user_Desktop $_
+        $lnk_list += $ohter_lnk
+        $lnk_list = $lnk_list | ForEach-Object {
             Join-Path $public_Desktop $_
+            Join-Path $user_Desktop $_
         }
-        _do $lnk
+        function remove_app_lnk([array]$lnk_list) {
+            $lnk_list | ForEach-Object {
+                $null = Start-Job -ScriptBlock {
+                    param($lnk)
+                    $flag = 0
+                    while ($true) {
+                        if (Test-Path $lnk) {
+                            Remove-Item $lnk -ErrorAction SilentlyContinue
+                            break
+                        }
+                        if ($flag -ge 120) {
+                            break
+                        }
+                        $flag++
+                        Start-Sleep -Seconds 1
+                    }
+                } -ArgumentList $_
+            }
+        }
+        # 移除所有相关的桌面快捷方式
+        remove_app_lnk $lnk_list
+        write_with_color (data_replace $json.no_shortcut)
     }
     else {
-        if ($info.need_show_tip) {
+        # 创建桌面快捷方式
+        function _do($obj) {
+            $obj | ForEach-Object {
+                $lnk_path = Join-Path $user_Desktop "$($_[1]).lnk"
+                $app_path = Join-Path $dir $_[0]
+                if ($_[2]) {
+                    $app_path += ' ' + $_[2]
+                }
+                if (Test-Path "$($public_Desktop)/$($_[1]).lnk") {
+                    Move-Item "$($public_Desktop)/$($_[1]).lnk" $lnk_path
+                }
+                else {
+                    $icon_path = if ($_[3]) { Join-Path $dir $_[3] }else { $app_path }
+                    create_app_lnk $app_path $lnk_path $icon_path
+                }
+                write_with_color (data_replace $json.shortcut)
+            }
             write_with_color (data_replace $json.has_shortcut)
-            $info.need_show_tip = $false
+        }
+        if ($manifest.shortcuts) {
+            _do $manifest.shortcuts
+        }
+        else {
+            if ($architecture -and $manifest.architecture.$architecture.shortcuts) {
+                _do $manifest.architecture.$architecture.shortcuts
+            }
         }
     }
 }
-function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file, [switch]$HardLink) {
+function persist_file([array]$data_list, [array]$persist_list, [switch]$dir, [switch]$file, [switch]$HardLink) {
     if (!($dir -or $file)) {
         Write-Error (data_replace $json.persist_err)
         return
@@ -314,23 +324,21 @@ function persist([array]$data_list, [array]$persist_list, [switch]$dir, [switch]
     }
     Write-Host "---------------------`n" -f Yellow
 }
-function sleep_install([string]$path, $delay = 60, $duration = 0.3) {
+function sleep_install([string]$path) {
     $flag = 0
-    $num = $delay / $duration
     if ($path) {
-        while (!(Test-Path $path) -and $flag -le $num) {
-            Start-Sleep -Seconds $duration
+        while (!(Test-Path $path) -and $flag -le 120) {
+            Start-Sleep -Seconds 1
             $flag++
         }
     }
 }
-function sleep_uninstall([string]$path, $delay = 60, $duration = 0.3) {
+function sleep_uninstall([string]$path) {
     $flag = 0
-    $num = $delay / $duration
     if ($path) {
         write_with_color (data_replace $json.uninstalling)
-        while ((Test-Path $path) -and $flag -le $num) {
-            Start-Sleep -Seconds $duration
+        while ((Test-Path $path) -and $flag -le 120) {
+            Start-Sleep -Seconds 1
             $flag++
         }
     }
@@ -377,36 +385,41 @@ function confirm([string]$tip_info) {
         }
     }
 }
-function clean_redundant_files([array]$files, $delay = 60, $duration = 0.3, [switch]$tip) {
+function clean_redundant_files([array]$files, [switch]$tip) {
     if ($tip) {
         write_with_color (data_replace $json.clean_redundant_files)
     }
     $files | ForEach-Object {
         $null = Start-Job -ScriptBlock {
-            param($path_sudo, $file, $delay, $duration)
+            param($path_sudo, $file)
+            Start-Sleep -Seconds 15
             $flag = 0
-            $num = $delay / $duration
-            if ($file -like "*.exe") { Start-Sleep -Seconds 30 }
-            while ($true) {
-                if (Test-Path($file)) {
-                    & $path_sudo Remove-Item -Force -Recurse $file
-                    $directory = Split-Path $file -Parent
-                    $items = Get-ChildItem -Path $directory -Force
-                    if ($items.Count -eq 0) {
-                        & $path_sudo Remove-Item -Force -Recurse $directory
-                    }
-                    break
+            if ($file -like "*.exe") { Start-Sleep -Seconds 60 }
+            if (Test-Path($file)) {
+                & $path_sudo Remove-Item -Force -Recurse $file
+                $directory = Split-Path $file -Parent
+                $items = Get-ChildItem -Path $directory -Force
+                if ($items.Count -eq 0) {
+                    & $path_sudo Remove-Item -Force -Recurse $directory
                 }
-                if ($flag -ge $num) {
-                    break
-                }
-                $flag++
-                Start-Sleep -Seconds $duration
+                break
             }
-        } -ArgumentList $path_sudo, $_, $delay, $duration
+        } -ArgumentList $path_sudo, $_
     }
 }
 function remove_files([array]$files) {
+    $lnk_list = @()
+    if ($manifest.shortcuts) {
+        $manifest.shortcuts | ForEach-Object {
+            $lnk_list += Join-Path $user_Desktop "$($_[1]).lnk"
+        }
+    }
+    $lnk_list | ForEach-Object {
+        if (Test-Path $_) {
+            Remove-Item $_ -ErrorAction SilentlyContinue
+            Write-Host  ($json.remove + $_)  -f Yellow
+        }
+    }
     $files | ForEach-Object {
         if (Test-Path $_) {
             remove_file $_
@@ -470,4 +483,10 @@ function write_with_color([string]$str) {
         }
     }
     Write-Host ''
+}
+
+function do_some_things {
+    if ($path_installer) {
+        clean_redundant_files $path_installer
+    }
 }
