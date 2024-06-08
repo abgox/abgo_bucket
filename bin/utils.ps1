@@ -118,7 +118,7 @@ function show_with_less {
         }
     }
     else {
-        $str_list | ForEach-Object { Write-Host $_ -f $color }
+        foreach ($_ in $str_list) { Write-Host $_ -f $color }
     }
 }
 function create_file([string]$path, [switch]$isDir) {
@@ -177,18 +177,16 @@ function handle_app_lnk {
     # 根据配置判断是否需要创建桌面快捷方式
     if (scoop config abgo_bucket_no_shortcut) {
         $lnk_list = @()
-        if ($manifest.shortcuts) {
-            $manifest.shortcuts | ForEach-Object {
-                $lnk_list += "$($_[1]).lnk"
-            }
+        foreach ($_ in $manifest.shortcuts) {
+            $lnk_list += "$($_[1]).lnk"
         }
         $lnk_list += $ohter_lnk
-        $lnk_list = $lnk_list | ForEach-Object {
+        $lnk_list = foreach ($_ in $lnk_list) {
             Join-Path $public_Desktop $_
             Join-Path $user_Desktop $_
         }
         function remove_app_lnk([array]$lnk_list) {
-            $lnk_list | ForEach-Object {
+            foreach ($_ in $lnk_list) {
                 $null = Start-Job -ScriptBlock {
                     param($lnk)
                     $flag = 0
@@ -212,8 +210,8 @@ function handle_app_lnk {
     }
     else {
         # 创建桌面快捷方式
-        function _do($shortcuts = @()) {
-            $shortcuts | ForEach-Object {
+        function _do($shortcuts) {
+            foreach ($_ in $shortcuts) {
                 $lnk_path = Join-Path $user_Desktop "$($_[1]).lnk"
                 $app_path = Join-Path $dir $_[0]
                 if (Test-Path "$($public_Desktop)/$($_[1]).lnk") {
@@ -314,7 +312,7 @@ function persist_file([array]$data_list, [array]$persist_list, [switch]$dir, [sw
             persist = $json.persist_data[4]
         }
     }
-    $result | ForEach-Object {
+    foreach ($_ in $result) {
         if ($flag -gt 0) { Write-Host "---------------------" -f Cyan }
         Write-Host "$($text.origin) -- $($_.data)" -f Green
         Write-Host "$($text.persist) -- $($_.persist)" -f Green
@@ -371,7 +369,7 @@ function confirm([string]$tip_info) {
             }
             else {
                 handle_lang -CN {
-                    @(21368, 36733, 25805, 20316, 21462, 28040) | ForEach-Object {
+                    foreach ($_ in @(21368, 36733, 25805, 20316, 21462, 28040)) {
                         $cancel_info += [char]::ConvertFromUtf32($_)
                     }
                     Write-Host $cancel_info -f Yellow
@@ -387,7 +385,7 @@ function clean_redundant_files([array]$files, [switch]$tip) {
     if ($tip) {
         write_with_color (data_replace $json.clean_redundant_files)
     }
-    $files | ForEach-Object {
+    foreach ($_ in $files) {
         $null = Start-Job -ScriptBlock {
             param($path_sudo, $file)
             Start-Sleep -Seconds 15
@@ -407,18 +405,16 @@ function clean_redundant_files([array]$files, [switch]$tip) {
 }
 function remove_files([array]$files) {
     $lnk_list = @()
-    if ($manifest.shortcuts) {
-        $manifest.shortcuts | ForEach-Object {
-            $lnk_list += Join-Path $user_Desktop "$($_[1]).lnk"
-        }
+    foreach ($_ in $manifest.shortcuts) {
+        $lnk_list += Join-Path $user_Desktop "$($_[1]).lnk"
     }
-    $lnk_list | ForEach-Object {
+    foreach ($_ in $lnk_list) {
         if (Test-Path $_) {
             Remove-Item $_ -ErrorAction SilentlyContinue
             Write-Host  ($json.remove + $_)  -f Yellow
         }
     }
-    $files | ForEach-Object {
+    foreach ($_ in $files) {
         if (Test-Path $_) {
             remove_file $_
             Write-Host  ($json.remove + $_)  -f Yellow
@@ -433,7 +429,7 @@ function get_installer_info([string]$app) {
     $installer_yaml = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/$($rootDir)/$($app)/$($versionList[0])/$($id).installer.yaml"
 
     $installer_info = ConvertFrom-Yaml $installer_yaml.Content
-    $installer_info.Installers | ForEach-Object {
+    foreach ($_ in $installer_info.Installers) {
         $arch = $_.Architecture
         $type = [regex]::Match($_.InstallerUrl, '\.(\w+)$').Groups[1].Value
         $res = if ($type) { $arch + '_' + $type }else { $arch }
@@ -450,7 +446,7 @@ function handle_lang([scriptblock]$CN = {}, [scriptblock]$EN = {}) {
 function write_with_color([string]$str) {
     $color_list = @()
     $str = $str -replace "`n", 'n&&_n_n&&'
-    $str_list = $str -split '(<\@[^>]+>.*?(?=<\@|$))' | Where-Object { $_ -ne '' } | ForEach-Object {
+    $str_list = foreach ($_ in $str -split '(<\@[^>]+>.*?(?=<\@|$))' | Where-Object { $_ -ne '' }) {
         if ($_ -match '<\@([\s\w]+)>(.*)') {
             ($matches[2] -replace 'n&&_n_n&&', "`n") -replace '^<\@>', ''
             $color = $matches[1] -split ' '

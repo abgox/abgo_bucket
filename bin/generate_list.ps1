@@ -2,7 +2,7 @@ param($path)
 
 $content = @()
 
-Get-ChildItem "$PSScriptRoot\..\bucket" | ForEach-Object {
+foreach ($_ in Get-ChildItem "$PSScriptRoot\..\bucket") {
     $json = Get-Content $_.FullName -Raw -Encoding UTF8 | ConvertFrom-Json -AsHashtable
     $info = @()
 
@@ -13,7 +13,7 @@ Get-ChildItem "$PSScriptRoot\..\bucket" | ForEach-Object {
     # persist
     $isPersist = $json.persist
     function Handle-Persist($obj, $isPersist = $isPersist) {
-        @('pre_install', 'post_install', 'pre_uninstall', 'post_uninstall') | ForEach-Object {
+        foreach ($_ in @('pre_install', 'post_install', 'pre_uninstall', 'post_uninstall')) {
             if (!$isPersist -and $obj.$_) {
                 $isPersist = ($obj.$_ -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
             }
@@ -21,7 +21,7 @@ Get-ChildItem "$PSScriptRoot\..\bucket" | ForEach-Object {
                 $isPersist = ($obj.$_.script -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
             }
         }
-        @('installer', 'uninstaller') | ForEach-Object {
+        foreach ($_ in @('installer', 'uninstaller')) {
             if (!$isPersist -and $obj.$_.script) {
                 $isPersist = ($obj.$_.script -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
             }
@@ -48,12 +48,12 @@ Get-ChildItem "$PSScriptRoot\..\bucket" | ForEach-Object {
     $tag += if ($isFont) { '`Font`' }
     ## confirm
     $isConfirm = $false
-    @('pre_install', 'post_install', 'pre_uninstall', 'post_uninstall') | ForEach-Object {
+    foreach ($_ in @('pre_install', 'post_install', 'pre_uninstall', 'post_uninstall')) {
         if (!$isConfirm) {
             $isConfirm = ($json.$_ -join "`n") -match '\nconfirm\s+'
         }
     }
-    @('installer', 'uninstaller') | ForEach-Object {
+    foreach ($_ in @('installer', 'uninstaller')) {
         if (!$isConfirm) {
             $isConfirm = ($json.$_.script -join "`n") -match '\nconfirm\s+'
         }

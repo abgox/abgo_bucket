@@ -3,7 +3,7 @@ param([string]$app_name)
 
 $app = @()
 if ($app_name -match ".*[\\/].*") {
-    $app_name -split "[\\/]" | ForEach-Object {
+    foreach ($_ in $app_name -split "[\\/]") {
         $app += $_
     }
 }
@@ -24,7 +24,7 @@ if ($app[0]) {
 }
 else {
     $abgo_bucket = "abgo_bucket"
-    scoop bucket list | ForEach-Object {
+    foreach ($_ in scoop bucket list) {
         if ($_.Source -match '(gitee|github).com/abgox/abgo_bucket') {
             $abgo_bucket = $_.Name
         }
@@ -35,7 +35,7 @@ else {
 $app_list = @()
 $usable_bucket = @()
 foreach ($bucket in $bucket_list) {
-    Get-ChildItem "$($buckets_dir)/$($bucket)/bucket" | ForEach-Object {
+    foreach ($_ in Get-ChildItem "$($buckets_dir)/$($bucket)/bucket") {
         if ($_.BaseName -eq $app[1]) {
             $app_list += $_.FullName
             $usable_bucket += $bucket
@@ -98,7 +98,7 @@ function ensure_cache($url) {
     }
 }
 
-[array]$info.url | ForEach-Object { ensure_cache $_ }
+foreach ($_ in $info.url) { ensure_cache $_ }
 
 if ($is_update) {
     scoop update "$($usable_bucket[0])/$($app[1])"
