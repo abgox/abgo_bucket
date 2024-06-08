@@ -186,7 +186,7 @@
 |[Dropit](http://www.dropitproject.com)|✔️||一个可以自动管理文件的工具。<br>Personal assistant to automatically manage your files.|
 |[Escrcpy](https://github.com/viarotel-org/escrcpy)|✔️||使用图形化的 Scrcpy 显示和控制您的 Android 设备，由 Electron 驱动。<br>Graphical Scrcpy to display and control Android, devices powered by Electron.|
 |[Everything](https://www.voidtools.com)|✔️||文件搜索工具，基于名称快速定位文件和文件夹。<br>Locate files and folders by name instantly.|
-|[FastGithub](https://github.com/dotnetcore/FastGithub)|➖|`NoAutoUpdate`|github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题|
+|[FastGithub](https://github.com/dotnetcore/FastGithub)|➖||github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题|
 |[FeiShu](https://github.com/microsoft/winget-pkgs/tree/master/manifests/b/ByteDance/Feishu)|✔️||字节跳动旗下先进企业写协作与管理平台，一站式无缝办公协作。<br>Empowering teams by messenger, meetings, calendar, docs, and emails. It's all in one place.|
 |[Final2x](https://github.com/Tohrusky/Final2x)|✔️||2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具。<br>2^x Image Super-Resolution.|
 |[FishingFunds](https://ff.1zilc.top/)|✔️||基金,大盘,股票,虚拟货币状态栏显示小应用,基于 Electron 开发,数据源来自天天基金,蚂蚁基金,爱基金,腾讯证券等|
@@ -292,7 +292,7 @@
 |[TTime](https://github.com/InkTimeRecord/TTime)|✔️||一款简洁、高效、高颜值的输入、截图、划词翻译软件。<br>A concise, efficient, and high-quality input, screenshot, and word translation software.|
 |[tts-vue](https://github.com/LokerL/tts-vue)|✔️||🎤 微软语音合成工具，使用 Electron + Vue + ElementPlus + Vite 构建。<br>🎤 Microsoft speech synthesis tool, built using Electron + Vue + ElementPlus + Vite.|
 |[Typora](https://typora.io)|✔️||一个 Markdown 编辑器和阅读器，所见即所得。<br>A minimal Markdown editor and reader.|
-|[TyporaFree](https://typora.io)|✔️||一个 Markdown 编辑器和阅读器，所见即所得。<br>A minimal Markdown editor and reader.|
+|[TyporaFree](https://typora.io)|✔️||(Beta Free 版本) 一个 Markdown 编辑器和阅读器，所见即所得。<br>(Beta Free Version) A minimal Markdown editor and reader.|
 |[uncle-novel](https://uncle-novel.github.io/uncle-novel-official-site/)|✔️||一个全网小说下载器及阅读器，目录解析与书源结合，支持有声小说与文本小说，可下载 mobi、epub、txt 格式文本小说。<br>|
 |[Uninstalr](https://uninstalr.com/)|➖||一个用于在 Windows 中快速、轻便、准确地卸载软件的应用程序。<br>A fast, lightweight and accurate way to uninstall software in Windows.|
 |[Upscayl](https://github.com/upscayl/upscayl)|✔️||适用于 Linux、MacOS 和 Windows 的免费开源 AI 图像升级程序，秉承 Linux 优先的理念。<br>Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.|
@@ -312,7 +312,7 @@
 |[Writeathon](https://www.writeathon.cn/)|✔️||一款写作产品，为创作者提供丰富的灵感和完善的流程。<br>A product for writing, providing the flow and inspiration creators need to make content.|
 |[XBYDriver](https://github.com/gaozhangmin/aliyunpan)|✔️||小白羊网盘 - Powered by 阿里云盘|
 |[XYplorer](https://www.xyplorer.com/index.php)|✔️||一个 Windows 上的第三方文件管理器。<br>A file manager for Windows.|
-|[XYplorerFree](https://www.xyplorer.com/free.php)|✔️|`NoAutoUpdate`|一个 Windows 上的第三方文件管理器。<br>A file manager for Windows.|
+|[XYplorerFree](https://www.xyplorer.com/free.php)|✔️|`NoAutoUpdate`|(Free 版本) 一个 Windows 上的第三方文件管理器。<br>(Free version) A file manager for Windows.|
 |[YouDaoTranslate](https://fanyi.youdao.com/download-Windows)|✔️|`Confirm`|网易有道翻译。<br>YouDaoTranslate for windows.|
 |[YuQue](https://www.yuque.com/)|✔️||为每一个人，为每一个团队，提供优秀的文档与知识库工具。<br>Provide excellent documentation and knowledge base tools for everyone and every team.|
 |[Z-Library](https://z-library.se/)|✔️||Z-Library——世界上最大的电子书图书馆。<br>Z-Library – the world’s largest e-book library.|
