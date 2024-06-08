@@ -114,7 +114,7 @@
 -   But, You can avoid user confirmation by running the following command to add the `Scoop` configuration.
     -   `scoop config abgo_bucket_no_confirm true`
 
-## About `UAC`
+### About `UAC`
 
 -   The scripts in the `bin` directory will be elevated to administrator permission under some cases to ensure that they run properly.
 -   A `UAC` authorization window will appear requiring user confirmation.

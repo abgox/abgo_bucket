@@ -112,7 +112,7 @@
 -   但你可以运行以下命令添加 `Scoop` 配置项来避免用户确认
     -   `scoop config abgo_bucket_no_confirm true`
 
-## 关于 `UAC`
+### 关于 `UAC`
 
 -   为了保证脚本正常的运行，`bin` 目录下的脚本在某些情况下会提升到管理员权限运行
 -   这会出现 `UAC` 授权窗口需要用户确认
