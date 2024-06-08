@@ -3,7 +3,7 @@
     "homepage": "https://github.com/dotnetcore/FastGithub",
     "description": "github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题",
     "license": "MIT",
-    "url": "https://github.com/you-z01/FastGithub/raw/main/fastgithub_win-x64.zip",
+    "url": "https://bucket-apps.netlify.app/FastGithub.zip",
     "hash": "b439afc7b730766aed894876696e9aeb411e3b45f60ebdcfdff247890742c0f6",
     "extract_dir": "fastgithub_win-x64",
     "bin": "fastgithub.exe",
@@ -24,5 +24,16 @@
         ". \"$bucketsdir\\$_bucket\\bin\\utils.ps1\"",
         "stop_process",
         "remove_files"
-    ]
+    ],
+    "checkver": {
+        "url": "https://bucket-apps.netlify.app/FastGithub.json",
+        "jsonpath": "$.version"
+    },
+    "autoupdate": {
+        "url": "https://bucket-apps.netlify.app/FastGithub.zip",
+        "hash": {
+            "url": "https://bucket-apps.netlify.app/FastGithub.json",
+            "jsonpath": "$.hash"
+        }
+    }
 }
