@@ -1,13 +1,13 @@
 {
-    "version": "2024.1.2",
+    "version": "2024.1.3",
     "description": "由 JetBrains 开发的适用于 Java 和 Kotlin 开发的 IDE。Cross-Platform IDE for Java and Kotlin by JetBrains.",
     "homepage": "https://www.jetbrains.com/idea/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "url": "https://download.jetbrains.com/idea/ideaIU-2024.1.2.exe#/abgo_bucket_installer.exe",
-    "hash": "e025ce509ad5c76e27f85e0b7a20ee8f1fb6de1fe2a72a0c7a064fc00151d98c",
+    "url": "https://download.jetbrains.com/idea/ideaIU-2024.1.3.exe#/abgo_bucket_installer.exe",
+    "hash": "e54a4a7e43f69dcb4fba61e2da5959f6f766ba1b8ac7b7d20d37b0f33586cbf0",
     "bin": [
         [
             "IDE\\bin\\idea64.exe",
