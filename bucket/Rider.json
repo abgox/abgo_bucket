@@ -1,13 +1,13 @@
 {
-    "version": "2024.1.2",
+    "version": "2024.1.3",
     "description": "由 JetBrains 开发的适用于 .NET 的跨平台集成开发环境。Cross-Platform IDE for .NET by JetBrains.",
     "homepage": "https://www.jetbrains.com/rider/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "url": "https://download.jetbrains.com/rider/JetBrains.Rider-2024.1.2.exe#/abgo_bucket_installer.exe",
-    "hash": "1337e1bbf891b4608a47be930c5034c0edac82134743df21af8e0fa7f1c5a02f",
+    "url": "https://download.jetbrains.com/rider/JetBrains.Rider-2024.1.3.exe#/abgo_bucket_installer.exe",
+    "hash": "2b4dc505d2254b83c1c5481b02f520405fefaf9e4690afde69bc687acc407792",
     "bin": [
         [
             "IDE\\bin\\rider64.exe",
