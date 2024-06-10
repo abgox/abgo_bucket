@@ -1,13 +1,13 @@
 {
-    "version": "2024.1.1",
+    "version": "2024.1.2",
     "description": "由 JetBrains 提供的一款工具，轻松地将数据转化为见解。A tool to turn data into insights with ease by JetBrains.",
     "homepage": "https://www.jetbrains.com/dataspell/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "url": "https://download.jetbrains.com/python/dataspell-2024.1.1.exe#/abgo_bucket_installer.exe",
-    "hash": "01afc226127ccfa4a09a4f9f5ce4dbed0203e70ab9494a543def42a90673c282",
+    "url": "https://download.jetbrains.com/python/dataspell-2024.1.2.exe#/abgo_bucket_installer.exe",
+    "hash": "c8ab8908a853582561267728aaaeddec73c6a563fdfa3477ee52f9fabc3e4914",
     "bin": [
         [
             "IDE\\bin\\dataspell64.exe",
