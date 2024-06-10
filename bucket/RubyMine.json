@@ -1,13 +1,13 @@
 {
-    "version": "2024.1.2",
+    "version": "2024.1.3",
     "description": "由 JetBrains 开发的适用于 Ruby 和 Rails 的跨平台集成开发环境。Cross-Platform IDE for Ruby and Rails by JetBrains.",
     "homepage": "https://www.jetbrains.com/rubymine/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "url": "https://download.jetbrains.com/ruby/RubyMine-2024.1.2.exe#/abgo_bucket_installer.exe",
-    "hash": "c49db06489f4a6b80a000e65db47074aa5af99ad7b994cfa0b7be8db68eb9c55",
+    "url": "https://download.jetbrains.com/ruby/RubyMine-2024.1.3.exe#/abgo_bucket_installer.exe",
+    "hash": "bac688a5bd07f56a1fd95f40d02752915080b40933b7b83ceeb30aa830d15ecf",
     "bin": [
         [
             "IDE\\bin\\rubymine64.exe",
