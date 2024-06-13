@@ -1,13 +1,13 @@
 {
-    "version": "1.37.0",
+    "version": "1.37.1",
     "description": "快速、简单的 Node.js 版本管理器，采用 Rust 内建。Fast and simple Node.js version manager, built in Rust.",
     "homepage": "https://github.com/Schniz/fnm",
     "license": {
         "identifier": "GNU General Public License v3.0",
         "url": "https://github.com/Schniz/fnm/blob/master/LICENSE"
     },
-    "url": "https://github.com/Schniz/fnm/releases/download/v1.37.0/fnm-windows.zip",
-    "hash": "54ca09395c9ec2fd6056ca9dd3b901906525eaccbe2512041b50dc1fd74796c9",
+    "url": "https://github.com/Schniz/fnm/releases/download/v1.37.1/fnm-windows.zip",
+    "hash": "44e964b4b408836cd24675ff85ce410d37d61a6a5df61e9c661bfd911670704f",
     "bin": "fnm.exe",
     "post_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
