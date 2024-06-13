@@ -1,10 +1,10 @@
 {
-    "version": "7.18.8",
+    "version": "7.19.6",
     "description": "无缝衔接的团队工作工具。Essential Work Tools, Seamless Connection",
     "homepage": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/b/ByteDance/Lark",
     "license": "Unknown",
-    "url": "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/615f88a1/Lark-win32_ia32-7.18.8-signed.exe#/dl.7z",
-    "hash": "b12650404aef814c851eb3bbad694d2303b564d318e115aeab8e41f5133a5390",
+    "url": "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/1312be8d/Lark-win32_ia32-7.19.6-signed.exe#/dl.7z",
+    "hash": "1fad049471cbffba35379fa86424e90f3d6d8810c19be25b46e7fbf583fe3142",
     "extract_to": "app",
     "shortcuts": [
         [
