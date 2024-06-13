@@ -297,6 +297,7 @@
 |[Uninstalr](https://uninstalr.com/)|➖||一个用于在 Windows 中快速、轻便、准确地卸载软件的应用程序。<br>A fast, lightweight and accurate way to uninstall software in Windows.|
 |[Upscayl](https://github.com/upscayl/upscayl)|✔️||适用于 Linux、MacOS 和 Windows 的免费开源 AI 图像升级程序，秉承 Linux 优先的理念。<br>Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.|
 |[uTools](https://u.tools)|✔️||新一代效率工具平台，自由组合插件应用，打造专属你的趁手工具集。<br>|
+|[version-manager](https://github.com/gvcgo/version-manager)|✔️||支持各种语言，无需插件，无需记忆命令，最好用的SDK版本管理器。<br>A general version manager for 60+ SDKs with TUI inspired by lazygit. No need to remember any commands.|
 |[VLC](https://www.videolan.org/vlc)|✔️||一款自由、开源的跨平台多媒体播放器及框架，可播放大多数多媒体文件，以及 DVD、音频 CD、VCD 及各类流媒体协议。<br>A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.|
 |[VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes/)|✔️||创建数字贴纸和提醒事项。<br>Creates digital stickers and reminders|
 |[VSCode](https://code.visualstudio.com/)|✔️||一个轻量级、功能强大，插件生态丰富的文件编辑器。<br>Lightweight but powerful source code editor.|
