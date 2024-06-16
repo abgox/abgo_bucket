@@ -82,7 +82,11 @@
 
 ### About App Update
 
--   Unlike official and most third-party buckets, the app in `abgo_bucket` removes the old version of the directory when it's updated.
+-   When updating the application with `scoop update`, the old version of the directory is now retained by default.
+    -   Note: If the current app uses the app's own uninstaller, the uninstaller will be executed when updating and will not retain the old version directory.
+-   If old version directory exists, you can reset it to the specified installed version by `scoop reset app@version`.
+-   If you want old version directory to be removed when updating, you can add the `Scoop` configuration by running the following command.
+    -   `scoop config abgo_bucket_no_old_version true`
 
 ### About `persist`
 

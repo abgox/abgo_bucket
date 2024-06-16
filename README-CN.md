@@ -82,7 +82,11 @@
 
 ### 关于应用更新
 
-- 与官方和大部分第三方 bucket 不同，`abgo_bucket` 中的应用在更新时，会移除旧版本目录
+- 当使用 `scoop update` 更新应用时，现在默认会保留旧版本目录
+  - 注意: 如果当前应用使用了应用自带的卸载程序，会在更新时执行卸载程序，不会保留旧版本目录
+- 如果应用存在旧版本目录，你可以通过 `scoop reset app@version` 去重置为指定的已安装的旧版本
+- 你可以运行以下命令添加 `Scoop` 配置项让应用更新时移除旧版本目录
+  - `scoop config abgo_bucket_no_old_version true`
 
 ### 关于 persist(数据持久化)
 
