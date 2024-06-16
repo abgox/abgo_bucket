@@ -349,7 +349,7 @@ function stop_process([bool]$isRemove = $true, [bool]$tip = $true, [string]$app_
         & $path_sudo (Get-Process | Where-Object { $_.Modules.FileName -like "$($dirs[0])*" -or $_.Modules.FileName -like "$($dirs[1])*" } | ForEach-Object { Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue; Wait-Process -Id $_.Id -ErrorAction SilentlyContinue -Timeout 30 })
     } -ArgumentList $path_sudo, $dirs
     $null = Wait-Job $job
-    if ($isRemove) { remove_file $app_dir }
+    if ($isRemove -and (scoop config abgo_bucket_no_old_version)) { remove_file $app_dir }
 }
 function stop_exe($exeName, [switch]$tip) {
     if ($tip) { write_with_color (data_replace $json.stop_process) }
