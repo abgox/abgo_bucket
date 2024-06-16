@@ -80,9 +80,15 @@
 
 ---
 
+### About App Update
+
+-   Unlike official and most third-party buckets, the app in `abgo_bucket` removes the old version of the directory when it's updated.
+
 ### About `persist`
 
 -   The apps in `abgo_bucket` will uses `New-Item -ItemType SymbolicLink` to persist data, which is not limited to data in app directories.
+    -   The linked data files and directories are not necessarily in the scoop directory.
+    -   If you reinstall your system or copy the scoop directory to another computer, please reinstall the application to ensure that the data files or directories are linked to the application data in the `persist` directory.
 -   The strategy is **radical**. If there is a data directory, the app will `persist` the entire data directory instead of some important configuration files.
 -   Take `Neovim` as an example. It will form two directories under `$env:LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
 
