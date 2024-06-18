@@ -1,5 +1,5 @@
 {
-    "version": "26.10.0100",
+    "version": "26.10.0200",
     "description": "一个 Windows 上的第三方文件管理器。A file manager for Windows.",
     "homepage": "https://www.xyplorer.com/index.php",
     "license": {
@@ -7,7 +7,7 @@
         "url": "https://www.xyplorer.com/purchase.php"
     },
     "url": "https://www.xyplorer.com/download/xyplorer_full_noinstall.zip",
-    "hash": "fa4a968c3701c1f91508f00888a9c46bdbe5e51b0e315842c9b779e87db08763",
+    "hash": "4d88be997b6ea5b59f9cb4d594acb0c5355325fb6af3f03693ffaa9123024de8",
     "bin": "XYplorer.exe",
     "shortcuts": [
         [
