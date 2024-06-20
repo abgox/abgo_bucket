@@ -1,10 +1,10 @@
 {
-    "version": "1.13.6",
+    "version": "1.14.0",
     "description": "哔哩哔哩 Windows 客户端",
     "homepage": "https://app.bilibili.com/",
     "license": "Unknown",
-    "url": "https://dl.hdslb.com/mobile/pack/bili_win/15001703/public/bilibili-setup-v1.13.6.exe#/abgo_bucket_installer.exe",
-    "hash": "bc38781a6cb5efef83dd1fdfcb9efc4512c966e6987b4a071cf54317afa05695",
+    "url": "https://dl.hdslb.com/mobile/pack/bili_win/15145830/public/bilibili-setup-v1.14.0.exe#/abgo_bucket_installer.exe",
+    "hash": "ca1dc7bd2da7d870ea21f916ab12adb1a8b3dbb78ed89d3757a7d7bdab8cbc46",
     "shortcuts": [
         [
             "bilibili\\哔哩哔哩.exe",
