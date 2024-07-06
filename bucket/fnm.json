@@ -9,9 +9,10 @@
     "url": "https://github.com/Schniz/fnm/releases/download/v1.37.1/fnm-windows.zip",
     "hash": "44e964b4b408836cd24675ff85ce410d37d61a6a5df61e9c661bfd911670704f",
     "bin": "fnm.exe",
-    "post_install": [
+    "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist_file -dir @(\"$user_AppData\\fnm\") @(\"$persist_dir\\abgo_bucket\\fnm\")",
         "handle_lang -CN {",
         "   write_with_color \"`n<@Yellow>不要忘记将 <@Magenta>fnm env --use-on-cd | Out-String | Invoke-Expression<@Yellow> 添加到 PowerShell 的 <@Magenta>`$Profile<@Yellow> 文件中`n你可以运行此命令快速添加: <@Magenta>echo 'fnm env --use-on-cd | Out-String | Invoke-Expression' >> `$Profile<@Yellow>`n\"",
         "} -EN {",
@@ -21,7 +22,8 @@
     "pre_uninstall": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process"
+        "stop_process",
+        "remove_files @(\"$user_AppData\\fnm\",\"$user_LocalAppData\\fnm_multishells\")"
     ],
     "checkver": "github",
     "autoupdate": {
