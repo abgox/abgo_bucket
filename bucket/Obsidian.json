@@ -1,25 +1,13 @@
 {
-    "version": "1.6.3",
+    "version": "1.6.5",
     "description": "强大的知识库，基于 Markdown 文件。Powerful knowledge base that works on top of a local folder of plain text Markdown files.",
     "homepage": "https://obsidian.md",
     "license": {
         "identifier": "Proprietary",
         "url": "https://obsidian.md/eula"
     },
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/Obsidian.1.6.3.exe#/abgo_bucket_installer.exe",
-            "hash": "e4489273eb27325f1b08ed1c5f210924c49a50ca617099d1ff69dd922eef00dd"
-        },
-        "32bit": {
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/Obsidian.1.6.3-32.exe#/abgo_bucket_installer.exe",
-            "hash": "dc327055f55a73846e47d8229bf91395ddd4b23b129f3acff75580da5b9097be"
-        },
-        "arm64": {
-            "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/Obsidian.1.6.3-arm64.exe#/abgo_bucket_installer.exe",
-            "hash": "bfe74b51921fd002f0e3f6917aaa7da329616cf6aa07b96858066b27a833955c"
-        }
-    },
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.5/Obsidian-1.6.5.exe#/abgo_bucket_installer.exe",
+    "hash": "22c1e1d1c303fda74a84488db5f25263b1fd1c9c9d9390f0dfc075f208cb0006",
     "shortcuts": [
         [
             "Obsidian.exe",
@@ -51,16 +39,6 @@
         "github": "https://github.com/obsidianmd/obsidian-releases"
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v$version/Obsidian.$version.exe#/abgo_bucket_installer.exe"
-            },
-            "32bit": {
-                "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v$version/Obsidian.$version-32.exe#/abgo_bucket_installer.exe"
-            },
-            "arm64": {
-                "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v$version/Obsidian.$version-arm64.exe#/abgo_bucket_installer.exe"
-            }
-        }
+        "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v$version/Obsidian-$version.exe#/abgo_bucket_installer.exe"
     }
 }
