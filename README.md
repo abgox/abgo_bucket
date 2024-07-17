@@ -196,6 +196,7 @@
 |[Dropit](http://www.dropitproject.com)|✔️||一个可以自动管理文件的工具。<br>Personal assistant to automatically manage your files.|
 |[Escrcpy](https://github.com/viarotel-org/escrcpy)|✔️||使用图形化的 Scrcpy 显示和控制您的 Android 设备，由 Electron 驱动。<br>Graphical Scrcpy to display and control Android, devices powered by Electron.|
 |[Everything](https://www.voidtools.com)|✔️||文件搜索工具，基于名称快速定位文件和文件夹。<br>Locate files and folders by name instantly.|
+|[EverythingToolbar](https://github.com/srwi/EverythingToolbar)|✔️||由 Everything 提供支持的 Windows 任务栏的即时文件搜索集成。<br>Instant file search integration for the Windows taskbar powered by Everything.|
 |[FastGithub](https://github.com/dotnetcore/FastGithub)|➖||github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题|
 |[FeiShu](https://github.com/microsoft/winget-pkgs/tree/master/manifests/b/ByteDance/Feishu)|✔️||字节跳动旗下先进企业写协作与管理平台，一站式无缝办公协作。<br>Empowering teams by messenger, meetings, calendar, docs, and emails. It's all in one place.|
 |[Final2x](https://github.com/Tohrusky/Final2x)|✔️||2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具。<br>2^x Image Super-Resolution.|
