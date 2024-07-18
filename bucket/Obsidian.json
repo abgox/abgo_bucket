@@ -1,13 +1,13 @@
 {
-    "version": "1.6.5",
+    "version": "1.6.7",
     "description": "强大的知识库，基于 Markdown 文件。Powerful knowledge base that works on top of a local folder of plain text Markdown files.",
     "homepage": "https://obsidian.md",
     "license": {
         "identifier": "Proprietary",
         "url": "https://obsidian.md/eula"
     },
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.5/Obsidian-1.6.5.exe#/abgo_bucket_installer.exe",
-    "hash": "22c1e1d1c303fda74a84488db5f25263b1fd1c9c9d9390f0dfc075f208cb0006",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.exe#/abgo_bucket_installer.exe",
+    "hash": "a5f647be9200c9cd82fd0bdd8b86fa6a8ed958fbc7e1651ea7e921c282a17f1f",
     "shortcuts": [
         [
             "Obsidian.exe",
