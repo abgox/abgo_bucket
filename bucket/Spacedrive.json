@@ -1,13 +1,13 @@
 {
-    "version": "0.3.1",
+    "version": "0.4.0",
     "description": "一个开源的跨平台文件浏览器，由一个用 Rust 编写的虚拟分布式文件系统提供支持。An open source cross-platform file explorer, powered by a virtual distributed filesystem written in Rust.",
     "homepage": "https://www.spacedrive.com",
     "license": {
         "identifier": "GNU Affero General Public License v3.0",
         "url": "https://github.com/spacedriveapp/spacedrive/blob/main/LICENSE"
     },
-    "url": "https://github.com/spacedriveapp/spacedrive/releases/download/0.3.1/Spacedrive-windows-x86_64.msi",
-    "hash": "ccbf36af27513d491db54d66c0067ab5000481d8627b0cdc0e05273ec996665d",
+    "url": "https://github.com/spacedriveapp/spacedrive/releases/download/0.4.0/Spacedrive-windows-x86_64.msi",
+    "hash": "2aa061375ae513582ac5cbea14de94ae460094788798254bd378f7929db470af",
     "checkver": {
         "github": "https://github.com/spacedriveapp/spacedrive"
     },
