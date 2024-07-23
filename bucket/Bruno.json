@@ -1,13 +1,13 @@
 {
-    "version": "1.21.0",
+    "version": "1.22.0",
     "description": "一个快速且 Git 友好的开源 API 客户端。A Fast and Git-Friendly OpenSource API client.",
     "homepage": "https://www.usebruno.com/",
     "license": {
         "identifier": "MIT",
         "url": "https://github.com/usebruno/bruno/blob/main/license.md"
     },
-    "url": "https://github.com/usebruno/bruno/releases/download/v1.21.0/bruno_1.21.0_x64_win.exe#/abgo_bucket_installer.exe",
-    "hash": "de6e302b9c7c1f4583f37e3d03a9245b6efdc7b260165c77c48d0690b8788c29",
+    "url": "https://github.com/usebruno/bruno/releases/download/v1.22.0/bruno_1.22.0_x64_win.exe#/abgo_bucket_installer.exe",
+    "hash": "e5200aeef6d11625fff9fbf46f0d949dca710534176cd525c14f4927d7bfa5f1",
     "shortcuts": [
         [
             "Bruno.exe",
