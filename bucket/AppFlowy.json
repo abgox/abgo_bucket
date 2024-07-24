@@ -1,13 +1,13 @@
 {
-    "version": "0.6.4",
+    "version": "0.6.5",
     "description": "一个开源的 Notion 替代品。An open-source alternative to Notion.",
     "homepage": "https://www.appflowy.io/",
     "license": {
         "identifier": "GNU Affero General Public License v3.0",
         "url": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/LICENSE"
     },
-    "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.6.4/AppFlowy-0.6.4-windows-x86_64.exe#/abgo_bucket_installer.exe",
-    "hash": "505f73f21dc0a9ee76c4d06f27a1cb3392bc91c9fa0ad2b78c9ee4ee9e682391",
+    "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.6.5/AppFlowy-0.6.5-windows-x86_64.exe#/abgo_bucket_installer.exe",
+    "hash": "44bce64489145558523ee32b0a750e23373da7a0b260833bbbfc77699311699d",
     "shortcuts": [
         [
             "AppFlowy.exe",
