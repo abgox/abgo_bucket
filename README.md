@@ -24,39 +24,39 @@
     </a>
 </p>
 
--   [Scoop completion in PSCompletions ](https://github.com/abgox/PSCompletions 'PSCompletions')is recommended.
+- [Scoop completion in PSCompletions ](https://github.com/abgox/PSCompletions "PSCompletions")is recommended.
 
 ### For ones familiar with Scoop
 
 1.  `scoop bucket add abgo_bucket https://github.com/abgox/abgo_bucket`
 
-    -   The `abgo_bucket` here is the name of the bucket added locally, you can name it freely.
+    - The `abgo_bucket` here is the name of the bucket added locally, you can name it freely.
 
 2.  Install apps.
 
-    -   `scoop install [abgo_bucket/]<app_name>`
+    - `scoop install abgo_bucket/<app_name>`
 
-    -   Use an external way to download/update app:
-        -   It's good choice to use it when downloads the app in the command line are slow and you have better ways to download the app by the download link.
-        ```powershell
-            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name>
-        ```
+    - Use an external way to download/update app:
+      - It's good choice to use it when downloads the app in the command line are slow and you have better ways to download the app by the download link.
+      ```powershell
+          <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name>
+      ```
 
--   List all installable apps in `abgo_bucket`:
+- List all installable apps in `abgo_bucket`:
 
-    ```powershell
-    <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
-    ```
+  ```powershell
+  <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
+  ```
 
 ---
 
 ### Never used Scoop
 
--   [What is Scoop?](https://github.com/ScoopInstaller/Scoop)
--   [What is bucket in Scoop?](https://github.com/ScoopInstaller/Scoop/wiki/Buckets)
--   [What is App-Manifests in Scoop?](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
--   [Scoop install](https://github.com/ScoopInstaller/Install)
--   [Scoop Document](https://github.com/ScoopInstaller/Scoop/wiki)
+- [What is Scoop?](https://github.com/ScoopInstaller/Scoop)
+- [What is bucket in Scoop?](https://github.com/ScoopInstaller/Scoop/wiki/Buckets)
+- [What is App-Manifests in Scoop?](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
+- [Scoop install](https://github.com/ScoopInstaller/Install)
+- [Scoop Document](https://github.com/ScoopInstaller/Scoop/wiki)
 
 ---
 
@@ -64,17 +64,17 @@
 
 1. When using official or third-party `buckets`, there may be the following issues.
 
-    - Some apps doesn't `persist` data.(Don't include apps that do not necessarily `persist` data.)
-        - `abgo_bucket` uses soft link to persist data, which is not limited to data in app directories, including app data under directories such as `$env:AppData` and `$env:LocalAppData`.
-    - After uninstalling app, local data was not cleaned up. (e.g. the app's data under `$env:AppData`,`$env:LocalAppData` or other directory.)
-        - When the app in `abgo_bucket` is uninstalled, all related app data will be deleted, and only the data in the `persist` directory will be retained.
-        - If you use the `-p/--purge` parameter when uninstalling, the data in the `persist` directory will also be deleted.
-    - When uninstalling app, there's a problem where the process is occupied and cannot be uninstalled.
-        - When the app in `abgo_bucket` is running, using the `scoop uninstall <app_name>` will try to terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
-    - App installation is limited to unpacking and obtaining the app directory. Some files/libraries/registries may be missing.
-        - When the app in `abgo_bucket` is installing, If the exe installation can be run, it will be run silently to ensure the integrity of the app directory after installing.
-        - When it's uninstalling, the built-in uninstaller of the app will be used first to uninstall.
-    - ...
+   - Some apps doesn't `persist` data.(Don't include apps that do not necessarily `persist` data.)
+     - `abgo_bucket` uses soft link to persist data, which is not limited to data in app directories, including app data under directories such as `$env:AppData` and `$env:LocalAppData`.
+   - After uninstalling app, local data was not cleaned up. (e.g. the app's data under `$env:AppData`,`$env:LocalAppData` or other directory.)
+     - When the app in `abgo_bucket` is uninstalled, all related app data will be deleted, and only the data in the `persist` directory will be retained.
+     - If you use the `-p/--purge` parameter when uninstalling, the data in the `persist` directory will also be deleted.
+   - When uninstalling app, there's a problem where the process is occupied and cannot be uninstalled.
+     - When the app in `abgo_bucket` is running, using the `scoop uninstall <app_name>` will try to terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
+   - App installation is limited to unpacking and obtaining the app directory. Some files/libraries/registries may be missing.
+     - When the app in `abgo_bucket` is installing, If the exe installation can be run, it will be run silently to ensure the integrity of the app directory after installing.
+     - When it's uninstalling, the built-in uninstaller of the app will be used first to uninstall.
+   - ...
 
 2. Organize some commonly used apps with good user experience.
 
@@ -82,84 +82,88 @@
 
 ### About App Update
 
--   When updating the application with `scoop update`, the old version of the directory is now retained by default.
-    -   Note: If the current app uses the app's own uninstaller, the uninstaller will be executed when updating and will not retain the old version directory.
--   If old version directory exists, you can reset it to the specified installed version by `scoop reset app@version`.
--   If you want old version directory to be removed when updating, you can add the `Scoop` configuration by running the following command.
-    -   `scoop config abgo_bucket_no_old_version true`
+- When updating the application with `scoop update`, the old version of the directory is now retained by default.
+  - Note: If the current app uses the app's own uninstaller, the uninstaller will be executed when updating and will not retain the old version directory.
+- If old version directory exists, you can reset it to the specified installed version by `scoop reset app@version`.
+- If you want old version directory to be removed when updating, you can add the `Scoop` configuration by running the following command.
+  - `scoop config abgo_bucket_no_old_version true`
 
 ### About `persist`
 
--   The apps in `abgo_bucket` will uses `New-Item -ItemType SymbolicLink` to persist data, which is not limited to data in app directories.
-    -   The linked data files and directories are not necessarily in the scoop directory.
-    -   If you reinstall your system or copy the scoop directory to another computer, please reinstall the application to ensure that the data files or directories are linked to the application data in the `persist` directory.
--   The strategy is **radical**. If there is a data directory, the app will `persist` the entire data directory instead of some important configuration files.
--   Take `Neovim` as an example. It will form two directories under `$env:LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
+- The apps in `abgo_bucket` will uses `New-Item -ItemType SymbolicLink` to persist data, which is not limited to data in app directories.
+  - The linked data files and directories are not necessarily in the scoop directory.
+  - If you reinstall your system or copy the scoop directory to another computer, please reinstall the application to ensure that the data files or directories are linked to the application data in the `persist` directory.
+- The strategy is **radical**. If there is a data directory, the app will `persist` the entire data directory instead of some important configuration files.
+- Take `Neovim` as an example. It will form two directories under `$env:LocalAppData`, `nvim` and `nvim-data`, and both directories will be persisted.
 
-    -   The advantage of it is that the software has a smooth and seamless user experience after reinstalling, but it may take up more storage space.
+  - The advantage of it is that the software has a smooth and seamless user experience after reinstalling, but it may take up more storage space.
 
--   This **radical** `persist` strategy will result in `abgo_bucket` having a different persist file (directory) than other `buckets`.
--   So, if you are migrating from another `bucket` to `abgo_bucket` or from `abgo_bucket` to another repository, please pay attention to the changes in the `persist`.
+- This **radical** `persist` strategy will result in `abgo_bucket` having a different persist file (directory) than other `buckets`.
+- So, if you are migrating from another `bucket` to `abgo_bucket` or from `abgo_bucket` to another repository, please pay attention to the changes in the `persist`.
 
 #### ⚠︎ About `persist` directory changes ⚠︎
 
--   On **January 15, 2024**, there're some changes in the `persist` of some apps. [Click to view this commit.](https://github.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
--   List: `Final2x`,`GeekUninstaller`,`Helix`,`LX-Music`,`Listary`,`MarkText`,`Motrix`,`MusicPlayer2`,`ngrok`,`Oh-My-Posh`,`Quicker`,`Rubick`,`RustDesk`,`ScreenToGif`,`Sigma-File-Manager`,`TrafficMonitor`,`tts-vue`,`Typora`,`XBYDriver`
-    -   Taking `GeekUninstaller` as an example:
-        -   Before: `<your_scoop_path>\persist\geekuninstaller`
-        -   After: `<your_scoop_path>\persist\geekuninstaller\Geek Uninstaller`
+- On **January 15, 2024**, there're some changes in the `persist` of some apps. [Click to view this commit.](https://github.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
+- List: `Final2x`,`GeekUninstaller`,`Helix`,`LX-Music`,`Listary`,`MarkText`,`Motrix`,`MusicPlayer2`,`ngrok`,`Oh-My-Posh`,`Quicker`,`Rubick`,`RustDesk`,`ScreenToGif`,`Sigma-File-Manager`,`TrafficMonitor`,`tts-vue`,`Typora`,`XBYDriver`
+  - Taking `GeekUninstaller` as an example:
+    - Before: `<your_scoop_path>\persist\geekuninstaller`
+    - After: `<your_scoop_path>\persist\geekuninstaller\Geek Uninstaller`
 
 ### About Shortcut
 
--   By default, apps in `abgo_bucket` automatically create desktop shortcuts when installing and updating.
--   You can disable the creation of desktop shortcuts by running the following command to add the `Scoop` configuration.
-    -   `scoop config abgo_bucket_no_shortcut true`
+- By default, apps in `abgo_bucket` automatically create desktop shortcuts when installing and updating.
+- You can disable the creation of desktop shortcuts by running the following command to add the `Scoop` configuration.
+  - `scoop config abgo_bucket_no_shortcut true`
 
 ### About Confirm
 
--   The app with a `Confirm` tag in [App Manifests](#app-manifests) requires user confirmation in one or more of the following situations to avoid some problems.
-    1. When uninstalling an app, the uninstaller cannot completely stop the app process due to some special situations.
-    2. After uninstalling the app, the `explorer.exe` will be restarted.
--   So, the installation and uninstallation of app cannot be completely silent and automatic.
--   But, You can avoid user confirmation by running the following command to add the `Scoop` configuration.
-    -   `scoop config abgo_bucket_no_confirm true`
+- The app with a `Confirm` tag in [App Manifests](#app-manifests) requires user confirmation in one or more of the following situations to avoid some problems.
+  1. When uninstalling an app, the uninstaller cannot completely stop the app process due to some special situations.
+  2. After uninstalling the app, the `explorer.exe` will be restarted.
+- So, the installation and uninstallation of app cannot be completely silent and automatic.
+- But, You can avoid user confirmation by running the following command to add the `Scoop` configuration.
+  - `scoop config abgo_bucket_no_confirm true`
 
 ### About `UAC`
 
--   The scripts in the `bin` directory will be elevated to administrator permission under some cases to ensure that they run properly.
--   A `UAC` authorization window will appear requiring user confirmation.
--   If you don't want to be bothered by the `UAC` authorization window to achieve complete silent automation, you should find ways to avoid it.
-    1. Start the command line with administrator permission.
-    2. Modify `User Account Control` in system Settings.
-    3. ...
+- The scripts in the `bin` directory will be elevated to administrator permission under some cases to ensure that they run properly.
+- A `UAC` authorization window will appear requiring user confirmation.
+- If you don't want to be bothered by the `UAC` authorization window to achieve complete silent automation, you should find ways to avoid it.
+  1. Start the command line with administrator permission.
+  2. Modify `User Account Control` in system Settings.
+  3. ...
 
 ---
 
 ### App Manifests
 
--   All app Manifests are supported by default:
+- All app Manifests are supported by default:
 
-    -   **`Clear Data`** : When the software is uninstalled, delete data of the software if it exists.(Except for `persist` data).
-    -   **`Forced uninstall`** : When the software is running, using the `scoop uninstall <app_name>` will try to terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
+  - **`Clear Data`** : When the software is uninstalled, delete data of the software if it exists.(Except for `persist` data).
+  - **`Forced uninstall`** : When the software is running, using the `scoop uninstall <app_name>` will try to terminate the process before uninstalling, to avoid the problem that the software is in use and cannot be uninstalled.
 
--   Guide
+- Guide
 
-    -   **`App`** : Click to view to the official website or repository. Sort by first letter(0-9,a-z).
-    -   **`Persist`** : Important data of software is saved to `persist` under the installation directory of "Scoop".
-        -   **✔️** : It has been done.
-        -   **❌** : It hasn't been done yet.
-        -   **➖** : It's not necessary, or the conditions are not meet.(e.g. data file not found)
-    -   **`Tag`**
-        -   `Font`: A font.
-            -   Administrator permission are frequently used during the installation of fonts.
-            -   Reference: [About UAC](#about-uac)
-        -   `PSModule`: A PowerShell Module.
-        -   `Confirm` : The app has a command line(or uninstaller) interactive confirmation when uninstalling.
-        -   `NoAutoUpdate` : `json.autoupdate` are not configured, and Scoop cannot automatically detect updates.
-    -   **`Description`**: App Description.
+  - **`App`** : Click to view to the official website or repository. Sort by first letter(0-9,a-z).
+  - **`Persist`** : Important data of software is saved to `persist` under the installation directory of "Scoop".
+    - **✔️** : It has been done.
+    - **❌** : It hasn't been done yet.
+    - **➖** : It's not necessary, or the conditions are not meet.(e.g. data file not found)
+  - **`Tag`**
+    - `hasParentDir`: Due to the different `persist` strategy of the repository, a `abgo_bucket` parent directory will be added, and all persistent data will be placed in this parent directory, which avoids conflicts with other repository.
+      - It only applies to the list of newly added apps. (Starting from [6512c8e](https://github.com/abgox/abgo_bucket/commit/6512c8e2fddd7576960111b97ce1313e3f9f6ec1))
+      - Old application manifests do not modify the original `persist` directory structure.
+    - `Font`: A font.
+      - Administrator permission are frequently used during the installation of fonts.
+      - Reference: [About UAC](#about-uac)
+    - `PSModule`: A PowerShell Module.
+    - `Confirm` : The app has a command line(or uninstaller) interactive confirmation when uninstalling.
+    - `NoAutoUpdate` : `json.autoupdate` are not configured, and Scoop cannot automatically detect updates.
+  - **`Description`**: App Description.
 
 ---
 
+<!-- prettier-ignore-start -->
 |App|Persist|Tag|Description|
 |:-:|:-:|:-:|-|
 |[123pan](https://www.123pan.com/)|✔️||123 云盘，一款云存储服务产品。<br>A cloud storage service product.|
@@ -196,14 +200,14 @@
 |[Dropit](http://www.dropitproject.com)|✔️||一个可以自动管理文件的工具。<br>Personal assistant to automatically manage your files.|
 |[Escrcpy](https://github.com/viarotel-org/escrcpy)|✔️||使用图形化的 Scrcpy 显示和控制您的 Android 设备，由 Electron 驱动。<br>Graphical Scrcpy to display and control Android, devices powered by Electron.|
 |[Everything](https://www.voidtools.com)|✔️||文件搜索工具，基于名称快速定位文件和文件夹。<br>Locate files and folders by name instantly.|
-|[EverythingToolbar](https://github.com/srwi/EverythingToolbar)|✔️||由 Everything 提供支持的 Windows 任务栏的即时文件搜索集成。<br>Instant file search integration for the Windows taskbar powered by Everything.|
+|[EverythingToolbar](https://github.com/srwi/EverythingToolbar)|✔️|`hasParentDir`|由 Everything 提供支持的 Windows 任务栏的即时文件搜索集成。<br>Instant file search integration for the Windows taskbar powered by Everything.|
 |[FastGithub](https://github.com/dotnetcore/FastGithub)|➖||github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题|
 |[FeiShu](https://github.com/microsoft/winget-pkgs/tree/master/manifests/b/ByteDance/Feishu)|✔️||字节跳动旗下先进企业写协作与管理平台，一站式无缝办公协作。<br>Empowering teams by messenger, meetings, calendar, docs, and emails. It's all in one place.|
 |[Final2x](https://github.com/Tohrusky/Final2x)|✔️||2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具。<br>2^x Image Super-Resolution.|
 |[FishingFunds](https://ff.1zilc.top/)|✔️||基金,大盘,股票,虚拟货币状态栏显示小应用,基于 Electron 开发,数据源来自天天基金,蚂蚁基金,爱基金,腾讯证券等|
 |[Flow-Launcher](https://www.flowlauncher.com)|✔️||适用于 Windows 的快速文件搜索和应用程序启动器。<br>Quick file searcher and app launcher with community-made plugins|
 |[Fluent-Search](https://fluentsearch.net)|✔️||使用它，你可以搜索正在运行的应用程序、浏览器标签、应用程序内内容、文件等。<br>With it, you can search for running apps, browser tabs, in-app content, files and more.|
-|[fnm](https://github.com/Schniz/fnm)|✔️||快速、简单的 Node.js 版本管理器，采用 Rust 内建。<br>Fast and simple Node.js version manager, built in Rust.|
+|[fnm](https://github.com/Schniz/fnm)|✔️|`hasParentDir`|快速、简单的 Node.js 版本管理器，采用 Rust 内建。<br>Fast and simple Node.js version manager, built in Rust.|
 |[Fonger](http://morin.vin/)|✔️||方格音乐，一款音乐播放器|
 |[Font-Hack](https://github.com/ryanoasis/nerd-fonts)|➖|`Font`|Hack 字体，Nerd Font 系列。<br>Nerd Fonts patched 'Hack' Font family.|
 |[FSViewer](https://www.faststone.org/FSViewerDetail.htm)|✔️||FastStone Image Viewer 是一款快速、稳定、用户友好的图像浏览器、转换器和编辑器。<br>FastStone Image Viewer is a fast, stable, user-friendly image browser, converter and editor.|
@@ -288,7 +292,7 @@
 |[Snipaste2](https://www.snipaste.com/)|✔️||一个剪切工具，可以让你把截图固定在屏幕上。<br>A snipping tool, which allows you to pin the screenshot back onto the screen.|
 |[SodaMusic](https://music.douyin.com/)|✔️||抖音官方出品音乐 App。<br>DouYin's official music App.|
 |[Spacedrive](https://www.spacedrive.com)|✔️||一个开源的跨平台文件浏览器，由一个用 Rust 编写的虚拟分布式文件系统提供支持。<br>An open source cross-platform file explorer, powered by a virtual distributed filesystem written in Rust.|
-|[SQLynx](https://www.sqlynx.com/)|✔️||本地基于 Web 的 SQL IDE，支持企业桌面和网络管理。它是一款跨平台数据库工具，适用于所有数据处理人员。它支持所有流行的数据库，如 MySQL、MariaDB、PostgreSQL、SQLite、Hive、Impala、Hadoop 等。<br>Native Web-Based SQL IDE, support desktop and web management for enterprise. It's a cross-platform database tool for everyone working with data. It supports all popular databases like MySQL, MariaDB, PostgreSQL, SQLite, Hive, Impala, Hadoop and more.|
+|[SQLynx](https://www.sqlynx.com/)|✔️|`hasParentDir`|本地基于 Web 的 SQL IDE，支持企业桌面和网络管理。它是一款跨平台数据库工具，适用于所有数据处理人员。它支持所有流行的数据库，如 MySQL、MariaDB、PostgreSQL、SQLite、Hive、Impala、Hadoop 等。<br>Native Web-Based SQL IDE, support desktop and web management for enterprise. It's a cross-platform database tool for everyone working with data. It supports all popular databases like MySQL, MariaDB, PostgreSQL, SQLite, Hive, Impala, Hadoop and more.|
 |[Starship](https://starship.rs)|✔️||适用于任何 shell 的最简洁、快速且可定制的提示符。<br>The minimal, blazing fast, and extremely customizable prompt for any shell!|
 |[Steampp](https://steampp.net/)|✔️||一个开源跨平台的多功能 Steam 工具箱，它有另一个名字: "Watt Toolkit"。<br>A toolbox with lots of Steam tools. Its other name is "Watt Toolkit".|
 |[StrokesPlus\.net](https://www.strokesplus.net)|✔️||适用于 Windows 的鼠标手势识别实用程序，可让您创建强大的鼠标手势，从而节省您的时间。<br>Mouse gesture recognition utility for Windows which allows you to create powerful mouse gestures that save you time.|
@@ -309,7 +313,8 @@
 |[Uninstalr](https://uninstalr.com/)|➖||一个用于在 Windows 中快速、轻便、准确地卸载软件的应用程序。<br>A fast, lightweight and accurate way to uninstall software in Windows.|
 |[Upscayl](https://github.com/upscayl/upscayl)|✔️||适用于 Linux、MacOS 和 Windows 的免费开源 AI 图像升级程序，秉承 Linux 优先的理念。<br>Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.|
 |[uTools](https://u.tools)|✔️||新一代效率工具平台，自由组合插件应用，打造专属你的趁手工具集。<br>|
-|[version-manager](https://github.com/gvcgo/version-manager)|✔️||支持各种语言，无需插件，无需记忆命令，最好用的SDK版本管理器。<br>A general version manager for 60+ SDKs with TUI inspired by lazygit. No need to remember any commands.|
+|[version-manager](https://github.com/gvcgo/version-manager)|✔️|`hasParentDir`|支持各种语言，无需插件，无需记忆命令，最好用的SDK版本管理器。<br>A general version manager for 60+ SDKs with TUI inspired by lazygit. No need to remember any commands.|
+|[vfox](https://vfox.lhan.me/)|➖||Manage multiple SDK versions with a single CLI tool, extendable via plugins|
 |[VLC](https://www.videolan.org/vlc)|✔️||一款自由、开源的跨平台多媒体播放器及框架，可播放大多数多媒体文件，以及 DVD、音频 CD、VCD 及各类流媒体协议。<br>A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.|
 |[VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes/)|✔️||创建数字贴纸和提醒事项。<br>Creates digital stickers and reminders|
 |[VSCode](https://code.visualstudio.com/)|✔️||一个轻量级、功能强大，插件生态丰富的文件编辑器。<br>Lightweight but powerful source code editor.|
@@ -330,3 +335,4 @@
 |[YuQue](https://www.yuque.com/)|✔️||为每一个人，为每一个团队，提供优秀的文档与知识库工具。<br>Provide excellent documentation and knowledge base tools for everyone and every team.|
 |[Z-Library](https://z-library.se/)|✔️||Z-Library——世界上最大的电子书图书馆。<br>Z-Library – the world’s largest e-book library.|
 |[Zotero](https://www.zotero.org/)|✔️||Open-source reference management software to manage bibliographic data and related research materials.|
+<!-- prettier-ignore-end -->

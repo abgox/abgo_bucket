@@ -12,38 +12,50 @@ foreach ($_ in Get-ChildItem "$PSScriptRoot\..\bucket") {
 
     # persist
     $isPersist = $json.persist
-    function Handle-Persist($obj, $isPersist = $isPersist) {
-        foreach ($_ in @('pre_install', 'post_install', 'pre_uninstall', 'post_uninstall')) {
-            if (!$isPersist -and $obj.$_) {
-                $isPersist = ($obj.$_ -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+    $hasParentDir = $false
+    if (!$isPersist) {
+        function Handle-Persist($obj, $isPersist = $isPersist) {
+            foreach ($_ in @('pre_install', 'post_install', 'pre_uninstall', 'post_uninstall')) {
+                if (!$isPersist -and $obj.$_) {
+                    $isPersist = ($obj.$_ -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+                    $hasParentDir = ($obj.$_ -join "`n") -match '\npersist_file\s+[-\w]*\s+.*\$persist_dir\\abgo_bucket'
+                }
+                if (!$isPersist -and $obj.$_.script) {
+                    $isPersist = ($obj.$_.script -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+                    $hasParentDir = ($obj.$_.script -join "`n") -match '\npersist_file\s+[-\w]*\s+.*\$persist_dir\\abgo_bucket'
+                }
             }
-            if (!$isPersist -and $obj.$_.script) {
-                $isPersist = ($obj.$_.script -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+            foreach ($_ in @('installer', 'uninstaller')) {
+                if (!$isPersist -and $obj.$_.script) {
+                    $isPersist = ($obj.$_.script -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+                    $hasParentDir = ($obj.$_.script -join "`n") -match '\npersist_file\s+[-\w]*\s+.*\$persist_dir\\abgo_bucket'
+                }
             }
+            return @($isPersist, $hasParentDir)
         }
-        foreach ($_ in @('installer', 'uninstaller')) {
-            if (!$isPersist -and $obj.$_.script) {
-                $isPersist = ($obj.$_.script -join "`n") -match '(\npersist_file\s+[-\w]*\s+)|(\$bucketsdir\\\$bucket\\bin\\schedule.exe)'
+        if ($json.architecture) {
+            if ($json.architecture.'64bit') {
+                $temp = Handle-Persist $json.architecture.'64bit'
             }
+            if ($json.architecture.'32bit') {
+                $temp = Handle-Persist $json.architecture.'32bit'
+
+            }
+            if ($json.architecture.arm64) {
+                $temp = Handle-Persist $json.architecture.arm64
+            }
+            if (!$isPersist) { $isPersist = $temp[0] }
+            if (!$hasParentDir) { $hasParentDir = $temp[1] }
         }
-        return $isPersist
+        $temp = Handle-Persist $json
+        if (!$isPersist) { $isPersist = $temp[0] }
+        if (!$hasParentDir) { $hasParentDir = $temp[1] }
     }
-    if ($json.architecture) {
-        if ($json.architecture.'64bit') {
-            $isPersist = Handle-Persist $json.architecture.'64bit'
-        }
-        if ($json.architecture.'32bit') {
-            $isPersist = Handle-Persist $json.architecture.'32bit'
-        }
-        if ($json.architecture.arm64) {
-            $isPersist = Handle-Persist $json.architecture.arm64
-        }
-    }
-    $isPersist = Handle-Persist $json
     $info += if ($isPersist) { '✔️' }else { '➖' }
     # Tag
     ## font
     $tag = @()
+    $tag += if ($hasParentDir) { '`hasParentDir`' }
     $isFont = $_.BaseName -like "Font-*"
     $tag += if ($isFont) { '`Font`' }
     ## confirm
@@ -95,4 +107,4 @@ function get_static_content($path) {
     }
 }
 
-(get_static_content $path) + $content | Out-File $path -Encoding UTF8 -Force
+(get_static_content $path) + $content + "<!-- prettier-ignore-end -->" | Out-File $path -Encoding UTF8 -Force

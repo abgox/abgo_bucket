@@ -3,11 +3,11 @@
   <component name="JsonSchemaMappingsProjectConfiguration">
     <state>
       <map>
-        <entry key="ScoopType">
+        <entry key="Scoop manifest schema">
           <value>
             <SchemaInfo>
-              <option name="name" value="ScoopType" />
-              <option name="relativePathToSchema" value="https://abgox.github.io/schema/Scoop/zh-CN/manifest.json" />
+              <option name="name" value="Scoop manifest schema" />
+              <option name="relativePathToSchema" value="https://abgox.github.io/schema/Scoop/zh-CN/manifest-min.json" />
               <option name="schemaVersion" value="JSON 架构版本 7" />
               <option name="patterns">
                 <list>

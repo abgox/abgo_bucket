@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   schedule:
     # 每4小时运行一次
-    - cron: '20 */4 * * *'
+    - cron: "20 */4 * * *"
 jobs:
   excavate:
     name: Excavate
@@ -12,7 +12,7 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install and Import Module to convert yaml
         shell: PowerShell
@@ -30,4 +30,4 @@ jobs:
         uses: ScoopInstaller/GithubActions@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SKIP_UPDATED: '1'
+          SKIP_UPDATED: "1"

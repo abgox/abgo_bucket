@@ -1,11 +1,18 @@
 {
-    "json.schemas": [
-        {
-            "url": "https://abgox.github.io/schema/Scoop/zh-CN/manifest.json",
-            "fileMatch": [
-                "bucket/**/*.json",
-                "deprecated/**/*.json"
-            ]
-        }
-    ]
+  "json.schemas": [
+    {
+      "url": "https://abgox.github.io/schema/Scoop/zh-CN/manifest-min.json",
+      "fileMatch": ["bucket/**/*.json", "deprecated/**/*.json"]
+    }
+  ],
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

@@ -3,27 +3,27 @@ on:
   workflow_dispatch:
   push:
     branches:
-        - main
+      - main
 permissions:
   contents: write
 jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 1
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
 
-    - name: Generate list and update README content
-      run: |
-        .\bin\generate_list.ps1 "./README.md"
-        .\bin\generate_list.ps1 "./README-CN.md"
+      - name: Generate list and update README content
+        run: |
+          .\bin\generate_list.ps1 "./README.md"
+          .\bin\generate_list.ps1 "./README-CN.md"
 
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "abgohxf@outlook.com"
-        git config --local user.name "${{ github.actor }}"
-        git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-        git add .
-        git commit -m "[bot] update README"
-        git push
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "abgohxf@outlook.com"
+          git config --local user.name "${{ github.actor }}"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git add .
+          git commit -m "[bot] update README"
+          git push

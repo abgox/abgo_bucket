@@ -1,51 +1,46 @@
 {
-    "version": "2.76.1",
-    "description": "一款集音乐播放、歌词显示、格式转换等众多功能于一身的音频播放软件。Audio player which supports music collection playback, lyrics display, format conversion and many other functions.",
-    "homepage": "https://github.com/zhongyang219/MusicPlayer2",
-    "license": {
-        "identifier": "GNU General Public License v3.0",
-        "url": "https://github.com/zhongyang219/MusicPlayer2/blob/master/LICENSE"
+  "version": "2.76.1",
+  "description": "一款集音乐播放、歌词显示、格式转换等众多功能于一身的音频播放软件。Audio player which supports music collection playback, lyrics display, format conversion and many other functions.",
+  "homepage": "https://github.com/zhongyang219/MusicPlayer2",
+  "license": {
+    "identifier": "GNU General Public License v3.0",
+    "url": "https://github.com/zhongyang219/MusicPlayer2/blob/master/LICENSE"
+  },
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V2.76.1/MusicPlayer2_V2.76.1_x64.zip",
+      "hash": "f8e352570e8c5c553efbaff6bbb0ea007a2a9f0bd3f457024fabdb5cf99ce033",
+      "extract_dir": "MusicPlayer2_x64"
     },
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V2.76.1/MusicPlayer2_V2.76.1_x64.zip",
-            "hash": "f8e352570e8c5c553efbaff6bbb0ea007a2a9f0bd3f457024fabdb5cf99ce033",
-            "extract_dir": "MusicPlayer2_x64"
-        },
-        "32bit": {
-            "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V2.76.1/MusicPlayer2_V2.76.1_x86.zip",
-            "hash": "51ec0ec4a87b0c018d5144cd8e8a3e280a3e391119d1b84b57842f11b973e2b2",
-            "extract_dir": "MusicPlayer2"
-        }
-    },
-    "shortcuts": [
-        [
-            "MusicPlayer2.exe",
-            "MusicPlayer2"
-        ]
-    ],
-    "pre_install": [
-        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "persist_file -dir @(\"$user_AppData\\MusicPlayer2\") @(\"$persist_dir\\MusicPlayer2\")",
-        "handle_app_lnk",
-        "do_some_things"
-    ],
-    "pre_uninstall": [
-        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "stop_process",
-        "remove_files @(\"$user_AppData\\MusicPlayer2\")"
-    ],
-    "checkver": "github",
-    "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V$version/MusicPlayer2_V$version_x64.zip"
-            },
-            "32bit": {
-                "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V$version/MusicPlayer2_V$version_x86.zip"
-            }
-        }
+    "32bit": {
+      "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V2.76.1/MusicPlayer2_V2.76.1_x86.zip",
+      "hash": "51ec0ec4a87b0c018d5144cd8e8a3e280a3e391119d1b84b57842f11b973e2b2",
+      "extract_dir": "MusicPlayer2"
     }
+  },
+  "shortcuts": [["MusicPlayer2.exe", "MusicPlayer2"]],
+  "pre_install": [
+    "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+    ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+    "persist_file -dir @(\"$user_AppData\\MusicPlayer2\") @(\"$persist_dir\\MusicPlayer2\")",
+    "handle_app_lnk",
+    "do_some_things"
+  ],
+  "pre_uninstall": [
+    "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+    ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+    "stop_process",
+    "remove_files @(\"$user_AppData\\MusicPlayer2\")"
+  ],
+  "checkver": "github",
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V$version/MusicPlayer2_V$version_x64.zip"
+      },
+      "32bit": {
+        "url": "https://github.com/zhongyang219/MusicPlayer2/releases/download/V$version/MusicPlayer2_V$version_x86.zip"
+      }
+    }
+  }
 }

@@ -24,39 +24,39 @@
     </a>
 </p>
 
--   推荐使用 [PSCompletions 项目中的 scoop 补全 ](https://gitee.com/abgox/PSCompletions 'PSCompletions')
+- 推荐使用 [PSCompletions 项目中的 scoop 补全 ](https://gitee.com/abgox/PSCompletions "PSCompletions")
 
 ### 正在使用 Scoop
 
 1.  `scoop bucket add abgo_bucket https://gitee.com/abgox/abgo_bucket`
 
-    -   此处的 `abgo_bucket` 为添加到本地的桶名称，可自由命名。
+    - 此处的 `abgo_bucket` 为添加到本地的桶名称，可自由命名。
 
 2.  安装应用
 
-    -   `scoop install [abgo_bucket/]<app_name>`
+    - `scoop install abgo_bucket/<app_name>`
 
-    -   使用外部方式下载(更新)应用：
+    - 使用外部方式下载(更新)应用：
 
-        -   当使用命令行下载速度慢，并且有更好的方式可以通过安装包链接下载时，它是一个很好的选择。
+      - 当使用命令行下载速度慢，并且有更好的方式可以通过安装包链接下载时，它是一个很好的选择。
 
-        ```powershell
-            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name>
-        ```
+      ```powershell
+          <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name>
+      ```
 
--   列出 `abgo_bucket` 中所有可安装的应用：
+- 列出 `abgo_bucket` 中所有可安装的应用：
 
-    ```powershell
-        <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
-    ```
+  ```powershell
+      <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
+  ```
 
 ### 没有使用过 Scoop
 
--   [什么是 Scoop?](https://github.com/ScoopInstaller/Scoop)
--   [什么是 Scoop 中的 bucket?](https://github.com/ScoopInstaller/Scoop)
--   [什么是 Scoop 中的应用清单(App-Manifests)?](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
--   [安装 Scoop](https://github.com/ScoopInstaller/Install)
--   [Scoop 文档](https://github.com/ScoopInstaller/Scoop/wiki)
+- [什么是 Scoop?](https://github.com/ScoopInstaller/Scoop)
+- [什么是 Scoop 中的 bucket?](https://github.com/ScoopInstaller/Scoop)
+- [什么是 Scoop 中的应用清单(App-Manifests)?](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
+- [安装 Scoop](https://github.com/ScoopInstaller/Install)
+- [Scoop 文档](https://github.com/ScoopInstaller/Scoop/wiki)
 
 ---
 
@@ -64,17 +64,17 @@
 
 1. 在使用官方或第三方 `bucket` 时，可能存在以下问题：
 
-    - 一些应用并没有进行 `persist` (没有必要持久化数据的应用除外)。
-        - `abgo_bucket` 中采取软链接的方式持久化数据，不局限于应用目录下的数据，包括如 `$env:AppData`、`$env:LocalAppData` 等目录中的应用数据。
-    - 应用卸载后，本地数据没有得到及时清理(如 `$env:AppData`、`$env:LocalAppData` 或其他目录下的应用数据)。
-        - `abgo_bucket` 中所有应用在卸载时，会删除所有相关应用数据，只有 `persist` 目录下的数据会保留。
-        - 如果卸载时使用 `-p/--purge` 参数，`persist` 目录下的数据也会删除。
-    - 应用卸载时，可能出现当前应用正在运行，无法卸载的情况，导致应用未正常卸载，又不可用的尴尬状态。
-        - `abgo_bucket` 中的应用在卸载时会先终止所有应用目录下的进程，然后执行卸载操作。
-    - 应用安装仅限于解包获取到应用目录，有可能存在一些文件、库、或注册表缺失。
-        - `abgo_bucket` 中的应用，如果可以运行 exe 安装，会静默运行 exe 安装，保证安装后应用目录的完整性。
-        - 同时，卸载时会优先使用应用自带的卸载程序进行卸载。
-    - ...
+   - 一些应用并没有进行 `persist` (没有必要持久化数据的应用除外)。
+     - `abgo_bucket` 中采取软链接的方式持久化数据，不局限于应用目录下的数据，包括如 `$env:AppData`、`$env:LocalAppData` 等目录中的应用数据。
+   - 应用卸载后，本地数据没有得到及时清理(如 `$env:AppData`、`$env:LocalAppData` 或其他目录下的应用数据)。
+     - `abgo_bucket` 中所有应用在卸载时，会删除所有相关应用数据，只有 `persist` 目录下的数据会保留。
+     - 如果卸载时使用 `-p/--purge` 参数，`persist` 目录下的数据也会删除。
+   - 应用卸载时，可能出现当前应用正在运行，无法卸载的情况，导致应用未正常卸载，又不可用的尴尬状态。
+     - `abgo_bucket` 中的应用在卸载时会先终止所有应用目录下的进程，然后执行卸载操作。
+   - 应用安装仅限于解包获取到应用目录，有可能存在一些文件、库、或注册表缺失。
+     - `abgo_bucket` 中的应用，如果可以运行 exe 安装，会静默运行 exe 安装，保证安装后应用目录的完整性。
+     - 同时，卸载时会优先使用应用自带的卸载程序进行卸载。
+   - ...
 
 2. 整理一些常用的、使用体验不错的应用。
 
@@ -90,76 +90,82 @@
 
 ### 关于 persist(数据持久化)
 
--   `abgo_bucket` 中的应用主要通过 `New-Item -ItemType SymbolicLink` 去实现 `persist`，它不局限于应用目录下的数据文件。
-    -   由于链接的数据文件和目录不一定在 scoop 目录下
-    -   如果重装系统或将 scoop 目录拷贝到其他电脑，请重装应用确保数据文件或目录与 `persist` 目录下的应用数据链接
--   持久化策略**比较激进**，如果存在数据目录，`abgo_bucket` 中的应用就会将整个数据目录持久化，而非一些重要的配置文件。
-    -   以 `Neovim` 为例，它会在 `$env:LocalAppData` 下形成两个目录，`nvim` 和 `nvim-data` ，而这两个目录都会被持久化。
-    -   这样做的好处是应用在拥有 `persist` 时，安装后的使用体验是流畅无感的，但可能导致占用的存储空间会更多。
--   这种**激进**的持久化策略会导致 `abgo_bucket` 的持久化目录文件和其他 `bucket` 不同
--   因此，如果从其他 `bucket` 迁移至 `abgo_bucket` 或者从 `abgo_bucket` 迁移至其他仓库，请重视数据持久化 `persist` 的变动
+- `abgo_bucket` 中的应用主要通过 `New-Item -ItemType SymbolicLink` 去实现 `persist`，它不局限于应用目录下的数据文件。
+  - 由于链接的数据文件和目录不一定在 scoop 目录下
+  - 如果重装系统或将 scoop 目录拷贝到其他电脑，请重装应用确保数据文件或目录与 `persist` 目录下的应用数据链接
+- 持久化策略**比较激进**，如果存在数据目录，`abgo_bucket` 中的应用就会将整个数据目录持久化，而非一些重要的配置文件。
+  - 以 `Neovim` 为例，它会在 `$env:LocalAppData` 下形成两个目录，`nvim` 和 `nvim-data` ，而这两个目录都会被持久化。
+  - 这样做的好处是应用在拥有 `persist` 时，安装后的使用体验是流畅无感的，但可能导致占用的存储空间会更多。
+- 这种**激进**的持久化策略会导致 `abgo_bucket` 的持久化目录文件和其他 `bucket` 不同
+- 因此，如果从其他 `bucket` 迁移至 `abgo_bucket` 或者从 `abgo_bucket` 迁移至其他仓库，请重视数据持久化 `persist` 的变动
 
 #### ⚠︎ 关于 persist 目录变动 ⚠︎
 
--   **2024 年 1 月 15 日**，部分应用的持久化操作发生了一些变动。[点击查看这个 commit](https://gitee.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
--   变动的应用有：`Final2x`，`GeekUninstaller`，`Helix`，`LX-Music`，`Listary`，`MarkText`，`Motrix`，`MusicPlayer2`，`ngrok`，`Oh-My-Posh`，`Quicker`，`Rubick`，`RustDesk`，`ScreenToGif`，`Sigma-File-Manager`，`TrafficMonitor`，`tts-vue`，`Typora`，`XBYDriver`
-    -   以 `GeekUninstaller`为例：
-        -   之前：`<your_scoop_path>\persist\geekuninstaller`
-        -   现在：`<your_scoop_path>\persist\geekuninstaller\Geek Uninstaller`
+- **2024 年 1 月 15 日**，部分应用的持久化操作发生了一些变动。[点击查看这个 commit](https://gitee.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
+- 变动的应用有：`Final2x`，`GeekUninstaller`，`Helix`，`LX-Music`，`Listary`，`MarkText`，`Motrix`，`MusicPlayer2`，`ngrok`，`Oh-My-Posh`，`Quicker`，`Rubick`，`RustDesk`，`ScreenToGif`，`Sigma-File-Manager`，`TrafficMonitor`，`tts-vue`，`Typora`，`XBYDriver`
+  - 以 `GeekUninstaller`为例：
+    - 之前：`<your_scoop_path>\persist\geekuninstaller`
+    - 现在：`<your_scoop_path>\persist\geekuninstaller\Geek Uninstaller`
 
 ### 关于快捷方式
 
--   `abgo_bucket` 中的应用默认会在安装和更新时，自动创建桌面快捷方式。
--   你可以运行以下命令添加 `Scoop` 配置项来禁止创建桌面快捷方式。
-    -   `scoop config abgo_bucket_no_shortcut true`
+- `abgo_bucket` 中的应用默认会在安装和更新时，自动创建桌面快捷方式。
+- 你可以运行以下命令添加 `Scoop` 配置项来禁止创建桌面快捷方式。
+  - `scoop config abgo_bucket_no_shortcut true`
 
 ### 关于 Confirm 确认
 
--   [应用清单](#应用清单) 中带有 `Confirm` 标签的应用在以下情况中(一个或多个)需要用户确认以避免一些问题
-    1. 卸载应用时，因为一些特殊情况，卸载程序无法完全停止应用进程
-    2. 卸载应用后，会重启文件管理器(`explorer.exe`)
--   这会导致软件的安装卸载无法达到完全的静默自动化
--   但你可以运行以下命令添加 `Scoop` 配置项来避免用户确认
-    -   `scoop config abgo_bucket_no_confirm true`
+- [应用清单](#应用清单) 中带有 `Confirm` 标签的应用在以下情况中(一个或多个)需要用户确认以避免一些问题
+  1. 卸载应用时，因为一些特殊情况，卸载程序无法完全停止应用进程
+  2. 卸载应用后，会重启文件管理器(`explorer.exe`)
+- 这会导致软件的安装卸载无法达到完全的静默自动化
+- 但你可以运行以下命令添加 `Scoop` 配置项来避免用户确认
+  - `scoop config abgo_bucket_no_confirm true`
 
 ### 关于 `UAC`
 
--   为了保证脚本正常的运行，`bin` 目录下的脚本在某些情况下会提升到管理员权限运行
--   这会出现 `UAC` 授权窗口需要用户确认
--   如果你不希望受到 `UAC` 授权窗口的干扰，实现完成的静默自动化，你应该寻找方法去避免它出现
-    1. 使用管理员权限启动命令行
-    2. 在系统设置里修改 `用户账户控制设置`
-    3. ...
+- 为了保证脚本正常的运行，`bin` 目录下的脚本在某些情况下会提升到管理员权限运行
+- 这会出现 `UAC` 授权窗口需要用户确认
+- 如果你不希望受到 `UAC` 授权窗口的干扰，实现完成的静默自动化，你应该寻找方法去避免它出现
+  1. 使用管理员权限启动命令行
+  2. 在系统设置里修改 `用户账户控制设置`
+  3. ...
 
 ---
 
 ### 应用清单
 
--   所有清单默认支持：
+- 所有清单默认支持：
 
-    -   **数据清理** ：当应用卸载后，如果存在应用残留数据则删除(`persist` 数据除外)。
-    -   **强制卸载** ：当应用正在运行时，使用 `scoop uninstall <app_name>` 会先尝试终止进程，再进行卸载，避免卸载时出现应用正在使用，无法卸载的问题。
+  - **数据清理** ：当应用卸载后，如果存在应用残留数据则删除(`persist` 数据除外)。
+  - **强制卸载** ：当应用正在运行时，使用 `scoop uninstall <app_name>` 会先尝试终止进程，再进行卸载，避免卸载时出现应用正在使用，无法卸载的问题。
 
--   说明
+- 说明
 
-    -   **`App`** ：点击跳转官网或仓库，按照数字字母排序(0-9,a-z)。
-    -   **`Persist`** ：应用重要数据保存到 `Scoop` 安装目录下的 `persist` 中。
-        -   **`✔️`** ：已实现。
-        -   **`❌`** ：未实现。
-        -   **`➖`** ：没必要或不满足条件(比如：找不到数据文件)。
-    -   **`Tag`**
+  - **`App`** ：点击跳转官网或仓库，按照数字字母排序(0-9,a-z)。
+  - **`Persist`** ：应用重要数据保存到 `Scoop` 安装目录下的 `persist` 中。
+    - **`✔️`** ：已实现。
+    - **`❌`** ：未实现。
+    - **`➖`** ：没必要或不满足条件(比如：找不到数据文件)。
+  - **`Tag`**
 
-        -   `Font`: 一种字体
-            -   在字体的安装过程中，会频繁使用到管理员权限
-            -   相关内容请查看 [关于 UAC](#关于-uac)
-        -   `PSModule`: 一个 PowerShell 模块
-        -   `Confirm` : 应用在卸载时有一个命令行(或卸载程序)交互确认
-        -   `NoAutoUpdate` : `json.autoupdate` 未配置，Scoop 无法自动检测更新
+    - `hasParentDir`: 由于仓库的 `persist` 策略不同，在进行 `persist` 时，会添加一个 `abgo_bucket` 父目录，所有持久化数据会放在此父目录下，避免与其他 bucket 仓库冲突
 
-    -   **`Description`**: 应用描述
+      - 只针对新添加的应用清单。(从 [6512c8e](https://gitee.com/abgox/abgo_bucket/commit/6512c8e2fddd7576960111b97ce1313e3f9f6ec1) 开始)
+      - 旧的应用清单不会修改原有的 `persist` 目录结构。
+
+    - `Font`: 一种字体
+      - 在字体的安装过程中，会频繁使用到管理员权限
+      - 相关内容请查看 [关于 UAC](#关于-uac)
+    - `PSModule`: 一个 PowerShell 模块
+    - `Confirm` : 应用在卸载时有一个命令行(或卸载程序)交互确认
+    - `NoAutoUpdate` : `json.autoupdate` 未配置，Scoop 无法自动检测更新
+
+  - **`Description`**: 应用描述
 
 ---
 
+<!-- prettier-ignore-start -->
 |App|Persist|Tag|Description|
 |:-:|:-:|:-:|-|
 |[123pan](https://www.123pan.com/)|✔️||123 云盘，一款云存储服务产品。<br>A cloud storage service product.|
@@ -196,14 +202,14 @@
 |[Dropit](http://www.dropitproject.com)|✔️||一个可以自动管理文件的工具。<br>Personal assistant to automatically manage your files.|
 |[Escrcpy](https://github.com/viarotel-org/escrcpy)|✔️||使用图形化的 Scrcpy 显示和控制您的 Android 设备，由 Electron 驱动。<br>Graphical Scrcpy to display and control Android, devices powered by Electron.|
 |[Everything](https://www.voidtools.com)|✔️||文件搜索工具，基于名称快速定位文件和文件夹。<br>Locate files and folders by name instantly.|
-|[EverythingToolbar](https://github.com/srwi/EverythingToolbar)|✔️||由 Everything 提供支持的 Windows 任务栏的即时文件搜索集成。<br>Instant file search integration for the Windows taskbar powered by Everything.|
+|[EverythingToolbar](https://github.com/srwi/EverythingToolbar)|✔️|`hasParentDir`|由 Everything 提供支持的 Windows 任务栏的即时文件搜索集成。<br>Instant file search integration for the Windows taskbar powered by Everything.|
 |[FastGithub](https://github.com/dotnetcore/FastGithub)|➖||github加速神器，解决github打不开、用户头像无法加载、releases无法上传下载、git-clone、git-pull、git-push失败等问题|
 |[FeiShu](https://github.com/microsoft/winget-pkgs/tree/master/manifests/b/ByteDance/Feishu)|✔️||字节跳动旗下先进企业写协作与管理平台，一站式无缝办公协作。<br>Empowering teams by messenger, meetings, calendar, docs, and emails. It's all in one place.|
 |[Final2x](https://github.com/Tohrusky/Final2x)|✔️||2^x图像超分辨率,一个开源的、强大的跨平台图像超分辨率工具。<br>2^x Image Super-Resolution.|
 |[FishingFunds](https://ff.1zilc.top/)|✔️||基金,大盘,股票,虚拟货币状态栏显示小应用,基于 Electron 开发,数据源来自天天基金,蚂蚁基金,爱基金,腾讯证券等|
 |[Flow-Launcher](https://www.flowlauncher.com)|✔️||适用于 Windows 的快速文件搜索和应用程序启动器。<br>Quick file searcher and app launcher with community-made plugins|
 |[Fluent-Search](https://fluentsearch.net)|✔️||使用它，你可以搜索正在运行的应用程序、浏览器标签、应用程序内内容、文件等。<br>With it, you can search for running apps, browser tabs, in-app content, files and more.|
-|[fnm](https://github.com/Schniz/fnm)|✔️||快速、简单的 Node.js 版本管理器，采用 Rust 内建。<br>Fast and simple Node.js version manager, built in Rust.|
+|[fnm](https://github.com/Schniz/fnm)|✔️|`hasParentDir`|快速、简单的 Node.js 版本管理器，采用 Rust 内建。<br>Fast and simple Node.js version manager, built in Rust.|
 |[Fonger](http://morin.vin/)|✔️||方格音乐，一款音乐播放器|
 |[Font-Hack](https://github.com/ryanoasis/nerd-fonts)|➖|`Font`|Hack 字体，Nerd Font 系列。<br>Nerd Fonts patched 'Hack' Font family.|
 |[FSViewer](https://www.faststone.org/FSViewerDetail.htm)|✔️||FastStone Image Viewer 是一款快速、稳定、用户友好的图像浏览器、转换器和编辑器。<br>FastStone Image Viewer is a fast, stable, user-friendly image browser, converter and editor.|
@@ -288,7 +294,7 @@
 |[Snipaste2](https://www.snipaste.com/)|✔️||一个剪切工具，可以让你把截图固定在屏幕上。<br>A snipping tool, which allows you to pin the screenshot back onto the screen.|
 |[SodaMusic](https://music.douyin.com/)|✔️||抖音官方出品音乐 App。<br>DouYin's official music App.|
 |[Spacedrive](https://www.spacedrive.com)|✔️||一个开源的跨平台文件浏览器，由一个用 Rust 编写的虚拟分布式文件系统提供支持。<br>An open source cross-platform file explorer, powered by a virtual distributed filesystem written in Rust.|
-|[SQLynx](https://www.sqlynx.com/)|✔️||本地基于 Web 的 SQL IDE，支持企业桌面和网络管理。它是一款跨平台数据库工具，适用于所有数据处理人员。它支持所有流行的数据库，如 MySQL、MariaDB、PostgreSQL、SQLite、Hive、Impala、Hadoop 等。<br>Native Web-Based SQL IDE, support desktop and web management for enterprise. It's a cross-platform database tool for everyone working with data. It supports all popular databases like MySQL, MariaDB, PostgreSQL, SQLite, Hive, Impala, Hadoop and more.|
+|[SQLynx](https://www.sqlynx.com/)|✔️|`hasParentDir`|本地基于 Web 的 SQL IDE，支持企业桌面和网络管理。它是一款跨平台数据库工具，适用于所有数据处理人员。它支持所有流行的数据库，如 MySQL、MariaDB、PostgreSQL、SQLite、Hive、Impala、Hadoop 等。<br>Native Web-Based SQL IDE, support desktop and web management for enterprise. It's a cross-platform database tool for everyone working with data. It supports all popular databases like MySQL, MariaDB, PostgreSQL, SQLite, Hive, Impala, Hadoop and more.|
 |[Starship](https://starship.rs)|✔️||适用于任何 shell 的最简洁、快速且可定制的提示符。<br>The minimal, blazing fast, and extremely customizable prompt for any shell!|
 |[Steampp](https://steampp.net/)|✔️||一个开源跨平台的多功能 Steam 工具箱，它有另一个名字: "Watt Toolkit"。<br>A toolbox with lots of Steam tools. Its other name is "Watt Toolkit".|
 |[StrokesPlus\.net](https://www.strokesplus.net)|✔️||适用于 Windows 的鼠标手势识别实用程序，可让您创建强大的鼠标手势，从而节省您的时间。<br>Mouse gesture recognition utility for Windows which allows you to create powerful mouse gestures that save you time.|
@@ -309,7 +315,8 @@
 |[Uninstalr](https://uninstalr.com/)|➖||一个用于在 Windows 中快速、轻便、准确地卸载软件的应用程序。<br>A fast, lightweight and accurate way to uninstall software in Windows.|
 |[Upscayl](https://github.com/upscayl/upscayl)|✔️||适用于 Linux、MacOS 和 Windows 的免费开源 AI 图像升级程序，秉承 Linux 优先的理念。<br>Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.|
 |[uTools](https://u.tools)|✔️||新一代效率工具平台，自由组合插件应用，打造专属你的趁手工具集。<br>|
-|[version-manager](https://github.com/gvcgo/version-manager)|✔️||支持各种语言，无需插件，无需记忆命令，最好用的SDK版本管理器。<br>A general version manager for 60+ SDKs with TUI inspired by lazygit. No need to remember any commands.|
+|[version-manager](https://github.com/gvcgo/version-manager)|✔️|`hasParentDir`|支持各种语言，无需插件，无需记忆命令，最好用的SDK版本管理器。<br>A general version manager for 60+ SDKs with TUI inspired by lazygit. No need to remember any commands.|
+|[vfox](https://vfox.lhan.me/)|➖||Manage multiple SDK versions with a single CLI tool, extendable via plugins|
 |[VLC](https://www.videolan.org/vlc)|✔️||一款自由、开源的跨平台多媒体播放器及框架，可播放大多数多媒体文件，以及 DVD、音频 CD、VCD 及各类流媒体协议。<br>A free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.|
 |[VovStickyNotes](https://vovsoft.com/software/vov-sticky-notes/)|✔️||创建数字贴纸和提醒事项。<br>Creates digital stickers and reminders|
 |[VSCode](https://code.visualstudio.com/)|✔️||一个轻量级、功能强大，插件生态丰富的文件编辑器。<br>Lightweight but powerful source code editor.|
@@ -330,3 +337,4 @@
 |[YuQue](https://www.yuque.com/)|✔️||为每一个人，为每一个团队，提供优秀的文档与知识库工具。<br>Provide excellent documentation and knowledge base tools for everyone and every team.|
 |[Z-Library](https://z-library.se/)|✔️||Z-Library——世界上最大的电子书图书馆。<br>Z-Library – the world’s largest e-book library.|
 |[Zotero](https://www.zotero.org/)|✔️||Open-source reference management software to manage bibliographic data and related research materials.|
+<!-- prettier-ignore-end -->
