@@ -1,32 +1,42 @@
 {
-  "version": "1.15.1",
-  "description": "将文件共享到附近的设备。免费、开源、跨平台。Share files to nearby devices. An open source cross-platform alternative to AirDrop.",
-  "homepage": "https://localsend.org/",
-  "license": {
-    "identifier": "MIT",
-    "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
-  },
-  "url": "https://github.com/localsend/localsend/releases/download/v1.15.1/LocalSend-1.15.1-windows-x86-64.zip",
-  "hash": "f3b75999e9a92bcfd12524060fb1409732f8500f3dff0cb55d188b0787172d73",
-  "bin": [["localsend_app.exe", "LocalSend"]],
-  "shortcuts": [["localsend_app.exe", "LocalSend"]],
-  "pre_install": [
-    "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-    ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-    "persist_file -file @(\"$dir\\settings.json\") @(\"$persist_dir\\settings.json\")",
-    "handle_app_lnk",
-    "do_some_things"
-  ],
-  "pre_uninstall": [
-    "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
-    ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-    "stop_process",
-    "remove_files"
-  ],
-  "checkver": {
-    "github": "https://github.com/localsend/localsend"
-  },
-  "autoupdate": {
-    "url": "https://github.com/localsend/localsend/releases/download/v$version/LocalSend-$version-windows-x86-64.zip"
-  }
+    "version": "1.15.2",
+    "description": "将文件共享到附近的设备。免费、开源、跨平台。Share files to nearby devices. An open source cross-platform alternative to AirDrop.",
+    "homepage": "https://localsend.org/",
+    "license": {
+        "identifier": "MIT",
+        "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
+    },
+    "url": "https://github.com/localsend/localsend/releases/download/v1.15.2/LocalSend-1.15.2-windows-x86-64.zip",
+    "hash": "977f02ca1c17b8e4f3c4be19de0116acdee87ea6d52888d1c27c2199b653fa8a",
+    "bin": [
+        [
+            "localsend_app.exe",
+            "LocalSend"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "localsend_app.exe",
+            "LocalSend"
+        ]
+    ],
+    "pre_install": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "persist_file -file @(\"$dir\\settings.json\") @(\"$persist_dir\\settings.json\")",
+        "handle_app_lnk",
+        "do_some_things"
+    ],
+    "pre_uninstall": [
+        "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
+        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
+        "stop_process",
+        "remove_files"
+    ],
+    "checkver": {
+        "github": "https://github.com/localsend/localsend"
+    },
+    "autoupdate": {
+        "url": "https://github.com/localsend/localsend/releases/download/v$version/LocalSend-$version-windows-x86-64.zip"
+    }
 }
