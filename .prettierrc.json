@@ -1,0 +1,5 @@
+{
+    "$schema": "https://abgox.github.io/schema/prettier/zh-CN/.prettierrc-min.json",
+    "tabWidth": 4,
+    "printWidth": 0
+}
