@@ -1,13 +1,13 @@
 {
-    "version": "3.0.13",
+    "version": "3.0.14",
     "description": "一个安全的记事和待办事项应用程序，具有同步功能，适用于 Windows、macOS、Linux、Android 和 iOS。A secure note taking and to-do app with syncing capabilities for Windows, macOS, Linux, Android and iOS.",
     "homepage": "https://joplinapp.org",
     "license": {
         "identifier": "GNU Affero General Public License v3.0 or later",
         "url": "https://github.com/laurent22/joplin/blob/dev/LICENSE"
     },
-    "url": "https://github.com/laurent22/joplin/releases/download/v3.0.13/JoplinPortable.exe",
-    "hash": "80db77bb7853cc3b1b3877790a2025c238a5fdf3935d883a76f5988e72f33325",
+    "url": "https://github.com/laurent22/joplin/releases/download/v3.0.14/JoplinPortable.exe",
+    "hash": "0aee7d16378fc07a9ead1c42aac51965d8ee1294e127c2534e5065a8e056aa8a",
     "shortcuts": [
         [
             "JoplinPortable.exe",
