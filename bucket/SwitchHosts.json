@@ -1,5 +1,5 @@
 {
-    "version": "4.1.2.6086",
+    "version": "4.2.0.6119",
     "description": "一个管理、切换多个 hosts 方案的工具，快速切换 hosts！An App for hosts management & switching.Switch hosts quickly!",
     "homepage": "https://switchhosts.vercel.app",
     "license": {
@@ -8,12 +8,12 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/oldj/SwitchHosts/releases/download/v4.1.2/SwitchHosts_windows_installer_x64_4.1.2.6086.exe#/abgo_bucket_installer.exe",
-            "hash": "0cd93979185592d6b81d0cc968e5f6e14ca3588b02d2f641f99f865aa724d17d"
+            "url": "https://github.com/oldj/SwitchHosts/releases/download/v4.2.0/SwitchHosts_windows_installer_x64_4.2.0.6119.exe#/abgo_bucket_installer.exe",
+            "hash": "d173a61eb339c513060d6a9ddb43f156a75c2140ab8c6f540faa075d54ddb000"
         },
         "32bit": {
-            "url": "https://github.com/oldj/SwitchHosts/releases/download/v4.1.2/SwitchHosts_windows_installer_ia32_4.1.2.6086.exe#/abgo_bucket_installer.exe",
-            "hash": "7a53576cd8ae7b7e592a7a69510a1d1d25aacbd04f4422ac59a91486f7af4615"
+            "url": "https://github.com/oldj/SwitchHosts/releases/download/v4.2.0/SwitchHosts_windows_installer_ia32_4.2.0.6119.exe#/abgo_bucket_installer.exe",
+            "hash": "1b5321469f08c57b95fb7e94082d64fa4e6558f095e152ddbfcbc986bcd76f5f"
         }
     },
     "shortcuts": [
