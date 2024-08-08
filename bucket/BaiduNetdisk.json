@@ -1,10 +1,10 @@
 {
-    "version": "7.44.0",
+    "version": "7.44.5",
     "description": "百度网盘。Baidu Netdisk for windows.",
     "homepage": "https://pan.baidu.com/download",
     "license": "Unknown",
-    "url": "https://issuepcdn.baidupcs.com/issue/netdisk/yunguanjia/BaiduNetdisk_7.44.0.3.exe#/dl.7z",
-    "hash": "718333e403f85b969630c8e176cd378fcbfa033bd61fecf8f8e4de45d6ba0409",
+    "url": "https://issuepcdn.baidupcs.com/issue/netdisk/yunguanjia/BaiduNetdisk_7.44.5.2.exe#/dl.7z",
+    "hash": "b39a7cf427f79bd57cb82fc2c5894d1b140e90997a41bbda46c0357f4199fe73",
     "shortcuts": [
         [
             "BaiduNetdisk.exe",
