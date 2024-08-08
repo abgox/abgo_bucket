@@ -1,5 +1,5 @@
 {
-    "version": "1.1.14",
+    "version": "1.2.0",
     "description": "一款现代轻量级跨平台 Redis 桌面管理器。A modern lightweight cross-platform Redis Desktop Manager.",
     "homepage": "https://redis.tinycraft.cc/",
     "license": {
@@ -8,12 +8,12 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/tiny-craft/tiny-rdm/releases/download/v1.1.14/TinyRDM_Setup_1.1.14_windows_x64.exe#/abgo_bucket_installer.exe",
-            "hash": "2476f5c4e0bd79e465719532aa155feddc0dec2632c8c7fb556b9e5136db5ea5"
+            "url": "https://github.com/tiny-craft/tiny-rdm/releases/download/v1.2.0/TinyRDM_Setup_1.2.0_windows_x64.exe#/abgo_bucket_installer.exe",
+            "hash": "2bef1dffe216865be79d816f254c56394f38837f35daf63a22f9c628ec34647d"
         },
         "arm64": {
-            "url": "https://github.com/tiny-craft/tiny-rdm/releases/download/v1.1.14/TinyRDM_Setup_1.1.14_windows_arm64.exe#/abgo_bucket_installer.exe",
-            "hash": "494762544c573403789ae25432428336314dc3623851e1dc6cdcbd81ce9c9bdf"
+            "url": "https://github.com/tiny-craft/tiny-rdm/releases/download/v1.2.0/TinyRDM_Setup_1.2.0_windows_arm64.exe#/abgo_bucket_installer.exe",
+            "hash": "8e33de856b50608e1a36b4468d9899183b2c0ca6bd69bb0d1f8e77831b3a5ce8"
         }
     },
     "shortcuts": [
