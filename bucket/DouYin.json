@@ -1,10 +1,10 @@
 {
-    "version": "4.3.1",
+    "version": "4.4.0",
     "description": "抖音，一个短视频平台。",
     "homepage": "https://www.douyin.com/",
     "license": "Unknown",
-    "url": "https://www.douyin.com/download/pc/obj/douyin-pc-client/7044145585217083655/releases/12020899/4.3.1/win32-ia32/douyin-v4.3.1-win32-ia32-douyin.exe#/dl.zip",
-    "hash": "ffb81f08542e7d6736c09d40e23bbd8e917669d96b2b8c9a839ac7d19f7cf95c",
+    "url": "https://www.douyin.com/download/pc/obj/douyin-pc-client/7044145585217083655/releases/12043357/4.4.0/win32-ia32/douyin-v4.4.0-win32-ia32-douyin.exe#/dl.zip",
+    "hash": "929dac05f2e273dfe4ba6f9d45965450f92572e45f53f0b26397eed165127115",
     "shortcuts": [
         [
             "douyin.exe",
