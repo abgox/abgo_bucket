@@ -1,13 +1,13 @@
 {
-    "version": "2024.1.5",
+    "version": "2024.1.6",
     "description": "由 JetBrains 开发的适用于 PHP 的跨平台集成开发环境。Cross-Platform IDE for PHP by JetBrains.",
     "homepage": "https://www.jetbrains.com/phpstorm/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "url": "https://download.jetbrains.com/webide/PhpStorm-2024.1.5.exe#/abgo_bucket_installer.exe",
-    "hash": "1173365cfac94766c43a0eb9a425a56b2e3ac4e38a0acf7aed9edc747f38d52b",
+    "url": "https://download.jetbrains.com/webide/PhpStorm-2024.1.6.exe#/abgo_bucket_installer.exe",
+    "hash": "5da368b10ec470a63712803ba2667e757fd9827af83fe9e51f50c3cc1d91e450",
     "bin": [
         [
             "IDE\\bin\\phpstorm64.exe",
