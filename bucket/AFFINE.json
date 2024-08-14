@@ -1,13 +1,13 @@
 {
-    "version": "0.16.2",
+    "version": "0.16.3",
     "description": "下一代知识库，集规划、分类和创建于一体。隐私第一、开源、可定制、随时可用。A next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use.",
     "homepage": "https://affine.pro",
     "license": {
         "identifier": "Unknown",
         "url": "https://github.com/toeverything/AFFiNE/blob/canary/LICENSE"
     },
-    "url": "https://github.com/toeverything/AFFiNE/releases/download/v0.16.2/affine-0.16.2-stable-windows-x64.exe#/dl.7z",
-    "hash": "sha512:69ce5131bedce973b3bf0b6c73e133a2a0f4e2b3871602e696e10356ae6103dd063176ea41c56b12cbd9d13ccd0c056bbf61ce05e8664591fdac8b24c4c8ad7e",
+    "url": "https://github.com/toeverything/AFFiNE/releases/download/v0.16.3/affine-0.16.3-stable-windows-x64.exe#/dl.7z",
+    "hash": "sha512:e3bcda2e40214b13ee5ac2aad3575212df06bac5ea2b5ae649a88e4c12dedf69665225cf854a983b9261cdbae324ac7bfd315c89ce140c9fd98abdf07fd7ca44",
     "shortcuts": [
         [
             "app\\AFFiNE.exe",
