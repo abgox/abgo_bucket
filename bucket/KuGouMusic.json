@@ -1,10 +1,10 @@
 {
-    "version": "11.0.82.26573",
+    "version": "11.1.18.26777",
     "description": "酷狗音乐",
     "homepage": "https://www.kugou.com/",
     "license": "Unknown",
     "url": "https://download.kugou.com/download/kugou_pc#/abgo_bucket_installer.exe",
-    "hash": "be54e0935d0daf1b37f840eff7553a4111eaebd982204b3b480b6e4135b42607",
+    "hash": "c69fe3182ebc285a1361d1fc26591286006f70cd16e4ba1b3882003a13716aa1",
     "shortcuts": [
         [
             "KuGou.exe",
