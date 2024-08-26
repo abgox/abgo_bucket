@@ -1,13 +1,13 @@
 {
-    "version": "0.9.13",
+    "version": "0.9.14",
     "description": "一款简洁、高效、高颜值的输入、截图、划词翻译软件。A concise, efficient, and high-quality input, screenshot, and word translation software.",
     "homepage": "https://github.com/InkTimeRecord/TTime",
     "license": {
         "identifier": "Apache License 2.0(with the additional conditions)",
         "url": "https://github.com/InkTimeRecord/TTime/blob/main/LICENSE.txt"
     },
-    "url": "https://github.com/InkTimeRecord/TTime/releases/download/v0.9.13/TTime-0.9.13-setup.exe",
-    "hash": "aa08e504e5f75cfebcc4fe9b6bcdb15f49dc682064a271b9a81ff5b04bd24a96",
+    "url": "https://github.com/InkTimeRecord/TTime/releases/download/v0.9.14/TTime-0.9.14-setup.exe",
+    "hash": "5c37d3e446bf27c881db2169fe91b8190ae4d31afee5c70608bfcad39606aabb",
     "shortcuts": [
         [
             "TTime.exe",
