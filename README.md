@@ -300,8 +300,8 @@
 |[superProductivity](https://super-productivity.com)|✔️||一个先进的待办事项列表应用程序，集成了时间盒和时间跟踪功能。它还集成了 Jira、Gitlab、GitHub 和 Open Project。<br>An advanced todo list app with integrated Timeboxing and time tracking capabilities. It also comes with integrations for Jira, Gitlab, GitHub and Open Project.|
 |[SwitchHosts](https://switchhosts.vercel.app)|✔️||一个管理、切换多个 hosts 方案的工具，快速切换 hosts！An App for hosts management & switching.Switch hosts quickly!|
 |[SyncBackFree](https://www.2brightsparks.com/)|✔️||可免费用于个人、教育、慈善、政府和商业用途的 Windows 备份软件。<br>Windows Backup Software that is free for personal, educational, charity, government, and commercial use.|
-|[Thunderbird-CN](https://www.thunderbird.net)|✔️||一款易于设置和定制的免费电子邮件应用程序。<br>A free email application that’s easy to set up and customize.|
-|[Thunderbird](https://www.thunderbird.net)|✔️||一款易于设置和定制的免费电子邮件应用程序。<br>A free email application that’s easy to set up and customize.|
+|[Thunderbird-CN](https://www.thunderbird.net)|✔️||一款易于设置和定制的免费电子邮件应用程序。<br>A free email application that's easy to set up and customize.|
+|[Thunderbird](https://www.thunderbird.net)|✔️||一款易于设置和定制的免费电子邮件应用程序。<br>A free email application that's easy to set up and customize.|
 |[TinyRDM](https://redis.tinycraft.cc/)|✔️||一款现代轻量级跨平台 Redis 桌面管理器。<br>A modern lightweight cross-platform Redis Desktop Manager.|
 |[TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)|✔️|`Confirm`|Windows 上的网络监控窗口软件。可显示当前网速/CPU/内存使用情况。支持嵌入任务栏/主题更改/流量统计。<br>Network monitoring floating window software on Windows. It can display the current network speed, CPU and memory usage. It also supports being embedded into the taskbar, theme changing and traffic statistics.|
 |[TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)|✔️||一个轻量级的实用程序，使 Windows 任务栏半透明/透明。<br>A lightweight utility that makes the Windows taskbar translucent/transparent.|
