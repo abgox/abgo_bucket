@@ -14,7 +14,7 @@
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "$path_installer=\"$dir\\abgo_bucket_installer.exe\"",
+        "$path_installer=\"$dir\\Apifox-$version.exe\"",
         "& $path_installer /S /D=$dir",
         "$core_exe=\"$dir\\Apifox.exe\"",
         "sleep_install $core_exe",
@@ -39,7 +39,7 @@
         "regex": ">([\\d.]+)<"
     },
     "autoupdate": {
-        "url": "https://cdn.apifox.cn/download/$version/Apifox-$version.exe#/abgo_bucket_installer.exe",
+        "url": "https://file-assets.apifox.com/download/Apifox-windows-latest.zip",
         "hash": {
             "url": "$baseurl/latest.yml",
             "regex": "sha512: $base64"

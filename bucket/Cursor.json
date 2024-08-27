@@ -37,6 +37,6 @@
         "regex": "h2.+?>([\\d\\.]+) -"
     },
     "autoupdate": {
-        "url": "https://download.cursor.sh/windows/nsis/x64#/abgo_bucket_installer.exe"
+        "url": "https://downloader.cursor.sh/windows/nsis/x64#/abgo_bucket_installer.exe"
     }
 }

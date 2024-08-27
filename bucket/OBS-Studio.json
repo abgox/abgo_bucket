@@ -39,6 +39,6 @@
         "github": "https://github.com/obsproject/obs-studio"
     },
     "autoupdate": {
-        "url": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-$version-Full-Installer-x64.exe#/abgo_bucket_installer.exe"
+        "url": "https://github.com/obsproject/obs-studio/releases/download/$version/OBS-Studio-$version-Windows-Installer.exe#/abgo_bucket_installer.exe"
     }
 }
