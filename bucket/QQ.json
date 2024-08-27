@@ -1,16 +1,16 @@
 {
-    "version": "9.9.15.27333",
+    "version": "9.9.15.27391",
     "description": "(NT版本) 一款能让你与你的朋友和家人保持联系的即时通讯工具。(NT version) An instant messaging tool that gives you the best way to keep in touch with your friends and family.",
     "homepage": "https://im.qq.com/",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://dldir1v6.qq.com/qqfile/qq/QQNT/Windows/QQ_9.9.15_240822_x64_01.exe#/dl.7z",
-            "hash": "af604fca48757a5c9269498f30f0dc7fa9fd1bf7566bfdf9923db02f0330cf6c"
+            "url": "https://dldir1v6.qq.com/qqfile/qq/QQNT/Windows/QQ_9.9.15_240826_x64_01.exe#/dl.7z",
+            "hash": "0e7fd77221ec168eb01bf8614deaf4b159c45a5a88f2c48a4b5d6edd99f709d8"
         },
         "32bit": {
-            "url": "https://dldir1v6.qq.com/qqfile/qq/QQNT/Windows/QQ_9.9.15_240822_x86_01.exe#/dl.7z",
-            "hash": "a62fbba62d80ef8fce690322a41652d848d991fc98b02ba0241bc10b5c14b5fc"
+            "url": "https://dldir1v6.qq.com/qqfile/qq/QQNT/Windows/QQ_9.9.15_240826_x86_01.exe#/dl.7z",
+            "hash": "493332d3581c9d245cdd2f40eb03b8018f310a15ffc27eab68239e3e71b797f3"
         }
     },
     "shortcuts": [
