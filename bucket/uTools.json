@@ -3,16 +3,8 @@
     "description": "新一代效率工具平台，自由组合插件应用，打造专属你的趁手工具集。",
     "homepage": "https://u.tools",
     "license": "Unknown",
-    "architecture": {
-        "64bit": {
-            "url": "https://res.u-tools.cn/version2/uTools-4.4.1.exe#/abgo_bucket_installer.exe",
-            "hash": "61be90771bf3c7370f28c296836690edfbe4496c365f2fe22770f32065b0d61d"
-        },
-        "32bit": {
-            "url": "https://res.u-tools.cn/version2/uTools-4.4.1-ia32.exe#/abgo_bucket_installer.exe",
-            "hash": "b0fdd677cc31946181bd72828dc28ddb0f561279e2ea3e5e07bf6d1edb031244"
-        }
-    },
+    "url": "https://res.u-tools.cn/version2/uTools-4.4.1.exe#/abgo_bucket_installer.exe",
+    "hash": "61be90771bf3c7370f28c296836690edfbe4496c365f2fe22770f32065b0d61d",
     "shortcuts": [
         [
             "uTools.exe",
@@ -40,15 +32,8 @@
         "sleep_uninstall $ui_exe",
         "remove_files @(\"$user_LocalAppData\\utools-updater\")"
     ],
-    "checkver": "version:.+V([\\d\\.]+)",
+    "checkver": "v.+(\\d+\\.\\d+\\.\\d+)",
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://res.u-tools.cn/version2/uTools-$version.exe#/abgo_bucket_installer.exe"
-            },
-            "32bit": {
-                "url": "https://res.u-tools.cn/version2/uTools-$version-ia32.exe#/abgo_bucket_installer.exe"
-            }
-        }
+        "url": "https://open.u-tools.cn/download/uTools-$version.exe#/abgo_bucket_installer.exe"
     }
 }
