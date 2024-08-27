@@ -1,10 +1,10 @@
 {
-    "version": "4.13.1",
+    "version": "6.1.0",
     "description": "一款速度快、不打扰、够安全、易于分享的网盘，你可以在这里存储、管理和探索内容，尽情打造丰富的数字世界。A fast, non-intrusive, secure and easy-to-share personal netdisk where you can store, manage and explore things, and build a flourishing digital world.",
     "homepage": "https://www.alipan.com/",
     "license": "Unknown",
-    "url": "https://cdn.aliyundrive.net/downloads/apps/desktop/update/4.13.1/win32/ia32/aDrive-4.13.1.exe#/dl.7z",
-    "hash": "a57ecfcb06e4f6dcbb0d2ad11a0f8e88392364746894f34133ad084174974020",
+    "url": "https://cdn.aliyundrive.net/downloads/apps/desktop/update/6.1.0/win32/x64/aDrive-6.1.0.exe#/dl.7z",
+    "hash": "e06a43c3ee2e326c1b72c7999cb6343d0f54e9cbd86270a283f00dbcf9e7aadf",
     "shortcuts": [
         [
             "aDrive.exe",
