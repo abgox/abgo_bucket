@@ -1,13 +1,13 @@
 {
-    "version": "3.1.3",
+    "version": "3.1.4",
     "description": "一款隐私优先的个人知识管理系统，支持完全离线使用，同时也支持端到端加密同步。融合块、大纲和双向链接，重构你的思维。A privacy-first personal knowledge management system that supports complete offline usage, as well as end-to-end encrypted data sync. Fuse blocks, outlines, and bidirectional links to refactor your thinking.",
     "homepage": "https://b3log.org/siyuan/",
     "license": {
         "identifier": "GNU Affero General Public License v3.0",
         "url": "https://github.com/siyuan-note/siyuan/blob/master/LICENSE"
     },
-    "url": "https://github.com/siyuan-note/siyuan/releases/download/v3.1.3/siyuan-3.1.3-win.exe",
-    "hash": "df8c767fda63bccfc2d2c211375523d0ccbce9ec14610b2bd6e70785a0640c48",
+    "url": "https://github.com/siyuan-note/siyuan/releases/download/v3.1.4/siyuan-3.1.4-win.exe",
+    "hash": "b6acc7853bcd46e2e4ed6bb6e45932924799e079098b50846b307357aad6412c",
     "shortcuts": [
         [
             "SiYuan.exe",
