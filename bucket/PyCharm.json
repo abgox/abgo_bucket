@@ -1,13 +1,13 @@
 {
-    "version": "2024.2.0.1",
+    "version": "2024.2.1",
     "description": "由 JetBrains 开发的适用于纯 Python 开发的 IDE。Cross-Platform IDE for Python by JetBrains.",
     "homepage": "https://www.jetbrains.com/pycharm/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "url": "https://download.jetbrains.com/python/pycharm-professional-2024.2.0.1.exe#/abgo_bucket_installer.exe",
-    "hash": "887db2496f79a0bfabac48f81645681dd31607145f92406c2554b875b9e3076d",
+    "url": "https://download.jetbrains.com/python/pycharm-professional-2024.2.1.exe#/abgo_bucket_installer.exe",
+    "hash": "20ad9dd3f7d27a6fa7f1b4125e321c35536a2bb81e59a8d4d43ed1275b25f53b",
     "bin": [
         [
             "IDE\\bin\\pycharm64.exe",
