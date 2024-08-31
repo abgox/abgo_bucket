@@ -13,10 +13,10 @@
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
         "Remove-Item \"$dir\\_rels\", \"$dir\\package\", \"$dir\\*Content*.xml\" -Recurse",
         "persist_file -dir @(\"$dir\\completions\") @(\"$persist_dir\\completions\")",
-        "if(!(Test-Path \"$persist_dir\\config.json\")){",
-        "   Copy-Item \"$bucketsdir\\$bucket\\scripts\\PSCompletions\\config.json\" \"$persist_dir\\config.json\"",
+        "if(!(Test-Path \"$persist_dir\\data.json\")){",
+        "   Copy-Item \"$bucketsdir\\$bucket\\scripts\\PSCompletions\\data.json\" \"$persist_dir\\data.json\"",
         "}",
-        "persist_file -file @(\"$dir\\config.json\") @(\"$persist_dir\\config.json\")",
+        "persist_file -file @(\"$dir\\data.json\") @(\"$persist_dir\\data.json\")",
         "do_some_things"
     ],
     "post_install": [
