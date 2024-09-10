@@ -227,7 +227,7 @@
 |[Idea](https://www.jetbrains.com/idea/)|✔️||由 JetBrains 开发的适用于 Java 和 Kotlin 开发的 IDE。<br>Cross-Platform IDE for Java and Kotlin by JetBrains.|
 |[IdeaCE](https://www.jetbrains.com/idea/)|✔️||社区版 - 由 JetBrains 开发的适用于 Java 和 Kotlin 开发的 IDE。<br>Community Edition - Cross-Platform IDE for Java and Kotlin by JetBrains.|
 |[ImageGlass](https://imageglass.org)|✔️||一个轻量级的、多功能的图像查看器。<br>A lightweight, versatile image viewer.|
-|[InputTip](https://github.com/abgox/InputTip)|✔️||一个小工具，根据当前输入法中英文状态切换光标样式。<br>A small tool to switch the cursor style according to the current state of the input method in English and Chinese.|
+|[InputTip](https://github.com/abgox/InputTip)|✔️|`hasParentDir`|一个小工具，根据当前输入法中英文状态切换光标样式。<br>A small tool to switch the cursor style according to the current state of the input method in English and Chinese.|
 |[Insomnia](https://insomnia.rest)|✔️||适用于 GraphQL、REST、WebSockets、SSE 和 gRPC 的开源跨平台 API 客户端。支持云存储、本地存储和 Git 存储。<br>The open-source, cross-platform API client for GraphQL, REST, WebSockets, SSE and gRPC. With Cloud, Local and Git storage.|
 |[jan](https://jan.ai)|✔️||ChatGPT 的开源替代品，可在计算机上百分百脱机运行。<br>An open source alternative to ChatGPT that runs 100% offline on your computer.|
 |[Joplin](https://joplinapp.org)|✔️||一个安全的记事和待办事项应用程序，具有同步功能，适用于 Windows、macOS、Linux、Android 和 iOS。<br>A secure note taking and to-do app with syncing capabilities for Windows, macOS, Linux, Android and iOS.|
