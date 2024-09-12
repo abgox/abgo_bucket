@@ -1,5 +1,5 @@
 {
-    "version": "1.93.0",
+    "version": "1.93.1",
     "description": "一个轻量级、功能强大，插件生态丰富的文件编辑器。Lightweight but powerful source code editor.",
     "homepage": "https://code.visualstudio.com/",
     "license": {
@@ -8,12 +8,12 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://update.code.visualstudio.com/1.93.0/win32-x64-user/stable#/abgo_bucket_installer.exe",
-            "hash": "201ad89b01a5b779681d3a2eabf678a2b37a1e11c51b20d0a04919605d3afc3b"
+            "url": "https://update.code.visualstudio.com/1.93.1/win32-x64-user/stable#/abgo_bucket_installer.exe",
+            "hash": "0cd4fbe62d04d3a468409fbe375d9a3ee0949adfa5158c197412dbed40dac5ba"
         },
         "arm64": {
-            "url": "https://update.code.visualstudio.com/1.93.0/win32-arm64-user/stable#/abgo_bucket_installer.exe",
-            "hash": "365dd730f6825fc047d6616dc0f1808349aa573dacbfb9e28455aee40b79466e"
+            "url": "https://update.code.visualstudio.com/1.93.1/win32-arm64-user/stable#/abgo_bucket_installer.exe",
+            "hash": "6acc029e24ec3bdc4eb974147b5e47fe7aba7644a30b653a158f729b9390f151"
         }
     },
     "shortcuts": [
