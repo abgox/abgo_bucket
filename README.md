@@ -154,8 +154,6 @@
             -   It only applies to the list of newly added apps. (Starting from [6512c8e](https://github.com/abgox/abgo_bucket/commit/6512c8e2fddd7576960111b97ce1313e3f9f6ec1))
             -   Old application manifests do not modify the original `persist` directory structure.
         -   `Font`: A font.
-            -   Administrator permission are frequently used during the installation of fonts.
-            -   Reference: [About UAC](#about-uac)
         -   `PSModule`: A PowerShell Module.
         -   `Confirm` : The app has a command line(or uninstaller) interactive confirmation when uninstalling.
         -   `NoAutoUpdate` : `json.autoupdate` are not configured, and Scoop cannot automatically detect updates.

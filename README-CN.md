@@ -155,8 +155,6 @@
             -   旧的应用清单不会修改原有的 `persist` 目录结构。
 
         -   `Font`: 一种字体
-            -   在字体的安装过程中，会频繁使用到管理员权限
-            -   相关内容请查看 [关于 UAC](#关于-uac)
         -   `PSModule`: 一个 PowerShell 模块
         -   `Confirm` : 应用在卸载时有一个命令行(或卸载程序)交互确认
         -   `NoAutoUpdate` : `json.autoupdate` 未配置，Scoop 无法自动检测更新
