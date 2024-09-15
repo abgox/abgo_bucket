@@ -182,8 +182,10 @@ function handle_app_lnk {
         }
         $lnk_list += $ohter_lnk
         $lnk_list = foreach ($_ in $lnk_list) {
-            Join-Path $public_Desktop $_
-            Join-Path $user_Desktop $_
+            if ($_ -match '.*\..+') {
+                Join-Path $public_Desktop $_
+                Join-Path $user_Desktop $_
+            }
         }
         function remove_app_lnk([array]$lnk_list) {
             foreach ($_ in $lnk_list) {
