@@ -1,13 +1,13 @@
 {
-    "version": "1.24.0",
+    "version": "1.24.1",
     "description": "使用图形化的 Scrcpy 显示和控制您的 Android 设备，由 Electron 驱动。Graphical Scrcpy to display and control Android, devices powered by Electron.",
     "homepage": "https://github.com/viarotel-org/escrcpy",
     "license": {
         "identifier": "Apache License 2.0",
         "url": "https://github.com/viarotel-org/escrcpy/blob/main/LICENSE"
     },
-    "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.24.0/Escrcpy-1.24.0-win-setup.exe#/abgo_bucket_installer.exe",
-    "hash": "sha512:77cb6035ebe154c966e406e115d840ded525e0566a06f3164e80bfafcc578d5a66fbfb68f4ecf9389bcc8d861ca820aa9743f424016045c329c4224475f24ee2",
+    "url": "https://github.com/viarotel-org/escrcpy/releases/download/v1.24.1/Escrcpy-1.24.1-win-setup.exe#/abgo_bucket_installer.exe",
+    "hash": "sha512:be0562c48116d961b8bfc14505be8e4771869594b1697fd30aa8b62bfa5e8e40738a02095d54438eb95a32a0f8a432c31ca3dd6e9d8e2184e1df9ed60aca09cb",
     "shortcuts": [
         [
             "Escrcpy.exe",
