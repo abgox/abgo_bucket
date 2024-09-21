@@ -1,10 +1,10 @@
 {
-    "version": "7.26.6",
+    "version": "7.27.6",
     "homepage": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/b/ByteDance/Feishu",
     "description": "字节跳动旗下先进企业写协作与管理平台，一站式无缝办公协作。Empowering teams by messenger, meetings, calendar, docs, and emails. It's all in one place.",
     "license": "Unknown",
-    "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/f72d5d4b/Feishu-win32_ia32-7.26.6-signed.exe#/dl.7z",
-    "hash": "655023ad6668bdeed69bb0b7b20d5848a773ad42460287adc8cb4003d3e19a66",
+    "url": "https://sf3-cn.feishucdn.com/obj/ee-appcenter/205667d8/Feishu-win32_ia32-7.27.6-signed.exe#/dl.7z",
+    "hash": "eac6b279bea63b382334e92529c9464efb14b278eeb87815b9506fe89acd64e5",
     "extract_to": "app",
     "shortcuts": [
         [
