@@ -309,6 +309,7 @@
 |[tts-vue](https://github.com/LokerL/tts-vue)|✔️||🎤 微软语音合成工具，使用 Electron + Vue + ElementPlus + Vite 构建。<br>🎤 Microsoft speech synthesis tool, built using Electron + Vue + ElementPlus + Vite.|
 |[Typora](https://typora.io)|✔️||一个 Markdown 编辑器和阅读器，所见即所得。<br>A minimal Markdown editor and reader.|
 |[TyporaFree](https://typora.io)|✔️||(Beta Free 版本) 一个 Markdown 编辑器和阅读器，所见即所得。<br>(Beta Free Version) A minimal Markdown editor and reader.|
+|[UACWhitelistTool](https://github.com/XIU2/UACWhitelistTool)|➖||一个可以添加 UAC 白名单的小工具！|
 |[uncle-novel](https://uncle-novel.github.io/uncle-novel-official-site/)|✔️||一个全网小说下载器及阅读器，目录解析与书源结合，支持有声小说与文本小说，可下载 mobi、epub、txt 格式文本小说。<br>|
 |[Uninstalr](https://uninstalr.com/)|➖||一个用于在 Windows 中快速、轻便、准确地卸载软件的应用程序。<br>A fast, lightweight and accurate way to uninstall software in Windows.|
 |[Upscayl](https://github.com/upscayl/upscayl)|✔️||适用于 Linux、MacOS 和 Windows 的免费开源 AI 图像升级程序，秉承 Linux 优先的理念。<br>Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.|
