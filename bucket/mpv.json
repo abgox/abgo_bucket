@@ -1,16 +1,16 @@
 {
-    "version": "0.38.0",
+    "version": "0.39.0",
     "description": "一个免费的、开源的、跨平台的媒体播放器。A free, open source, and cross-platform media player",
     "homepage": "https://mpv.io",
     "license": "LGPL-2.1-or-later,GPL-2.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://downloads.sourceforge.net/project/mpv-player-windows/release/mpv-0.38.0-x86_64.7z",
-            "hash": "sha1:44dbdf260b3bb2f2db70b0fa3e22d1138714dd75"
+            "url": "https://downloads.sourceforge.net/project/mpv-player-windows/release/mpv-0.39.0-x86_64.7z",
+            "hash": "sha1:70f21fe5538be954d4fb1ce069717f4a722222e4"
         },
         "32bit": {
-            "url": "https://downloads.sourceforge.net/project/mpv-player-windows/release/mpv-0.38.0-i686.7z",
-            "hash": "sha1:55869db09bff1f0a8b5e14a25243bc52651d06f9"
+            "url": "https://downloads.sourceforge.net/project/mpv-player-windows/release/mpv-0.39.0-i686.7z",
+            "hash": "sha1:412c6da0eb9b12f4ceea7a18cc99a52af6977e50"
         }
     },
     "bin": "mpv.exe",
