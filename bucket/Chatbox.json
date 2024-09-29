@@ -1,13 +1,13 @@
 {
-    "version": "0.10.0",
+    "version": "1.4.2",
     "description": "一个可使用 ChatGPT、Claude 和其他 LLM 的桌面客户端。A desktop client for ChatGPT, Claude and other LLMs.",
     "homepage": "https://chatboxai.app/",
     "license": {
         "identifier": "GNU General Public License v3.0",
         "url": "https://github.com/Bin-Huang/chatbox/blob/main/LICENSE"
     },
-    "url": "https://github.com/Bin-Huang/chatbox/releases/download/v0.10.0/Chatbox-0.10.0-Setup.exe#/abgo_bucket_installer.exe",
-    "hash": "sha512:36f2ad5c4f1a58f7cd3cd4bffc02a9e7c4309eef966d5de3982c74ecd8219e2db856876156f825bceae23fbff184fa3b744864b66e19673133818181b2426564",
+    "url": "https://download.chatboxai.app/releases/Chatbox-1.4.2-Setup.exe#/abgo_bucket_installer.exe",
+    "hash": "555e40e8fa43227d86b7543e71a8f3f00c950db8fe79376252972e0005bb6d49",
     "shortcuts": [
         [
             "Chatbox.exe",
@@ -36,13 +36,10 @@
         "remove_files @(\"$user_LocalAppData\\xyz.chatboxapp.app-updater\")"
     ],
     "checkver": {
-        "github": "https://github.com/Bin-Huang/chatbox"
+        "url": "https://chatboxai.app/zh/help-center/changelog",
+        "regex": "<h3>v([\\d\\.]+)"
     },
     "autoupdate": {
-        "url": "https://github.com/Bin-Huang/chatbox/releases/download/v$version/Chatbox-$version-Setup.exe#/abgo_bucket_installer.exe",
-        "hash": {
-            "url": "$baseurl/latest.yml",
-            "regex": "sha512: $base64"
-        }
+        "url": "https://download.chatboxai.app/releases/Chatbox-$version-Setup.exe#/abgo_bucket_installer.exe"
     }
 }
