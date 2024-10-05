@@ -1,13 +1,13 @@
 {
-    "version": "1.4.2",
+    "version": "1.5.0",
     "description": "一个可使用 ChatGPT、Claude 和其他 LLM 的桌面客户端。A desktop client for ChatGPT, Claude and other LLMs.",
     "homepage": "https://chatboxai.app/",
     "license": {
         "identifier": "GNU General Public License v3.0",
         "url": "https://github.com/Bin-Huang/chatbox/blob/main/LICENSE"
     },
-    "url": "https://download.chatboxai.app/releases/Chatbox-1.4.2-Setup.exe#/abgo_bucket_installer.exe",
-    "hash": "555e40e8fa43227d86b7543e71a8f3f00c950db8fe79376252972e0005bb6d49",
+    "url": "https://download.chatboxai.app/releases/Chatbox-1.5.0-Setup.exe#/abgo_bucket_installer.exe",
+    "hash": "bef5bfd8c80c8405ff6e1a260eef0ae7c6f0c3d7aa556750c0990a7e6bd5b78a",
     "shortcuts": [
         [
             "Chatbox.exe",
