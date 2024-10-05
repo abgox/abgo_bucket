@@ -1,13 +1,13 @@
 {
-    "version": "4.2.8",
+    "version": "4.2.9",
     "description": "基于 electron 的开源工具箱，自由集成丰富插件。Electron based open source toolbox, free integration of rich plug-ins.",
     "homepage": "https://github.com/rubickCenter/rubick",
     "license": {
         "identifier": "MIT",
         "url": "https://github.com/rubickCenter/rubick/blob/master/LICENSE"
     },
-    "url": "https://github.com/rubickCenter/rubick/releases/download/v4.2.8/rubick-Setup-4.2.8-x64.exe",
-    "hash": "7e6f86a695af090445505f1aedb2d91813c76abf2ab514ead5c2f60429b78371",
+    "url": "https://github.com/rubickCenter/rubick/releases/download/v4.2.9/rubick-Setup-4.2.9-x64.exe",
+    "hash": "21ec53830a20c1bb700f18578e0e5904551c2c45fa9a36689a19c2f7ef811da6",
     "shortcuts": [
         [
             "rubick.exe",
