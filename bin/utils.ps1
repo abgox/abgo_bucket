@@ -352,6 +352,7 @@ function stop_process([bool]$isRemove = $true, [bool]$tip = $true, [string]$app_
     } -ArgumentList $path_sudo, $dirs
     $null = Wait-Job $job
     if ($isRemove -and (scoop config abgo_bucket_no_old_version)) { remove_file $app_dir }
+    remove_files
 }
 function stop_exe($exeName, [switch]$tip) {
     if ($tip) { write_with_color (data_replace $json.stop_process) }
