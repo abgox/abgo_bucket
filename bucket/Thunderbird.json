@@ -1,13 +1,13 @@
 {
-    "version": "128.4.0esr",
+    "version": "128.4.1esr",
     "description": "一款易于设置和定制的免费电子邮件应用程序。A free email application that's easy to set up and customize.",
     "homepage": "https://www.thunderbird.net",
     "license": {
         "identifier": "Freeware",
         "url": "https://www.mozilla.org/en-US/foundation/licensing/"
     },
-    "url": "https://download.mozilla.org/?product=thunderbird-128.4.0esr-SSL&os=win64&lang=en-US#/abgo_bucket_installer.exe",
-    "hash": "bcecf36047bbb6e8d2accef4f2b8aa9b31ec76eeb319bbfeed6a4b55230e7cef",
+    "url": "https://download.mozilla.org/?product=thunderbird-128.4.1esr-SSL&os=win64&lang=en-US#/abgo_bucket_installer.exe",
+    "hash": "0d9f6df8c4436893c8d8af1ad1d462241159ef594ea98185d1ef15ae651dde49",
     "bin": "thunderbird.exe",
     "shortcuts": [
         [
