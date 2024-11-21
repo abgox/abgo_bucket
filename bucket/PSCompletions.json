@@ -1,13 +1,13 @@
 {
-    "version": "5.0.8",
+    "version": "5.1.0",
     "description": "一个补全管理模块，更简单、更方便的使用 PowerShell 命令补全。A completion manager for better and simpler use PowerShell completions.",
     "homepage": "https://github.com/abgox/PSCompletions",
     "license": {
         "identifier": "MIT",
         "url": "https://github.com/abgox/PSCompletions/blob/main/LICENSE"
     },
-    "url": "https://psg-prod-eastus.azureedge.net/packages/pscompletions.5.0.8.nupkg",
-    "hash": "a4a68c45bffafcd792faa2907c3af11363ed3891f56ec6116f8babe7604c8ded",
+    "url": "https://psg-prod-eastus.azureedge.net/packages/pscompletions.5.1.0.nupkg",
+    "hash": "b1adec2e337482d64227a777c0e6e939263d0e568f14319913472ad9bc0f3daf",
     "pre_install": [
         "$bucket=(scoop bucket list | where-Object { $_.Source -match '(gitee|github).com/abgox/abgo_bucket'})[0].Name",
         ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
