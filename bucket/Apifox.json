@@ -1,10 +1,10 @@
 {
-    "version": "2.6.35",
+    "version": "2.6.36",
     "description": "API 设计、开发、测试一体化协作平台。All-in-one collaboration platform for API documentation, API debugging, API Mock and API test automation.",
     "homepage": "https://apifox.com",
     "license": "Freeware",
     "url": "https://file-assets.apifox.com/download/Apifox-windows-latest.zip",
-    "hash": "sha512:3fef741d503fbab00f334b35791690a9d8e1cee9b2c968cd9d7583730ec3e77fc9f8a4caffdf8a968582bd205af4a23b75ad2c2d9dcb3c57ea4a966d8f176712",
+    "hash": "sha512:ee25142af787f30ce34977a60b8bb8b41c70a52c7aaf3b9fcb746029b8031d9a0f406f25eb21fb423bfbba12c4eba6606b502a9a283ba6600d6cacd20ce89f56",
     "shortcuts": [
         [
             "Apifox.exe",
