@@ -20,6 +20,6 @@ else {
 }
 
 if (Compare-Object $data_folder $persist_folder -PassThru) {
-    & "$PSScriptRoot\..\bin\sudo.ps1" Remove-Item $path_persist -Force -Recurse
-    & "$PSScriptRoot\..\bin\sudo.ps1" Copy-Item $path_data (Split-Path $path_persist -Parent) -Force -Recurse
+    Remove-Item $path_persist -Force -Recurse
+    Copy-Item $path_data (Split-Path $path_persist -Parent) -Force -Recurse
 }

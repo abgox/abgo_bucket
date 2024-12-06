@@ -13,7 +13,7 @@ $path_persist = $content[1]
 
 $content_data = Get-Content $path_data -Raw
 
-if (Test-Path($content_persist)) {
+if (Test-Path($path_persist)) {
     $content_persist = Get-Content $path_persist -Raw
 }
 else {
@@ -21,5 +21,5 @@ else {
 }
 
 if ($content_data -ne $content_persist) {
-    & "$PSScriptRoot\..\bin\sudo.ps1" Copy-Item $path_data $path_persist -Force
+    Copy-Item $path_data $path_persist -Force
 }
