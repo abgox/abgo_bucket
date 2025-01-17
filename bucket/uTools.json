@@ -1,10 +1,10 @@
 {
-    "version": "6.0.1",
+    "version": "6.1.0",
     "description": "新一代效率工具平台，自由组合插件应用，打造专属你的趁手工具集。",
     "homepage": "https://u.tools",
     "license": "Unknown",
-    "url": "https://open.u-tools.cn/download/uTools-6.0.1.exe#/abgo_bucket_installer.exe",
-    "hash": "5ebb97ad82af639d5a1c8590d55e5e7cdfb92389de63c6ef0a08fa9ec3fc3a09",
+    "url": "https://open.u-tools.cn/download/uTools-6.1.0.exe#/abgo_bucket_installer.exe",
+    "hash": "b6eea8420f124dda26823c846f846f04bd2ceb6693303a7d7d273d43ceabd892",
     "shortcuts": [
         [
             "uTools.exe",
