@@ -295,7 +295,7 @@
 |[SQLynx](https://www.sqlynx.com/)|✔️|`hasParentDir`|本地基于 Web 的 SQL IDE，支持企业桌面和网络管理。它是一款跨平台数据库工具，适用于所有数据处理人员。它支持所有流行的数据库，如 MySQL、MariaDB、PostgreSQL、SQLite、Hive、Impala、Hadoop 等。<br>Native Web-Based SQL IDE, support desktop and web management for enterprise. It's a cross-platform database tool for everyone working with data. It supports all popular databases like MySQL, MariaDB, PostgreSQL, SQLite, Hive, Impala, Hadoop and more.|
 |[Starship](https://starship.rs)|✔️||适用于任何 shell 的最简洁、快速且可定制的提示符。<br>The minimal, blazing fast, and extremely customizable prompt for any shell!|
 |[Steampp](https://steampp.net/)|✔️||一个开源跨平台的多功能 Steam 工具箱，它有另一个名字: "Watt Toolkit"。<br>A toolbox with lots of Steam tools. Its other name is "Watt Toolkit".|
-|[StrokesPlus\.net](https://www.strokesplus.net)|✔️||适用于 Windows 的鼠标手势识别实用程序，可让您创建强大的鼠标手势，从而节省您的时间。<br>Mouse gesture recognition utility for Windows which allows you to create powerful mouse gestures that save you time.|
+|[StrokesPlus\.net](https://www.strokesplus.net)|✔️|`NoAutoUpdate`|适用于 Windows 的鼠标手势识别实用程序，可让您创建强大的鼠标手势，从而节省您的时间。<br>Mouse gesture recognition utility for Windows which allows you to create powerful mouse gestures that save you time.|
 |[SublimeText](https://www.sublimetext.com/)|✔️||一个文本编辑器。<br>A text editor.|
 |[superProductivity](https://super-productivity.com)|✔️||一个先进的待办事项列表应用程序，集成了时间盒和时间跟踪功能。它还集成了 Jira、Gitlab、GitHub 和 Open Project。<br>An advanced todo list app with integrated Timeboxing and time tracking capabilities. It also comes with integrations for Jira, Gitlab, GitHub and Open Project.|
 |[SwitchHosts](https://switchhosts.vercel.app)|✔️||一个管理、切换多个 hosts 方案的工具，快速切换 hosts！An App for hosts management & switching.Switch hosts quickly!|
