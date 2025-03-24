@@ -1,5 +1,5 @@
 {
-    "version": "2.36.2",
+    "version": "2.36.3",
     "description": "一个输入法状态(中文/英文/大写锁定)提示工具。An input method status (Chinese/English/CapsLock) tip tool.",
     "homepage": "https://github.com/abgox/InputTip",
     "license": {
@@ -7,7 +7,7 @@
         "url": "https://github.com/abgox/InputTip/blob/main/LICENSE"
     },
     "url": "https://inputtip.pages.dev/releases/v2/InputTip.exe",
-    "hash": "ee29f061719642e0254ba553f794f05c3dfeb29d27e573445b9be56ea44494f9",
+    "hash": "c8c7c9e751962cf380e88f62c0c63ad88d0b2b0b936fee18e9f48425fd7191b2",
     "shortcuts": [
         [
             "InputTip.exe",
