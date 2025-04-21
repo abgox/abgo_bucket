@@ -26,6 +26,16 @@
 
 -   [Scoop completion in PSCompletions ](https://github.com/abgox/PSCompletions "PSCompletions")is recommended.
 
+> [!Warning]
+>
+> -   `abgo_bucket` is an unofficial Scoop bucket with some extra content outside the Scoop official bucket specification.
+>
+>     -   Incompatible with official or other buckets and cannot be migrated seamlessly.
+>
+> -   Other buckets Please be careful to merge the application list in this bucket because it cannot be used properly without the special definitions in `abgo_bucket`.
+>
+> -   At the same time, the normal use of this warehouse is not guaranteed. It is only used for individuals and may be changed or deleted at any time according to personal needs.
+
 ### For ones familiar with Scoop
 
 1.  `scoop bucket add abgo_bucket https://github.com/abgox/abgo_bucket`
@@ -35,18 +45,6 @@
 2.  Install apps.
 
     -   `scoop install abgo_bucket/<app_name>`
-
-    -   Use an external way to download/update app:
-        -   It's good choice to use it when downloads the app in the command line are slow and you have better ways to download the app by the download link.
-        ```powershell
-            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name>
-        ```
-
--   List all installable apps in `abgo_bucket`:
-
-    ```powershell
-    <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
-    ```
 
 ---
 
@@ -100,14 +98,6 @@
 
 -   This **radical** `persist` strategy will result in `abgo_bucket` having a different persist file (directory) than other `buckets`.
 -   So, if you are migrating from another `bucket` to `abgo_bucket` or from `abgo_bucket` to another repository, please pay attention to the changes in the `persist`.
-
-#### ⚠︎ About `persist` directory changes ⚠︎
-
--   On **January 15, 2024**, there're some changes in the `persist` of some apps. [Click to view this commit.](https://github.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
--   List: `Final2x`,`GeekUninstaller`,`Helix`,`LX-Music`,`Listary`,`MarkText`,`Motrix`,`MusicPlayer2`,`ngrok`,`Oh-My-Posh`,`Quicker`,`Rubick`,`RustDesk`,`ScreenToGif`,`Sigma-File-Manager`,`TrafficMonitor`,`tts-vue`,`Typora`,`XBYDriver`
-    -   Taking `GeekUninstaller` as an example:
-        -   Before: `<your_scoop_path>\persist\geekuninstaller`
-        -   After: `<your_scoop_path>\persist\geekuninstaller\Geek Uninstaller`
 
 ### About Shortcut
 

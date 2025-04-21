@@ -26,6 +26,16 @@
 
 -   推荐使用 [PSCompletions 项目中的 scoop 补全 ](https://gitee.com/abgox/PSCompletions "PSCompletions")
 
+> [!Warning]
+>
+> -   abgo_bucket 是一个非官方的 Scoop bucket，且带有 Scoop 官方 bucket 规范之外的一些额外内容
+>
+>     -   与官方或其他 bucket 不兼容，无法无缝迁移。
+>
+> -   其他 bucket 请谨慎合并此 bucket 中的应用清单，因为没有此仓库中的特殊定义，无法正常使用
+>
+> -   同时，不保证此仓库的正常使用，它仅用于个人，可能会根据个人需求随时变更或删除。
+
 ### 正在使用 Scoop
 
 1.  `scoop bucket add abgo_bucket https://gitee.com/abgox/abgo_bucket`
@@ -35,20 +45,6 @@
 2.  安装应用
 
     -   `scoop install abgo_bucket/<app_name>`
-
-    -   使用外部方式下载(更新)应用：
-
-        -   当使用命令行下载速度慢，并且有更好的方式可以通过安装包链接下载时，它是一个很好的选择。
-
-        ```powershell
-            <your_scoop_path>\bucket\abgo_bucket\bin\download.ps1 [bucket/]<app_name>
-        ```
-
--   列出 `abgo_bucket` 中所有可安装的应用：
-
-    ```powershell
-        <your_scoop_path>\bucket\abgo_bucket\bin\list_all_app.ps1
-    ```
 
 ### 没有使用过 Scoop
 
@@ -90,6 +86,10 @@
 
 ### 关于 persist(数据持久化)
 
+> [!Warning]
+>
+> 为了防止和其他 bucket 的数据冲突， `persist` 的数据会放在新建的 `abgo_bucket` 父目录下
+
 -   `abgo_bucket` 中的应用主要通过 `New-Item -ItemType SymbolicLink` 去实现 `persist`，它不局限于应用目录下的数据文件。
     -   由于链接的数据文件和目录不一定在 scoop 目录下
     -   如果重装系统或将 scoop 目录拷贝到其他电脑，请重装应用确保数据文件或目录与 `persist` 目录下的应用数据链接
@@ -98,14 +98,6 @@
     -   这样做的好处是应用在拥有 `persist` 时，安装后的使用体验是流畅无感的，但可能导致占用的存储空间会更多。
 -   这种**激进**的持久化策略会导致 `abgo_bucket` 的持久化目录文件和其他 `bucket` 不同
 -   因此，如果从其他 `bucket` 迁移至 `abgo_bucket` 或者从 `abgo_bucket` 迁移至其他仓库，请重视数据持久化 `persist` 的变动
-
-#### ⚠︎ 关于 persist 目录变动 ⚠︎
-
--   **2024 年 1 月 15 日**，部分应用的持久化操作发生了一些变动。[点击查看这个 commit](https://gitee.com/abgox/abgo_bucket/commit/3b65bc2fe6f836028e0b7bde9bce4de586550eb9)
--   变动的应用有：`Final2x`，`GeekUninstaller`，`Helix`，`LX-Music`，`Listary`，`MarkText`，`Motrix`，`MusicPlayer2`，`ngrok`，`Oh-My-Posh`，`Quicker`，`Rubick`，`RustDesk`，`ScreenToGif`，`Sigma-File-Manager`，`TrafficMonitor`，`tts-vue`，`Typora`，`XBYDriver`
-    -   以 `GeekUninstaller`为例：
-        -   之前：`<your_scoop_path>\persist\geekuninstaller`
-        -   现在：`<your_scoop_path>\persist\geekuninstaller\Geek Uninstaller`
 
 ### 关于快捷方式
 
