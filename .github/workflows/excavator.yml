@@ -2,7 +2,7 @@ name: Excavator
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/60 * * * *"
+    - cron: '20 */4 * * *'
   workflow_run:
     workflows: [Update README]
     types: [completed]
