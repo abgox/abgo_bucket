@@ -33,7 +33,6 @@
 >     -   与官方或其他 bucket 不兼容，无法无缝迁移。
 >
 > -   其他 bucket 请谨慎合并此 bucket 中的应用清单，因为没有此仓库中的特殊定义，无法正常使用
->
 > -   同时，不保证此仓库的正常使用，它仅用于个人，可能会根据个人需求随时变更或删除。
 
 ### 正在使用 Scoop
@@ -85,10 +84,6 @@
     -   `scoop config abgo_bucket_no_old_version true`
 
 ### 关于 persist(数据持久化)
-
-> [!Warning]
->
-> 为了防止和其他 bucket 的数据冲突， `persist` 的数据会放在新建的 `abgo_bucket` 父目录下
 
 -   `abgo_bucket` 中的应用主要通过 `New-Item -ItemType SymbolicLink` 去实现 `persist`，它不局限于应用目录下的数据文件。
     -   由于链接的数据文件和目录不一定在 scoop 目录下

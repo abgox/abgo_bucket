@@ -33,7 +33,6 @@
 >     -   Incompatible with official or other buckets and cannot be migrated seamlessly.
 >
 > -   Other buckets Please be careful to merge the application list in this bucket because it cannot be used properly without the special definitions in `abgo_bucket`.
->
 > -   At the same time, the normal use of this warehouse is not guaranteed. It is only used for individuals and may be changed or deleted at any time according to personal needs.
 
 ### For ones familiar with Scoop
