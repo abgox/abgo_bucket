@@ -40,9 +40,8 @@
         "remove_files @(\"$user_LocalAppData\\wonderpen-updater\")"
     ],
     "checkver": {
-        "url": "https://www.tominlab.com/blog",
-        "regex": "/wonderpen-v-(\\d)-(\\d)-(\\d)",
-        "replace": "${1}.${2}.${3}"
+        "url": "https://www.tominlab.com/wonderpen/downloads/all",
+        "regex": "([\\d.]+)\\((?<build>[\\d]+)\\)"
     },
     "autoupdate": {
         "architecture": {
