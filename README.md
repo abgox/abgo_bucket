@@ -196,7 +196,6 @@
 |[Fluent-Search](https://fluentsearch.net)|✔️||使用它，你可以搜索正在运行的应用程序、浏览器标签、应用程序内内容、文件等。<br>With it, you can search for running apps, browser tabs, in-app content, files and more.|
 |[fnm](https://github.com/Schniz/fnm)|✔️|`hasParentDir`|快速、简单的 Node.js 版本管理器，采用 Rust 内建。<br>Fast and simple Node.js version manager, built in Rust.|
 |[Fonger](http://morin.vin/)|✔️||方格音乐，一款音乐播放器|
-|[Font-Hack](https://github.com/ryanoasis/nerd-fonts)|➖|`Font`|Hack 字体，Nerd Font 系列。<br>Nerd Fonts patched 'Hack' Font family.|
 |[FSViewer](https://www.faststone.org/FSViewerDetail.htm)|✔️||FastStone Image Viewer 是一款快速、稳定、用户友好的图像浏览器、转换器和编辑器。<br>FastStone Image Viewer is a fast, stable, user-friendly image browser, converter and editor.|
 |[GeekUninstaller](https://geekuninstaller.com/)|✔️||非常好用的免费卸载程序。<br>The good free uninstaller.|
 |[GitExtensions](https://gitextensions.github.io/)|✔️||一个独立的 Git UI 工具去管理 Git 仓库。<br>A standalone UI tool for managing git repositories.|
@@ -212,7 +211,6 @@
 |[Idea](https://www.jetbrains.com/idea/)|✔️||由 JetBrains 开发的适用于 Java 和 Kotlin 开发的 IDE。<br>Cross-Platform IDE for Java and Kotlin by JetBrains.|
 |[IdeaCE](https://www.jetbrains.com/idea/)|✔️||社区版 - 由 JetBrains 开发的适用于 Java 和 Kotlin 开发的 IDE。<br>Community Edition - Cross-Platform IDE for Java and Kotlin by JetBrains.|
 |[ImageGlass](https://imageglass.org)|✔️||一个轻量级的、多功能的图像查看器。<br>A lightweight, versatile image viewer.|
-|[InputTip](https://github.com/abgox/InputTip)|✔️|`hasParentDir`|一个输入法状态(中文/英文/大写锁定)提示工具。<br>An input method status (Chinese/English/CapsLock) tip tool.|
 |[Insomnia](https://insomnia.rest)|✔️||适用于 GraphQL、REST、WebSockets、SSE 和 gRPC 的开源跨平台 API 客户端。支持云存储、本地存储和 Git 存储。<br>The open-source, cross-platform API client for GraphQL, REST, WebSockets, SSE and gRPC. With Cloud, Local and Git storage.|
 |[jan](https://jan.ai)|✔️||ChatGPT 的开源替代品，可在计算机上百分百脱机运行。<br>An open source alternative to ChatGPT that runs 100% offline on your computer.|
 |[Joplin](https://joplinapp.org)|✔️||一个安全的记事和待办事项应用程序，具有同步功能，适用于 Windows、macOS、Linux、Android 和 iOS。<br>A secure note taking and to-do app with syncing capabilities for Windows, macOS, Linux, Android and iOS.|
@@ -253,7 +251,6 @@
 |[Postman](https://www.getpostman.com/)|✔️||一个完整的API开发环境。<br>Complete API development environment.|
 |[Pot](https://pot-app.com/)|✔️||一个跨平台的划词翻译和OCR软件。<br>A cross-platform software for text translation and recognition.|
 |[PotPlayer](https://potplayer.daum.net)|✔️||高度可定制的媒体播放器。<br>Highly customizable media player.|
-|[PSCompletions](https://github.com/abgox/PSCompletions)|✔️|`PSModule`|一个补全管理模块，更简单、更方便的使用 PowerShell 命令补全。<br>A completion manager for better and simpler use PowerShell completions.|
 |[PyCharm](https://www.jetbrains.com/pycharm/)|✔️||由 JetBrains 开发的适用于纯 Python 开发的 IDE。<br>Cross-Platform IDE for Python by JetBrains.|
 |[PyCharmCE](https://www.jetbrains.com/pycharm/)|✔️||社区版 - 由 JetBrains 开发的适用于纯 Python 开发的 IDE。<br>Community Edition - Cross-Platform IDE for Python by JetBrains.|
 |[pyenv-win](https://github.com/pyenv-win/pyenv-win)|✔️||windows 下的 pyenv，一个简单的 python 版本管理工具。<br>pyenv for Windows. pyenv is a simple python version management tool. |
@@ -321,6 +318,5 @@
 |[XYplorerFree](https://www.xyplorer.com/free.php)|✔️|`NoAutoUpdate`|(Free 版本) 一个 Windows 上的第三方文件管理器。<br>(Free version) A file manager for Windows.|
 |[YouDaoTranslate](https://fanyi.youdao.com/download-Windows)|✔️|`Confirm`|网易有道翻译。<br>YouDaoTranslate for windows.|
 |[YuQue](https://www.yuque.com/)|✔️||为每一个人，为每一个团队，提供优秀的文档与知识库工具。<br>Provide excellent documentation and knowledge base tools for everyone and every team.|
-|[Z-Library](https://z-library.se/)|✔️||Z-Library——世界上最大的电子书图书馆。<br>Z-Library – the world’s largest e-book library.|
 |[Zotero](https://www.zotero.org/)|✔️||Open-source reference management software to manage bibliographic data and related research materials.|
 <!-- prettier-ignore-end -->
