@@ -2,6 +2,7 @@ name: Excavator
 on:
   workflow_dispatch:
   schedule:
+    # At minute 20 past every 4th hour.
     - cron: '20 */4 * * *'
   workflow_run:
     workflows: [Update README]
@@ -22,14 +23,21 @@ jobs:
           Install-Module "powershell-yaml" -Force
           Import-Module "powershell-yaml"
 
-      - uses: actions/checkout@main
-
       - name: Install Selenium
         run: |
           pip install selenium
+
+      - uses: actions/checkout@v4
 
       - name: Excavate
         uses: ScoopInstaller/GithubActions@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SKIP_UPDATED: "1"
+  workflow-keepalive:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: liskin/gh-workflow-keepalive@v1.2.1
