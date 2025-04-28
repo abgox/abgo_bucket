@@ -3,14 +3,14 @@
 </p>
 
 <p align="center">
-    <a href="README.md">English</a> |
-    <a href="README-CN.md">简体中文</a> |
+    <a href="readme.md">English</a> |
+    <a href="readme-cn.md">简体中文</a> |
     <a href="https://github.com/abgox/abgo_bucket">Github</a> |
     <a href="https://gitee.com/abgox/abgo_bucket">Gitee</a>
 </p>
 
 <p align="center">
-    <a href="https://github.com/abgox/abgo_bucket/blob/main/LICENSE">
+    <a href="https://github.com/abgox/abgo_bucket/blob/main/license">
         <img src="https://img.shields.io/github/license/abgox/abgo_bucket" alt="license" />
     </a>
     <a href="https://img.shields.io/github/languages/code-size/abgox/abgo_bucket.svg">
@@ -20,7 +20,7 @@
         <img src="https://img.shields.io/github/repo-size/abgox/abgo_bucket.svg" alt="code size" />
     </a>
     <a href="https://github.com/abgox/abgo_bucket">
-        <img src="https://img.shields.io/badge/created-2023--6--1-blue" alt="created" />
+       <img src="https://img.shields.io/github/created-at/abgox/abgo_bucket" alt="created" />
     </a>
 </p>
 
