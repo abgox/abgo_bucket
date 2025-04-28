@@ -17,5 +17,16 @@
     },
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "filename-lint.enabled": true,
+    "filename-lint.ignorePatterns": [
+        "**/node_modules/**",
+        "**/.git/**",
+        "**/.idea/**",
+        "**/bucket/*.json",
+        "**/deprecated/*.json",
+        "**/bin/*.exe",
+        "**/bin/lang/*.json",
+        "**/schedule/*.ps1"
+    ]
 }
