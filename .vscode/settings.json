@@ -27,6 +27,7 @@
         "**/deprecated/*.json",
         "**/bin/*.exe",
         "**/bin/lang/*.json",
-        "**/schedule/*.ps1"
+        "**/schedule/*.ps1",
+        "**/.github/ISSUE_TEMPLATE/**"
     ]
 }
