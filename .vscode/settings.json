@@ -19,15 +19,15 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "filename-lint.enabled": true,
-    "filename-lint.ignorePatterns": [
-        "**/node_modules/**",
+    "filename-lint.excludePatterns": [
         "**/.git/**",
         "**/.idea/**",
+        "**/node_modules/**",
         "**/bucket/*.json",
         "**/deprecated/*.json",
         "**/bin/*.exe",
         "**/bin/lang/*.json",
         "**/schedule/*.ps1",
-        "**/.github/ISSUE_TEMPLATE/**"
+        "**/.github/ISSUE_TEMPLATE/"
     ]
 }
