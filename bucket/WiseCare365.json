@@ -1,10 +1,10 @@
 {
-    "version": "7.2.5.702",
+    "version": "7.2.5.703",
     "description": "Windows 系统清理和加速工具。Free Windows PC Cleaner and Speed up Tool",
     "homepage": "https://www.wisecleaner.com/wise-care-365.html",
     "license": "Freeware",
-    "url": "https://downloads.wisecleaner.com/soft/WiseCare365_7.2.5.702.exe#/abgo_bucket_installer.exe",
-    "hash": "0f14b27a6a4be8548358b4dc1bccc5688d74fd6b5f6ff8dd30b76d89ec1380a1",
+    "url": "https://downloads.wisecleaner.com/soft/WiseCare365_7.2.5.703.exe#/abgo_bucket_installer.exe",
+    "hash": "821cd3246a5499ad0060f855277f535fb3ca25d120ba498f5c370bb87c11805b",
     "shortcuts": [
         [
             "WiseCare365.exe",
