@@ -4,9 +4,6 @@ on:
   schedule:
     # At minute 20 past every 4th hour.
     - cron: '20 */4 * * *'
-  workflow_run:
-    workflows: [Update README]
-    types: [completed]
 jobs:
   excavate:
     name: Excavate

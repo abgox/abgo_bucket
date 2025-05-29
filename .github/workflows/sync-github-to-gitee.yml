@@ -10,7 +10,7 @@ jobs:
   sync-repos:
     runs-on: windows-latest
     env:
-      REPO_NAME: abgox_bucket
+      REPO_NAME: abgo_bucket
     steps:
       - name: Setup SSH
         shell: pwsh
