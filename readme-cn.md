@@ -26,14 +26,14 @@
 
 -   推荐使用 [PSCompletions 项目中的 scoop 补全 ](https://gitee.com/abgox/PSCompletions "PSCompletions")
 
-> [!Warning]
+> [!Caution]
 >
 > -   abgo_bucket 是一个非官方的 Scoop bucket，且带有 Scoop 官方 bucket 规范之外的一些额外内容
 >
 >     -   与官方或其他 bucket 不兼容，无法无缝迁移。
 >
 > -   其他 bucket 请谨慎合并此 bucket 中的应用清单，因为没有此仓库中的特殊定义，无法正常使用
-> -   同时，不保证此仓库的正常使用，它仅用于个人，可能会根据个人需求随时变更或删除。
+> -   同时，此仓库不保证正常使用，它仅用于个人，可能会根据个人需求随时变更或删除。
 
 ### 正在使用 Scoop
 
