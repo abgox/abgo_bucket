@@ -28,12 +28,10 @@
 
 > [!Caution]
 >
-> -   `abgo_bucket` is an unofficial Scoop bucket with some extra content outside the Scoop official bucket specification.
->
+> -   `abgo_bucket` is a Scoop bucket that does not follow the official specification, with some extras beyond the official specification.
 >     -   Incompatible with official or other buckets and cannot be migrated seamlessly.
->
-> -   Other buckets Please be careful to merge the application list in this bucket because it cannot be used properly without the special definitions in `abgo_bucket`.
-> -   At the same time, this repository is not guaranteed to be used normally, it is only for individuals and may be changed or deleted at any time according to individual needs.
+> -   Other buckets Please be careful to merge the application manifests in `abgo_bucket` because it cannot be used properly without the special definitions in `abgo_bucket`.
+> -   At the same time, `abgo_bucket` isn't guaranteed to be used normally, it's only for me and may be changed or deleted at any time according to my special needs and specifications.
 
 ### For ones familiar with Scoop
 
