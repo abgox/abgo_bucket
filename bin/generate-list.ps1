@@ -1,14 +1,20 @@
 param($path)
 
-$content = @()
+$manifests = Get-ChildItem "$PSScriptRoot\..\bucket"
 
-foreach ($_ in Get-ChildItem "$PSScriptRoot\..\bucket") {
+$content = @("|App ($($manifests.Length))|Version|Persist|Tag|Description|", "|:-:|:-:|:-:|:-:|-|")
+
+foreach ($_ in $manifests) {
     $json = Get-Content $_.FullName -Raw -Encoding UTF8 | ConvertFrom-Json -AsHashtable
     $info = @()
 
     # homepage
-    $app = $_.BaseName -replace '\.', '\.'
+    $app = $_.BaseName
     $info += "[$($app)]($($json.homepage))"
+
+    # version
+    # $info += "[v$($json.version)](./bucket/$($_.Name))"
+    $info += '<a href="./bucket/' + $_.Name + '"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabgox%2Fabgo_bucket%2Frefs%2Fheads%2Fmain%2Fbucket%2F' + $_.Name + '&query=%24.version&prefix=v&label=%20" alt="version" /></a>'
 
     # persist
     $isPersist = $json.persist
@@ -98,7 +104,7 @@ foreach ($_ in Get-ChildItem "$PSScriptRoot\..\bucket") {
 function get_static_content($path) {
     $content = Get-Content -Path $path -Encoding UTF8
 
-    $match = $content | Select-String -Pattern "\|:-:\|:-:\|:-:\|-\|"
+    $match = $content | Select-String -Pattern "<!-- prettier-ignore-start -->"
 
     if ($match) {
         $matchLineNumber = ([array]$match.LineNumber)[0]

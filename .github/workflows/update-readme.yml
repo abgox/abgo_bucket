@@ -1,6 +1,9 @@
 name: Update README
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: [Excavator]
+    types: [completed]
   push:
     branches:
       - main
@@ -16,8 +19,8 @@ jobs:
 
       - name: Generate list and update README content
         run: |
-          .\bin\generate_list.ps1 "./readme.md"
-          .\bin\generate_list.ps1 "./readme-cn.md"
+          .\bin\generate-list.ps1 "./readme.md"
+          .\bin\generate-list.ps1 "./readme-cn.md"
 
       - name: Commit and push changes
         run: |
