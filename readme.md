@@ -24,7 +24,12 @@
     </a>
 </p>
 
--   [Scoop completion in PSCompletions ](https://github.com/abgox/PSCompletions "PSCompletions")is recommended.
+-   [Scoop completion in PSCompletions ](https://github.com/abgox/PSCompletions "PSCompletions") is recommended.
+
+> [!Caution]
+>
+> -   This bucket repository is **deprecated** and not recommended for use.
+> -   It is advised to switch to **[abgox/abyss](https://github.com/abgox/abyss)**, as it is more **maintained and standardized**.
 
 > [!Caution]
 >

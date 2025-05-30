@@ -28,6 +28,11 @@
 
 > [!Caution]
 >
+> -   这个 bucket 仓库已经废弃，不建议使用。
+> -   建议使用 [abgox/abyss](https://github.com/abgox/abyss)，相较而言，它更规范。
+
+> [!Caution]
+>
 > -   `abgo_bucket` 是一个未遵循官方规范的 Scoop bucket，它带有官方规范之外的一些额外内容
 >     -   与官方或其他 bucket 不兼容，无法无缝迁移。
 > -   其他 bucket 请谨慎合并其中的应用清单，因为没有此仓库中的特殊定义，无法正常使用
